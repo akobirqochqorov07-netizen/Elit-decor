@@ -1,50 +1,42 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-
-
-interface Slide {
-  id: number;
-  imgSrc: string;
-  title?: string;
-  subtitle?: string;
-  btnText?: string;
-  btnHref?: string;
-}
-
-const slides: Slide[] = [
-  {
-    id: 1,
-    imgSrc: '/images/rasm1.png',
-    title: 'Qadimiy Va Abadiy Go\'zallik',
-    subtitle: 'Bino ko\'rinishini qirollar saroyidek bezatasiz',
-    btnText: 'Smetani hisoblash',
-    btnHref: '#callback',
-  },
-  { id: 3, imgSrc: '/images/rasm4.png' },
-  {
-    id: 2,
-    imgSrc: '/images/rasm2.png',
-    title: 'Interyerda Benuqson Uslub',
-    subtitle: 'Eksklyuziv loyihalar uchun yengil va mustahkam ganch materiallari',
-    btnText: 'Galereyani ko\'rish',
-    btnHref: '/gallery/',
-  },
-  { id: 4, imgSrc: '/images/rasm5.png' },
-  { id: 5, imgSrc: '/images/rasm6.png' },
-];
+import { useTranslations } from 'next-intl';
 
 export default function HeroSlider() {
+  const t = useTranslations('HeroSlider');
   const [current, setCurrent] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
+  const slides = [
+    {
+      id: 1,
+      imgSrc: '/images/rasm1.png',
+      title: t('slide1_title'),
+      subtitle: t('slide1_subtitle'),
+      btnText: t('slide1_btn'),
+      btnHref: '#callback',
+    },
+    { id: 3, imgSrc: '/images/rasm4.png' },
+    {
+      id: 2,
+      imgSrc: '/images/rasm2.png',
+      title: t('slide2_title'),
+      subtitle: t('slide2_subtitle'),
+      btnText: t('slide2_btn'),
+      btnHref: '/gallery/',
+    },
+    { id: 4, imgSrc: '/images/rasm5.png' },
+    { id: 5, imgSrc: '/images/rasm6.png' },
+  ];
+
   const next = useCallback(() => {
     setCurrent((prev) => (prev + 1) % slides.length);
-  }, []);
+  }, [slides.length]);
 
   const prev = useCallback(() => {
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-  }, []);
+  }, [slides.length]);
 
   useEffect(() => {
     if (!isAutoPlaying) return;
@@ -100,16 +92,16 @@ export default function HeroSlider() {
                   {slide.id === 3 && (
                     <div className="flex flex-col items-start justify-center h-full max-w-xl">
                       <h2 className="text-white font-sans text-4xl lg:text-5xl font-bold mb-2 uppercase leading-tight drop-shadow-md">
-                        ELIT DEKOR GANCHLARI
+                        {t('slide3_title')}
                       </h2>
                       <h3 className="text-white font-sans text-3xl lg:text-4xl font-bold mb-8 uppercase leading-tight drop-shadow-md">
-                        SAN'AT HAR BIR BURCHAKDA
+                        {t('slide3_subtitle')}
                       </h3>
                       <button
                         className="text-white px-8 py-3 rounded text-lg font-medium transition-colors shadow-lg"
                         style={{ backgroundColor: '#D4AF37' }}
                       >
-                        Katalogni ko'rish
+                        {t('slide3_btn')}
                       </button>
                     </div>
                   )}
@@ -118,19 +110,19 @@ export default function HeroSlider() {
                   {slide.id === 4 && (
                     <div className="flex flex-col items-start justify-center h-full max-w-xl">
                       <h2 className="font-sans text-4xl lg:text-5xl font-bold mb-2 uppercase leading-tight" style={{ color: '#D4AF37' }}>
-                        FASADINGIZ UCHUN DEKOR
+                        {t('slide4_title')}
                       </h2>
                       <h3 className="font-sans text-3xl lg:text-4xl font-bold mb-6 uppercase leading-tight" style={{ color: '#D4AF37' }}>
-                        STEKLOFIBROBETONDAN
+                        {t('slide4_subtitle')}
                       </h3>
                       <p className="text-gray-700 font-sans text-xl lg:text-2xl uppercase mb-10 tracking-wide font-medium">
-                        G'OYALARNI HAYOTGA TATBIQ ETAMIZ
+                        {t('slide4_tagline')}
                       </p>
                       <button
                         className="text-white px-8 py-3 rounded text-lg font-medium transition-colors shadow-lg"
                         style={{ backgroundColor: '#D4AF37' }}
                       >
-                        Hisoblashga buyurtma
+                        {t('slide4_btn')}
                       </button>
                     </div>
                   )}
@@ -139,13 +131,13 @@ export default function HeroSlider() {
                   {slide.id === 5 && (
                     <div className="flex flex-col items-start justify-center h-full max-w-lg mt-8 ml-10">
                       <h2 className="font-sans text-4xl lg:text-5xl font-bold mb-2 leading-tight" style={{ color: '#D4AF37' }}>
-                        Ganch bezaklarini
+                        {t('slide5_title1')}
                       </h2>
                       <h2 className="font-sans text-4xl lg:text-5xl font-bold mb-2 leading-tight" style={{ color: '#D4AF37' }}>
-                        o'rnatish xizmatlari
+                        {t('slide5_title2')}
                       </h2>
                       <h3 className="text-gray-800 font-sans text-3xl lg:text-4xl font-bold mb-10 leading-tight">
-                        professionallardan
+                        {t('slide5_subtitle')}
                       </h3>
 
                       <div className="flex flex-col items-start w-full gap-8">
@@ -153,13 +145,13 @@ export default function HeroSlider() {
                           className="text-white px-10 py-4 rounded text-xl font-medium transition-colors shadow-lg w-full max-w-xs"
                           style={{ backgroundColor: '#D4AF37' }}
                         >
-                          Montajga ariza qoldirish
+                          {t('slide5_btn')}
                         </button>
 
                         <div className="text-gray-800 text-lg font-medium leading-relaxed max-w-sm mt-4">
-                          <p>Sifatli montaj kafolati</p>
-                          <p>shaxsiy brigadir bilan.</p>
-                          <p>To'liq ishlash jarayoni (sikli).</p>
+                          <p>{t('slide5_quality')}</p>
+                          <p>{t('slide5_brigadir')}</p>
+                          <p>{t('slide5_cycle')}</p>
                         </div>
                       </div>
                     </div>
@@ -170,11 +162,11 @@ export default function HeroSlider() {
             )}
           </div>
 
-          {/* Navigation arrows (styled as dark gray circles like Dikart) */}
+          {/* Navigation arrows */}
           <button
             onClick={() => { prev(); setIsAutoPlaying(false); }}
             className="absolute left-6 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-700 text-white bg-opacity-90 rounded-full flex items-center justify-center hover:bg-gray-800 transition-all shadow-md z-30"
-            aria-label="Предыдущий слайд">
+            aria-label={t('prev_aria')}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M15 18l-6-6 6-6" />
             </svg>
@@ -182,7 +174,7 @@ export default function HeroSlider() {
           <button
             onClick={() => { next(); setIsAutoPlaying(false); }}
             className="absolute right-6 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-700 text-white bg-opacity-90 rounded-full flex items-center justify-center hover:bg-gray-800 transition-all shadow-md z-30"
-            aria-label="Следующий слайд">
+            aria-label={t('next_aria')}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M9 18l6-6-6-6" />
             </svg>
@@ -194,9 +186,8 @@ export default function HeroSlider() {
               <button
                 key={index}
                 onClick={() => { setCurrent(index); setIsAutoPlaying(false); }}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${index === current ? 'bg-gray-700 scale-110' : 'bg-gray-400 opacity-60'}`
-                }
-                aria-label={`Слайд ${index + 1}`} />
+                className={`w-2.5 h-2.5 rounded-full transition-all ${index === current ? 'bg-gray-700 scale-110' : 'bg-gray-400 opacity-60'}`}
+                aria-label={`${t('dot_aria')} ${index + 1}`} />
             )}
           </div>
         </div>

@@ -1,0 +1,384 @@
+{
+    "Header": {
+        "home": "Home",
+        "about": "About Us",
+        "catalog": "Catalog",
+        "catalog_interior": "Interior Catalog",
+        "catalog_facade": "Facade Catalog",
+        "catalog_3d": "3D Panels",
+        "catalog_special": "Custom Order",
+        "gallery": "Gallery",
+        "virtual_showroom": "Virtual Showroom",
+        "services": "Services",
+        "contacts": "Contact",
+        "location_label": "Location",
+        "email_label": "Email",
+        "search_placeholder": "Search catalog...",
+        "search_btn": "Search",
+        "search_aria": "Search",
+        "menu_aria": "Menu",
+        "callback_btn": "Request a Call",
+        "work_hours_1": "Mon-Fri: 9:00 - 18:00",
+        "work_hours_2": "Sat: 10:00 - 15:00",
+        "callback_title": "Request a Call",
+        "your_city": "Your city",
+        "form_name_label": "Name:",
+        "form_phone_label": "Phone:",
+        "form_name_placeholder": "e.g. John Smith",
+        "form_phone_placeholder": "+998 (__) ___-__-__",
+        "form_agree": "I agree to the processing of personal data in accordance with the",
+        "form_privacy_link": "privacy policy",
+        "form_submit": "Request a Call",
+        "form_success_title": "Thank you!",
+        "form_success_msg": "We will contact you shortly.",
+        "form_err_name": "Please enter your name",
+        "form_err_phone": "Please enter your phone",
+        "form_err_agree": "Consent is required"
+    },
+    "Footer": {
+        "cta_title": "Let's start your project together",
+        "cta_desc": "We handle every step from measurements to installation. Leave a request and our specialist will contact you",
+        "btn": "Leave a Request",
+        "rights": "All rights reserved.",
+        "nav_about": "About Us",
+        "nav_catalog": "Catalog",
+        "nav_gallery": "Gallery",
+        "nav_services": "Services",
+        "nav_contacts": "Contact",
+        "nav_fibrobeton": "Glass Fiber Concrete",
+        "nav_3d": "3D Models",
+        "nav_fibrogips": "Glass Fiber Gypsum",
+        "nav_privacy": "Privacy Policy",
+        "nav_newsletter": "Newsletter Consent",
+        "nav_blog": "Blog",
+        "nav_video": "Video Tutorials",
+        "nav_tours": "Tours",
+        "nav_sitemap": "Sitemap",
+        "nav_director": "Write to Director"
+    },
+    "ContactForm": {
+        "name_label": "Your Name",
+        "phone_label": "Phone Number",
+        "email_label": "Email (optional)",
+        "name_placeholder": "e.g. John Smith",
+        "phone_placeholder": "+998 (__) ___-__-__",
+        "email_placeholder": "e.g. info@example.uz",
+        "submit_btn": "Submit Request",
+        "loading": "Sending...",
+        "agree_text": "I agree to the processing of personal data in accordance with the",
+        "agree_privacy_link": "privacy policy",
+        "newsletter_text": "I agree to receive",
+        "newsletter_link": "promotional and informational newsletters",
+        "success_msg": "We will contact you shortly.",
+        "err_name": "Please enter your name",
+        "err_phone": "Please enter your phone",
+        "err_agree": "Consent is required"
+    },
+    "HeroSlider": {
+        "slide1_title": "Ancient and Timeless Beauty",
+        "slide1_subtitle": "Transform your building into a royal palace",
+        "slide1_btn": "Calculate Estimate",
+        "slide2_title": "Flawless Style in Interiors",
+        "slide2_subtitle": "Lightweight and durable gypsum materials for exclusive projects",
+        "slide2_btn": "View Gallery",
+        "slide3_title": "ELIT DEKOR GYPSUM",
+        "slide3_subtitle": "ART IN EVERY CORNER",
+        "slide3_btn": "View Catalog",
+        "slide4_title": "FACADE DECOR",
+        "slide4_subtitle": "FROM GLASS FIBER CONCRETE",
+        "slide4_tagline": "BRINGING IDEAS TO LIFE",
+        "slide4_btn": "Request a Quote",
+        "slide5_title1": "Gypsum decoration",
+        "slide5_title2": "installation services",
+        "slide5_subtitle": "from professionals",
+        "slide5_btn": "Request Installation",
+        "slide5_quality": "Quality installation guarantee",
+        "slide5_brigadir": "with a personal supervisor.",
+        "slide5_cycle": "Full production cycle.",
+        "prev_aria": "Previous slide",
+        "next_aria": "Next slide",
+        "dot_aria": "Slide"
+    },
+    "ProcessPath": {
+        "section_title": "From Order to Installation",
+        "section_desc": "Every step from measurement to installation is handled by one team.",
+        "step1_title": "Measurement",
+        "step1_desc": "Our specialist visits your site and takes precise measurements.",
+        "step2_title": "Contract & Estimate",
+        "step2_desc": "Based on measurements, an accurate cost estimate and work plan are prepared.",
+        "step3_title": "Production",
+        "step3_desc": "We manufacture from gypsum and fiber concrete at our own factory.",
+        "step4_title": "Delivery",
+        "step4_desc": "We carefully deliver the decoration to your site.",
+        "step5_title": "Installation",
+        "step5_desc": "An experienced team installs and hands over the finished work."
+    },
+    "ServiceTimeline": {
+        "section_title": "How the Process Works",
+        "step1_title": "Measurement",
+        "step1_desc": "Our specialist visits your site, takes precise measurements and gathers all project data.",
+        "step2_title": "Design Project",
+        "step2_desc": "Our designers create the perfect solution for your interior or facade.",
+        "step3_title": "Production",
+        "step3_desc": "We manufacture high-quality elements from gypsum and fiber concrete at our own factory.",
+        "step4_title": "Delivery",
+        "step4_desc": "We carefully deliver finished products to your site.",
+        "step5_title": "Installation",
+        "step5_desc": "Our experienced team installs everything to the highest standard and hands over the site clean."
+    },
+    "GalleryPage": {
+        "breadcrumb_home": "Home",
+        "breadcrumb_gallery": "Gallery",
+        "title": "Gallery",
+        "desc": "Real projects and exquisite views of our gypsum decorations. The perfect source of inspiration for your interior.",
+        "all_filter": "All",
+        "categories": {
+            "int": "Interiors",
+            "panel": "Wall Panels",
+            "relyef": "Reliefs & Panels",
+            "kamin": "Fireplaces",
+            "ustun": "Columns & Consoles",
+            "karniz": "Cornices & Ceiling"
+        }
+    },
+    "ContactsPage": {
+        "breadcrumb_home": "Home",
+        "breadcrumb_contacts": "Contact",
+        "title": "Contact",
+        "form_panel_title": "Leave a Request",
+        "form_panel_desc": "Have questions? Fill out the form and our managers will contact you shortly.",
+        "address_name": "Showroom & Production",
+        "address_street": "Tashkent city (Showroom)",
+        "address_hours": "Mon-Fri: 9:00 - 18:00\nSat: 10:00 - 15:00"
+    },
+    "Brand": {
+        "work_hours_1": "Mon-Fri: 9:00 - 18:00",
+        "work_hours_2": "Sat: 10:00 - 15:00"
+    },
+    "ServicesPage": {
+        "breadcrumb_home": "Home",
+        "breadcrumb_services": "Services",
+        "title": "Our Services",
+        "desc": "From measurement to installation — every step carried out by our own factory and team.",
+        "cta": "Place an Order",
+        "items": {
+            "tyaga": {
+                "title": "Gypsum Cornice",
+                "subtitle": "Cornices and Profiles",
+                "desc": "Our factory produces cornices, raised profiles, rosettes and other profile elements using both traditional and modern methods. Every detail is given a perfect smooth finish.",
+                "tags": [
+                    "Interior",
+                    "Facade"
+                ]
+            },
+            "lepka": {
+                "title": "Stucco Work",
+                "subtitle": "Ornaments and Relief Decoration",
+                "desc": "Hand-crafted gypsum ornaments, relief panels and wall decorations. Classic motifs, Arabic arabesque and modern geometric compositions — your choice.",
+                "tags": [
+                    "Interior"
+                ]
+            },
+            "fibrobeton": {
+                "title": "Fiber Concrete",
+                "subtitle": "Facade Decor",
+                "desc": "Facade coverings made from glass fiber concrete, resistant to rain and UV radiation. Lightweight, durable and adaptable to any facade shape.",
+                "tags": [
+                    "Facade"
+                ]
+            },
+            "eksklyuziv": {
+                "title": "Custom Orders",
+                "subtitle": "Exactly to your specification",
+                "desc": "Exclusive custom fabrication service. We will make any element to your exact wishes and drawings. Produced exclusively for your project.",
+                "tags": [
+                    "Custom Design"
+                ]
+            }
+        }
+    },
+    "VirtualShowroom": {
+        "hero_title": "Virtual Showroom",
+        "hero_desc": "A digital journey into the world of interiors. Explore",
+        "hero_interactive": "interactive",
+        "hero_desc2": "visualizations of real projects featuring our gypsum products.",
+        "panorama_title": "360° Interactive Panorama",
+        "panorama_desc": "(Coming Soon) You will be able to look around fully by touching the screen.",
+        "panorama_btn": "Launch",
+        "room1_title": "Classic Hall",
+        "room1_desc": "3D visual for luxurious living rooms",
+        "room2_title": "Eastern Ornament",
+        "room2_desc": "Gypsum decorations in Samarkand style",
+        "room3_title": "Modern Facade",
+        "room3_desc": "Exhibition of facade details and exterior appearance",
+        "enter_btn": "Enter"
+    },
+    "HomePage": {
+        "about": {
+            "title": "Stucco Manufacturing Factory — Elit Dekor",
+            "p1": "Elit Dekor is a trusted company based in Samarkand, producing and installing gypsum products since 2018. We create decorative and architectural gypsum elements — cornices, rosettes, columns and custom orders using modern technologies.",
+            "p2": "Every product undergoes strict quality control. Our projects are widely represented in Samarkand and neighboring regions. We supply only long-lasting gypsum products made from natural raw materials.",
+            "p3": "We provide a full range of services from the design stage to finished installation.",
+            "leader_title": "Company Director"
+        },
+        "why": {
+            "title": "Why Choose Elit Dekor?",
+            "item1_title": "Premium Quality",
+            "item1_desc": "Our materials retain their strength, beauty and color for many years.",
+            "item2_title": "Wide Range",
+            "item2_desc": "Hundreds of products to bring any design idea to life.",
+            "item3_title": "Comprehensive Approach",
+            "item3_desc": "Full process from taking measurements to handing over the finished object.",
+            "item4_title": "Rich Experience",
+            "item4_desc": "Successful projects in private homes and large business complexes since 2018."
+        },
+        "gallery": {
+            "title": "Interior Gallery",
+            "subtitle": "with Gypsum Stucco",
+            "desc": "In our gallery you will find real projects and visualizations of elegant gypsum decorations created with our partners — perfect for inspiration.",
+            "btn": "Go to Gallery",
+            "stat1": "Quality Guarantee",
+            "stat2": "Designer Network",
+            "stat3": "Completed Projects",
+            "image_overlay": "Unique interiors in various styles"
+        },
+        "catalogs": {
+            "interior": "Interior Decor Catalog",
+            "facade": "Facade Decor Catalog"
+        },
+        "services": {
+            "title": "Our Services"
+        },
+        "blog": {
+            "title": "Our Blog",
+            "article_badge": "Article:",
+            "article_title": "Gypsum Moldings in Interiors: Accents That Transform Perception",
+            "article_desc": "Have you ever noticed that two rooms of the same size can feel completely different — one spacious and tall, the other cramped? The secret is not always in the layout or furniture.",
+            "read_more": "Read more →"
+        },
+        "comparison": {
+            "gypsum": "Gypsum",
+            "polyurethane": "Polyurethane",
+            "gyp_1": "Lasts over 100 years",
+            "gyp_2": "Natural material",
+            "gyp_3": "Non-toxic, breathable material",
+            "poly_1": "Toxic",
+            "poly_2": "Deteriorates within a few years",
+            "poly_3": "Fire hazard, banned in public spaces"
+        },
+        "contacts": {
+            "title": "Our Contacts",
+            "questions_title": "Still have questions?",
+            "questions_desc": "Fill out the form and we will contact you",
+            "address_name": "Showroom & Production",
+            "address_street": "Tashkent city (Showroom)",
+            "address_hours": "Mon-Fri: 9:00 - 18:00\nSat: 10:00 - 15:00"
+        },
+        "cookies": {
+            "desc": "We use cookies to ensure our website works correctly and to analyze network traffic.",
+            "link": "Consent to data processing and policy",
+            "btn": "Got it"
+        }
+    },
+    "AboutPage": {
+        "breadcrumb_home": "Home",
+        "breadcrumb_about": "About company",
+        "title": "Elit Dekor — Gypsum Stucco Factory",
+        "desc1": "Elit Dekor is a reliable company engaged in the production and installation of gypsum products in Samarkand since 2018.",
+        "desc2": "In our catalog there are more than 5000 types of products made of gypsum, glass fiber gypsum and glass fiber concrete, and they are constantly replenished. Our offices and showrooms are located in Samarkand, with a network of representatives.",
+        "desc3": "We are always ready to manufacture custom gypsum stucco according to your sketches and perform professional installation.",
+        "director_role": "General Director",
+        "stat_year": "Year founded",
+        "stat_items": "Catalog items",
+        "stat_projects": "Completed projects",
+        "stat_designers": "Designers database",
+        "why_title": "Why choose us",
+        "adv1_title": "Quality assurance",
+        "adv1_desc": "All products are manufactured in our own factory following all standards",
+        "adv2_title": "Wide assortment",
+        "adv2_desc": "Over 5000 product types for any interior and facade style",
+        "adv3_title": "Full cycle",
+        "adv3_desc": "Design, production, delivery, and installation under one roof",
+        "adv4_title": "20+ years experience",
+        "adv4_desc": "Over 20 years in stucco market. Thousands of completed projects"
+    },
+    "CatalogPage": {
+        "breadcrumb_home": "Home",
+        "breadcrumb_interior": "Interior decor",
+        "title": "Interior decor",
+        "desc": "Gypsum stucco for interior from Elit Dekor factory. Over 5000 types of products."
+    },
+    "FasadPage": {
+        "breadcrumb_home": "Home",
+        "breadcrumb_facade": "Glass fiber concrete",
+        "title": "Glass Fiber Reinforced Concrete (GFRC)",
+        "desc1": "Glass Fiber Reinforced Concrete (GFRC) is a composite material made of cement matrix reinforced with glass fibers. It has high strength, frost resistance, and durability.",
+        "desc2": "Ideal for facade decoration: cornices, columns, pilasters, and other architectural elements.",
+        "feature1": "High strength",
+        "feature2": "Frost resistance",
+        "feature3": "Moisture resistance",
+        "feature4": "Durability",
+        "feature5": "Ideal for facades",
+        "catalog_btn": "Facade decor catalog",
+        "order_title": "Order GFRC products"
+    },
+    "FibrogipsPage": {
+        "breadcrumb_home": "Home",
+        "breadcrumb_fibro": "Glass fiber gypsum",
+        "title": "Glass Fiber Gypsum (GFG)",
+        "desc1": "Glass Fiber Gypsum (GFG) is a composite material made of gypsum and glass fiber. It offers high strength, lightness, and capability to form complex architectural shapes.",
+        "desc2": "GFG products are ideal for interior decoration with high ceilings, domes, arches, and facade works.",
+        "feature1": "High strength",
+        "feature2": "Lightweight",
+        "feature3": "Fire resistance",
+        "feature4": "Durability",
+        "feature5": "Complex shapes creation",
+        "order_title": "Order GFG products",
+        "usage_title": "GFG Applications",
+        "use1_title": "Main Temple Project",
+        "use1_desc": "Major project utilizing GFG",
+        "use2_title": "Interior decor",
+        "use2_desc": "Cornices, rosettes, moldings made of GFG",
+        "use3_title": "Facade decor",
+        "use3_desc": "Cornices, columns, pilasters made of GFG"
+    },
+    "CartPage": {
+        "breadcrumb_home": "Home",
+        "breadcrumb_cart": "Cart",
+        "title": "Shopping Cart",
+        "empty_title": "Your cart is empty",
+        "empty_desc": "Add products from the catalog",
+        "go_catalog": "Go to catalog",
+        "items_in_cart": "Items in cart",
+        "clear_cart": "Clear cart",
+        "art_sku": "SKU:",
+        "currency": "UZS",
+        "total_heading": "Summary",
+        "total_items": "Items:",
+        "total_sum": "Total:",
+        "checkout_btn": "Checkout",
+        "continue_shopping": "Continue shopping"
+    },
+    "SearchPage": {
+        "title": "Search",
+        "placeholder": "Enter search query...",
+        "submit_btn": "Search",
+        "found_count": "Found",
+        "results_suffix": "results",
+        "empty_title": "Nothing found",
+        "empty_desc": "Try changing your search query",
+        "types": {
+            "category": "Category",
+            "service": "Service",
+            "page": "Page"
+        }
+    },
+    "ArticlesPage": {
+        "breadcrumb_home": "Home",
+        "breadcrumb_blog": "Blog",
+        "title": "Elit Dekor Blog",
+        "read_more": "Read more →",
+        "questions_title": "Have questions?",
+        "questions_desc": "Fill out the form and we will contact you"
+    }
+}

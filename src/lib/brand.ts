@@ -1,9 +1,11 @@
 // Brand configuration - replace these values with your own brand
+// NOTE: Translatable fields (workHours, addresses.name, addresses.street, addresses.hours)
+// are now managed via messages/*.json under the "Brand" namespace.
 export const brand = {
   name: 'Elit Dekor',
   fullName: 'Elit Dekor',
   tagline: 'San\'at va Mahorat Qalbida',
-  description: 'Elit Dekor kompanıyası dekorativ va interyer uchun ganch mahsulotlarini ishlab chiqarish bilan shug‘ullanadi. Faoliyatimizni 2018-yilda boshlaganmiz.',
+  description: 'Elit Dekor kompanıyası dekorativ va interyer uchun ganch mahsulotlarini ishlab chiqarish bilan shug\'ullanadi. Faoliyatimizni 2018-yilda boshlaganmiz.',
   logo: '/images/rasm3.png',
   logoFooter: '/images/rasm3.png',
   logoWhite: '/images/rasm3.png',
@@ -14,20 +16,14 @@ export const brand = {
   phoneHref2: 'tel:+998979116272',
   email: 'info@elitdekor.uz',
   emailHref: 'mailto:info@elitdekor.uz',
-  workHours: [
-    'Du.-Juma: 9:00 - 18:00',
-    'Shanba: 10:00 - 15:00'],
 
   city: 'Toshkent',
   addresses: [
     {
-      name: 'Showroom va Ishlab chiqarish',
       city: 'Toshkent',
-      street: 'Toshkent shahri (Showroom)',
       phone: '+998 97 920 07 09',
       phoneHref: 'tel:+998979200709',
       email: 'info@elitdekor.uz',
-      hours: 'Du.-Juma: 9:00 - 18:00\nSha.: 10:00 - 15:00'
     }
   ],
 
@@ -38,8 +34,8 @@ export const brand = {
     vk: '#', max: '#', youtube: '#', dzen: '#', pinterest: '#', ddd: '#', houzz: '#', rutube: '#', maxManager: '#'
   },
   colors: {
-    primary: '#0F4C81', // Registan Blue
-    accent: '#D4AF37', // Tillarang Gold
+    primary: '#0F4C81',
+    accent: '#D4AF37',
     dark: '#111827',
     text: '#333333',
     white: '#ffffff'

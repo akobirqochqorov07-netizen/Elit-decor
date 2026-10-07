@@ -1,0 +1,384 @@
+{
+    "Header": {
+        "home": "Bosh sahifa",
+        "about": "Biz haqimizda",
+        "catalog": "Katalog",
+        "catalog_interior": "Interyer katalogi",
+        "catalog_facade": "Fasad katalogi",
+        "catalog_3d": "3D-panellar",
+        "catalog_special": "Maxsus buyurtma",
+        "gallery": "Galereya",
+        "virtual_showroom": "Virtual showroom",
+        "services": "Xizmatlar",
+        "contacts": "Aloqa",
+        "location_label": "Lokatsiya",
+        "email_label": "Pochta",
+        "search_placeholder": "Katalogda qidirish...",
+        "search_btn": "Qidirish",
+        "search_aria": "Qidirish",
+        "menu_aria": "Menyu",
+        "callback_btn": "Qo'ng'iroq buyurtma",
+        "work_hours_1": "Du.-Juma: 9:00 - 18:00",
+        "work_hours_2": "Shanba: 10:00 - 15:00",
+        "callback_title": "Qo'ng'iroq buyurtma",
+        "your_city": "Shahringiz",
+        "form_name_label": "Ism:",
+        "form_phone_label": "Telefon:",
+        "form_name_placeholder": "Misol: Ahrorov Sardor",
+        "form_phone_placeholder": "+998 (__) ___-__-__",
+        "form_agree": "Shaxsiy ma'lumotlarni qayta ishlashga roziman",
+        "form_privacy_link": "maxfiylik siyosati",
+        "form_submit": "Qo'ng'iroq buyurtma",
+        "form_success_title": "Rahmat!",
+        "form_success_msg": "Tez orada siz bilan bog'lanamiz.",
+        "form_err_name": "Ismingizni kiriting",
+        "form_err_phone": "Telefon raqamni kiriting",
+        "form_err_agree": "Rozilik talab etiladi"
+    },
+    "Footer": {
+        "cta_title": "Loyihangizni birgalikda boshlaymiz",
+        "cta_desc": "O'lchovdan o'rnatishgacha barcha bosqichni o'zimiz bajaramiz. Ariza qoldiring, mutaxassisimiz siz bilan bog'lanadi",
+        "btn": "Ariza qoldirish",
+        "rights": "Barcha huquqlar himoyalangan.",
+        "nav_about": "Biz haqimizda",
+        "nav_catalog": "Katalog",
+        "nav_gallery": "Galereya",
+        "nav_services": "Xizmatlar",
+        "nav_contacts": "Aloqa",
+        "nav_fibrobeton": "Steklofibrobeton",
+        "nav_3d": "3D-modellar",
+        "nav_fibrogips": "Steklofibrogips",
+        "nav_privacy": "Maxfiylik siyosati",
+        "nav_newsletter": "Axborot xabarnomalariga rozilik",
+        "nav_blog": "Blog",
+        "nav_video": "Video darslar",
+        "nav_tours": "Ekskursiyalar",
+        "nav_sitemap": "Sayt xaritasi",
+        "nav_director": "Direktorga yozing"
+    },
+    "ContactForm": {
+        "name_label": "Ismingiz",
+        "phone_label": "Telefon raqam",
+        "email_label": "Email (ixtiyoriy)",
+        "name_placeholder": "Misol: Ahrorov Sardor",
+        "phone_placeholder": "+998 (__) ___-__-__",
+        "email_placeholder": "Misol: info@example.uz",
+        "submit_btn": "Zayavka qoldirish",
+        "loading": "Yuborilmoqda...",
+        "agree_text": "Shaxsiy ma'lumotlarni qayta ishlashga roziman",
+        "agree_privacy_link": "maxfiylik siyosati",
+        "newsletter_text": "Reklama va axborot xabarnomalarini olishga roziman",
+        "newsletter_link": "axborot xabarnomasi",
+        "success_msg": "Tez orada siz bilan bog'lanamiz.",
+        "err_name": "Ismingizni kiriting",
+        "err_phone": "Telefon raqamni kiriting",
+        "err_agree": "Rozilik talab etiladi"
+    },
+    "HeroSlider": {
+        "slide1_title": "Qadimiy Va Abadiy Go'zallik",
+        "slide1_subtitle": "Bino ko'rinishini qirollar saroyidek bezatasiz",
+        "slide1_btn": "Smetani hisoblash",
+        "slide2_title": "Interyerda Benuqson Uslub",
+        "slide2_subtitle": "Eksklyuziv loyihalar uchun yengil va mustahkam ganch materiallari",
+        "slide2_btn": "Galereyani ko'rish",
+        "slide3_title": "ELIT DEKOR GANCHLARI",
+        "slide3_subtitle": "SAN'AT HAR BIR BURCHAKDA",
+        "slide3_btn": "Katalogni ko'rish",
+        "slide4_title": "FASADINGIZ UCHUN DEKOR",
+        "slide4_subtitle": "STEKLOFIBROBETONDAN",
+        "slide4_tagline": "G'OYALARNI HAYOTGA TATBIQ ETAMIZ",
+        "slide4_btn": "Hisoblashga buyurtma",
+        "slide5_title1": "Ganch bezaklarini",
+        "slide5_title2": "o'rnatish xizmatlari",
+        "slide5_subtitle": "professionallardan",
+        "slide5_btn": "Montajga ariza qoldirish",
+        "slide5_quality": "Sifatli montaj kafolati",
+        "slide5_brigadir": "shaxsiy brigadir bilan.",
+        "slide5_cycle": "To'liq ishlash jarayoni (sikli).",
+        "prev_aria": "Oldingi slayd",
+        "next_aria": "Keyingi slayd",
+        "dot_aria": "Slayd"
+    },
+    "ProcessPath": {
+        "section_title": "Buyurtmadan o'rnatishgacha",
+        "section_desc": "O'lchovdan montajgacha hamma bosqichni bitta jamoa bajaradi.",
+        "step1_title": "O'lcham olish",
+        "step1_desc": "Ustamiz obyektga kelib aniq o'lcham oladi.",
+        "step2_title": "Shartnoma va Smeta",
+        "step2_desc": "O'lchovlar asosida aniq xarajatlar smetasi va ish rejasi tuzilib, kelishiladi.",
+        "step3_title": "Ishlab chiqarish",
+        "step3_desc": "O'z zavodimizda gips va fibrobetondan tayyorlaymiz.",
+        "step4_title": "Yetkazib berish",
+        "step4_desc": "Dekorni obyektgacha ehtiyotkorlik bilan yetkazamiz.",
+        "step5_title": "O'rnatish",
+        "step5_desc": "Tajribali jamoa montaj qilib topshiradi."
+    },
+    "ServiceTimeline": {
+        "section_title": "Ishingiz qanday boradi",
+        "step1_title": "O'lcham olish",
+        "step1_desc": "Ustamiz obyektga kelib aniq o'lcham oladi va loyiha uchun barcha ma'lumotlarni yig'adi.",
+        "step2_title": "Dizayn loyiha",
+        "step2_desc": "Dizaynerlarimiz sizning interyer yoki fasadingizga mos yechim chizib beradi.",
+        "step3_title": "Ishlab chiqarish",
+        "step3_desc": "O'z zavodimizda gips va fibrobetondan yuqori sifatli elementlar tayyorlaymiz.",
+        "step4_title": "Yetkazib berish",
+        "step4_desc": "Tayyor mahsulotlarni obyektingizgacha ehtiyotkorlik bilan yetkazib beramiz.",
+        "step5_title": "O'rnatish",
+        "step5_desc": "Tajribali jamoa a'lo darajada montaj qiladi va siz uchun tozalab topshiradi."
+    },
+    "GalleryPage": {
+        "breadcrumb_home": "Bosh sahifa",
+        "breadcrumb_gallery": "Galereya",
+        "title": "Galereya",
+        "desc": "Real loyihalarimiz va mukammal ganch bezaklarining nafis ko'rinishlari. Sizning interyeringiz uchun benuqson ilhom manbai.",
+        "all_filter": "Hammasi",
+        "categories": {
+            "int": "Interyerlar",
+            "panel": "Devor panellari",
+            "relyef": "Relyef va panno",
+            "kamin": "Kaminlar",
+            "ustun": "Ustun va konsollar",
+            "karniz": "Karniz va shift"
+        }
+    },
+    "ContactsPage": {
+        "breadcrumb_home": "Bosh sahifa",
+        "breadcrumb_contacts": "Aloqa",
+        "title": "Aloqa",
+        "form_panel_title": "Zayavka qoldiring",
+        "form_panel_desc": "Savollaringiz bormi? Formani to'ldiring, menejerlarimiz eng qisqa vaqt ichida sizga aloqaga chiqishadi.",
+        "address_name": "Showroom va Ishlab chiqarish",
+        "address_street": "Toshkent shahri (Showroom)",
+        "address_hours": "Du.-Juma: 9:00 - 18:00\nSha.: 10:00 - 15:00"
+    },
+    "Brand": {
+        "work_hours_1": "Du.-Juma: 9:00 - 18:00",
+        "work_hours_2": "Shanba: 10:00 - 15:00"
+    },
+    "ServicesPage": {
+        "breadcrumb_home": "Bosh sahifa",
+        "breadcrumb_services": "Xizmatlar",
+        "title": "Xizmatlarimiz",
+        "desc": "O'lcham olishdan montajgacha — barcha bosqichni o'z zavodimiz va jamoa bilan amalga oshiramiz.",
+        "cta": "Buyurtma berish",
+        "items": {
+            "tyaga": {
+                "title": "Gipsdan tyaga",
+                "subtitle": "Karniz va profillar",
+                "desc": "Zavodimizda an'anaviy va zamonaviy usullarda ishlangan karnizlar, galdirma profillar, rozеtkalar va boshqa profil elementlari tayyorlanadi. Har bir detalga mukammal silliqlik beriladi.",
+                "tags": [
+                    "Interyerda",
+                    "Fasadda"
+                ]
+            },
+            "lepka": {
+                "title": "Lepka",
+                "subtitle": "Naqsh va relyef bezaklar",
+                "desc": "Qo'lda yasalgan gips naqshlari, relyef panno va devoriy bezaklar. Klassik motilar, arabcha arabesk va zamonaviy geometrik kompozitsiyalar — sizning tanlovingiz.",
+                "tags": [
+                    "Interyerda"
+                ]
+            },
+            "fibrobeton": {
+                "title": "Fibrobeton",
+                "subtitle": "Fasad dekorlari",
+                "desc": "Yog'in-sochin va UV nurga chidamli steklofibrobeton asosida ishlangan fasad qoplamalar. Engil, mustahkam, har qanday fasad shakliga moslashuvchan.",
+                "tags": [
+                    "Fasadda"
+                ]
+            },
+            "eksklyuziv": {
+                "title": "Eksklyuziv buyurtmalar",
+                "subtitle": "Aynan sizning istagingiz bo'yicha",
+                "desc": "Eksklyuziv narsalarni yasash xizmati. Biz ayni sizning xohishingiz va chizmangizga qarab xohlagan gul va qolipni yasab beramiz. Faqat sizning obyektingiz uchun maxsus ishlab chiqariladi.",
+                "tags": [
+                    "Maxsus dizayn"
+                ]
+            }
+        }
+    },
+    "VirtualShowroom": {
+        "hero_title": "Virtual Showroom",
+        "hero_desc": "Interyer olamiga raqamli sayohat. Bizning ganch mahsulotlarimiz o'rnatilgan real ob'ektlarning",
+        "hero_interactive": "interaktiv",
+        "hero_desc2": "vizualizatsiyasi bilan tanishing.",
+        "panorama_title": "360° Interaktiv Panorama",
+        "panorama_desc": "(Tez kunda) Barmog'ingiz bilan bosib atrofni to'liq ko'zdan kechirishingiz mumkin bo'ladi.",
+        "panorama_btn": "Tizimni Yoqish",
+        "room1_title": "Klassik Zal",
+        "room1_desc": "Hashamatli mehmonxonalar uchun 3D vizual",
+        "room2_title": "Sharqona Naqshinkor",
+        "room2_desc": "Samarqand uslubidagi ganch bezaklari",
+        "room3_title": "Zamonaviy Fasad",
+        "room3_desc": "Tashqi ko'rinish va fasad detallari ko'rgazmasi",
+        "enter_btn": "Kirish"
+    },
+    "HomePage": {
+        "about": {
+            "title": "Interyer va fasad lepnini ishlab chiqaruvchi zavod — Elit Dekor",
+            "p1": "Elit Dekor — 2018-yildan buyon Samarqandda ganch mahsulotlarini ishlab chiqarish va o'rnatish bilan shug'ullanib kelayotgan ishonchli kompaniya. Biz dekorativ va me'moriy ganch bezaklarini — kornişlar, rozеtkalar, ustunlar va maxsus buyurtma elementlarini zamonaviy texnologiyalar yordamida tayyorlaymiz.",
+            "p2": "Har bir mahsulotimiz yuqori sifat nazoratidan o'tadi. Loyihalarimiz Samarqand va uning atrofidagi viloyatlarda keng tarqalgan. Faqat tabiiy xom ashyodan tayyorlangan uzoq umrli ganch mahsulotlarini taqdim etamiz.",
+            "p3": "Loyiha bosqichidan tortib to tayyor montajgacha to'liq kompleks xizmat ko'rsatamiz.",
+            "leader_title": "Kompaniya Rahbari"
+        },
+        "why": {
+            "title": "Nima uchun aynan Elit Dekor?",
+            "item1_title": "Oliy Sifat",
+            "item1_desc": "Materiallarimiz yillar davomida oʻz mustahkamligini va koʻrkini yoʻqotmaydi, rangini saqlab qoladi.",
+            "item2_title": "Keng Assortiment",
+            "item2_desc": "Yuzlab xil mahsulotlarimiz bilan har qanday dizayn gʻoyangizni roʻyobga chiqaramiz.",
+            "item3_title": "Kompleks Yondashuv",
+            "item3_desc": "Oʻlcham olishdan tortib to obyektni toʻliq montaj qilib topshirishgacha toʻliq jarayon.",
+            "item4_title": "Boy Tajriba",
+            "item4_desc": "2018-yildan beri xususiy uylar va yirik biznes majmualarida muvaffaqiyatli loyihalar."
+        },
+        "gallery": {
+            "title": "Ganch bezakli",
+            "subtitle": "Interyerlar Galereyasi",
+            "desc": "Bizning galereyamizda ilhom izlash uchun hamkorlarimiz bilan amalga oshirilgan real loyihalar va nafis ganch bezaklari vizualizatsiyalarini topishingiz mumkin.",
+            "btn": "Galereyaga o'tish",
+            "stat1": "Sifat kafolati",
+            "stat2": "Dizaynerlar bazasi",
+            "stat3": "Amalga oshgan loyihalar",
+            "image_overlay": "Turli uslubdagi noyob interyerlar"
+        },
+        "catalogs": {
+            "interior": "Interyer dekorlari katalogi",
+            "facade": "Fasad dekorlari katalogi"
+        },
+        "services": {
+            "title": "Bizning xizmatlar"
+        },
+        "blog": {
+            "title": "Bizning blog",
+            "article_badge": "Maqola:",
+            "article_title": "Interyerdagi gips moldinglar: makonni idrok etishni o'zgartiruvchi aksentlar",
+            "article_desc": "Hech e'tibor berganmisiz, bir xil o'lchamdagi ikki xonadan biri kengroq va balandroq, ikkinchisi esa torroq ko'rinadi? Sir har doim ham rejalashtirish yoki mebelda emas.",
+            "read_more": "Batafsil o'qish →"
+        },
+        "comparison": {
+            "gypsum": "Gips",
+            "polyurethane": "Poliuretan",
+            "gyp_1": "100 yildan ortiq xizmat qiladi",
+            "gyp_2": "Tabiiy material",
+            "gyp_3": "Zaharsiz, nafas oluvchi material",
+            "poly_1": "Zaharli",
+            "poly_2": "Bir necha yilda emirilib ketadi",
+            "poly_3": "Yong'in xavfi yuqori, jamoat joylarida bo'lmaydi"
+        },
+        "contacts": {
+            "title": "Bizning kontaktlar",
+            "questions_title": "Savollar qoldimi?",
+            "questions_desc": "Formani to'ldiring va biz siz bilan bog'lanamiz",
+            "address_name": "Showroom va Ishlab chiqarish",
+            "address_street": "Toshkent shahri (Showroom)",
+            "address_hours": "Du.-Juma: 9:00 - 18:00\nSha.: 10:00 - 15:00"
+        },
+        "cookies": {
+            "desc": "Veb-saytimiz to'g'ri ishlashi va tarmoq trafigini tahlil qilish uchun kuki(cookie) fayllaridan foydalanamiz.",
+            "link": "Shaxsiy ma'lumotlarni qayta ishlashga rozilik va siyosat",
+            "btn": "Tushunarli"
+        }
+    },
+    "AboutPage": {
+        "breadcrumb_home": "Bosh sahifa",
+        "breadcrumb_about": "Kompaniya haqida",
+        "title": "Elit Dekor — Ganch lepnin zavodi",
+        "desc1": "Elit Dekor — 2018-yildan buyon Samarqandda ganch mahsulotlarini ishlab chiqarish va o'rnatish bilan shug'ullanib kelayotgan ishonchli kompaniya.",
+        "desc2": "Katalogimizda gips, steklofibrogips va steklofibrobetondan tayyorlangan 5000 dan ortiq mahsulot turlari mavjud va ular doimiy ravishda to'ldirib boriladi. Bizning ofislarimiz va shou-rumlarimiz Samarqandda joylashgan bo'lib, mahsulotlarimiz vakolatxonalari tarmog'i mavjud.",
+        "desc3": "Biz har doim buyurtmachilarimizga sizning eskizlaringiz bo'yicha buyurtma asosida gips naqshlarini tayyorlash va professional montaj qilish xizmatlarini ko'rsatishga tayyormiz.",
+        "director_role": "Bosh direktor",
+        "stat_year": "Tashkil etilgan yili",
+        "stat_items": "Katalogdagi mahsulotlar",
+        "stat_projects": "Bajarilgan loyihalar",
+        "stat_designers": "Dizaynerlar bazasi",
+        "why_title": "Nima uchun aynan bizni tanlashadi",
+        "adv1_title": "Sifat kafolati",
+        "adv1_desc": "Barcha mahsulotlar o'z ishlab chiqarishimizda barcha standartlarga rioya qilgan holda tayyorlanadi",
+        "adv2_title": "Keng assortiment",
+        "adv2_desc": "Interyer va fasadning har qanday uslubi uchun 5000 dan ortiq mahsulot turlari",
+        "adv3_title": "To'liq sikl",
+        "adv3_desc": "Loyiha, ishlab chiqarish, yetkazib berish va montaj — barchasi bitta joyda",
+        "adv4_title": "20+ yillik tajriba",
+        "adv4_desc": "Lepka bozorida 20 yildan ortiq tajriba. Minglab muvaffaqiyatli amalga oshirilgan loyihalar"
+    },
+    "CatalogPage": {
+        "breadcrumb_home": "Bosh sahifa",
+        "breadcrumb_interior": "Interyer dekoratsiyasi",
+        "title": "Interyer dekoratsiyasi",
+        "desc": "Elit Dekor zavodidan interyer uchun gips va ganch lepka bezaklari. 5000 dan ortiq mahsulot turlari."
+    },
+    "FasadPage": {
+        "breadcrumb_home": "Bosh sahifa",
+        "breadcrumb_facade": "Steklofibrobeton",
+        "title": "Steklofibrobeton (SFB)",
+        "desc1": "Steklofibrobeton (SFB) — sement eritmasining shisha tola bilan armaturalanishidan olingan zamonaviy material. Yuqori mustahkamlik, sovuqqa va namlikka chidamlilik xususiyatiga ega.",
+        "desc2": "Fasad bezaklari uchun juda mos keladi: karnizlar, ustunlar, pilyastrlar va boshqa me'moriy elementlar.",
+        "feature1": "Yuqori mustahkamlik",
+        "feature2": "Sovuqqa chidamlilik",
+        "feature3": "Namlikka chidamlilik",
+        "feature4": "Uzoq umr ko'rish",
+        "feature5": "Fasadlar uchun ideal yechim",
+        "catalog_btn": "Fasad dekoratsiyasi katalogi",
+        "order_title": "SFB mahsulotlariga buyurtma berish"
+    },
+    "FibrogipsPage": {
+        "breadcrumb_home": "Bosh sahifa",
+        "breadcrumb_fibro": "Steklofibrogips",
+        "title": "Steklofibrogips (SFG)",
+        "desc1": "Steklofibrogips (SFG) — gips va shisha tolasi birikmasidan tashkil topgan kompozit material. U yengilligi va murakkab me'moriy shakllarni yaratish imkoniyati bilan ajralib turadi.",
+        "desc2": "SFG mahsulotlari baland shiftli interyerlar, gumbazlar, arkalar va fasad bezaklari uchun juda mos tushadi.",
+        "feature1": "Yuqori mustahkamlik",
+        "feature2": "Yengillik",
+        "feature3": "Yong'inga chidamlilik",
+        "feature4": "Uzoq umr ko'rish",
+        "feature5": "Murakkab shakllar yaratish imkoniyati",
+        "order_title": "SFG mahsulotlariga buyurtma berish",
+        "usage_title": "SFG qo'llanilishi",
+        "use1_title": "Bosh ibodatxona loyihasi",
+        "use1_desc": "SFG qo'llanilgan yirik loyiha",
+        "use2_title": "Interyer dekoratsiyasi",
+        "use2_desc": "SFGdan karnizlar, rozetkalar, moldinglar",
+        "use3_title": "Fasad dekoratsiyasi",
+        "use3_desc": "SFGdan ustunlar, pilyastrlar va karnizlar"
+    },
+    "CartPage": {
+        "breadcrumb_home": "Bosh sahifa",
+        "breadcrumb_cart": "Savat",
+        "title": "Savat",
+        "empty_title": "Savatingiz bo'sh",
+        "empty_desc": "Katalogdan mahsulotlarni qo'shing",
+        "go_catalog": "Katalogga o'tish",
+        "items_in_cart": "Savatdagi mahsulotlar",
+        "clear_cart": "Savatni tozalash",
+        "art_sku": "Art.:",
+        "currency": "so'm",
+        "total_heading": "Jami",
+        "total_items": "Mahsulotlar soni:",
+        "total_sum": "Jami summasi:",
+        "checkout_btn": "Buyurtmani rasmiylashtirish",
+        "continue_shopping": "Xaridni davom ettirish"
+    },
+    "SearchPage": {
+        "title": "Qidiruv",
+        "placeholder": "Qidiruv so'zini kiriting...",
+        "submit_btn": "Topish",
+        "found_count": "Topildi",
+        "results_suffix": "ta natija",
+        "empty_title": "Hech narsa topilmadi",
+        "empty_desc": "Qidiruv so'zini o'zgartirib ko'ring",
+        "types": {
+            "category": "Kategoriya",
+            "service": "Xizmat",
+            "page": "Sahifa"
+        }
+    },
+    "ArticlesPage": {
+        "breadcrumb_home": "Bosh sahifa",
+        "breadcrumb_blog": "Blog",
+        "title": "Elit Dekor Blogi",
+        "read_more": "Batafsil o'qish →",
+        "questions_title": "Savollaringiz bormi?",
+        "questions_desc": "Formani to'ldiring va biz siz bilan bog'lanamiz"
+    }
+}

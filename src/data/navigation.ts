@@ -11,74 +11,61 @@ export interface NavItem {
   hasSubmenu?: boolean;
 }
 
-export const mainNavigation: NavItem[] = [
+export const getMainNavigation = (t: any): NavItem[] => [
   {
-    title: 'Kompaniya haqida',
-    href: '/about/',
-    hasSubmenu: true,
-    children: [
-      { title: 'Biz haqimizda', href: '/about/' },
-      { title: 'Hujjatlar', href: '/information_for_client/' },
-      { title: 'Mijozlar sharhlari', href: '/reviews/' },
-      { title: 'Video lavhalar', href: '/video/' },
-    ],
+    title: t('about'),
+    href: '/#about',
   },
   {
-    title: 'Mahsulotlar katalogi',
+    title: t('catalog'),
     href: '/catalog/',
     hasSubmenu: true,
     children: [
-      { title: 'Interyer dekori', href: '/catalog/interior/' },
-      { title: 'Fasad dekori', href: '/catalog-facade/' },
-      { title: '3D Panellar', href: '/catalog/3d-panel/' },
-      { title: 'Maxsus yechimlar', href: '/catalog/special/' },
+      { title: t('catalog_interior'), href: '/catalog/interior/' },
+      { title: t('catalog_facade'), href: '/catalog-facade/' },
+      { title: t('catalog_3d'), href: '/catalog/3d-panel/' },
+      { title: t('catalog_special'), href: '/catalog/special/' },
     ],
   },
   {
-    title: 'Galereya',
+    title: t('gallery'),
     href: '/gallery/',
   },
   {
-    title: 'Virtual Showroom',
+    title: t('virtual_showroom'),
     href: '/virtual-showroom/',
   },
   {
-    title: 'Xizmatlar',
+    title: t('services'),
     href: '/services/',
-    hasSubmenu: true,
-    children: [
-      { title: 'O\'rnatish (Montaj)', href: '/montazh/' },
-      { title: 'O\'lcham olish', href: '/measurements/' },
-      { title: 'Dizayner xizmatlari', href: '/design-project/' },
-      { title: 'Yetkazib berish', href: '/delivery/' },
-    ],
   },
   {
-    title: 'Aloqa',
+    title: t('contacts'),
     href: '/contacts/',
-  }
+  },
 ];
 
-export const footerNav1 = [
-  { title: 'О компании', href: '/about/' },
-  { title: 'Каталог', href: '/catalog/' },
-  { title: 'Галерея', href: '/gallery/' },
-  { title: 'Услуги', href: '/services/' },
-  { title: 'Контакты', href: '/contacts/' },
+// Footer navigation — used with translation function
+export const getFooterNav1 = (t: any) => [
+  { title: t('nav_about'),    href: '/about/' },
+  { title: t('nav_catalog'),  href: '/catalog/' },
+  { title: t('nav_gallery'),  href: '/gallery/' },
+  { title: t('nav_services'), href: '/services/' },
+  { title: t('nav_contacts'), href: '/contacts/' },
 ];
 
-export const footerNav2 = [
-  { title: 'Стеклофибробетон', href: '/fasad/' },
-  { title: '3D-модели', href: '/3d-library/' },
-  { title: 'Стеклофиброгипс', href: '/fibrogips/' },
-  { title: 'Политика конфиденциальности', href: '/information_for_client/7951/' },
-  { title: 'Согласие на получение рекламно-информационной рассылки', href: '/information_for_client/1812841/' },
+export const getFooterNav2 = (t: any) => [
+  { title: t('nav_fibrobeton'),  href: '/fasad/' },
+  { title: t('nav_3d'),         href: '/3d-library/' },
+  { title: t('nav_fibrogips'),  href: '/fibrogips/' },
+  { title: t('nav_privacy'),    href: '/information_for_client/7951/' },
+  { title: t('nav_newsletter'), href: '/information_for_client/1812841/' },
 ];
 
-export const footerNav3 = [
-  { title: 'Блог', href: '/articles/' },
-  { title: 'Видео-уроки', href: '/video/' },
-  { title: 'Экскурсии', href: 'https://meetdikart.tilda.ws/' },
-  { title: 'Карта сайта', href: '/sitemap/' },
-  { title: 'Написать директору', href: '/director/' },
+export const getFooterNav3 = (t: any) => [
+  { title: t('nav_blog'),      href: '/articles/' },
+  { title: t('nav_video'),     href: '/video/' },
+  { title: t('nav_tours'),     href: 'https://meetdikart.tilda.ws/' },
+  { title: t('nav_sitemap'),   href: '/sitemap/' },
+  { title: t('nav_director'),  href: '/director/' },
 ];

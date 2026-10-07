@@ -1,0 +1,768 @@
+{
+ "categories": {
+  "int": "Interyerlar",
+  "panel": "Devor panellari",
+  "relyef": "Relyef va panno",
+  "kamin": "Kaminlar",
+  "ustun": "Ustun va konsollar",
+  "karniz": "Karniz va shift"
+ },
+ "items": [
+  {
+   "id": 1,
+   "file": "dekor-001.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 2,
+   "file": "dekor-002.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 3,
+   "file": "dekor-003.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 4,
+   "file": "dekor-004.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 5,
+   "file": "dekor-005.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 6,
+   "file": "dekor-006.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 7,
+   "file": "dekor-007.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 8,
+   "file": "dekor-008.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 9,
+   "file": "dekor-009.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 10,
+   "file": "dekor-010.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 11,
+   "file": "dekor-011.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 12,
+   "file": "dekor-012.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 13,
+   "file": "dekor-013.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 14,
+   "file": "dekor-014.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 15,
+   "file": "dekor-015.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 16,
+   "file": "dekor-016.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 17,
+   "file": "dekor-017.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 18,
+   "file": "dekor-018.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 19,
+   "file": "dekor-019.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 20,
+   "file": "dekor-020.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 21,
+   "file": "dekor-021.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 22,
+   "file": "dekor-022.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 23,
+   "file": "dekor-023.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 24,
+   "file": "dekor-024.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 25,
+   "file": "dekor-025.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 26,
+   "file": "dekor-026.webp",
+   "category": "ustun",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 27,
+   "file": "dekor-027.webp",
+   "category": "ustun",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 28,
+   "file": "dekor-028.webp",
+   "category": "ustun",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 29,
+   "file": "dekor-029.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 30,
+   "file": "dekor-030.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 31,
+   "file": "dekor-031.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 32,
+   "file": "dekor-032.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 33,
+   "file": "dekor-033.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 34,
+   "file": "dekor-034.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 35,
+   "file": "dekor-035.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 36,
+   "file": "dekor-036.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 37,
+   "file": "dekor-037.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 38,
+   "file": "dekor-038.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 39,
+   "file": "dekor-039.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 40,
+   "file": "dekor-040.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 41,
+   "file": "dekor-041.webp",
+   "category": "ustun",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 42,
+   "file": "dekor-042.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 43,
+   "file": "dekor-043.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 44,
+   "file": "dekor-044.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 45,
+   "file": "dekor-045.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 46,
+   "file": "dekor-046.webp",
+   "category": "ustun",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 47,
+   "file": "dekor-047.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 48,
+   "file": "dekor-048.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 49,
+   "file": "dekor-049.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 50,
+   "file": "dekor-050.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 51,
+   "file": "dekor-051.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 52,
+   "file": "dekor-052.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 53,
+   "file": "dekor-053.webp",
+   "category": "ustun",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 54,
+   "file": "dekor-054.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 55,
+   "file": "dekor-055.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 56,
+   "file": "dekor-056.webp",
+   "category": "kamin",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 57,
+   "file": "dekor-057.webp",
+   "category": "kamin",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 58,
+   "file": "dekor-058.webp",
+   "category": "kamin",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 59,
+   "file": "dekor-059.webp",
+   "category": "kamin",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 60,
+   "file": "dekor-060.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 61,
+   "file": "dekor-061.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 62,
+   "file": "dekor-062.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 63,
+   "file": "dekor-063.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 64,
+   "file": "dekor-064.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 65,
+   "file": "dekor-065.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 66,
+   "file": "dekor-066.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 67,
+   "file": "dekor-067.webp",
+   "category": "kamin",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 68,
+   "file": "dekor-068.webp",
+   "category": "kamin",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 69,
+   "file": "dekor-069.webp",
+   "category": "kamin",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 70,
+   "file": "dekor-070.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 71,
+   "file": "dekor-071.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 72,
+   "file": "dekor-072.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 73,
+   "file": "dekor-073.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 74,
+   "file": "dekor-074.webp",
+   "category": "kamin",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 75,
+   "file": "dekor-075.webp",
+   "category": "kamin",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 76,
+   "file": "dekor-076.webp",
+   "category": "kamin",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 77,
+   "file": "dekor-077.webp",
+   "category": "kamin",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 78,
+   "file": "dekor-078.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 79,
+   "file": "dekor-079.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 80,
+   "file": "dekor-080.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 81,
+   "file": "dekor-081.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 82,
+   "file": "dekor-082.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 83,
+   "file": "dekor-083.webp",
+   "category": "ustun",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 84,
+   "file": "dekor-084.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 85,
+   "file": "dekor-085.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 86,
+   "file": "dekor-086.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 87,
+   "file": "dekor-087.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 88,
+   "file": "dekor-088.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 89,
+   "file": "dekor-089.webp",
+   "category": "panel",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 90,
+   "file": "dekor-090.webp",
+   "category": "karniz",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 91,
+   "file": "dekor-091.webp",
+   "category": "karniz",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 92,
+   "file": "dekor-092.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 93,
+   "file": "dekor-093.webp",
+   "category": "ustun",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 94,
+   "file": "dekor-094.webp",
+   "category": "relyef",
+   "w": 800,
+   "h": 1200
+  },
+  {
+   "id": 95,
+   "file": "dekor-095.webp",
+   "category": "ustun",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 96,
+   "file": "dekor-096.webp",
+   "category": "ustun",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 97,
+   "file": "dekor-097.webp",
+   "category": "karniz",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 98,
+   "file": "dekor-098.webp",
+   "category": "int",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 99,
+   "file": "dekor-099.webp",
+   "category": "karniz",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 100,
+   "file": "dekor-100.webp",
+   "category": "karniz",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 101,
+   "file": "dekor-101.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 102,
+   "file": "dekor-102.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 103,
+   "file": "dekor-103.webp",
+   "category": "karniz",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 104,
+   "file": "dekor-104.webp",
+   "category": "karniz",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 105,
+   "file": "dekor-105.webp",
+   "category": "ustun",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 106,
+   "file": "dekor-106.webp",
+   "category": "relyef",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 107,
+   "file": "dekor-107.webp",
+   "category": "karniz",
+   "w": 1200,
+   "h": 800
+  },
+  {
+   "id": 108,
+   "file": "dekor-108.webp",
+   "category": "karniz",
+   "w": 1200,
+   "h": 800
+  }
+ ]
+}

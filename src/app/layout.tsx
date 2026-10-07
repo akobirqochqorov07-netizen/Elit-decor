@@ -12,23 +12,23 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Лепнина для интерьера - купить лепной декор от завода Дикарт',
-  description: '⚜️ Завод гипсовой лепнины Дикарт. Изготовление, доставка, монтаж, дизайн и индивидуальное проектирование для Вашего интерьера.',
+  title: 'Elit Dekor — Ganch lepnin zavodi',
+  description: 'Elit Dekor — interyer va fasad uchun ganch mahsulotlari ishlab chiqaruvchi zavod. Samarqand.',
   icons: {
-    icon: [
-      { url: '/favicon.ico', type: 'image/x-icon' }
-    ],
+    icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="ru" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans antialiased text-text bg-white">{children}</body>
+    <html className={`${inter.variable} ${playfair.variable}`}>
+      <body className="font-sans antialiased text-text bg-white">
+        {children}
+      </body>
     </html>
   );
 }

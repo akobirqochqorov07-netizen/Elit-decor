@@ -3,11 +3,30 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 
-import { mainNavigation } from '@/data/navigation';
+import { useTranslations, useLocale } from 'next-intl';
+
+import { getMainNavigation, NavItem } from '@/data/navigation';
 import { useCart } from '@/context/CartContext';
+import { usePathname } from 'next/navigation';
 import brand from '@/lib/brand';
 
 export default function Header() {
+  const t = useTranslations('Header');
+  const locale = useLocale();
+  const pathname = usePathname();
+  const mainNavigation = getMainNavigation(t);
+
+  const handleLocaleChange = (newLocale: string) => {
+    if (newLocale === locale) return;
+    const segments = pathname.split('/');
+    if (['uz', 'ru', 'en'].includes(segments[1])) {
+      segments[1] = newLocale;
+      window.location.href = segments.join('/');
+    } else {
+      window.location.href = `/${newLocale}${pathname}`;
+    }
+  };
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -63,44 +82,51 @@ export default function Header() {
               </Link>
 
               {/* City */}
-              <div className="hidden md:flex items-center text-base font-semibold text-gray-800">
-                <span className="mr-1 text-gray-500 font-normal">Lokatsiya:</span>
+              <div className="hidden md:flex items-center text-[13px] font-semibold text-gray-800 tracking-wide">
+                <span className="mr-1 text-gray-500 font-medium">{t('location_label')}:</span>
                 <a href="#" className="hover:text-accent transition-colors">{brand.city}</a>
               </div>
 
               {/* Work hours */}
-              <div className="hidden lg:block text-base font-semibold text-gray-800">
-                {brand.workHours.map((h, i) => <p key={i}>{h}</p>)}
+              <div className="hidden lg:flex flex-col items-start gap-[2px] text-[13px] font-semibold text-gray-800 tracking-wide">
+                <span>{t('work_hours_1')}</span>
+                <span>{t('work_hours_2')}</span>
               </div>
 
               {/* Email */}
-              <div className="hidden lg:block text-base font-semibold text-gray-800">
-                <span className="text-gray-500 font-normal">Pochta:</span>
-                <a href={brand.emailHref} className="ml-1 hover:text-accent transition-colors">{brand.email}</a>
+              <div className="hidden lg:flex items-center text-[13px] font-semibold text-gray-800 tracking-wide">
+                <span className="text-gray-500 font-medium mr-1">{t('email_label')}:</span>
+                <a href={brand.emailHref} className="hover:text-accent transition-colors">{brand.email}</a>
               </div>
 
               {/* Phones */}
-              <div className="hidden md:block text-base font-bold text-gray-900">
-                <p><a href={brand.phoneHref} className="hover:text-accent transition-colors">{brand.phone}</a></p>
-                <p><a href={brand.phoneHref2} className="hover:text-accent transition-colors">{brand.phone2}</a></p>
+              <div className="hidden md:flex flex-col items-start gap-[2px] text-[14px] font-extrabold text-gray-900 tracking-wide">
+                <a href={brand.phoneHref} className="hover:text-accent transition-colors">{brand.phone}</a>
+                <a href={brand.phoneHref2} className="hover:text-accent transition-colors">{brand.phone2}</a>
               </div>
 
               {/* Right buttons */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-4">
                 {/* Language Switcher */}
-                <div className="hidden md:flex items-center text-sm font-medium border border-gray-200 rounded overflow-hidden shadow-sm mr-2">
-                  <button className="px-2 py-1 bg-primary text-white hover:bg-primary-dark transition-colors">UZ</button>
-                  <button className="px-2 py-1 bg-gray-50 text-gray-600 hover:bg-gray-100 transition-colors border-l border-r border-gray-200">RU</button>
-                  <button className="px-2 py-1 bg-gray-50 text-gray-600 hover:bg-gray-100 transition-colors">EN</button>
+                <div className="hidden md:flex items-center text-[12px] font-bold border border-gray-200 rounded leading-none transition-all">
+                  <button
+                    onClick={() => handleLocaleChange('uz')}
+                    className={`px-3 py-1.5 transition-colors ${locale === 'uz' ? 'bg-[#174872] text-white' : 'bg-gray-50 text-gray-500 hover:bg-gray-100'}`}>UZ</button>
+                  <button
+                    onClick={() => handleLocaleChange('ru')}
+                    className={`px-3 py-1.5 border-l border-r border-gray-200 transition-colors ${locale === 'ru' ? 'bg-[#174872] text-white' : 'bg-gray-50 text-gray-500 hover:bg-gray-100'}`}>RU</button>
+                  <button
+                    onClick={() => handleLocaleChange('en')}
+                    className={`px-3 py-1.5 transition-colors ${locale === 'en' ? 'bg-[#174872] text-white' : 'bg-gray-50 text-gray-500 hover:bg-gray-100'}`}>EN</button>
                 </div>
 
                 {/* Search */}
                 <button
                   onClick={() => setSearchOpen(!searchOpen)}
-                  className="flex items-center justify-center w-9 h-9 hover:text-accent transition-colors"
-                  aria-label="Поиск"
+                  className="flex items-center justify-center w-8 h-8 text-gray-700 hover:text-accent transition-colors"
+                  aria-label={t('search_aria')}
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <circle cx="11" cy="11" r="8" />
                     <line x1="21" y1="21" x2="16.65" y2="16.65" />
                   </svg>
@@ -109,8 +135,8 @@ export default function Header() {
                 {/* Hamburger */}
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="flex flex-col gap-1 p-1 md:hidden"
-                  aria-label="Меню"
+                  className="flex flex-col justify-center items-center gap-1.5 p-1 md:hidden w-8 h-8"
+                  aria-label={t('menu_aria')}
                 >
                   <span className="block w-6 h-0.5 bg-gray-700"></span>
                   <span className="block w-6 h-0.5 bg-gray-700"></span>
@@ -132,11 +158,11 @@ export default function Header() {
                   name="q"
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
-                  placeholder="Поиск по каталогу..."
+                  placeholder={t('search_placeholder')}
                   className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm outline-none focus:border-primary"
                 />
                 <button type="submit" className="bg-primary text-white px-4 py-2 rounded text-sm hover:bg-primary-dark transition-colors">
-                  Найти
+                  {t('search_btn')}
                 </button>
                 <button type="button" onClick={() => setSearchOpen(false)} className="text-gray-500 hover:text-gray-700">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -207,9 +233,9 @@ export default function Header() {
               </button>
             </div>
             <div className="p-4">
-              <p className="text-sm text-gray-500 mb-1">Ваш город: <span className="text-gray-800">{brand.city}</span></p>
+              <p className="text-sm text-gray-500 mb-1">{t('your_city')}: <span className="text-gray-800">{brand.city}</span></p>
               <p className="text-sm font-medium mb-1"><a href={brand.phoneHref}>{brand.phone}</a></p>
-              <p className="text-xs text-gray-500 mb-4">{brand.workHours.join(' | ')}</p>
+              <p className="text-xs text-gray-500 mb-4">{t('work_hours_1')} | {t('work_hours_2')}</p>
             </div>
             <nav>
               {mainNavigation.map((item) => (
@@ -221,7 +247,7 @@ export default function Header() {
                 onClick={() => { setCallbackModalOpen(true); setMobileMenuOpen(false); }}
                 className="w-full bg-primary text-white py-2 rounded text-sm font-medium hover:bg-primary-dark transition-colors"
               >
-                Заказать звонок
+                {t('callback_btn')}
               </button>
             </div>
           </div>
@@ -236,7 +262,7 @@ export default function Header() {
   );
 }
 
-function MobileNavItem({ item, onClose }: { item: typeof mainNavigation[0]; onClose: () => void }) {
+function MobileNavItem({ item, onClose }: { item: NavItem; onClose: () => void }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="border-b border-gray-100">
@@ -266,6 +292,7 @@ function MobileNavItem({ item, onClose }: { item: typeof mainNavigation[0]; onCl
 }
 
 function CallbackModal({ onClose }: { onClose: () => void }) {
+  const t = useTranslations('Header');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [agreed, setAgreed] = useState(false);
@@ -275,9 +302,9 @@ function CallbackModal({ onClose }: { onClose: () => void }) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors: typeof errors = {};
-    if (!name.trim()) newErrors.name = 'Введите имя';
-    if (!phone.trim()) newErrors.phone = 'Введите телефон';
-    if (!agreed) newErrors.agreed = 'Необходимо согласие';
+    if (!name.trim()) newErrors.name = t('form_err_name');
+    if (!phone.trim()) newErrors.phone = t('form_err_phone');
+    if (!agreed) newErrors.agreed = t('form_err_agree');
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
@@ -298,31 +325,31 @@ function CallbackModal({ onClose }: { onClose: () => void }) {
         {submitted ? (
           <div className="text-center py-8">
             <div className="text-accent text-5xl mb-4">✓</div>
-            <h3 className="text-xl font-semibold mb-2">Спасибо!</h3>
-            <p className="text-gray-600">В ближайшее время мы с Вами свяжемся.</p>
+            <h3 className="text-xl font-semibold mb-2">{t('form_success_title')}</h3>
+            <p className="text-gray-600">{t('form_success_msg')}</p>
           </div>
         ) : (
           <>
-            <h3 className="text-xl font-semibold mb-4">Заказать звонок</h3>
+            <h3 className="text-xl font-semibold mb-4">{t('callback_title')}</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm text-gray-600 mb-1">Имя:</label>
+                <label className="block text-sm text-gray-600 mb-1">{t('form_name_label')}</label>
                 <input
                   type="text"
                   value={name}
                   onChange={e => setName(e.target.value)}
-                  placeholder="Иванов Иван Иванович"
+                  placeholder={t('form_name_placeholder')}
                   className="w-full border border-gray-300 rounded px-3 py-2 text-sm outline-none focus:border-primary"
                 />
                 {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
               </div>
               <div>
-                <label className="block text-sm text-gray-600 mb-1">Телефон:</label>
+                <label className="block text-sm text-gray-600 mb-1">{t('form_phone_label')}</label>
                 <input
                   type="tel"
                   value={phone}
                   onChange={e => setPhone(e.target.value)}
-                  placeholder="+7 (___) ___-__-__"
+                  placeholder={t('form_phone_placeholder')}
                   className="w-full border border-gray-300 rounded px-3 py-2 text-sm outline-none focus:border-primary"
                 />
                 {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
@@ -336,8 +363,8 @@ function CallbackModal({ onClose }: { onClose: () => void }) {
                   className="mt-0.5"
                 />
                 <label htmlFor="modal-agree" className="text-xs text-gray-500">
-                  Я согласен с обработкой персональных данных в соответствии с{' '}
-                  <Link href="/information_for_client/7951/" className="text-green-600 hover:underline">политикой конфиденциальности</Link>
+                  {t('form_agree')}{' '}
+                  <Link href="/information_for_client/7951/" className="text-green-600 hover:underline">{t('form_privacy_link')}</Link>
                 </label>
               </div>
               {errors.agreed && <p className="text-red-500 text-xs">{errors.agreed}</p>}
@@ -345,7 +372,7 @@ function CallbackModal({ onClose }: { onClose: () => void }) {
                 type="submit"
                 className="w-full bg-primary text-white py-3 rounded font-medium hover:bg-primary-dark transition-colors"
               >
-                Заказать звонок
+                {t('form_submit')}
               </button>
             </form>
           </>
