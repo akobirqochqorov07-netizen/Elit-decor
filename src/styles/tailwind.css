@@ -285,3 +285,14 @@
     padding: 2px 10px;
   }
 }
+
+/* ── Phone floating animation (BlogSection) ─────────────────────── */
+@keyframes floatPhone {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ── Blog section card hover fix for inline style ─────────────── */
+.blog-card-tg:hover { box-shadow: 0 0 40px rgba(34,158,217,0.15); }
+.blog-card-ig:hover { box-shadow: 0 0 40px rgba(193,53,132,0.15);  }

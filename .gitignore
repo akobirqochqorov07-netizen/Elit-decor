@@ -19,6 +19,13 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 
+# Large binary / 3D assets (track separately via Git LFS if needed)
+*.mp4
+*.MP4
+*.max
+*.3ds
+*.glb
+
 # Vercel deployment
 .vercel/
 
@@ -35,3 +42,7 @@ jest-test-results.json
 
 # Optional: if using TurboRepo or monorepo
 turbo/
+# Environment variables
+.env
+.env.local
+.env.*.local

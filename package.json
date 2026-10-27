@@ -39,9 +39,11 @@
     "warning": "🚨 CRITICAL: DO NOT REMOVE OR MODIFY ABOVE DEPENDENCIES - Required for Next.js 15 TypeScript app functionality"
   },
   "scripts": {
+    "images": "node scripts/optimize-images.mjs",
+    "obj2glb": "node scripts/obj2glb.mjs",
     "dev": "next dev -p 4028",
     "build": "next build",
-    "start": "next dev -p 4028",
+    "start": "next start -p 4028",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,md,json}\"",
@@ -53,12 +55,10 @@
     "@heroicons/react": "^2.2.0",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
-    "lucide-react": "^1.7.0",
     "next": "15.5.18",
     "next-intl": "^4.14.9",
     "react": "19.0.3",
-    "react-dom": "19.0.3",
-    "recharts": "^2.15.2"
+    "react-dom": "19.0.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -73,6 +73,7 @@
     "eslint-config-next": "^15.2.4",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.6",
+    "obj2gltf": "^3.2.0",
     "postcss": "8.4.8",
     "prettier": "^3.5.3",
     "tailwindcss": "3.4.6",

@@ -3,27 +3,25 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
-import { CartProvider } from '@/context/CartContext';
 import { getTranslations } from 'next-intl/server';
 
-export default async function ServiceDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const t = await getTranslations('ServicesPage');
 
   return (
-    <CartProvider>
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">
           <div className="container mx-auto px-4 py-8" style={{ maxWidth: '1200px' }}>
             <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
-              <Link href="/" className="hover:text-accent">{t('breadcrumb_home')}</Link>
+              <Link href="/" className="hover:text-accent">
+                {t('breadcrumb_home')}
+              </Link>
               <span>/</span>
-              <Link href="/services/" className="hover:text-accent">{t('breadcrumb_services')}</Link>
+              <Link href="/services/" className="hover:text-accent">
+                {t('breadcrumb_services')}
+              </Link>
               <span>/</span>
               <span className="text-gray-800 capitalize">{slug.replace(/-/g, ' ')}</span>
             </nav>
@@ -41,6 +39,5 @@ export default async function ServiceDetailPage({
         </main>
         <Footer />
       </div>
-    </CartProvider>
   );
 }

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
@@ -11,7 +13,11 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-20 text-center" style={{ maxWidth: '700px' }}>
         <div className="flex justify-center mb-6">
           <Link href="/">
-            <img src={brand.logoFooter} alt={brand.name} className="h-14 w-auto object-contain opacity-90" />
+            <img
+              src={brand.logoFooter}
+              alt={brand.name}
+              className="h-14 w-auto object-contain opacity-90"
+            />
           </Link>
         </div>
 
@@ -19,9 +25,7 @@ export default function Footer() {
           {t('cta_title')}
         </h2>
 
-        <p className="mb-10 text-base text-white/70 leading-relaxed">
-          {t('cta_desc')}
-        </p>
+        <p className="mb-10 text-base text-white/70 leading-relaxed">{t('cta_desc')}</p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
           <Link
@@ -32,10 +36,16 @@ export default function Footer() {
           </Link>
 
           <div className="flex flex-col items-center sm:items-start gap-1">
-            <a href={brand.phoneHref} className="text-xl font-bold text-white tracking-wide hover:text-accent transition-colors">
+            <a
+              href={brand.phoneHref}
+              className="text-xl font-bold text-white tracking-wide hover:text-accent transition-colors"
+            >
               {brand.phone}
             </a>
-            <a href={brand.phoneHref2} className="text-xl font-bold text-white tracking-wide hover:text-accent transition-colors">
+            <a
+              href={brand.phoneHref2}
+              className="text-xl font-bold text-white tracking-wide hover:text-accent transition-colors"
+            >
               {brand.phone2}
             </a>
             <span className="text-xs text-white/50 mt-0.5">{tHeader('work_hours_1')}</span>

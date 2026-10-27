@@ -30,33 +30,25 @@ export default function ContactForm() {
     }
     setLoading(true);
 
-    const botToken = '8878838934:AAH2JWG0TjBfs-NJl2Im4BXWz2WiYzIdUss';
-    const chatId = process.env.NEXT_PUBLIC_TG_CHAT_ID || '123456789';
-
-    const message = `
-🔔 *Yangi Zayavka (Elit Dekor)*
-👤 *Ismi:* ${formData.name}
-📞 *Tel:* ${formData.phone}
-📧 *Email:* ${formData.email || 'Kiritilmadi'}
-    `;
-
     try {
-      const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+      const res = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          chat_id: chatId,
-          text: message,
-          parse_mode: 'Markdown',
+          ism: formData.name.trim(),
+          telefon: formData.phone.trim(),
+          email: formData.email.trim() || undefined,
+          website: '',
+          sahifa_url: typeof window !== 'undefined' ? window.location.href : '',
         }),
       });
-
-      if (res.ok) {
+      const data = await res.json();
+      if (res.ok && data.ok) {
         setSubmitted(true);
       } else {
         alert(t('err_phone'));
       }
-    } catch (error) {
+    } catch (_error) {
       alert(t('err_phone'));
     } finally {
       setLoading(false);
@@ -76,33 +68,39 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       <div className="flex flex-col gap-4">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">{t('name_label')}</label>
+          <label className="block text-sm font-semibold text-gray-700 mb-1">
+            {t('name_label')}
+          </label>
           <input
             type="text"
             value={formData.name}
-            onChange={e => setFormData(p => ({ ...p, name: e.target.value }))}
+            onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
             placeholder={t('name_placeholder')}
             className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/50 transition-all font-medium"
           />
           {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
         </div>
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">{t('phone_label')}</label>
+          <label className="block text-sm font-semibold text-gray-700 mb-1">
+            {t('phone_label')}
+          </label>
           <input
             type="tel"
             value={formData.phone}
-            onChange={e => setFormData(p => ({ ...p, phone: e.target.value }))}
+            onChange={(e) => setFormData((p) => ({ ...p, phone: e.target.value }))}
             placeholder={t('phone_placeholder')}
             className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/50 transition-all font-medium"
           />
           {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
         </div>
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">{t('email_label')}</label>
+          <label className="block text-sm font-semibold text-gray-700 mb-1">
+            {t('email_label')}
+          </label>
           <input
             type="email"
             value={formData.email}
-            onChange={e => setFormData(p => ({ ...p, email: e.target.value }))}
+            onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
             placeholder={t('email_placeholder')}
             className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/50 transition-all font-medium"
           />
@@ -121,12 +119,14 @@ export default function ContactForm() {
             <input
               type="checkbox"
               checked={agreed}
-              onChange={e => setAgreed(e.target.checked)}
+              onChange={(e) => setAgreed(e.target.checked)}
               className="w-4 h-4"
             />
             <span>
               {t('agree_text')}{' '}
-              <Link href="/information_for_client/7951/" className="text-green-600 hover:underline">{t('agree_privacy_link')}</Link>
+              <Link href="/information_for_client/7951/" className="text-green-600 hover:underline">
+                {t('agree_privacy_link')}
+              </Link>
             </span>
           </label>
           {errors.agreed && <p className="text-red-500 text-xs">{errors.agreed}</p>}
@@ -134,12 +134,17 @@ export default function ContactForm() {
             <input
               type="checkbox"
               checked={newsletter}
-              onChange={e => setNewsletter(e.target.checked)}
+              onChange={(e) => setNewsletter(e.target.checked)}
               className="w-4 h-4"
             />
             <span>
               {t('newsletter_text')}{' '}
-              <Link href="/information_for_client/1812841/" className="text-green-600 hover:underline">{t('newsletter_link')}</Link>
+              <Link
+                href="/information_for_client/1812841/"
+                className="text-green-600 hover:underline"
+              >
+                {t('newsletter_link')}
+              </Link>
             </span>
           </label>
         </div>

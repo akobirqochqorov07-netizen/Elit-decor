@@ -1,6 +1,9 @@
 import React from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
+import { DrawerProvider } from '@/context/DrawerContext';
+import { CartProvider } from '@/context/CartContext';
+import CartDrawer from '@/components/cart/CartDrawer';
 
 export default async function LocaleLayout({
   children,
@@ -14,7 +17,12 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
-      {children}
+      <DrawerProvider>
+        <CartProvider>
+          {children}
+          <CartDrawer />
+        </CartProvider>
+      </DrawerProvider>
     </NextIntlClientProvider>
   );
 }

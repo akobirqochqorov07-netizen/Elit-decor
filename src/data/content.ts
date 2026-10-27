@@ -12,15 +12,28 @@ export const homeContent = {
   whyUs: {
     title: 'Почему выбирают нас',
     items: [
-      { img: 'https://dikart.ru/local/templates/dikart-new/images/img-02.svg', text: 'Гарантия качества' },
-      { img: 'https://dikart.ru/local/templates/dikart-new/images/img-04.svg', text: 'Более 5000 изделий в каталоге' },
-      { img: 'https://dikart.ru/local/templates/dikart-new/images/img-05.svg', text: 'Выполнение проектов в режиме одного окна' },
-      { img: 'https://dikart.ru/local/templates/dikart-new/images/img-06.svg', text: '20-летний опыт работы' },
+      {
+        img: 'https://dikart.ru/local/templates/dikart-new/images/img-02.svg',
+        text: 'Гарантия качества',
+      },
+      {
+        img: 'https://dikart.ru/local/templates/dikart-new/images/img-04.svg',
+        text: 'Более 5000 изделий в каталоге',
+      },
+      {
+        img: 'https://dikart.ru/local/templates/dikart-new/images/img-05.svg',
+        text: 'Выполнение проектов в режиме одного окна',
+      },
+      {
+        img: 'https://dikart.ru/local/templates/dikart-new/images/img-06.svg',
+        text: '20-летний опыт работы',
+      },
     ],
   },
   gallery: {
     title: 'Галерея интерьеров с лепниной',
-    description: 'В нашей галерее вы найдете реализованные проекты нашими партнерами и визуализации проектов с лепниной для поиска вдохновения.',
+    description:
+      'В нашей галерее вы найдете реализованные проекты нашими партнерами и визуализации проектов с лепниной для поиска вдохновения.',
     stats: [
       { value: '100%', text: 'Гарантия качества' },
       { value: '250+', text: 'База дизайнеров' },

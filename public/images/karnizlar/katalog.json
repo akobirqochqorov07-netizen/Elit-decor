@@ -1,0 +1,591 @@
+{
+ "kataloglar": [
+  {
+   "id": 1,
+   "slug": "katalog-1-katta",
+   "nomi": "Katta profil",
+   "karnizlar": [
+    "karniz-001",
+    "karniz-006",
+    "karniz-009"
+   ]
+  },
+  {
+   "id": 2,
+   "slug": "katalog-2-orta-katta",
+   "nomi": "O'rta-katta profil",
+   "karnizlar": [
+    "karniz-002",
+    "karniz-003",
+    "karniz-008"
+   ]
+  },
+  {
+   "id": 3,
+   "slug": "katalog-3-orta",
+   "nomi": "O'rta profil",
+   "karnizlar": [
+    "karniz-005",
+    "karniz-011",
+    "karniz-012",
+    "karniz-013",
+    "karniz-014",
+    "karniz-016",
+    "karniz-017",
+    "karniz-019",
+    "karniz-024",
+    "karniz-025",
+    "karniz-026",
+    "karniz-028"
+   ]
+  },
+  {
+   "id": 4,
+   "slug": "katalog-4-orta-past",
+   "nomi": "O'rta-past profil",
+   "karnizlar": [
+    "karniz-007",
+    "karniz-010",
+    "karniz-015",
+    "karniz-018",
+    "karniz-020",
+    "karniz-021",
+    "karniz-022",
+    "karniz-023",
+    "karniz-029",
+    "karniz-030",
+    "karniz-031",
+    "karniz-032",
+    "karniz-033",
+    "karniz-045"
+   ]
+  },
+  {
+   "id": 5,
+   "slug": "katalog-5-ingichka",
+   "nomi": "Ingichka profil",
+   "karnizlar": [
+    "karniz-004",
+    "karniz-027",
+    "karniz-034",
+    "karniz-035",
+    "karniz-036",
+    "karniz-037",
+    "karniz-038",
+    "karniz-039",
+    "karniz-040",
+    "karniz-041",
+    "karniz-042",
+    "karniz-043",
+    "karniz-044",
+    "karniz-046",
+    "karniz-047",
+    "karniz-048",
+    "karniz-049",
+    "karniz-050"
+   ]
+  }
+ ],
+ "mahsulotlar": [
+  {
+   "kod": "karniz-001",
+   "katalog": "Katta profil",
+   "papka": "katalog-1-katta",
+   "oq_fon": "katalog-1-katta/karniz-001-oq.jpg",
+   "kok_fon": "katalog-1-katta/karniz-001-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:18:43.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:18:41.jpg",
+   "balandlik_nisbati": 0.399
+  },
+  {
+   "kod": "karniz-002",
+   "katalog": "O'rta-katta profil",
+   "papka": "katalog-2-orta-katta",
+   "oq_fon": "katalog-2-orta-katta/karniz-002-oq.jpg",
+   "kok_fon": "katalog-2-orta-katta/karniz-002-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:18:50.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:18:48.jpg",
+   "balandlik_nisbati": 0.257
+  },
+  {
+   "kod": "karniz-003",
+   "katalog": "O'rta-katta profil",
+   "papka": "katalog-2-orta-katta",
+   "oq_fon": "katalog-2-orta-katta/karniz-003-oq.jpg",
+   "kok_fon": "katalog-2-orta-katta/karniz-003-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:19:03.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:18:58.jpg",
+   "balandlik_nisbati": 0.278
+  },
+  {
+   "kod": "karniz-004",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-004-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-004-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:19:08.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:19:06.jpg",
+   "balandlik_nisbati": 0.194
+  },
+  {
+   "kod": "karniz-005",
+   "katalog": "O'rta profil",
+   "papka": "katalog-3-orta",
+   "oq_fon": "katalog-3-orta/karniz-005-oq.jpg",
+   "kok_fon": "katalog-3-orta/karniz-005-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:19:14.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:19:12.jpg",
+   "balandlik_nisbati": 0.235
+  },
+  {
+   "kod": "karniz-006",
+   "katalog": "Katta profil",
+   "papka": "katalog-1-katta",
+   "oq_fon": "katalog-1-katta/karniz-006-oq.jpg",
+   "kok_fon": "katalog-1-katta/karniz-006-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:19:20.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:19:18.jpg",
+   "balandlik_nisbati": 0.342
+  },
+  {
+   "kod": "karniz-007",
+   "katalog": "O'rta-past profil",
+   "papka": "katalog-4-orta-past",
+   "oq_fon": "katalog-4-orta-past/karniz-007-oq.jpg",
+   "kok_fon": "katalog-4-orta-past/karniz-007-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:19:26.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:19:24.jpg",
+   "balandlik_nisbati": 0.219
+  },
+  {
+   "kod": "karniz-008",
+   "katalog": "O'rta-katta profil",
+   "papka": "katalog-2-orta-katta",
+   "oq_fon": "katalog-2-orta-katta/karniz-008-oq.jpg",
+   "kok_fon": "katalog-2-orta-katta/karniz-008-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:19:35.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:19:32.jpg",
+   "balandlik_nisbati": 0.271
+  },
+  {
+   "kod": "karniz-009",
+   "katalog": "Katta profil",
+   "papka": "katalog-1-katta",
+   "oq_fon": "katalog-1-katta/karniz-009-oq.jpg",
+   "kok_fon": "katalog-1-katta/karniz-009-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:19:42.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:19:39.jpg",
+   "balandlik_nisbati": 0.307
+  },
+  {
+   "kod": "karniz-010",
+   "katalog": "O'rta-past profil",
+   "papka": "katalog-4-orta-past",
+   "oq_fon": "katalog-4-orta-past/karniz-010-oq.jpg",
+   "kok_fon": "katalog-4-orta-past/karniz-010-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:19:48.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:19:45.jpg",
+   "balandlik_nisbati": 0.217
+  },
+  {
+   "kod": "karniz-011",
+   "katalog": "O'rta profil",
+   "papka": "katalog-3-orta",
+   "oq_fon": "katalog-3-orta/karniz-011-oq.jpg",
+   "kok_fon": "katalog-3-orta/karniz-011-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:19:55.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:19:53.jpg",
+   "balandlik_nisbati": 0.239
+  },
+  {
+   "kod": "karniz-012",
+   "katalog": "O'rta profil",
+   "papka": "katalog-3-orta",
+   "oq_fon": "katalog-3-orta/karniz-012-oq.jpg",
+   "kok_fon": "katalog-3-orta/karniz-012-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:20:01.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:19:58.jpg",
+   "balandlik_nisbati": 0.241
+  },
+  {
+   "kod": "karniz-013",
+   "katalog": "O'rta profil",
+   "papka": "katalog-3-orta",
+   "oq_fon": "katalog-3-orta/karniz-013-oq.jpg",
+   "kok_fon": "katalog-3-orta/karniz-013-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:20:06.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:20:04.jpg",
+   "balandlik_nisbati": 0.239
+  },
+  {
+   "kod": "karniz-014",
+   "katalog": "O'rta profil",
+   "papka": "katalog-3-orta",
+   "oq_fon": "katalog-3-orta/karniz-014-oq.jpg",
+   "kok_fon": "katalog-3-orta/karniz-014-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:20:11.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:20:09.jpg",
+   "balandlik_nisbati": 0.238
+  },
+  {
+   "kod": "karniz-015",
+   "katalog": "O'rta-past profil",
+   "papka": "katalog-4-orta-past",
+   "oq_fon": "katalog-4-orta-past/karniz-015-oq.jpg",
+   "kok_fon": "katalog-4-orta-past/karniz-015-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:20:17.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:20:14.jpg",
+   "balandlik_nisbati": 0.221
+  },
+  {
+   "kod": "karniz-016",
+   "katalog": "O'rta profil",
+   "papka": "katalog-3-orta",
+   "oq_fon": "katalog-3-orta/karniz-016-oq.jpg",
+   "kok_fon": "katalog-3-orta/karniz-016-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:20:23.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:20:20.jpg",
+   "balandlik_nisbati": 0.239
+  },
+  {
+   "kod": "karniz-017",
+   "katalog": "O'rta profil",
+   "papka": "katalog-3-orta",
+   "oq_fon": "katalog-3-orta/karniz-017-oq.jpg",
+   "kok_fon": "katalog-3-orta/karniz-017-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:20:29.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:20:26.jpg",
+   "balandlik_nisbati": 0.231
+  },
+  {
+   "kod": "karniz-018",
+   "katalog": "O'rta-past profil",
+   "papka": "katalog-4-orta-past",
+   "oq_fon": "katalog-4-orta-past/karniz-018-oq.jpg",
+   "kok_fon": "katalog-4-orta-past/karniz-018-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:20:34.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:20:31.jpg",
+   "balandlik_nisbati": 0.223
+  },
+  {
+   "kod": "karniz-019",
+   "katalog": "O'rta profil",
+   "papka": "katalog-3-orta",
+   "oq_fon": "katalog-3-orta/karniz-019-oq.jpg",
+   "kok_fon": "katalog-3-orta/karniz-019-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:20:39.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:20:37.jpg",
+   "balandlik_nisbati": 0.24
+  },
+  {
+   "kod": "karniz-020",
+   "katalog": "O'rta-past profil",
+   "papka": "katalog-4-orta-past",
+   "oq_fon": "katalog-4-orta-past/karniz-020-oq.jpg",
+   "kok_fon": "katalog-4-orta-past/karniz-020-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:20:44.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:20:42.jpg",
+   "balandlik_nisbati": 0.209
+  },
+  {
+   "kod": "karniz-021",
+   "katalog": "O'rta-past profil",
+   "papka": "katalog-4-orta-past",
+   "oq_fon": "katalog-4-orta-past/karniz-021-oq.jpg",
+   "kok_fon": "katalog-4-orta-past/karniz-021-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:20:49.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:20:47.jpg",
+   "balandlik_nisbati": 0.211
+  },
+  {
+   "kod": "karniz-022",
+   "katalog": "O'rta-past profil",
+   "papka": "katalog-4-orta-past",
+   "oq_fon": "katalog-4-orta-past/karniz-022-oq.jpg",
+   "kok_fon": "katalog-4-orta-past/karniz-022-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:20:54.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:20:52.jpg",
+   "balandlik_nisbati": 0.222
+  },
+  {
+   "kod": "karniz-023",
+   "katalog": "O'rta-past profil",
+   "papka": "katalog-4-orta-past",
+   "oq_fon": "katalog-4-orta-past/karniz-023-oq.jpg",
+   "kok_fon": "katalog-4-orta-past/karniz-023-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:20:59.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:20:57.jpg",
+   "balandlik_nisbati": 0.213
+  },
+  {
+   "kod": "karniz-024",
+   "katalog": "O'rta profil",
+   "papka": "katalog-3-orta",
+   "oq_fon": "katalog-3-orta/karniz-024-oq.jpg",
+   "kok_fon": "katalog-3-orta/karniz-024-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:21:06.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:21:03.jpg",
+   "balandlik_nisbati": 0.241
+  },
+  {
+   "kod": "karniz-025",
+   "katalog": "O'rta profil",
+   "papka": "katalog-3-orta",
+   "oq_fon": "katalog-3-orta/karniz-025-oq.jpg",
+   "kok_fon": "katalog-3-orta/karniz-025-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:21:12.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:21:09.jpg",
+   "balandlik_nisbati": 0.24
+  },
+  {
+   "kod": "karniz-026",
+   "katalog": "O'rta profil",
+   "papka": "katalog-3-orta",
+   "oq_fon": "katalog-3-orta/karniz-026-oq.jpg",
+   "kok_fon": "katalog-3-orta/karniz-026-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:21:17.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:21:15.jpg",
+   "balandlik_nisbati": 0.241
+  },
+  {
+   "kod": "karniz-027",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-027-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-027-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:21:22.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:21:20.jpg",
+   "balandlik_nisbati": 0.185
+  },
+  {
+   "kod": "karniz-028",
+   "katalog": "O'rta profil",
+   "papka": "katalog-3-orta",
+   "oq_fon": "katalog-3-orta/karniz-028-oq.jpg",
+   "kok_fon": "katalog-3-orta/karniz-028-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:21:28.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:21:26.jpg",
+   "balandlik_nisbati": 0.241
+  },
+  {
+   "kod": "karniz-029",
+   "katalog": "O'rta-past profil",
+   "papka": "katalog-4-orta-past",
+   "oq_fon": "katalog-4-orta-past/karniz-029-oq.jpg",
+   "kok_fon": "katalog-4-orta-past/karniz-029-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:21:33.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:21:31.jpg",
+   "balandlik_nisbati": 0.207
+  },
+  {
+   "kod": "karniz-030",
+   "katalog": "O'rta-past profil",
+   "papka": "katalog-4-orta-past",
+   "oq_fon": "katalog-4-orta-past/karniz-030-oq.jpg",
+   "kok_fon": "katalog-4-orta-past/karniz-030-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:21:38.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:21:36.jpg",
+   "balandlik_nisbati": 0.206
+  },
+  {
+   "kod": "karniz-031",
+   "katalog": "O'rta-past profil",
+   "papka": "katalog-4-orta-past",
+   "oq_fon": "katalog-4-orta-past/karniz-031-oq.jpg",
+   "kok_fon": "katalog-4-orta-past/karniz-031-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:21:43.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:21:41.jpg",
+   "balandlik_nisbati": 0.206
+  },
+  {
+   "kod": "karniz-032",
+   "katalog": "O'rta-past profil",
+   "papka": "katalog-4-orta-past",
+   "oq_fon": "katalog-4-orta-past/karniz-032-oq.jpg",
+   "kok_fon": "katalog-4-orta-past/karniz-032-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:23:17.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:23:15.jpg",
+   "balandlik_nisbati": 0.206
+  },
+  {
+   "kod": "karniz-033",
+   "katalog": "O'rta-past profil",
+   "papka": "katalog-4-orta-past",
+   "oq_fon": "katalog-4-orta-past/karniz-033-oq.jpg",
+   "kok_fon": "katalog-4-orta-past/karniz-033-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:23:23.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:23:20.jpg",
+   "balandlik_nisbati": 0.206
+  },
+  {
+   "kod": "karniz-034",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-034-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-034-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:23:28.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:23:26.jpg",
+   "balandlik_nisbati": 0.189
+  },
+  {
+   "kod": "karniz-035",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-035-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-035-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:23:33.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:23:31.jpg",
+   "balandlik_nisbati": 0.198
+  },
+  {
+   "kod": "karniz-036",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-036-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-036-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:23:39.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:23:35.jpg",
+   "balandlik_nisbati": 0.197
+  },
+  {
+   "kod": "karniz-037",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-037-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-037-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:23:45.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:23:43.jpg",
+   "balandlik_nisbati": 0.197
+  },
+  {
+   "kod": "karniz-038",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-038-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-038-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:23:51.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:23:48.jpg",
+   "balandlik_nisbati": 0.197
+  },
+  {
+   "kod": "karniz-039",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-039-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-039-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:23:57.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:23:55.jpg",
+   "balandlik_nisbati": 0.197
+  },
+  {
+   "kod": "karniz-040",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-040-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-040-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:24:03.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:24:00.jpg",
+   "balandlik_nisbati": 0.197
+  },
+  {
+   "kod": "karniz-041",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-041-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-041-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:24:09.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:24:06.jpg",
+   "balandlik_nisbati": 0.197
+  },
+  {
+   "kod": "karniz-042",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-042-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-042-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:24:15.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:24:13.jpg",
+   "balandlik_nisbati": 0.197
+  },
+  {
+   "kod": "karniz-043",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-043-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-043-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:24:21.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:24:19.jpg",
+   "balandlik_nisbati": 0.197
+  },
+  {
+   "kod": "karniz-044",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-044-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-044-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:24:26.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:24:24.jpg",
+   "balandlik_nisbati": 0.197
+  },
+  {
+   "kod": "karniz-045",
+   "katalog": "O'rta-past profil",
+   "papka": "katalog-4-orta-past",
+   "oq_fon": "katalog-4-orta-past/karniz-045-oq.jpg",
+   "kok_fon": "katalog-4-orta-past/karniz-045-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:24:31.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:24:29.jpg",
+   "balandlik_nisbati": 0.224
+  },
+  {
+   "kod": "karniz-046",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-046-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-046-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:24:37.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:24:34.jpg",
+   "balandlik_nisbati": 0.189
+  },
+  {
+   "kod": "karniz-047",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-047-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-047-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:24:42.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:24:40.jpg",
+   "balandlik_nisbati": 0.188
+  },
+  {
+   "kod": "karniz-048",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-048-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-048-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:24:47.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:24:45.jpg",
+   "balandlik_nisbati": 0.178
+  },
+  {
+   "kod": "karniz-049",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-049-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-049-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:24:52.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:24:50.jpg",
+   "balandlik_nisbati": 0.189
+  },
+  {
+   "kod": "karniz-050",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-050-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-050-kok.jpg",
+   "asl_oq": "IMAGE 2026-10-19 12:24:57.jpg",
+   "asl_kok": "IMAGE 2026-10-19 12:24:55.jpg",
+   "balandlik_nisbati": 0.195
+  }
+ ]
+}

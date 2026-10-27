@@ -13,22 +13,17 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: 'Elit Dekor — Ganch lepnin zavodi',
-  description: 'Elit Dekor — interyer va fasad uchun ganch mahsulotlari ishlab chiqaruvchi zavod. Samarqand.',
+  description:
+    'Elit Dekor — interyer va fasad uchun ganch mahsulotlari ishlab chiqaruvchi zavod. Samarqand.',
   icons: {
     icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans antialiased text-text bg-white">
-        {children}
-      </body>
+      <body className="font-sans antialiased text-text bg-white">{children}</body>
     </html>
   );
 }
