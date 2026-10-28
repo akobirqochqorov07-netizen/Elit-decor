@@ -342,7 +342,10 @@
     },
     "CatalogSection": {
         "more_categories": "Ko'proq kategoriyalar",
-        "show_more": "Ko'proq ko'rsatish"
+        "show_more": "Ko'proq ko'rsatish",
+        "karniz_title": "Karnizlar",
+        "karniz_desc": "{count} ta model · {groups} ta o'lcham guruhi",
+        "karniz_btn": "Katalogni ko'rish"
     },
     "CatalogPage": {
         "breadcrumb_home": "Bosh sahifa",

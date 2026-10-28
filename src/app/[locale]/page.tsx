@@ -6,12 +6,11 @@ import { useTranslations } from 'next-intl';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import HeroSlider from '@/components/HeroSlider';
-import CatalogSection from '@/components/CatalogSection';
+import KarnizHomeSection from '@/components/karnizlar/KarnizHomeSection';
 import ServicesSection from '@/components/ServicesSection';
 import BlogSection from '@/components/BlogSection';
 import ContactsSection from '@/components/ContactsSection';
 import FaqSection from '@/components/FaqSection';
-import { interiorCategories, facadeCategories } from '@/data/catalog';
 
 export default function HomePage() {
   const t = useTranslations('HomePage');
@@ -233,17 +232,7 @@ export default function HomePage() {
 
         <div className="container mx-auto px-4" style={{ maxWidth: '1200px' }}>
           {/* Catalog sections */}
-          <CatalogSection
-            title={t('catalogs.interior')}
-            categories={interiorCategories}
-            type="interior"
-          />
-
-          <CatalogSection
-            title={t('catalogs.facade')}
-            categories={facadeCategories}
-            type="facade"
-          />
+          <KarnizHomeSection title={t('catalogs.interior')} />
 
           {/* New improved sections */}
           <ServicesSection />
