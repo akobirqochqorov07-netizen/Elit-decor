@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { allKataloglar, getKarnizlarByKatalog, getMinNarx } from '@/data/karnizlar';
+import { allKarnizlar, allKataloglar, getKarnizlarByKatalog, getMinNarx } from '@/data/karnizlar';
 
 export default function KarnizlarPage() {
     return (
@@ -23,7 +23,7 @@ export default function KarnizlarPage() {
                         Interyer karnizlar
                     </h1>
                     <p className="text-gray-500 mb-8 max-w-2xl text-base">
-                        Elit Dekor zavodidan gips karnizlarining to&apos;liq assortimenti. 5 ta o&apos;lcham guruhida 50 dan ortiq model.
+                        Elit Dekor zavodidan gips karnizlarining to&apos;liq assortimenti. {allKataloglar.length} ta o&apos;lcham guruhida {allKarnizlar.length} ta model.
                     </p>
 
                     {/* 5 ta subkategoriya plitkalari */}

@@ -19,12 +19,9 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 
-# Large binary / 3D assets (track separately via Git LFS if needed)
+# Large binary assets (3D modellar .gitignore dan olib tashlandi: saytga kerak)
 *.mp4
 *.MP4
-*.max
-*.3ds
-*.glb
 
 # Vercel deployment
 .vercel/

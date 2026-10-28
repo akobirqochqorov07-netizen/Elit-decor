@@ -291,7 +291,9 @@ function OrderColumn({ item }: { item: ReturnType<typeof getKarnizByKod> }) {
                     </svg>
                     {added ? "✓ Qo'shildi" : inCart ? '✓ Savatda' : "Savatga qo'shish"}
                 </button>
-                <View3DButton kod={item.kod} nomi={`Karniz ${item.korsatiladigan_kod}`} />
+                {getModel3dUrl(item.kod) && (
+                    <View3DButton kod={item.kod} nomi={`Karniz ${item.korsatiladigan_kod}`} />
+                )}
             </div>
 
             {/* Separator */}
@@ -333,15 +335,17 @@ const DOWNLOAD_FORMATS: Array<{
     { ext: 'dwg', label: 'Modelni yuklab olish', color: '#0369a1' },
     { ext: 'obj', label: 'Modelni yuklab olish', color: '#15803d' },
     { ext: 'fbx', label: 'Modelni yuklab olish', color: '#a16207' },
-    { ext: 'pdf', label: 'Tavsifni yuklab olish', color: '#b91c1c' },
+    { ext: 'stl', label: 'Modelni yuklab olish', color: '#0f766e' },
 ];
 
 function DownloadsBlock({ kod }: { kod: string }) {
+    const available = DOWNLOAD_FORMATS.filter(({ ext }) => getDownloadUrl(kod, ext));
+    if (available.length === 0) return null;
     return (
         <div className="mt-10 pt-8 border-t border-gray-200">
             <h3 className="text-xl font-semibold text-gray-800 mb-5">3D modellar va chizmalar</h3>
             <div className="flex flex-wrap gap-6">
-                {DOWNLOAD_FORMATS.map(({ ext, label, color }) => {
+                {available.map(({ ext, label, color }) => {
                     const href = getDownloadUrl(kod, ext);
                     const inner = (
                         <>
