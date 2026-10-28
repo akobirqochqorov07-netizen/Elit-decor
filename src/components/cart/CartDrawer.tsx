@@ -41,7 +41,7 @@ export default function CartDrawer() {
   return ReactDOM.createPortal(
     <div className={isOpen ? '' : 'pointer-events-none'} aria-hidden={!isOpen}>
       <div
-        className={`fixed inset-0 z-[80] bg-black/50 transition-opacity duration-200 ${
+        className={`fixed inset-0 z-[190] bg-black/50 transition-opacity duration-200 ${
           isOpen ? 'opacity-100' : 'opacity-0'
         }`}
         onClick={closeDrawer}
@@ -51,7 +51,7 @@ export default function CartDrawer() {
         role="dialog"
         aria-modal={isOpen}
         aria-label={t('title')}
-        className={`fixed inset-y-0 right-0 z-[90] w-full sm:w-[420px] bg-white flex flex-col min-h-0 transition-transform duration-300 ${
+        className={`fixed inset-y-0 right-0 z-[200] w-full sm:w-[420px] bg-white flex flex-col min-h-0 transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >

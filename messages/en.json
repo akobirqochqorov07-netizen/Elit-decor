@@ -342,7 +342,10 @@
     },
     "CatalogSection": {
         "more_categories": "More categories",
-        "show_more": "Show more"
+        "show_more": "Show more",
+        "karniz_title": "Cornices",
+        "karniz_desc": "{count} models · {groups} size groups",
+        "karniz_btn": "Open catalog"
     },
     "CatalogPage": {
         "breadcrumb_home": "Home",

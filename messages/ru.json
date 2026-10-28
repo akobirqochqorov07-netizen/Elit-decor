@@ -342,7 +342,10 @@
     },
     "CatalogSection": {
         "more_categories": "Больше категорий",
-        "show_more": "Показать ещё"
+        "show_more": "Показать ещё",
+        "karniz_title": "Карнизы",
+        "karniz_desc": "{count} моделей · {groups} групп размеров",
+        "karniz_btn": "Открыть каталог"
     },
     "CatalogPage": {
         "breadcrumb_home": "Главная",

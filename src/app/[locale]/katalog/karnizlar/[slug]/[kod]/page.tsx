@@ -90,6 +90,7 @@ function KarnizGallery({ rasms, nomi }: { rasms: string[]; nomi: string }) {
             </div>
 
             {/* Miniatyuralar */}
+            {rasms.length > 1 && (
             <div className="flex gap-2 px-3 pb-3 mt-2">
                 {rasms.map((src, i) => (
                     <button
@@ -108,6 +109,7 @@ function KarnizGallery({ rasms, nomi }: { rasms: string[]; nomi: string }) {
                     </button>
                 ))}
             </div>
+            )}
         </div>
     );
 }
@@ -243,18 +245,18 @@ function OrderColumn({ item }: { item: ReturnType<typeof getKarnizByKod> }) {
     };
 
     return (
-        <div className="flex flex-col gap-4" style={{ minHeight: '307px' }}>
+        <div className="order-col flex flex-col gap-4" style={{ minHeight: '307px' }}>
             {/* Savatga qo'shish bloği */}
-            <div className="flex flex-col gap-3">
+            <div className="order-actions flex flex-col gap-3">
                 {/* Miqdor boshqaruvi */}
                 <div>
                     <label className="block text-xs font-semibold text-gray-600 mb-1.5">
                         Miqdor (p.m.)
                     </label>
-                    <div className="flex items-center border border-gray-300 rounded overflow-hidden w-36">
+                    <div className="flex items-center border border-gray-300 rounded overflow-hidden w-40">
                         <button
                             onClick={() => setQty((v) => Math.max(1, v - 1))}
-                            className="w-9 h-10 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors text-lg font-bold"
+                            className="w-10 h-10 shrink-0 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors text-lg font-bold"
                         >
                             −
                         </button>
@@ -263,11 +265,11 @@ function OrderColumn({ item }: { item: ReturnType<typeof getKarnizByKod> }) {
                             min={1}
                             value={qty}
                             onChange={(e) => setQty(Math.max(1, parseInt(e.target.value) || 1))}
-                            className="flex-1 h-10 text-center text-sm font-semibold outline-none border-x border-gray-300"
+                            className="flex-1 min-w-0 w-full h-10 text-center text-sm font-semibold outline-none border-x border-gray-300"
                         />
                         <button
                             onClick={() => setQty((v) => v + 1)}
-                            className="w-9 h-10 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors text-lg font-bold"
+                            className="w-10 h-10 shrink-0 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors text-lg font-bold"
                         >
                             +
                         </button>
@@ -296,6 +298,7 @@ function OrderColumn({ item }: { item: ReturnType<typeof getKarnizByKod> }) {
                 )}
             </div>
 
+            <div className="order-form flex flex-col gap-4">
             {/* Separator */}
             <hr className="border-gray-200" />
 
@@ -318,6 +321,7 @@ function OrderColumn({ item }: { item: ReturnType<typeof getKarnizByKod> }) {
                         }}
                     />
                 </div>
+            </div>
             </div>
         </div>
     );
@@ -342,7 +346,7 @@ function DownloadsBlock({ kod }: { kod: string }) {
     const available = DOWNLOAD_FORMATS.filter(({ ext }) => getDownloadUrl(kod, ext));
     if (available.length === 0) return null;
     return (
-        <div className="mt-10 pt-8 border-t border-gray-200">
+        <div className="detail-downloads mt-10 pt-8 border-t border-gray-200">
             <h3 className="text-xl font-semibold text-gray-800 mb-5">3D modellar va chizmalar</h3>
             <div className="flex flex-wrap gap-6">
                 {available.map(({ ext, label, color }) => {
@@ -441,7 +445,7 @@ function View3DButton({ kod, nomi }: { kod: string; nomi: string }) {
             </button>
 
             {open && (
-                <div className="fixed inset-0 z-[80] flex items-center justify-center p-4">
+                <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
                     <div className="absolute inset-0 bg-black/70" onClick={() => setOpen(false)} />
                     <div className="relative bg-white w-full max-w-3xl h-[70vh] flex flex-col">
                         <div className="flex items-center justify-between px-4 py-3 border-b">
@@ -570,9 +574,10 @@ function KarnizDetailPageInner({ slug, kod }: { slug: string; kod: string }) {
 
                         {/* 3. Buyurtma */}
                         <OrderColumn item={item} />
-                    </div>
 
-                    <DownloadsBlock kod={item.kod} />
+                        {/* 4. Yuklab olish formatlari (telefonda rasm va ma'lumotdan keyin, formadan oldin) */}
+                        <DownloadsBlock kod={item.kod} />
+                    </div>
 
                     <RelatedProducts currentKod={item.kod} catalogSlug={slug} />
 
@@ -597,9 +602,17 @@ function KarnizDetailPageInner({ slug, kod }: { slug: string; kod: string }) {
           .detail-grid { grid-template-columns: 1fr 1fr; }
           .karniz-grid { grid-template-columns: repeat(2, 1fr); }
         }
+        .detail-downloads { grid-column: 1 / -1; }
         @media (max-width: 767px) {
           .detail-grid { grid-template-columns: 1fr; }
           .karniz-grid { grid-template-columns: 1fr; }
+          /* Telefon: rasm → ma'lumot → savat → yuklab olish → buyurtma formasi */
+          .order-col { display: contents; }
+          .detail-grid > :nth-child(1) { order: 1; }
+          .detail-grid > :nth-child(2) { order: 2; }
+          .order-actions { order: 3; }
+          .detail-downloads { order: 4; margin-top: 0; }
+          .order-form { order: 5; }
         }
       `}</style>
         </div>
