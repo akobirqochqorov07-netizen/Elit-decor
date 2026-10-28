@@ -45,7 +45,7 @@ export default function KarnizCatalogListing() {
                         Interyer karnizlar
                     </h1>
                     <p className="text-gray-500 mb-6 max-w-2xl text-base">
-                        5 o&apos;lcham guruhida 50 ta gips karniz. Oq fondagi karta — mahsulotga
+                        {allKataloglar.length} o&apos;lcham guruhida {allKarnizlar.length} ta gips karniz. Oq fondagi karta — mahsulotga
                         bosganda to&apos;liq ma&apos;lumot ochiladi.
                     </p>
 

@@ -1,0 +1,729 @@
+{
+ "karniz-001": {
+  "model": true,
+  "formats": [
+   "dwg",
+   "fbx",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-006": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "dwg",
+   "obj",
+   "fbx",
+   "stl"
+  ]
+ },
+ "karniz-007": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "dwg",
+   "obj",
+   "fbx",
+   "stl"
+  ]
+ },
+ "karniz-008": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "dwg",
+   "obj",
+   "fbx",
+   "stl"
+  ]
+ },
+ "karniz-009": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "dwg",
+   "obj",
+   "fbx",
+   "stl"
+  ]
+ },
+ "karniz-010": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "dwg",
+   "obj",
+   "fbx",
+   "stl"
+  ]
+ },
+ "karniz-011": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "dwg",
+   "obj",
+   "fbx",
+   "stl"
+  ]
+ },
+ "karniz-012": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "dwg",
+   "obj",
+   "fbx",
+   "stl"
+  ]
+ },
+ "karniz-013": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "dwg",
+   "obj",
+   "fbx",
+   "stl"
+  ]
+ },
+ "karniz-014": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-015": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-016": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-017": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-018": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-019": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-020": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-021": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-022": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-023": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-024": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-025": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-026": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-027": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-028": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-029": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-030": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-031": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-032": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-033": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-034": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-035": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-036": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-037": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-038": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-039": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-040": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-041": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-042": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-043": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-044": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-045": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-046": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-047": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-048": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-049": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-050": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-051": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-052": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-053": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-054": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-055": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-056": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-057": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-058": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-059": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-060": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-061": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-062": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-063": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-064": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-065": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-066": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-067": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-068": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-069": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-070": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-071": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-072": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-073": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-074": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-075": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-076": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-077": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-078": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-079": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-080": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-081": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-082": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ },
+ "karniz-083": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "obj",
+   "stl"
+  ]
+ }
+}

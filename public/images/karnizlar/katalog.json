@@ -82,7 +82,47 @@
     "karniz-047",
     "karniz-048",
     "karniz-049",
-    "karniz-050"
+    "karniz-050",
+    "karniz-051",
+    "karniz-052",
+    "karniz-053",
+    "karniz-054",
+    "karniz-055",
+    "karniz-059",
+    "karniz-060",
+    "karniz-061"
+   ]
+  },
+  {
+   "id": 6,
+   "slug": "katalog-6-juda-ingichka",
+   "nomi": "Juda ingichka profil",
+   "karnizlar": [
+    "karniz-056",
+    "karniz-057",
+    "karniz-058",
+    "karniz-062",
+    "karniz-063",
+    "karniz-064",
+    "karniz-065",
+    "karniz-066",
+    "karniz-067",
+    "karniz-068",
+    "karniz-069",
+    "karniz-070",
+    "karniz-071",
+    "karniz-072",
+    "karniz-073",
+    "karniz-074",
+    "karniz-075",
+    "karniz-076",
+    "karniz-077",
+    "karniz-078",
+    "karniz-079",
+    "karniz-080",
+    "karniz-081",
+    "karniz-082",
+    "karniz-083"
    ]
   }
  ],
@@ -586,6 +626,336 @@
    "asl_oq": "IMAGE 2026-10-19 12:24:57.jpg",
    "asl_kok": "IMAGE 2026-10-19 12:24:55.jpg",
    "balandlik_nisbati": 0.195
+  },
+  {
+   "kod": "karniz-051",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-051-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-051-kok.jpg",
+   "asl_oq": "kar_051.jpg",
+   "asl_kok": "kar_051.jpg",
+   "balandlik_nisbati": 0.268
+  },
+  {
+   "kod": "karniz-052",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-052-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-052-kok.jpg",
+   "asl_oq": "kar_052.jpg",
+   "asl_kok": "kar_052.jpg",
+   "balandlik_nisbati": 0.247
+  },
+  {
+   "kod": "karniz-053",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-053-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-053-kok.jpg",
+   "asl_oq": "kar_053.jpg",
+   "asl_kok": "kar_053.jpg",
+   "balandlik_nisbati": 0.273
+  },
+  {
+   "kod": "karniz-054",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-054-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-054-kok.jpg",
+   "asl_oq": "kar_054.jpg",
+   "asl_kok": "kar_054.jpg",
+   "balandlik_nisbati": 0.249
+  },
+  {
+   "kod": "karniz-055",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-055-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-055-kok.jpg",
+   "asl_oq": "kar_055.jpg",
+   "asl_kok": "kar_055.jpg",
+   "balandlik_nisbati": 0.248
+  },
+  {
+   "kod": "karniz-056",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-056-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-056-kok.jpg",
+   "asl_oq": "kar_056.jpg",
+   "asl_kok": "kar_056.jpg",
+   "balandlik_nisbati": 0.235
+  },
+  {
+   "kod": "karniz-057",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-057-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-057-kok.jpg",
+   "asl_oq": "kar_057.jpg",
+   "asl_kok": "kar_057.jpg",
+   "balandlik_nisbati": 0.21
+  },
+  {
+   "kod": "karniz-058",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-058-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-058-kok.jpg",
+   "asl_oq": "kar_058.jpg",
+   "asl_kok": "kar_058.jpg",
+   "balandlik_nisbati": 0.236
+  },
+  {
+   "kod": "karniz-059",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-059-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-059-kok.jpg",
+   "asl_oq": "kar_059.jpg",
+   "asl_kok": "kar_059.jpg",
+   "balandlik_nisbati": 0.248
+  },
+  {
+   "kod": "karniz-060",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-060-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-060-kok.jpg",
+   "asl_oq": "kar_060.jpg",
+   "asl_kok": "kar_060.jpg",
+   "balandlik_nisbati": 0.248
+  },
+  {
+   "kod": "karniz-061",
+   "katalog": "Ingichka profil",
+   "papka": "katalog-5-ingichka",
+   "oq_fon": "katalog-5-ingichka/karniz-061-oq.jpg",
+   "kok_fon": "katalog-5-ingichka/karniz-061-kok.jpg",
+   "asl_oq": "kar_061.jpg",
+   "asl_kok": "kar_061.jpg",
+   "balandlik_nisbati": 0.269
+  },
+  {
+   "kod": "karniz-062",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-062-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-062-kok.jpg",
+   "asl_oq": "kar_062.jpg",
+   "asl_kok": "kar_062.jpg",
+   "balandlik_nisbati": 0.221
+  },
+  {
+   "kod": "karniz-063",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-063-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-063-kok.jpg",
+   "asl_oq": "kar_063.jpg",
+   "asl_kok": "kar_063.jpg",
+   "balandlik_nisbati": 0.221
+  },
+  {
+   "kod": "karniz-064",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-064-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-064-kok.jpg",
+   "asl_oq": "kar_064.jpg",
+   "asl_kok": "kar_064.jpg",
+   "balandlik_nisbati": 0.23
+  },
+  {
+   "kod": "karniz-065",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-065-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-065-kok.jpg",
+   "asl_oq": "kar_065.jpg",
+   "asl_kok": "kar_065.jpg",
+   "balandlik_nisbati": 0.23
+  },
+  {
+   "kod": "karniz-066",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-066-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-066-kok.jpg",
+   "asl_oq": "kar_066.jpg",
+   "asl_kok": "kar_066.jpg",
+   "balandlik_nisbati": 0.23
+  },
+  {
+   "kod": "karniz-067",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-067-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-067-kok.jpg",
+   "asl_oq": "kar_067.jpg",
+   "asl_kok": "kar_067.jpg",
+   "balandlik_nisbati": 0.21
+  },
+  {
+   "kod": "karniz-068",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-068-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-068-kok.jpg",
+   "asl_oq": "kar_068.jpg",
+   "asl_kok": "kar_068.jpg",
+   "balandlik_nisbati": 0.21
+  },
+  {
+   "kod": "karniz-069",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-069-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-069-kok.jpg",
+   "asl_oq": "kar_069.jpg",
+   "asl_kok": "kar_069.jpg",
+   "balandlik_nisbati": 0.236
+  },
+  {
+   "kod": "karniz-070",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-070-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-070-kok.jpg",
+   "asl_oq": "kar_070.jpg",
+   "asl_kok": "kar_070.jpg",
+   "balandlik_nisbati": 0.209
+  },
+  {
+   "kod": "karniz-071",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-071-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-071-kok.jpg",
+   "asl_oq": "kar_071.jpg",
+   "asl_kok": "kar_071.jpg",
+   "balandlik_nisbati": 0.262
+  },
+  {
+   "kod": "karniz-072",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-072-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-072-kok.jpg",
+   "asl_oq": "kar_072.jpg",
+   "asl_kok": "kar_072.jpg",
+   "balandlik_nisbati": 0.27
+  },
+  {
+   "kod": "karniz-073",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-073-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-073-kok.jpg",
+   "asl_oq": "kar_073.jpg",
+   "asl_kok": "kar_073.jpg",
+   "balandlik_nisbati": 0.27
+  },
+  {
+   "kod": "karniz-074",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-074-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-074-kok.jpg",
+   "asl_oq": "kar_074.jpg",
+   "asl_kok": "kar_074.jpg",
+   "balandlik_nisbati": 0.271
+  },
+  {
+   "kod": "karniz-075",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-075-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-075-kok.jpg",
+   "asl_oq": "kar_075.jpg",
+   "asl_kok": "kar_075.jpg",
+   "balandlik_nisbati": 0.271
+  },
+  {
+   "kod": "karniz-076",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-076-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-076-kok.jpg",
+   "asl_oq": "kar_076.jpg",
+   "asl_kok": "kar_076.jpg",
+   "balandlik_nisbati": 0.233
+  },
+  {
+   "kod": "karniz-077",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-077-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-077-kok.jpg",
+   "asl_oq": "kar_077.jpg",
+   "asl_kok": "kar_077.jpg",
+   "balandlik_nisbati": 0.233
+  },
+  {
+   "kod": "karniz-078",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-078-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-078-kok.jpg",
+   "asl_oq": "kar_078.jpg",
+   "asl_kok": "kar_078.jpg",
+   "balandlik_nisbati": 0.233
+  },
+  {
+   "kod": "karniz-079",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-079-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-079-kok.jpg",
+   "asl_oq": "kar_079.jpg",
+   "asl_kok": "kar_079.jpg",
+   "balandlik_nisbati": 0.233
+  },
+  {
+   "kod": "karniz-080",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-080-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-080-kok.jpg",
+   "asl_oq": "kar_080.jpg",
+   "asl_kok": "kar_080.jpg",
+   "balandlik_nisbati": 0.233
+  },
+  {
+   "kod": "karniz-081",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-081-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-081-kok.jpg",
+   "asl_oq": "kar_081.jpg",
+   "asl_kok": "kar_081.jpg",
+   "balandlik_nisbati": 0.275
+  },
+  {
+   "kod": "karniz-082",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-082-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-082-kok.jpg",
+   "asl_oq": "kar_082.jpg",
+   "asl_kok": "kar_082.jpg",
+   "balandlik_nisbati": 0.207
+  },
+  {
+   "kod": "karniz-083",
+   "katalog": "Juda ingichka profil",
+   "papka": "katalog-6-juda-ingichka",
+   "oq_fon": "katalog-6-juda-ingichka/karniz-083-oq.jpg",
+   "kok_fon": "katalog-6-juda-ingichka/karniz-083-kok.jpg",
+   "asl_oq": "kar_083.jpg",
+   "asl_kok": "kar_083.jpg",
+   "balandlik_nisbati": 0.176
   }
  ]
 }

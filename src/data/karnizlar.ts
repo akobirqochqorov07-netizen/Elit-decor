@@ -178,16 +178,26 @@ function dkCode(kod: string): string | null {
     return match ? `DK-${match[1]}` : null;
 }
 
-/** 3D/CAD fayl URL — fayl bo'lmasa null (UI yashiradi yoki o'chirilgan holat) */
+// ─── 3D va yuklab olish fayllari ─────────────────────────────────────────────
+// Qaysi karnizda qaysi fayl borligi src/data/karniz-files.json da yoziladi.
+// Fayl joyi: public/products/<kod>/model.glb  va  public/products/<kod>/downloads/DK-XXX.<ext>
+import fileManifest from './karniz-files.json';
+
+interface KarnizFiles {
+    model: boolean;
+    formats: string[];
+}
+const files = fileManifest as Record<string, KarnizFiles>;
+
+/** 3D/CAD fayl URL — fayl bo'lmasa null (UI tugmani ko'rsatmaydi) */
 export function getDownloadUrl(kod: string, ext: string): string | null {
     const dk = dkCode(kod);
     if (!dk) return null;
-    if (kod !== 'karniz-001') return null;
-    if (ext === 'pdf') return null;
+    if (!files[kod]?.formats.includes(ext)) return null;
     return `/products/${kod}/downloads/${dk}.${ext}`;
 }
 
 export function getModel3dUrl(kod: string): string | null {
-    if (kod !== 'karniz-001') return null;
+    if (!files[kod]?.model) return null;
     return `/products/${kod}/model.glb`;
 }
