@@ -115,6 +115,13 @@
   overflow: hidden;
 }
 
+/* Elit Dekor asosiy yashil: zumrad → laym gradient (dikart'ning tekis #86c540 dan farqli) */
+:root {
+  --ed-green: #12a870;
+  --ed-green-dark: #0c8a5a;
+  --ed-green-grad: linear-gradient(135deg, #0e9f6e 0%, #4cc75a 100%);
+}
+
 /* Sticky header */
 .header-wrapper {
   position: sticky;
@@ -241,50 +248,7 @@
   }
 }
 
-/* ── Service card mobile layout (.sv, .ph, .tg) ─────────────────── */
-@media (max-width: 860px) {
-
-  .sv,
-  .sv:nth-child(even) {
-    display: grid;
-    grid-template-columns: 42% 1fr;
-    gap: 14px;
-    padding: 20px 0;
-    align-items: center;
-  }
-
-  .sv:nth-child(even) {
-    grid-template-columns: 1fr 42%;
-  }
-
-  .sv:nth-child(even) .ph {
-    order: 2;
-  }
-
-  .sv .ph {
-    aspect-ratio: 3 / 4;
-  }
-
-  .sv h2 {
-    font-size: 22px;
-    margin-bottom: 8px;
-  }
-
-  .sv p {
-    font-size: 13.5px;
-    line-height: 1.5;
-    margin-bottom: 12px;
-  }
-
-  .tg {
-    margin-bottom: 12px;
-  }
-
-  .tg span {
-    font-size: 11px;
-    padding: 2px 10px;
-  }
-}
+/* Xizmatlar sahifasi: telefonda kartalar tepadan pastga (rasm tepada, matn pastda) */
 
 /* ── Phone floating animation (BlogSection) ─────────────────────── */
 @keyframes floatPhone {

@@ -101,7 +101,7 @@ function KarnizGallery({ rasms, nomi }: { rasms: string[]; nomi: string }) {
                             width: '80px',
                             height: '60px',
                             backgroundColor: '#152f40',
-                            border: i === active ? '2px solid #86c540' : '2px solid transparent',
+                            border: i === active ? '2px solid var(--ed-green)' : '2px solid transparent',
                         }}
                         aria-label={`Rasm ${i + 1}`}
                     >
@@ -164,7 +164,7 @@ function InfoPanel({
                             style={{
                                 width: '42px',
                                 height: '42px',
-                                border: '2px solid #86c540',
+                                border: '2px solid var(--ed-green)',
                                 borderRadius: '4px',
                                 backgroundColor: 'white',
                             }}
@@ -281,9 +281,9 @@ function OrderColumn({ item }: { item: ReturnType<typeof getKarnizByKod> }) {
                     onClick={handleAddCart}
                     className="w-full flex items-center justify-center gap-2 py-3 font-bold text-sm transition-all"
                     style={{
-                        border: '2px solid #86c540',
-                        color: added || inCart ? 'white' : '#86c540',
-                        backgroundColor: added || inCart ? '#86c540' : 'transparent',
+                        border: '2px solid var(--ed-green)',
+                        color: added || inCart ? 'white' : 'var(--ed-green)',
+                        background: added || inCart ? 'var(--ed-green-grad)' : 'transparent',
                     }}
                 >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -426,7 +426,7 @@ function View3DButton({ kod, nomi }: { kod: string; nomi: string }) {
                         style={{
                             width: 44,
                             height: 44,
-                            backgroundColor: '#86c540',
+                            background: 'var(--ed-green-grad)',
                             transform: 'rotate(12deg)',
                         }}
                     >
@@ -485,7 +485,7 @@ function KarnizDetailPageInner({ slug, kod }: { slug: string; kod: string }) {
                 <main className="flex-1 flex items-center justify-center">
                     <div className="text-center">
                         <h1 className="text-2xl text-gray-700 mb-4">Mahsulot topilmadi</h1>
-                        <Link href={`/katalog/karnizlar/${slug}/`} className="text-[#86c540] underline">
+                        <Link href={`/katalog/karnizlar/${slug}/`} className="text-[color:var(--ed-green)] underline">
                             Katalogga qaytish
                         </Link>
                     </div>
@@ -524,7 +524,7 @@ function KarnizDetailPageInner({ slug, kod }: { slug: string; kod: string }) {
                                 <Link
                                     href={`/katalog/karnizlar/${slug}/${prev.kod}/`}
                                     className="flex items-center gap-1 font-bold text-sm py-2 px-1 transition-colors hover:opacity-80"
-                                    style={{ color: '#86c540' }}
+                                    style={{ color: 'var(--ed-green)' }}
                                     title={prev.korsatiladigan_kod}
                                 >
                                     ‹ {prev.korsatiladigan_kod}
@@ -537,7 +537,7 @@ function KarnizDetailPageInner({ slug, kod }: { slug: string; kod: string }) {
                                 <Link
                                     href={`/katalog/karnizlar/${slug}/${next.kod}/`}
                                     className="flex items-center gap-1 font-bold text-sm py-2 px-1 transition-colors hover:opacity-80"
-                                    style={{ color: '#86c540' }}
+                                    style={{ color: 'var(--ed-green)' }}
                                     title={next.korsatiladigan_kod}
                                 >
                                     {next.korsatiladigan_kod} ›
@@ -658,8 +658,8 @@ function ChatFloating() {
                 width: '56px',
                 height: '56px',
                 borderRadius: '50%',
-                backgroundColor: '#86c540',
-                boxShadow: '0 0 0 6px rgba(134,197,64,0.2)',
+                background: 'var(--ed-green-grad)',
+                boxShadow: '0 0 0 6px rgba(18,168,112,0.2)',
             }}
             aria-label="Telegram da so'rash"
         >
@@ -691,7 +691,7 @@ function BackToTop() {
                 width: '48px',
                 height: '48px',
                 borderRadius: '50%',
-                backgroundColor: '#86c540',
+                background: 'var(--ed-green-grad)',
             }}
             aria-label="Tepaga"
         >

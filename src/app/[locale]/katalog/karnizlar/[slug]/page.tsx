@@ -64,7 +64,7 @@ function SortDropdown({ value, onChange }: { value: SortKey; onChange: (v: SortK
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#86c540"
+                    stroke="#12a870"
                     strokeWidth="2.5"
                     style={{ transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}
                 >
@@ -83,7 +83,7 @@ function SortDropdown({ value, onChange }: { value: SortKey; onChange: (v: SortK
                             key={opt.key}
                             onClick={() => { onChange(opt.key); setOpen(false); }}
                             className="px-4 py-2.5 cursor-pointer hover:bg-gray-50 transition-colors text-sm"
-                            style={{ color: opt.key === value ? '#86c540' : '#333', fontWeight: opt.key === value ? 600 : 400 }}
+                            style={{ color: opt.key === value ? 'var(--ed-green)' : '#333', fontWeight: opt.key === value ? 600 : 400 }}
                             role="option"
                             aria-selected={opt.key === value}
                         >
@@ -154,7 +154,7 @@ function KatalogListPageInner({ slug }: { slug: string }) {
                 <main className="flex-1 flex items-center justify-center">
                     <div className="text-center">
                         <h1 className="text-2xl font-semibold text-gray-700 mb-4">Katalog topilmadi</h1>
-                        <Link href="/katalog/karnizlar/" className="text-[#86c540] underline">
+                        <Link href="/katalog/karnizlar/" className="text-[color:var(--ed-green)] underline">
                             Barcha kataloglarga qaytish
                         </Link>
                     </div>
@@ -219,7 +219,7 @@ function KatalogListPageInner({ slug }: { slug: string }) {
                                     type="checkbox"
                                     checked={filterInStock}
                                     onChange={(e) => setFilterInStock(e.target.checked)}
-                                    style={{ accentColor: '#86c540', width: 16, height: 16 }}
+                                    style={{ accentColor: 'var(--ed-green)', width: 16, height: 16 }}
                                 />
                                 <span>Faqat omborda borlar</span>
                             </label>
@@ -245,7 +245,7 @@ function KatalogListPageInner({ slug }: { slug: string }) {
                                     <p className="text-gray-500 text-lg">Hech narsa topilmadi</p>
                                     <button
                                         onClick={() => setFilterInStock(false)}
-                                        className="mt-4 text-sm text-[#86c540] underline"
+                                        className="mt-4 text-sm text-[color:var(--ed-green)] underline"
                                     >
                                         Filtrni tozalash
                                     </button>

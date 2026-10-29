@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import HeroSlider from '@/components/HeroSlider';
+import HomeIcon from '@/components/home/HomeIcons';
 import KarnizHomeSection from '@/components/karnizlar/KarnizHomeSection';
 import ServicesSection from '@/components/ServicesSection';
 import BlogSection from '@/components/BlogSection';
@@ -78,83 +79,111 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* Why choose us - Premium Redesign */}
-          <section className="py-16">
-            <div className="text-center mb-12">
-              <h2 className="font-sans text-3xl md:text-4xl font-bold text-gray-900 mb-4 uppercase tracking-wide">
+          {/* Why choose us */}
+          <section className="py-10 sm:py-16">
+            <div className="text-center mb-7 sm:mb-12">
+              <h2 className="font-sans text-2xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 uppercase tracking-wide">
                 {t('why.title')}
               </h2>
-              <div
-                className="w-24 h-1 mx-auto rounded"
-                style={{ backgroundColor: '#D4AF37' }}
-              ></div>
+              <div className="w-20 sm:w-24 h-1 mx-auto rounded" style={{ backgroundColor: '#D4AF37' }}></div>
             </div>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
               {[
-                {
-                  img: 'https://dikart.ru/local/templates/dikart-new/images/img-02.svg',
-                  title: t('why.item1_title'),
-                  text: t('why.item1_desc'),
-                },
-                {
-                  img: 'https://dikart.ru/local/templates/dikart-new/images/img-04.svg',
-                  title: t('why.item2_title'),
-                  text: t('why.item2_desc'),
-                },
-                {
-                  img: 'https://dikart.ru/local/templates/dikart-new/images/img-05.svg',
-                  title: t('why.item3_title'),
-                  text: t('why.item3_desc'),
-                },
-                {
-                  img: 'https://dikart.ru/local/templates/dikart-new/images/img-06.svg',
-                  title: t('why.item4_title'),
-                  text: t('why.item4_desc'),
-                },
-              ]?.map((item, i) => (
+                { icon: 'quality', title: t('why.item1_title'), text: t('why.item1_desc') },
+                { icon: 'assortment', title: t('why.item2_title'), text: t('why.item2_desc') },
+                { icon: 'complex', title: t('why.item3_title'), text: t('why.item3_desc') },
+                { icon: 'experience', title: t('why.item4_title'), text: t('why.item4_desc') },
+              ].map((item, i) => (
                 <li
                   key={i}
-                  className="group flex flex-col items-center text-center p-8 bg-white border border-gray-100 rounded-2xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden"
+                  className="group flex flex-row sm:flex-col items-center sm:items-center gap-4 sm:gap-0 text-left sm:text-center p-4 sm:p-8 bg-white border border-gray-100 rounded-2xl hover:shadow-2xl transition-all duration-300 sm:hover:-translate-y-2 relative overflow-hidden"
                 >
                   <div
                     className="absolute top-0 left-0 w-full h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
                     style={{ backgroundColor: '#D4AF37' }}
                   ></div>
-                  <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center shadow-sm mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <img
-                      src={item?.img}
-                      alt={item?.title}
-                      className="w-10 h-10"
-                      style={{ filter: 'grayscale(100%) brightness(0)' }}
-                    />
+                  <div
+                    className="w-12 h-12 sm:w-20 sm:h-20 shrink-0 rounded-full flex items-center justify-center sm:mb-6 sm:group-hover:scale-110 transition-transform duration-300"
+                    style={{ backgroundColor: '#f6f1e3', color: '#152f40' }}
+                  >
+                    <HomeIcon name={item.icon as any} className="w-6 h-6 sm:w-9 sm:h-9" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-amber-600 transition-colors">
-                    {item?.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{item?.text}</p>
+                  <div className="min-w-0">
+                    <h3 className="text-base sm:text-xl font-bold text-gray-800 mb-1 sm:mb-3 group-hover:text-amber-600 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-[13px] sm:text-sm text-gray-600 leading-snug sm:leading-relaxed">
+                      {item.text}
+                    </p>
+                  </div>
                 </li>
               ))}
             </ul>
           </section>
         </div>
 
-        {/* Gallery section - Premium Redesign */}
-        <section className="py-20 relative bg-gray-50 w-full">
+        {/* Gallery section */}
+        <section className="py-10 sm:py-16 lg:py-20 relative bg-gray-50 w-full">
           <div className="container mx-auto px-4" style={{ maxWidth: '1200px' }}>
-            <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0">
-              {/* Text Content */}
-              <div className="lg:w-[48%] flex flex-col items-start pr-0">
-                <h2 className="font-sans text-3xl md:text-5xl font-bold text-gray-900 mb-6 uppercase tracking-wider leading-tight">
+            <div className="flex flex-col lg:flex-row justify-between items-stretch lg:items-center gap-6 lg:gap-0">
+              {/* Rasm — telefonda tepada */}
+              <div className="order-1 lg:order-2 lg:w-[48%] w-full relative">
+                <img
+                  src="/images/galereya1/full/dekor-001.webp"
+                  alt={t('gallery.image_overlay')}
+                  className="relative w-full h-56 sm:h-80 lg:h-[500px] rounded-2xl object-cover shadow-xl ml-auto"
+                  loading="lazy"
+                />
+                <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6">
+                  <div className="backdrop-blur-md bg-black/25 border border-white/20 px-4 py-3 sm:px-8 sm:py-5 rounded-xl w-full text-center">
+                    <span className="text-white text-xs sm:text-base font-medium tracking-widest uppercase">
+                      {t('gallery.image_overlay')}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Matn */}
+              <div className="order-2 lg:order-1 lg:w-[48%] flex flex-col items-start pr-0">
+                <h2 className="font-sans text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-6 uppercase tracking-wider leading-tight">
                   {t('gallery.title')}
                   <br /> <span style={{ color: '#D4AF37' }}>{t('gallery.subtitle')}</span>
                 </h2>
-                <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-lg">
+                <p className="text-gray-600 text-sm sm:text-lg mb-5 sm:mb-10 leading-relaxed max-w-lg">
                   {t('gallery.desc')}
                 </p>
 
+                {/* Ko'rsatkichlar — telefonda 3 ustunli ixcham qator */}
+                <ul className="grid grid-cols-3 gap-2 sm:gap-4 xl:gap-8 w-full mb-6 sm:mb-0 order-1 sm:order-2">
+                  {[
+                    { icon: 'shield', stat: '100%', text: t('gallery.stat1') },
+                    { icon: 'design', stat: '250+', text: t('gallery.stat2') },
+                    { icon: 'home', stat: '10K+', text: t('gallery.stat3') },
+                  ].map((item, i) => (
+                    <li
+                      key={i}
+                      className="flex flex-col items-center sm:items-start text-center sm:text-left bg-white sm:bg-transparent rounded-xl sm:rounded-none border border-gray-100 sm:border-0 px-2 py-3 sm:p-0"
+                    >
+                      <HomeIcon
+                        name={item.icon as any}
+                        className="w-6 h-6 sm:w-9 sm:h-9 mb-1.5 sm:mb-3 text-gray-800"
+                      />
+                      <p
+                        className="font-bold text-lg sm:text-xl xl:text-2xl leading-none mb-1"
+                        style={{ color: '#D4AF37' }}
+                      >
+                        {item.stat}
+                      </p>
+                      <p className="text-[10px] sm:text-[11px] xl:text-xs text-gray-500 uppercase tracking-wide font-medium leading-tight">
+                        {item.text}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+
                 <Link
                   href="/gallery/"
-                  className="group inline-flex items-center justify-center bg-gray-900 text-white px-8 py-4 rounded-full font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl mb-12"
+                  className="group inline-flex w-full sm:w-auto items-center justify-center bg-gray-900 text-white px-8 py-4 rounded-full font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl order-2 sm:order-1 sm:mb-12"
                 >
                   {t('gallery.btn')}
                   <svg
@@ -163,68 +192,9 @@ export default function HomePage() {
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </Link>
-
-                <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4 xl:gap-8 w-full">
-                  {[
-                    {
-                      img: 'https://dikart.ru/local/templates/dikart-new/images/img-07.png',
-                      stat: '100%',
-                      text: t('gallery.stat1'),
-                    },
-                    {
-                      img: 'https://dikart.ru/local/templates/dikart-new/images/img-08.png',
-                      stat: '250+',
-                      text: t('gallery.stat2'),
-                    },
-                    {
-                      img: 'https://dikart.ru/local/templates/dikart-new/images/img-09.png',
-                      stat: '10K+',
-                      text: t('gallery.stat3'),
-                    },
-                  ]?.map((item, i) => (
-                    <li key={i} className="flex flex-col items-start">
-                      <img
-                        src={item?.img}
-                        alt={item?.text}
-                        className="w-10 h-10 mb-3"
-                        style={{ filter: 'grayscale(100%) brightness(0)' }}
-                      />
-                      <p
-                        className="font-bold text-xl xl:text-2xl leading-none mb-1"
-                        style={{ color: '#D4AF37' }}
-                      >
-                        {item?.stat}
-                      </p>
-                      <p className="text-[11px] xl:text-xs text-gray-500 uppercase tracking-wide font-medium whitespace-nowrap">
-                        {item?.text}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Image Showcase */}
-              <div className="lg:w-[48%] w-full relative">
-                <img
-                  src="https://dikart.ru/local/templates/dikart-new/images/img-10.jpg"
-                  alt={t('gallery.image_overlay')}
-                  className="relative w-full h-[500px] rounded-2xl object-cover shadow-2xl ml-auto"
-                />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="backdrop-blur-md bg-white/10 border border-white/20 px-8 py-5 rounded-xl w-full text-center">
-                    <span className="text-white text-sm md:text-base font-medium tracking-widest uppercase">
-                      {t('gallery.image_overlay')}
-                    </span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

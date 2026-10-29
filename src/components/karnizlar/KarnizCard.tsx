@@ -10,7 +10,7 @@
  * │                      ┌───────────────────┤  ← narx tabletkasi
  * │                      │ 45 000 so'm/p.m.  │    #b8bec3, left-rounded
  * ├──────────────────────┴───────────────────┤
- * │ █ 24h  52.2 p.m.         30H×30mm       │  ← yashil lenta #86c540
+ * │ █ 24h  52.2 p.m.         30H×30mm       │  ← yashil lenta (var(--ed-green-grad))
  * └──────────────────────────────────────────┘
  */
 
@@ -64,7 +64,7 @@ export default function KarnizCard({ item }: KarnizCardProps) {
         <div className="group relative">
         <Link
             href={href}
-            className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#86c540] focus-visible:ring-offset-2"
+            className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ed-green)] focus-visible:ring-offset-2"
             style={{ cursor: 'pointer' }}
         >
             {/* Toast */}
@@ -72,7 +72,7 @@ export default function KarnizCard({ item }: KarnizCardProps) {
                 <div
                     className="absolute top-2 left-1/2 z-20 text-white text-xs font-semibold px-3 py-1 rounded shadow-lg whitespace-nowrap pointer-events-none"
                     style={{
-                        backgroundColor: '#86c540',
+                        background: 'var(--ed-green-grad)',
                         transform: 'translateX(-50%)',
                         animation: 'fadeIn 0.2s ease-out',
                     }}
@@ -157,7 +157,7 @@ export default function KarnizCard({ item }: KarnizCardProps) {
                 <div
                     className={`kc-ribbon ${ribbonEmpty ? 'kc-ribbon-empty ' : ''}flex items-center justify-between px-2`}
                     style={{
-                        backgroundColor: '#86c540',
+                        background: 'var(--ed-green-grad)',
                         height: '32px',
                         width: '100%',
                     }}
@@ -176,7 +176,7 @@ export default function KarnizCard({ item }: KarnizCardProps) {
                         >
                             {/* 24h ikonka */}
                             <svg width="13" height="11" viewBox="0 0 13 11" fill="none">
-                                <text x="0" y="10" style={{ fill: '#86c540', fontSize: '9px', fontWeight: 700 }}>
+                                <text x="0" y="10" style={{ fill: 'var(--ed-green)', fontSize: '9px', fontWeight: 700 }}>
                                     24
                                 </text>
                             </svg>
@@ -210,7 +210,7 @@ export default function KarnizCard({ item }: KarnizCardProps) {
                         style={{
                             bottom: '40px',
                             left: '8px',
-                            backgroundColor: inCart ? '#86c540' : 'rgba(134,197,64,0.85)',
+                            background: inCart ? 'var(--ed-green-grad)' : 'linear-gradient(135deg, rgba(14,159,110,0.88), rgba(76,199,90,0.88))',
                             fontSize: '18px',
                             lineHeight: 1,
                         }}

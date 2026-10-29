@@ -136,7 +136,7 @@ export default function OrderRequestForm({
       <div className="text-center py-8 px-4">
         <div
           className="text-5xl mb-4"
-          style={{ color: '#86c540' }}
+          style={{ color: 'var(--ed-green)' }}
         >
           ✓
         </div>
@@ -155,7 +155,7 @@ export default function OrderRequestForm({
 
   const isStandalone = variant === 'standalone';
   const inputCls = (err: boolean) =>
-    `w-full border ${err ? 'border-red-400' : 'border-gray-300'} rounded px-3 py-2.5 text-sm outline-none focus:border-[#86c540] focus:ring-1 focus:ring-[#86c540]/30 transition-all`;
+    `w-full border ${err ? 'border-red-400' : 'border-gray-300'} rounded px-3 py-2.5 text-sm outline-none focus:border-[color:var(--ed-green)] focus:ring-1 focus:ring-[color:var(--ed-green)]/30 transition-all`;
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-3" noValidate>
@@ -252,7 +252,7 @@ export default function OrderRequestForm({
           checked={agree}
           onChange={(e) => setAgree(e.target.checked)}
           className="mt-0.5 w-4 h-4 rounded flex-shrink-0"
-          style={{ accentColor: '#86c540' }}
+          style={{ accentColor: 'var(--ed-green)' }}
         />
         <span className="text-xs text-gray-500 leading-snug">
           Shaxsiy ma&apos;lumotlarni qayta ishlashga roziman
