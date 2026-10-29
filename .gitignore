@@ -19,9 +19,7 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 
-# Large binary assets (3D modellar .gitignore dan olib tashlandi: saytga kerak)
-*.mp4
-*.MP4
+# Videolar (public/video*.MP4) saytga kerak, shuning uchun git'ga kiradi
 
 # Vercel deployment
 .vercel/
