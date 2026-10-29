@@ -264,14 +264,14 @@ function CookieNotice() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 z-40 shadow-lg">
+    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-3 py-2 sm:p-4 z-40 shadow-lg">
       <div
-        className="container mx-auto px-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
+        className="container mx-auto px-1 sm:px-4 flex flex-row items-center justify-between gap-3"
         style={{ maxWidth: '1200px' }}
       >
-        <p className="text-sm text-gray-600">
+        <p className="text-xs sm:text-sm text-gray-600 leading-snug">
           {t('desc')}{' '}
-          <Link href="/information_for_client/1430021/" className="text-green-600 hover:underline">
+          <Link href="/information_for_client/1430021/" className="hidden sm:inline text-green-600 hover:underline">
             {t('link')}
           </Link>
         </p>
@@ -280,7 +280,7 @@ function CookieNotice() {
             sessionStorage.setItem('cookies_accepted', '1');
             setVisible(false);
           }}
-          className="flex-shrink-0 bg-primary text-white px-6 py-2 rounded font-medium hover:bg-primary-dark transition-colors text-sm"
+          className="flex-shrink-0 bg-primary text-white px-4 sm:px-6 h-11 sm:h-auto sm:py-2 rounded font-medium hover:bg-primary-dark transition-colors text-sm"
         >
           {t('btn')}
         </button>

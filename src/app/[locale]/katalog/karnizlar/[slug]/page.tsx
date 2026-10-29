@@ -172,7 +172,7 @@ function KatalogListPageInner({ slug }: { slug: string }) {
 
                     {/* Breadcrumb */}
                     <nav className="flex flex-wrap items-center gap-0 text-base mb-5" style={{ color: '#333' }}>
-                        <Link href="/" className="hover:underline">Bosh sahifa</Link>
+                        <Link href="/" className="inline-block py-2 hover:underline">Bosh sahifa</Link>
                         <span className="mx-1 text-gray-400">/</span>
                         <Link href="/katalog/karnizlar/" className="hover:underline">Karnizlar</Link>
                         <span className="mx-1 text-gray-400">/</span>
@@ -297,10 +297,7 @@ function KatalogListPageInner({ slug }: { slug: string }) {
           .karniz-grid { grid-template-columns: repeat(3, 1fr); }
         }
         @media (max-width: 767px) {
-          .karniz-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 479px) {
-          .karniz-grid { grid-template-columns: repeat(1, 1fr); }
+          .karniz-grid { grid-template-columns: repeat(2, 1fr); column-gap: 10px; row-gap: 16px; }
         }
       `}</style>
         </div>
