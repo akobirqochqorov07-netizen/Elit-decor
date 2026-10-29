@@ -38,7 +38,7 @@ export default function KarnizHomeSection({ title }: KarnizHomeSectionProps) {
           </p>
           <span
             className="inline-block self-start px-5 py-3 text-sm font-bold text-white transition-colors"
-            style={{ backgroundColor: '#86c540' }}
+            style={{ background: 'var(--ed-green-grad)' }}
           >
             {t('karniz_btn')} →
           </span>

@@ -43,14 +43,12 @@ function SocialLink({
       rel="noopener noreferrer"
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
-      className="inline-flex items-center gap-3"
+      className="inline-flex items-center gap-2 sm:gap-3"
       style={{ textDecoration: 'none' }}
     >
       <span
-        className="flex items-center justify-center rounded-full transition-all duration-300 flex-shrink-0"
+        className="flex items-center justify-center rounded-full transition-all duration-300 flex-shrink-0 w-9 h-9 sm:w-[42px] sm:h-[42px]"
         style={{
-          width: 42,
-          height: 42,
           background: hov ? color : 'transparent',
           border: `1.5px solid ${color}`,
           color: hov ? '#fff' : color,
@@ -60,12 +58,12 @@ function SocialLink({
       </span>
       <span className="flex flex-col">
         <span
-          className="font-semibold leading-tight transition-colors duration-200"
-          style={{ color: hov ? color : '#1a1a1a', fontSize: 15 }}
+          className="font-semibold leading-tight transition-colors duration-200 text-[13px] sm:text-[15px]"
+          style={{ color: hov ? color : '#1a1a1a' }}
         >
           {label}
         </span>
-        <span className="text-gray-400 leading-tight mt-0.5" style={{ fontSize: 13 }}>
+        <span className="text-gray-400 leading-tight mt-0.5 text-[11px] sm:text-[13px]">
           {handle}
         </span>
       </span>
@@ -130,20 +128,11 @@ export default function BlogSection() {
   */
   return (
     <div ref={sectionRef} className="border-t border-gray-100 w-full overflow-x-hidden">
-      <div className="flex flex-col lg:flex-row lg:items-stretch" style={{ minHeight: 480 }}>
+      <div className="flex flex-row lg:items-stretch lg:min-h-[480px]">
         {/* ══════════════════════════════════════
             LEFT — text column (constrained width)
         ══════════════════════════════════════ */}
-        <div
-          className="flex-shrink-0 flex items-center"
-          style={{
-            /* On desktop: fixed width so mockup gets maximum space */
-            width: '100%',
-            maxWidth: '400px',
-            padding: '60px 32px 60px 24px',
-            /* on lg screens push to left side */
-          }}
-        >
+        <div className="order-2 lg:order-1 flex-1 min-w-0 lg:flex-none lg:flex-shrink-0 lg:w-full lg:max-w-[400px] flex items-center py-6 pl-1 pr-3 sm:py-10 sm:pl-4 sm:pr-8 lg:py-[60px] lg:pl-6 lg:pr-8">
           <div
             className="w-full"
             style={{
@@ -155,24 +144,25 @@ export default function BlogSection() {
           >
             {/* eyebrow */}
             <p
-              className="text-xs font-bold uppercase tracking-[0.22em] mb-3"
+              className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] sm:tracking-[0.22em] mb-2 sm:mb-3"
               style={{ color: '#B8965A' }}
             >
               {t('blog.subtitle')}
             </p>
 
             {/* headline — matches other sections */}
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight mb-3">
+            <h2 className="text-[17px] sm:text-3xl font-bold text-gray-900 leading-tight mb-3">
               {t('blog.title')}
             </h2>
 
             {/* sub */}
-            <p className="text-gray-500 leading-relaxed mb-7" style={{ fontSize: 15 }}>
+            <p className="hidden sm:block text-gray-500 leading-relaxed mb-7" style={{ fontSize: 15 }}>
               {t('blog.header_desc')}
             </p>
 
             {/* gold rule */}
             <div
+              className="hidden sm:block"
               style={{
                 width: 36,
                 height: 2,
@@ -183,11 +173,11 @@ export default function BlogSection() {
             />
 
             {/* Telegram */}
-            <div className="mb-6">
-              <h3 className="font-bold text-gray-900 mb-1" style={{ fontSize: 15 }}>
+            <div className="mb-4 sm:mb-6">
+              <h3 className="font-bold text-gray-900 mb-2 sm:mb-1 text-[13px] sm:text-[15px]">
                 {t('blog.tg_block_title')}
               </h3>
-              <p className="text-gray-500 mb-4 leading-snug" style={{ fontSize: 13 }}>
+              <p className="hidden sm:block text-gray-500 mb-4 leading-snug" style={{ fontSize: 13 }}>
                 {t('blog.tg_block_desc')}
               </p>
               <SocialLink
@@ -210,10 +200,10 @@ export default function BlogSection() {
 
             {/* Instagram */}
             <div>
-              <h3 className="font-bold text-gray-900 mb-1" style={{ fontSize: 15 }}>
+              <h3 className="font-bold text-gray-900 mb-2 sm:mb-1 text-[13px] sm:text-[15px]">
                 {t('blog.ig_block_title')}
               </h3>
-              <p className="text-gray-500 mb-4 leading-snug" style={{ fontSize: 13 }}>
+              <p className="hidden sm:block text-gray-500 mb-4 leading-snug" style={{ fontSize: 13 }}>
                 {t('blog.ig_block_desc')}
               </p>
               <SocialLink
@@ -232,22 +222,17 @@ export default function BlogSection() {
             flex-1 so it fills all remaining space
         ══════════════════════════════════════ */}
         <div
-          className="flex-1 flex items-end justify-end overflow-visible relative"
+          className="order-1 lg:order-2 w-[46%] shrink-0 lg:w-auto lg:flex-1 flex items-end justify-center lg:justify-end overflow-hidden lg:overflow-visible relative lg:min-h-[320px] lg:-mr-10"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? 'none' : 'translateY(28px)',
             transition:
               'opacity 1s cubic-bezier(0.22,1,0.36,1) 0.15s, transform 1s cubic-bezier(0.22,1,0.36,1) 0.15s',
-            minHeight: 320,
-            /* Give mockup more room by overflowing right edge */
-            marginRight: '-40px',
           }}
         >
           <div
-            className="relative select-none"
+            className="relative select-none w-[170%] shrink-0 lg:w-[120%]"
             style={{
-              /* LARGER — extend beyond flex-1 to make it dominant */
-              width: '120%',
               filter: 'drop-shadow(0 24px 64px rgba(0,0,0,0.13))',
             }}
           >

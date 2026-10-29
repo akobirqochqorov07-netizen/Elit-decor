@@ -17,21 +17,21 @@ const serviceItems = [
     img: '/images/rasm8.jpg',
     titleKey: 'services.s2',
     descKey: 'services.d2',
-    accent: '#2563eb',
+    accent: '#D4AF37',
   },
   {
     id: 3,
     img: '/images/rasm9.jpg',
     titleKey: 'services.s3',
     descKey: 'services.d3',
-    accent: '#16a34a',
+    accent: '#D4AF37',
   },
   {
     id: 4,
     img: '/images/rasm10.jpg',
     titleKey: 'services.s4',
     descKey: 'services.d4',
-    accent: '#9333ea',
+    accent: '#D4AF37',
   },
 ];
 

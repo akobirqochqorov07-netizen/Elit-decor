@@ -45,16 +45,16 @@ export default async function ServicesPage() {
 
       <main className="flex-1">
         {/* ── 1. HERO TITLE ─────────────────────────────────────── */}
-        <section className="pt-16 pb-10 text-center px-4 bg-white">
-          <nav className="flex items-center justify-center gap-2 text-sm text-gray-500 mb-8">
-            <Link href="/" className="hover:text-accent transition-colors">
+        <section className="pt-10 sm:pt-16 pb-8 sm:pb-10 text-center px-4 bg-white">
+          <nav className="flex items-center justify-center gap-2 text-sm text-gray-500 mb-5 sm:mb-8">
+            <Link href="/" className="inline-block py-2 hover:text-accent transition-colors">
               {t('breadcrumb_home')}
             </Link>
             <span>/</span>
             <span className="text-gray-800 font-medium">{t('breadcrumb_services')}</span>
           </nav>
 
-          <h1 className="font-sans text-3xl md:text-5xl font-bold text-gray-900 mb-4 uppercase tracking-wide">
+          <h1 className="font-sans text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 uppercase tracking-wide">
             {t('title')}
           </h1>
           <GoldSeparator />
@@ -69,43 +69,42 @@ export default async function ServicesPage() {
           <section key={svc.slug} className={svc.reverse ? 'bg-white' : 'bg-gray-50'}>
             <div className="container mx-auto" style={{ maxWidth: '1200px' }}>
               <div
-                className={`sv flex flex-col items-stretch ${svc.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
-                style={{ minHeight: 420 }}
+                className={`flex flex-col items-stretch lg:min-h-[420px] ${svc.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
               >
                 {/* Image */}
-                <div
-                  className="ph lg:w-1/2 overflow-hidden relative group"
-                  style={{ minHeight: 380 }}
-                >
+                <div className="lg:w-1/2 overflow-hidden relative group h-56 sm:h-72 lg:h-auto lg:min-h-[380px]">
                   <img
                     src={svc.img}
                     alt={svc.title}
-                    className="w-full h-full object-cover"
-                    style={{ minHeight: 380 }}
+                    className="absolute inset-0 w-full h-full object-cover"
                     loading="lazy"
                   />
+                  {/* Telefonda: kichik sarlavha-yorliq rasm ustida */}
+                  <span className="lg:hidden absolute left-3 bottom-3 bg-black/55 backdrop-blur-sm text-white text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full">
+                    {svc.subtitle}
+                  </span>
                 </div>
 
                 {/* Text */}
                 <div
-                  className={`lg:w-1/2 flex flex-col justify-center px-8 md:px-12 py-10 ${svc.reverse ? 'bg-white' : 'bg-gray-50'}`}
+                  className={`lg:w-1/2 flex flex-col justify-center px-5 sm:px-8 md:px-12 py-6 sm:py-10 ${svc.reverse ? 'bg-white' : 'bg-gray-50'}`}
                 >
-                  <span className="text-xs font-bold tracking-widest uppercase text-accent mb-3">
+                  <span className="hidden lg:block text-xs font-bold tracking-widest uppercase text-accent mb-3">
                     {svc.subtitle}
                   </span>
 
-                  <h2 className="font-sans text-2xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+                  <h2 className="font-sans text-xl sm:text-2xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
                     {svc.title}
                   </h2>
 
-                  <p className="text-base text-gray-600 leading-relaxed mb-6">{svc.desc}</p>
+                  <p className="text-[15px] sm:text-base text-gray-600 leading-relaxed mb-4 sm:mb-6">{svc.desc}</p>
 
                   {/* Tags */}
-                  <div className="tg flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-5 sm:mb-6">
                     {svc.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium border border-accent text-amber-700 bg-amber-50"
+                        className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium border border-accent text-amber-700 bg-amber-50"
                       >
                         <svg
                           width="12"
@@ -127,7 +126,7 @@ export default async function ServicesPage() {
                   {/* CTA */}
                   <Link
                     href="/contacts/"
-                    className="group self-start inline-flex items-center gap-2 bg-accent text-white px-8 py-3 rounded-full font-medium hover:bg-amber-600 transition-colors shadow-sm"
+                    className="group w-full sm:w-auto sm:self-start inline-flex items-center justify-center gap-2 bg-accent text-white px-8 h-12 rounded-full font-medium hover:bg-amber-600 transition-colors shadow-sm"
                   >
                     {t('cta')}
                     <svg

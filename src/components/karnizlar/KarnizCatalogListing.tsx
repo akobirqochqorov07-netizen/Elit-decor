@@ -55,7 +55,7 @@ export default function KarnizCatalogListing() {
                             onClick={() => setGroup('all')}
                             className="px-3 py-1.5 text-sm border transition-colors"
                             style={{
-                                borderColor: group === 'all' ? '#86c540' : '#ddd',
+                                borderColor: group === 'all' ? 'var(--ed-green)' : '#ddd',
                                 backgroundColor: group === 'all' ? '#152f40' : '#fff',
                                 color: group === 'all' ? '#fff' : '#333',
                             }}
@@ -69,7 +69,7 @@ export default function KarnizCatalogListing() {
                                 onClick={() => setGroup(k.slug)}
                                 className="px-3 py-1.5 text-sm border transition-colors"
                                 style={{
-                                    borderColor: group === k.slug ? '#86c540' : '#ddd',
+                                    borderColor: group === k.slug ? 'var(--ed-green)' : '#ddd',
                                     backgroundColor: group === k.slug ? '#152f40' : '#fff',
                                     color: group === k.slug ? '#fff' : '#333',
                                 }}

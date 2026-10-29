@@ -37,7 +37,7 @@ export default function KarnizlarPage() {
                                 <Link
                                     key={katalog.slug}
                                     href={`/katalog/karnizlar/${katalog.slug}/`}
-                                    className="group block overflow-hidden transition-all duration-200 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#86c540]"
+                                    className="group block overflow-hidden transition-all duration-200 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ed-green)]"
                                     style={{ backgroundColor: '#152f40' }}
                                 >
                                     {/* Rasm */}
@@ -60,7 +60,7 @@ export default function KarnizlarPage() {
                                     {/* Yashil lenta */}
                                     <div
                                         className="px-3 py-2 flex flex-col gap-0.5"
-                                        style={{ backgroundColor: '#86c540' }}
+                                        style={{ background: 'var(--ed-green-grad)' }}
                                     >
                                         <span className="text-white text-xs font-medium">
                                             {minNarx ? `dan ${minNarx.toLocaleString('uz-UZ')} so'm/p.m.` : "Narx so'rang"}

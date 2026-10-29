@@ -32,14 +32,14 @@ export default function CookieBar() {
         >
             <p className="text-sm text-gray-600 flex-1 min-w-[200px]">
                 Veb-saytimiz to&apos;g&apos;ri ishlashi uchun cookie fayllaridan foydalanamiz.{' '}
-                <a href="/privacy" className="underline" style={{ color: '#86c540' }}>
+                <a href="/privacy" className="underline" style={{ color: 'var(--ed-green)' }}>
                     Maxfiylik siyosati
                 </a>
             </p>
             <button
                 onClick={handleAccept}
                 className="px-6 py-2 text-white font-semibold text-sm transition-opacity hover:opacity-90"
-                style={{ backgroundColor: '#86c540' }}
+                style={{ background: 'var(--ed-green-grad)' }}
             >
                 OK
             </button>
