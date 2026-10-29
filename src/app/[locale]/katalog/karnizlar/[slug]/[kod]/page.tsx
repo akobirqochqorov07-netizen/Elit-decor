@@ -171,7 +171,7 @@ function InfoPanel({
                         >
                             {ic.icon}
                         </div>
-                        <span className="text-[8px] text-gray-500 text-center leading-tight">{ic.label}</span>
+                        <span className="text-[10px] text-gray-500 text-center leading-tight">{ic.label}</span>
                     </div>
                 ))}
             </div>
@@ -507,11 +507,11 @@ function KarnizDetailPageInner({ slug, kod }: { slug: string; kod: string }) {
                     {/* Breadcrumb + prev/next nav */}
                     <div className="flex items-center justify-between mb-5 flex-wrap gap-3">
                         <nav className="flex flex-wrap items-center text-base" style={{ color: '#333' }}>
-                            <Link href="/" className="hover:underline">Bosh sahifa</Link>
+                            <Link href="/" className="inline-block py-2 hover:underline">Bosh sahifa</Link>
                             <span className="mx-1 text-gray-400">/</span>
-                            <Link href="/katalog/karnizlar/" className="hover:underline">Karnizlar</Link>
+                            <Link href="/katalog/karnizlar/" className="inline-block py-2 hover:underline">Karnizlar</Link>
                             <span className="mx-1 text-gray-400">/</span>
-                            <Link href={`/katalog/karnizlar/${slug}/`} className="hover:underline">
+                            <Link href={`/katalog/karnizlar/${slug}/`} className="inline-block py-2 hover:underline">
                                 {katalog.nomi}
                             </Link>
                             <span className="mx-1 text-gray-400">/</span>
@@ -523,7 +523,7 @@ function KarnizDetailPageInner({ slug, kod }: { slug: string; kod: string }) {
                             {prev ? (
                                 <Link
                                     href={`/katalog/karnizlar/${slug}/${prev.kod}/`}
-                                    className="flex items-center gap-1 font-bold text-sm transition-colors hover:opacity-80"
+                                    className="flex items-center gap-1 font-bold text-sm py-2 px-1 transition-colors hover:opacity-80"
                                     style={{ color: '#86c540' }}
                                     title={prev.korsatiladigan_kod}
                                 >
@@ -536,7 +536,7 @@ function KarnizDetailPageInner({ slug, kod }: { slug: string; kod: string }) {
                             {next ? (
                                 <Link
                                     href={`/katalog/karnizlar/${slug}/${next.kod}/`}
-                                    className="flex items-center gap-1 font-bold text-sm transition-colors hover:opacity-80"
+                                    className="flex items-center gap-1 font-bold text-sm py-2 px-1 transition-colors hover:opacity-80"
                                     style={{ color: '#86c540' }}
                                     title={next.korsatiladigan_kod}
                                 >

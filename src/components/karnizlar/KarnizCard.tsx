@@ -57,6 +57,8 @@ export default function KarnizCard({ item }: KarnizCardProps) {
         : "Narx so'rang";
 
     const olchamText = formatOlcham(item.balandlik_mm, item.kenglik_mm);
+    // Omborda ham, o'lchamda ham ma'lumot bo'lmasa, telefonda yashil lenta yashiriladi
+    const ribbonEmpty = item.ombor_pm === null && olchamText === '—';
 
     return (
         <div className="group relative">
@@ -99,7 +101,7 @@ export default function KarnizCard({ item }: KarnizCardProps) {
                 <div style={{ aspectRatio: '255 / 208', position: 'relative' }}>
                     {/* Kod — o'ng yuqori burchak */}
                     <span
-                        className="absolute z-10 font-medium select-none"
+                        className="kc-code absolute z-10 font-medium select-none"
                         style={{
                             fontSize: '18px',
                             top: '10px',
@@ -131,11 +133,11 @@ export default function KarnizCard({ item }: KarnizCardProps) {
 
                     {/* Narx tabletkasi — o'ng pastki burchak */}
                     <div
-                        className="absolute bottom-2 right-0 z-10 flex items-center"
+                        className="kc-pill-wrap absolute bottom-2 right-0 z-10 flex items-center"
                         style={{ height: '30px' }}
                     >
                         <div
-                            className="flex items-center px-3 text-sm font-medium"
+                            className="kc-pill flex items-center px-3 text-sm font-medium"
                             style={{
                                 backgroundColor: '#b8bec3',
                                 color: '#2d2d2d',
@@ -153,7 +155,7 @@ export default function KarnizCard({ item }: KarnizCardProps) {
 
                 {/* ── Yashil lenta — pastda ── */}
                 <div
-                    className="flex items-center justify-between px-2"
+                    className={`kc-ribbon ${ribbonEmpty ? 'kc-ribbon-empty ' : ''}flex items-center justify-between px-2`}
                     style={{
                         backgroundColor: '#86c540',
                         height: '32px',
@@ -204,7 +206,7 @@ export default function KarnizCard({ item }: KarnizCardProps) {
                     <button
                         type="button"
                         onClick={handleAddToCart}
-                        className="absolute z-10 w-7 h-7 rounded flex items-center justify-center text-white font-bold text-lg transition-all focus-visible:ring-2 focus-visible:ring-white"
+                        className={`kc-add ${ribbonEmpty ? 'kc-add-empty ' : ''}absolute z-10 w-7 h-7 rounded flex items-center justify-center text-white font-bold text-lg transition-all focus-visible:ring-2 focus-visible:ring-white`}
                         style={{
                             bottom: '40px',
                             left: '8px',

@@ -296,3 +296,20 @@
 /* ── Blog section card hover fix for inline style ─────────────── */
 .blog-card-tg:hover { box-shadow: 0 0 40px rgba(34,158,217,0.15); }
 .blog-card-ig:hover { box-shadow: 0 0 40px rgba(193,53,132,0.15);  }
+
+
+/* ── Telefon: karniz kartalari (ixcham, 2 ustun) ── */
+@media (max-width: 767px) {
+  .karniz-grid article { border: 1px solid #e5e7eb; }
+  .kc-code { font-size: 14px !important; top: 6px !important; right: 8px !important; }
+  .kc-pill-wrap { height: 24px !important; bottom: 6px !important; }
+  .kc-pill { height: 24px !important; font-size: 12px !important; padding: 0 8px !important; }
+  .kc-ribbon { height: 28px !important; }
+  .kc-ribbon span { font-size: 12px !important; }
+  .kc-ribbon-empty { display: none !important; }
+  .kc-add { width: 36px !important; height: 36px !important; bottom: 34px !important; left: 6px !important; }
+  .kc-add-empty { bottom: 6px !important; }
+  .chips-scroll { flex-wrap: nowrap !important; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .chips-scroll::-webkit-scrollbar { display: none; }
+  .chips-scroll > button { white-space: nowrap; flex-shrink: 0; padding: 10px 14px !important; }
+}

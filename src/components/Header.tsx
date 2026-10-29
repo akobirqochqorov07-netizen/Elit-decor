@@ -38,6 +38,7 @@ export default function Header() {
     }
   };
 
+  const [langOpen, setLangOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -128,7 +129,39 @@ export default function Header() {
               </div>
 
               {/* Right buttons */}
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-1 md:gap-4">
+                {/* Til tanlash — telefon */}
+                <div className="relative md:hidden">
+                  <button
+                    onClick={() => setLangOpen(!langOpen)}
+                    className="flex items-center justify-center h-11 px-2 text-[13px] font-bold text-gray-700"
+                    aria-label="Til / Язык / Language"
+                    aria-expanded={langOpen}
+                  >
+                    {locale.toUpperCase()}
+                    <svg width="10" height="10" viewBox="0 0 10 10" className="ml-1" aria-hidden="true">
+                      <path d="M2 3.5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                    </svg>
+                  </button>
+                  {langOpen && (
+                    <div className="absolute right-0 top-full mt-1 w-40 bg-white border border-gray-200 shadow-lg z-50">
+                      {[
+                        { code: 'uz', label: "O'zbekcha" },
+                        { code: 'ru', label: 'Русский' },
+                        { code: 'en', label: 'English' },
+                      ].map((l) => (
+                        <button
+                          key={l.code}
+                          onClick={() => handleLocaleChange(l.code)}
+                          className={`block w-full text-left px-4 h-11 text-sm font-semibold ${locale === l.code ? 'bg-[#174872] text-white' : 'text-gray-700 hover:bg-gray-50'}`}
+                        >
+                          {l.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
                 {/* Language Switcher */}
                 <div className="hidden md:flex items-center text-[12px] font-bold border border-gray-200 rounded leading-none transition-all">
                   <button
@@ -154,7 +187,7 @@ export default function Header() {
                 {/* Search */}
                 <button
                   onClick={() => setSearchOpen(!searchOpen)}
-                  className="flex items-center justify-center w-8 h-8 text-gray-700 hover:text-accent transition-colors"
+                  className="flex items-center justify-center w-11 h-11 md:w-8 md:h-8 text-gray-700 hover:text-accent transition-colors"
                   aria-label={t('search_aria')}
                 >
                   <svg
@@ -173,7 +206,7 @@ export default function Header() {
                 {/* Cart icon button */}
                 <button
                   onClick={openDrawer}
-                  className="relative flex items-center justify-center w-8 h-8 text-gray-700 hover:text-accent transition-colors"
+                  className="relative flex items-center justify-center w-11 h-11 md:w-8 md:h-8 text-gray-700 hover:text-accent transition-colors"
                   aria-label="Cart"
                 >
                   <svg
@@ -194,7 +227,7 @@ export default function Header() {
                 {/* Hamburger */}
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="flex flex-col justify-center items-center gap-1.5 p-1 md:hidden w-8 h-8"
+                  className="flex flex-col justify-center items-center gap-1.5 p-1 md:hidden w-11 h-11"
                   aria-label={t('menu_aria')}
                 >
                   <span className="block w-6 h-0.5 bg-gray-700"></span>

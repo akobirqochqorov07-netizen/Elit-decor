@@ -231,7 +231,7 @@ export default function HeroSlider() {
                   setCurrent(index);
                   setIsAutoPlaying(false);
                 }}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${index === current ? 'bg-gray-700 scale-110' : 'bg-gray-400 opacity-60'}`}
+                className={`relative before:absolute before:-inset-3 before:content-[''] w-2.5 h-2.5 rounded-full transition-all ${index === current ? 'bg-gray-700 scale-110' : 'bg-gray-400 opacity-60'}`}
                 aria-label={`${t('dot_aria')} ${index + 1}`}
               />
             ))}

@@ -31,7 +31,7 @@ export default function KarnizCatalogListing() {
             <main className="flex-1">
                 <div className="mx-auto px-4 sm:px-6 py-5" style={{ maxWidth: '1200px' }}>
                     <nav className="flex flex-wrap items-center text-base mb-5" style={{ color: '#333' }}>
-                        <Link href="/" className="hover:underline">
+                        <Link href="/" className="inline-block py-2 hover:underline">
                             Bosh sahifa
                         </Link>
                         <span className="mx-1 text-gray-400">/</span>
@@ -49,7 +49,7 @@ export default function KarnizCatalogListing() {
                         bosganda to&apos;liq ma&apos;lumot ochiladi.
                     </p>
 
-                    <div className="flex flex-wrap gap-2 mb-5">
+                    <div className="chips-scroll flex flex-wrap gap-2 mb-5">
                         <button
                             type="button"
                             onClick={() => setGroup('all')}
@@ -159,10 +159,7 @@ export default function KarnizCatalogListing() {
           .karniz-grid { grid-template-columns: repeat(3, 1fr); }
         }
         @media (max-width: 767px) {
-          .karniz-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 479px) {
-          .karniz-grid { grid-template-columns: repeat(1, 1fr); }
+          .karniz-grid { grid-template-columns: repeat(2, 1fr); column-gap: 10px; row-gap: 16px; }
         }
       `}</style>
         </div>
