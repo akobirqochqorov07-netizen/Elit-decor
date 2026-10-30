@@ -32,7 +32,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
               <div className="relative z-10">
-                <ContactForm />
+                <ContactForm source="Qo'shimcha sahifa" />
               </div>
             </div>
           </div>

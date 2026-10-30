@@ -94,7 +94,7 @@ export default function BlogPage() {
           <div className="border-t border-gray-100 pt-10">
             <h2 className="text-2xl font-medium text-gray-800 mb-2">{t('questions_title')}</h2>
             <p className="text-gray-600 mb-6">{t('questions_desc')}</p>
-            <ContactForm />
+            <ContactForm source="Maqolalar sahifasi" />
           </div>
         </div>
       </main>

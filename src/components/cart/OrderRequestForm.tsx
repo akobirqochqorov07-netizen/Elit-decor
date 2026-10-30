@@ -13,7 +13,7 @@ type SubmitState = 'idle' | 'loading' | 'success' | 'error';
 
 interface OrderRequestFormProps {
   /** Savat drawer da ishlatiladigan callback */
-  onSuccess?: () => void;
+  onSuccess?: (orderId?: string) => void;
   /** Yagona mahsulot yuborish uchun (mahsulot sahifasida) — savat ishlatilmaydi */
   singleItem?: {
     kod: string;
@@ -120,7 +120,7 @@ export default function OrderRequestForm({
         setOrderId(data.orderId ?? '');
         if (!singleItem) clearCart();
         setSubmitState('success');
-        onSuccess?.();
+        onSuccess?.(data.orderId ?? '');
       } else {
         console.error('[order] server xato:', data.error);
         setSubmitState('error');

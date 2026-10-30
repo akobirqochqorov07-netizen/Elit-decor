@@ -3,7 +3,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { escHtml, sendTelegramMessage } from '@/lib/telegram';
+import { escHtml, sendTelegram, tashkentTime } from '@/lib/telegram';
 
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_MAX = 5;
@@ -38,6 +38,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         izoh?: string;
         website?: string;
         sahifa_url?: string;
+        manba?: string;
     };
     try {
         body = await req.json();
@@ -58,15 +59,19 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         return NextResponse.json({ error: "Telefon noto'g'ri" }, { status: 422 });
     }
 
-    const message = `🔔 Yangi so'rov
+    const manba = (body.manba ?? 'Aloqa formasi').slice(0, 80);
+    const message = `💬 <b>MUROJAAT</b> (oddiy so'rov, buyurtma emas)
+📍 Manba: ${escHtml(manba)}
 👤 Ism: ${escHtml(ism)}
-📞 Telefon: ${escHtml(telefon)}${body.email ? `\n✉️ Email: ${escHtml(body.email)}` : ''}${body.izoh ? `\n💬 Izoh: ${escHtml(body.izoh)}` : ''}${body.sahifa_url ? `\n🌐 Sahifa: ${escHtml(body.sahifa_url)}` : ''}`;
+📞 Telefon: ${escHtml(telefon)}${body.email ? `\n✉️ Email: ${escHtml(body.email)}` : ''}${body.izoh ? `\n💬 Izoh: ${escHtml(body.izoh)}` : ''}
+🕒 Vaqt: ${tashkentTime()}${body.sahifa_url ? `\n🌐 Sahifa: ${escHtml(body.sahifa_url)}` : ''}`;
 
-    const sent = await sendTelegramMessage(message);
-    if (!sent) {
+    const sent = await sendTelegram(message);
+    if (!sent.ok) {
+        console.error(`[lead] Telegram xato (${sent.reason})`);
         return NextResponse.json(
-            { error: "Yuborib bo'lmadi. Qayta urinib ko'ring." },
-            { status: 502 }
+            { error: "Yuborib bo'lmadi. Qayta urinib ko'ring.", code: sent.reason },
+            { status: sent.reason === 'config' ? 503 : 502 }
         );
     }
 

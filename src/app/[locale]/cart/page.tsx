@@ -1,16 +1,26 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useCart } from '@/context/CartContext';
 import { useTranslations } from 'next-intl';
 import OrderRequestForm from '@/components/cart/OrderRequestForm';
+import OrderSuccessPanel from '@/components/cart/OrderSuccessPanel';
 
 function CartContent() {
   const t = useTranslations('CartPage');
   const { items, totalItems, totalPrice, removeItem, updateQuantity, clearCart } = useCart();
+  const [doneOrder, setDoneOrder] = useState<string | null>(null);
+
+  if (doneOrder !== null) {
+    return (
+      <div className="flex flex-col">
+        <OrderSuccessPanel orderId={doneOrder} />
+      </div>
+    );
+  }
 
   if (items?.length === 0) {
     return (
@@ -139,7 +149,7 @@ function CartContent() {
           </div>
 
           {/* Order request form */}
-          <OrderRequestForm />
+          <OrderRequestForm onSuccess={(id) => setDoneOrder(id ?? '')} />
 
           <Link
             href="/catalog/"

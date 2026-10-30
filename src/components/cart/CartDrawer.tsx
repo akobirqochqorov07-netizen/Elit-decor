@@ -7,16 +7,25 @@ import { useDrawer } from '@/context/DrawerContext';
 import { useCart } from '@/context/CartContext';
 import CartDrawerItems from './CartDrawerItems';
 import OrderRequestForm from './OrderRequestForm';
+import OrderSuccessPanel from './OrderSuccessPanel';
 
 export default function CartDrawer() {
   const t = useTranslations('CartDrawer');
   const { isOpen, closeDrawer } = useDrawer();
   const { items } = useCart();
   const [mounted, setMounted] = useState(false);
+  const [doneOrder, setDoneOrder] = useState<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Oyna yopilgach tasdiq holatini tozalaymiz
+  useEffect(() => {
+    if (isOpen) return;
+    const id = setTimeout(() => setDoneOrder(null), 350);
+    return () => clearTimeout(id);
+  }, [isOpen]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -73,12 +82,18 @@ export default function CartDrawer() {
           </button>
         </div>
 
-        <CartDrawerItems />
+        {doneOrder !== null ? (
+          <OrderSuccessPanel orderId={doneOrder} onClose={closeDrawer} />
+        ) : (
+          <>
+            <CartDrawerItems />
 
-        {items.length > 0 && (
-          <div className="border-t border-gray-200 px-4 py-4 bg-white shrink-0 max-h-[42%] overflow-y-auto">
-            <OrderRequestForm variant="drawer" onSuccess={closeDrawer} />
-          </div>
+            {items.length > 0 && (
+              <div className="border-t border-gray-200 px-4 py-4 bg-white shrink-0 max-h-[42%] overflow-y-auto">
+                <OrderRequestForm variant="drawer" onSuccess={(id) => setDoneOrder(id ?? '')} />
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>,

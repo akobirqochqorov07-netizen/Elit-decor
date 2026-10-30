@@ -4,8 +4,9 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
-export default function ContactForm() {
+export default function ContactForm({ source = 'Aloqa formasi' }: { source?: string }) {
   const t = useTranslations('ContactForm');
+  const [sendError, setSendError] = useState('');
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
   const [agreed, setAgreed] = useState(false);
   const [newsletter, setNewsletter] = useState(false);
@@ -29,6 +30,7 @@ export default function ContactForm() {
       return;
     }
     setLoading(true);
+    setSendError('');
 
     try {
       const res = await fetch('/api/lead', {
@@ -39,6 +41,7 @@ export default function ContactForm() {
           telefon: formData.phone.trim(),
           email: formData.email.trim() || undefined,
           website: '',
+          manba: source,
           sahifa_url: typeof window !== 'undefined' ? window.location.href : '',
         }),
       });
@@ -46,10 +49,10 @@ export default function ContactForm() {
       if (res.ok && data.ok) {
         setSubmitted(true);
       } else {
-        alert(t('err_phone'));
+        setSendError(t('err_send'));
       }
     } catch (_error) {
-      alert(t('err_phone'));
+      setSendError(t('err_send'));
     } finally {
       setLoading(false);
     }
@@ -107,6 +110,11 @@ export default function ContactForm() {
         </div>
       </div>
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        {sendError && (
+          <div className="text-red-600 text-sm bg-red-50 border border-red-200 px-3 py-2 rounded">
+            {sendError}
+          </div>
+        )}
         <button
           type="submit"
           disabled={loading}

@@ -7,7 +7,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import katalogData from '../../../../public/images/karnizlar/katalog.json';
-import { escHtml, sendTelegramMessage } from '@/lib/telegram';
+import { escHtml, sendTelegram } from '@/lib/telegram';
 
 // ─── Tiplар ──────────────────────────────────────────────────────────────────
 
@@ -98,7 +98,7 @@ function buildTelegramMessage(
 
     const jami_pm = resolvedItems.reduce((s, r) => s + r.item.miqdor, 0);
 
-    return `🛒 Yangi buyurtma <b>#${escHtml(orderId)}</b>
+    return `🛒 <b>BUYURTMA #${escHtml(orderId)}</b> (savat orqali)
 👤 Ism: ${escHtml(body.ism)}
 📞 Telefon: ${escHtml(body.telefon)}${body.email ? `\n✉️ Email: ${escHtml(body.email)}` : ''}${body.izoh ? `\n💬 Izoh: ${escHtml(body.izoh)}` : ''}
 
@@ -194,13 +194,13 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const message = buildTelegramMessage(orderId, body, resolvedItems);
 
     // 7. Telegram ga yuborish
-    const sent = await sendTelegramMessage(message);
+    const sent = await sendTelegram(message);
 
-    if (!sent) {
-        console.error(`[order] Telegram xato. OrderId: ${orderId}`);
+    if (!sent.ok) {
+        console.error(`[order] Telegram xato (${sent.reason}). OrderId: ${orderId}`);
         return NextResponse.json(
-            { error: 'Yuborib bo\'lmadi. Qayta urinib ko\'ring yoki qo\'ng\'iroq qiling.' },
-            { status: 502 }
+            { error: "Yuborib bo'lmadi. Qayta urinib ko'ring yoki qo'ng'iroq qiling.", code: sent.reason },
+            { status: sent.reason === 'config' ? 503 : 502 }
         );
     }
 
