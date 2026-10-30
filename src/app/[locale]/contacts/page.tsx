@@ -138,7 +138,7 @@ export default async function ContactsPage() {
                 {t('form_panel_desc')}
               </p>
               <div className="relative z-10">
-                <ContactForm />
+                <ContactForm source="Aloqa sahifasi" />
               </div>
             </div>
           </div>

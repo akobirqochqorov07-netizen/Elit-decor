@@ -69,7 +69,7 @@ export default function ArticlePage({ params }: { params: Promise<{ id: string }
           <div className="mt-12 border-t border-gray-100 pt-10">
             <h2 className="text-2xl font-medium text-gray-800 mb-2">Остались вопросы?</h2>
             <p className="text-gray-600 mb-6">Заполните форму и мы свяжемся с вами</p>
-            <ContactForm />
+            <ContactForm source="Maqola sahifasi" />
           </div>
         </div>
       </main>

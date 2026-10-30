@@ -120,7 +120,7 @@ export default function FaqSection() {
               <p className="text-gray-500 text-sm">{t('contacts.questions_desc')}</p>
             </div>
 
-            <ContactForm />
+            <ContactForm source="Bosh sahifa (savollar bo'limi)" />
           </div>
         </div>
       </div>

@@ -458,6 +458,7 @@ function CallbackModal({ onClose }: { onClose: () => void }) {
   const [agreed, setAgreed] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [sendError, setSendError] = useState('');
   const [errors, setErrors] = useState<{ name?: string; phone?: string; agreed?: string }>({});
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -471,6 +472,7 @@ function CallbackModal({ onClose }: { onClose: () => void }) {
       return;
     }
     setLoading(true);
+    setSendError('');
     try {
       const res = await fetch('/api/lead', {
         method: 'POST',
@@ -479,11 +481,15 @@ function CallbackModal({ onClose }: { onClose: () => void }) {
           ism: name.trim(),
           telefon: phone.trim(),
           website: '',
+          manba: "Qayta qo'ng'iroq oynasi (sarlavha)",
           sahifa_url: typeof window !== 'undefined' ? window.location.href : '',
         }),
       });
       const data = await res.json();
       if (res.ok && data.ok) setSubmitted(true);
+      else setSendError(t('form_err_send'));
+    } catch {
+      setSendError(t('form_err_send'));
     } finally {
       setLoading(false);
     }
@@ -560,6 +566,9 @@ function CallbackModal({ onClose }: { onClose: () => void }) {
                 </label>
               </div>
               {errors.agreed && <p className="text-red-500 text-xs">{errors.agreed}</p>}
+              {sendError && (
+                <p className="text-red-600 text-xs bg-red-50 border border-red-200 px-3 py-2 rounded">{sendError}</p>
+              )}
               <button
                 type="submit"
                 disabled={loading}
