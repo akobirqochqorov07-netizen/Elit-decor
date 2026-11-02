@@ -39,6 +39,7 @@ export default function OrderRequestForm({
   const [izoh, setIzoh] = useState('');
   const [agree, setAgree] = useState(false);
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
+  const [errCode, setErrCode] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [orderId, setOrderId] = useState('');
 
@@ -123,10 +124,12 @@ export default function OrderRequestForm({
         onSuccess?.(data.orderId ?? '');
       } else {
         console.error('[order] server xato:', data.error);
+        setErrCode(String(data.code ?? res.status));
         setSubmitState('error');
       }
     } catch (err) {
       console.error('[order] yuborishda xato:', err);
+      setErrCode('tarmoq');
       setSubmitState('error');
     }
   };
@@ -174,7 +177,7 @@ export default function OrderRequestForm({
       )}
       {submitState === 'error' && (
         <div className="text-red-600 text-xs bg-red-50 border border-red-200 px-3 py-2 rounded">
-          Yuborib bo&apos;lmadi. Qayta urinib ko&apos;ring yoki qo&apos;ng&apos;iroq qiling:{' '}
+          Yuborib bo&apos;lmadi [{errCode}]. Qayta urinib ko&apos;ring yoki qo&apos;ng&apos;iroq qiling:{' '}
           <a href={brand.phoneHref} className="font-semibold underline">
             {brand.phone}
           </a>

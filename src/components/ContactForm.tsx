@@ -49,10 +49,10 @@ export default function ContactForm({ source = 'Aloqa formasi' }: { source?: str
       if (res.ok && data.ok) {
         setSubmitted(true);
       } else {
-        setSendError(t('err_send'));
+        setSendError(`${t('err_send')} [${data.code ?? res.status}]`);
       }
     } catch (_error) {
-      setSendError(t('err_send'));
+      setSendError(`${t('err_send')} [tarmoq]`);
     } finally {
       setLoading(false);
     }
