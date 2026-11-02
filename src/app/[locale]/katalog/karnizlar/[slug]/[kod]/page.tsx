@@ -25,6 +25,8 @@ import {
     getModel3dUrl,
 } from '@/data/karnizlar';
 
+import ImageLightbox from '@/components/karnizlar/ImageLightbox';
+
 const ModelViewer3D = dynamic(() => import('@/components/catalog/ModelViewer3D'), {
     ssr: false,
     loading: () => (
@@ -36,8 +38,10 @@ const ModelViewer3D = dynamic(() => import('@/components/catalog/ModelViewer3D')
 
 // ─── Galereya komponenti ─────────────────────────────────────────────────────
 
-function KarnizGallery({ rasms, nomi }: { rasms: string[]; nomi: string }) {
+function KarnizGallery({ slides, nomi }: { slides: { thumb: string; full: string }[]; nomi: string }) {
     const [active, setActive] = useState(0);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const rasms = slides.map((s) => s.thumb);
 
     return (
         <div className="flex flex-col" style={{ backgroundColor: '#152f40' }}>
@@ -46,6 +50,19 @@ function KarnizGallery({ rasms, nomi }: { rasms: string[]; nomi: string }) {
                 className="relative w-full flex items-center justify-center"
                 style={{ height: '307px', backgroundColor: '#152f40' }}
             >
+                {/* Kattalashtirish belgisi */}
+                <button
+                    type="button"
+                    onClick={() => setLightboxOpen(true)}
+                    className="absolute bottom-3 right-3 z-10 w-9 h-9 flex items-center justify-center text-white/90 bg-black/35 hover:bg-black/55 rounded-full transition-colors"
+                    aria-label="Kattalashtirish"
+                >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round">
+                        <circle cx="11" cy="11" r="6.5" />
+                        <path d="m16 16 4.5 4.5M8.5 11h5M11 8.5v5" />
+                    </svg>
+                </button>
+
                 {/* Tilla yurak */}
                 <button
                     className="absolute top-3 right-3 z-10 text-2xl leading-none"
@@ -66,7 +83,19 @@ function KarnizGallery({ rasms, nomi }: { rasms: string[]; nomi: string }) {
                     </button>
                 )}
 
-                <div style={{ width: '85%', height: '260px', position: 'relative' }}>
+                <div
+                    style={{ width: '85%', height: '260px', position: 'relative', cursor: 'zoom-in' }}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`${nomi} — katta ko'rish`}
+                    onClick={() => setLightboxOpen(true)}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            setLightboxOpen(true);
+                        }
+                    }}
+                >
                     <Image
                         src={rasms[active]}
                         alt={`${nomi} — ${active + 1}`}
@@ -109,6 +138,14 @@ function KarnizGallery({ rasms, nomi }: { rasms: string[]; nomi: string }) {
                     </button>
                 ))}
             </div>
+            )}
+
+            {lightboxOpen && (
+                <ImageLightbox
+                    slides={slides.map((sl) => ({ src: sl.full, alt: nomi }))}
+                    startIndex={active}
+                    onClose={() => setLightboxOpen(false)}
+                />
             )}
         </div>
     );
@@ -447,10 +484,10 @@ function View3DButton({ kod, nomi }: { kod: string; nomi: string }) {
             {open && (
                 <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
                     <div className="absolute inset-0 bg-black/70" onClick={() => setOpen(false)} />
-                    <div className="relative bg-white w-full max-w-3xl h-[70vh] flex flex-col">
-                        <div className="flex items-center justify-between px-4 py-3 border-b">
-                            <p className="font-medium text-gray-800">{nomi} — 3D</p>
-                            <button type="button" onClick={() => setOpen(false)} className="text-gray-500 text-xl px-2">
+                    <div className="relative w-full max-w-3xl h-[75vh] sm:h-[70vh] flex flex-col" style={{ backgroundColor: '#0e1116' }}>
+                        <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                            <p className="font-medium text-white">{nomi} — 3D</p>
+                            <button type="button" onClick={() => setOpen(false)} className="text-white/70 hover:text-white text-2xl leading-none w-10 h-10" aria-label="Yopish">
                                 ×
                             </button>
                         </div>
@@ -458,7 +495,7 @@ function View3DButton({ kod, nomi }: { kod: string; nomi: string }) {
                             {src ? (
                                 <ModelViewer3D src={src} productName={nomi} />
                             ) : (
-                                <div className="h-full flex items-center justify-center text-gray-500 text-sm px-6 text-center">
+                                <div className="h-full flex items-center justify-center text-gray-400 text-sm px-6 text-center">
                                     Ushbu model uchun 3D fayl hali joylanmagan. Yuklab olish formatlari
                                     tayyor bo‘lgach shu yerda ochiladi.
                                 </div>
@@ -495,7 +532,10 @@ function KarnizDetailPageInner({ slug, kod }: { slug: string; kod: string }) {
         );
     }
 
-    const rasms = [item.rasm_kok];
+    const slides = [
+        { thumb: item.rasm_kok, full: `/images/karnizlar/_cutout/${item.kod}.webp` },
+        { thumb: item.rasm_oq, full: item.rasm_oq },
+    ];
     const olcham = formatOlcham(item.balandlik_mm, item.kenglik_mm);
 
     return (
@@ -557,7 +597,7 @@ function KarnizDetailPageInner({ slug, kod }: { slug: string; kod: string }) {
                     {/* 3 ustunli asosiy blok */}
                     <div className="detail-grid grid gap-6">
                         {/* 1. Galereya — to‘q ko‘k fonli rasm */}
-                        <KarnizGallery rasms={rasms} nomi={item.korsatiladigan_kod} />
+                        <KarnizGallery slides={slides} nomi={item.korsatiladigan_kod} />
 
                         {/* 2. Ma'lumot paneli */}
                         <InfoPanel

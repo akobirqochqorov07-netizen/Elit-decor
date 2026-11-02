@@ -28,7 +28,7 @@ export default function ModelViewer3D({ src, productName }: ModelViewer3DProps) 
     if (!customElements.get('model-viewer')) {
       const script = document.createElement('script');
       script.type = 'module';
-      script.src = 'https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js';
+      script.src = 'https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js';
       document.head.appendChild(script);
     }
   }, []);
@@ -56,7 +56,10 @@ export default function ModelViewer3D({ src, productName }: ModelViewer3DProps) 
   }
 
   return (
-    <div className="relative w-full h-full bg-gray-50">
+    <div
+      className="relative w-full h-full"
+      style={{ background: 'radial-gradient(circle at 50% 42%, #2c343f 0%, #151a21 58%, #080a0d 100%)' }}
+    >
       {/* Loading spinner */}
       {!loaded && (
         <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
@@ -115,8 +118,9 @@ const ModelViewerElement = React.forwardRef<
         mv.setAttribute('alt', alt);
         mv.setAttribute('camera-controls', '');
         mv.setAttribute('auto-rotate', '');
-        mv.setAttribute('shadow-intensity', '0.8');
-        mv.setAttribute('exposure', '0.85');
+        mv.setAttribute('shadow-intensity', '1.2');
+        mv.setAttribute('shadow-softness', '0.9');
+        mv.setAttribute('exposure', '1.1');
         mv.setAttribute('environment-image', 'neutral');
         mv.setAttribute('loading', 'eager');
         mv.setAttribute('reveal', 'auto');
