@@ -487,9 +487,9 @@ function CallbackModal({ onClose }: { onClose: () => void }) {
       });
       const data = await res.json();
       if (res.ok && data.ok) setSubmitted(true);
-      else setSendError(t('form_err_send'));
+      else setSendError(`${t('form_err_send')} [${data.code ?? res.status}]`);
     } catch {
-      setSendError(t('form_err_send'));
+      setSendError(`${t('form_err_send')} [tarmoq]`);
     } finally {
       setLoading(false);
     }

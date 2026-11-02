@@ -8,11 +8,14 @@
 
 export type TelegramResult = { ok: boolean; reason?: 'config' | 'telegram' };
 
+/** Vercel'ga nusxalashda tez-tez uchraydigan xatolarni tozalaydi: tirnoq, bo'sh joy, "bot" old qo'shimchasi */
+const clean = (v: string) => v.trim().replace(/^["'`]+|["'`]+$/g, '').trim();
+
 export function getTelegramConfig() {
-    const token = (process.env.TELEGRAM_BOT_TOKEN ?? '').trim();
-    const chatIds = (process.env.TELEGRAM_CHAT_ID ?? '')
-        .split(',')
-        .map((s) => s.trim())
+    const token = clean(process.env.TELEGRAM_BOT_TOKEN ?? '').replace(/^bot(?=\d)/i, '');
+    const chatIds = clean(process.env.TELEGRAM_CHAT_ID ?? '')
+        .split(/[,;\s]+/)
+        .map(clean)
         .filter(Boolean);
     return { token, chatIds };
 }
