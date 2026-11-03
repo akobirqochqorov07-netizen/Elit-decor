@@ -118,10 +118,21 @@ const ModelViewerElement = React.forwardRef<
         mv.setAttribute('alt', alt);
         mv.setAttribute('camera-controls', '');
         mv.setAttribute('auto-rotate', '');
-        mv.setAttribute('shadow-intensity', '1.2');
+        mv.setAttribute('shadow-intensity', '1.1');
         mv.setAttribute('shadow-softness', '0.9');
-        mv.setAttribute('exposure', '1.1');
-        mv.setAttribute('environment-image', 'neutral');
+        // 'legacy' muhit yorug'likni yo'nalgan beradi: profil pog'onalari va burchaklar aniq ko'rinadi
+        mv.setAttribute('exposure', '0.65');
+        mv.setAttribute('environment-image', 'legacy');
+        mv.setAttribute('camera-orbit', '-25deg 66deg auto');
+        mv.addEventListener('load', () => {
+          // Gips rangi: ozgina kulrang oq, silliq emas — soya va qirralar yo'qolmasin
+          const model = (mv as any).model;
+          model?.materials?.forEach((m: any) => {
+            m.pbrMetallicRoughness.setBaseColorFactor([0.92, 0.92, 0.93, 1]);
+            m.pbrMetallicRoughness.setRoughnessFactor(0.75);
+            m.pbrMetallicRoughness.setMetallicFactor(0);
+          });
+        });
         mv.setAttribute('loading', 'eager');
         mv.setAttribute('reveal', 'auto');
         Object.assign(mv.style, style);

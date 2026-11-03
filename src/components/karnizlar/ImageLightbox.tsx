@@ -215,7 +215,7 @@ export default function ImageLightbox({ slides, startIndex = 0, onClose }: Image
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
-          className="max-w-[94%] max-h-[94%] object-contain"
+          className="max-w-[92vw] sm:max-w-[min(62vw,980px)] max-h-[58vh] sm:max-h-[min(62vh,640px)] object-contain"
           style={{
             transform: `translate(${offset.x}px, ${offset.y}px) scale(${zoomed ? 2.2 : 1})`,
             transition: drag.current ? 'none' : 'transform 0.25s ease',
