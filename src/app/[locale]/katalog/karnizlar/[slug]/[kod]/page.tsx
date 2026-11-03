@@ -26,6 +26,7 @@ import {
 } from '@/data/karnizlar';
 
 import ImageLightbox from '@/components/karnizlar/ImageLightbox';
+import FeatureIcon, { type FeatureIconName } from '@/components/karnizlar/FeatureIcons';
 
 const ModelViewer3D = dynamic(() => import('@/components/catalog/ModelViewer3D'), {
     ssr: false,
@@ -153,12 +154,12 @@ function KarnizGallery({ slides, nomi }: { slides: { thumb: string; full: string
 
 // ─── Ma'lumot paneli ─────────────────────────────────────────────────────────
 
-const ICONS = [
-    { label: 'Eko material', icon: '🌿' },
-    { label: "Yong'inga chidamli", icon: '🔥' },
-    { label: "Bo'yaladi", icon: '🎨' },
-    { label: 'Ehtiyotkorlik', icon: '📦' },
-    { label: '24 soat', icon: '⏰' },
+const ICONS: { id: FeatureIconName; label: string }[] = [
+    { id: 'eco', label: 'Eko material' },
+    { id: 'fire', label: "Yong'inga chidamli" },
+    { id: 'paint', label: "Bo'yaladi" },
+    { id: 'care', label: 'Ehtiyotkorlik' },
+    { id: 'time', label: '24 soat' },
 ];
 
 function InfoPanel({
@@ -197,16 +198,16 @@ function InfoPanel({
                         title={ic.label}
                     >
                         <div
-                            className="flex items-center justify-center text-lg"
+                            className="flex items-center justify-center"
                             style={{
                                 width: '42px',
                                 height: '42px',
-                                border: '2px solid var(--ed-green)',
-                                borderRadius: '4px',
-                                backgroundColor: 'white',
+                                border: '2px solid transparent',
+                                borderRadius: '10px',
+                                background: 'linear-gradient(#fff, #fff) padding-box, var(--ed-green-grad) border-box',
                             }}
                         >
-                            {ic.icon}
+                            <FeatureIcon name={ic.id} size={26} />
                         </div>
                         <span className="text-[10px] text-gray-500 text-center leading-tight">{ic.label}</span>
                     </div>
