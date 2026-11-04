@@ -450,6 +450,14 @@
         "continue_shopping": "Продолжить покупки"
     },
     "ProductPage": {
+        "tech_title": "Технические характеристики",
+        "tech_height": "Высота, мм",
+        "tech_depth": "Глубина, мм",
+        "tech_material": "Материал",
+        "tech_weight": "Вес, кг/п.м.",
+        "tech_min_order": "Минимальный заказ, п.м.",
+        "tech_note": "Размеры взяты из 3D-модели. Вес — приблизительный расчёт.",
+        "tech_drawing": "Сечение профиля",
         "breadcrumb_home": "Главная",
         "breadcrumb_catalog": "Интерьерный декор",
         "material": "Материал",
