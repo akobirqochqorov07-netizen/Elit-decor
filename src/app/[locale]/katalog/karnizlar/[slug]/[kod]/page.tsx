@@ -485,7 +485,7 @@ function View3DButton({ kod, nomi }: { kod: string; nomi: string }) {
             {open && (
                 <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
                     <div className="absolute inset-0 bg-black/70" onClick={() => setOpen(false)} />
-                    <div className="relative w-full max-w-3xl h-[75vh] sm:h-[70vh] flex flex-col" style={{ backgroundColor: '#0e1116' }}>
+                    <div className="relative w-full max-w-5xl h-[84vh] sm:h-[80vh] flex flex-col" style={{ backgroundColor: '#0e1116' }}>
                         <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
                             <p className="font-medium text-white">{nomi} — 3D</p>
                             <button type="button" onClick={() => setOpen(false)} className="text-white/70 hover:text-white text-2xl leading-none w-10 h-10" aria-label="Yopish">
