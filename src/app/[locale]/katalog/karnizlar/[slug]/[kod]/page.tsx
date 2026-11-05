@@ -26,6 +26,7 @@ import {
 } from '@/data/karnizlar';
 
 import ImageLightbox from '@/components/karnizlar/ImageLightbox';
+import ProfileSpecs from '@/components/karnizlar/ProfileSpecs';
 import FeatureIcon, { type FeatureIconName } from '@/components/karnizlar/FeatureIcons';
 
 const ModelViewer3D = dynamic(() => import('@/components/catalog/ModelViewer3D'), {
@@ -617,6 +618,9 @@ function KarnizDetailPageInner({ slug, kod }: { slug: string; kod: string }) {
                         <OrderColumn item={item} />
 
                         {/* 4. Yuklab olish formatlari (telefonda rasm va ma'lumotdan keyin, formadan oldin) */}
+                        {/* 4. Texnik xususiyatlar: profil chizmasi va jadval */}
+                        <ProfileSpecs kod={item.kod} />
+
                         <DownloadsBlock kod={item.kod} />
                     </div>
 
@@ -644,6 +648,7 @@ function KarnizDetailPageInner({ slug, kod }: { slug: string; kod: string }) {
           .karniz-grid { grid-template-columns: repeat(2, 1fr); }
         }
         .detail-downloads { grid-column: 1 / -1; }
+        .detail-specs { grid-column: 1 / -1; }
         @media (max-width: 767px) {
           .detail-grid { grid-template-columns: 1fr; }
           .karniz-grid { grid-template-columns: 1fr; }
@@ -652,8 +657,9 @@ function KarnizDetailPageInner({ slug, kod }: { slug: string; kod: string }) {
           .detail-grid > :nth-child(1) { order: 1; }
           .detail-grid > :nth-child(2) { order: 2; }
           .order-actions { order: 3; }
-          .detail-downloads { order: 4; margin-top: 0; }
-          .order-form { order: 5; }
+          .detail-specs { order: 4; margin-top: 0; }
+          .detail-downloads { order: 5; margin-top: 0; }
+          .order-form { order: 6; }
         }
       `}</style>
         </div>
