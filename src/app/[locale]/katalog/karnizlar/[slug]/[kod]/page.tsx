@@ -23,6 +23,7 @@ import {
     formatOlcham,
     getDownloadUrl,
     getModel3dUrl,
+    getModel3dOrbit,
 } from '@/data/karnizlar';
 
 import ImageLightbox from '@/components/karnizlar/ImageLightbox';
@@ -495,7 +496,7 @@ function View3DButton({ kod, nomi }: { kod: string; nomi: string }) {
                         </div>
                         <div className="flex-1 min-h-0">
                             {src ? (
-                                <ModelViewer3D src={src} productName={nomi} />
+                                <ModelViewer3D src={src} productName={nomi} cameraOrbit={getModel3dOrbit(kod)} />
                             ) : (
                                 <div className="h-full flex items-center justify-center text-gray-400 text-sm px-6 text-center">
                                     Ushbu model uchun 3D fayl hali joylanmagan. Yuklab olish formatlari

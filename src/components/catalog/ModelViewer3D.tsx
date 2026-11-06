@@ -11,9 +11,13 @@ import { useTranslations } from 'next-intl';
 interface ModelViewer3DProps {
   src: string;
   productName: string;
+  /** Boshlang'ich kamera burchagi (ba'zi modellar ko'zgudagi aksi bilan yasalgan) */
+  cameraOrbit?: string;
 }
 
-export default function ModelViewer3D({ src, productName }: ModelViewer3DProps) {
+const DEFAULT_ORBIT = '-25deg 66deg auto';
+
+export default function ModelViewer3D({ src, productName, cameraOrbit = DEFAULT_ORBIT }: ModelViewer3DProps) {
   const t = useTranslations('ProductPage');
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
@@ -82,7 +86,7 @@ export default function ModelViewer3D({ src, productName }: ModelViewer3DProps) 
   const resetView = () => {
     const el = mv();
     if (!el) return;
-    el.cameraOrbit = '-25deg 66deg auto';
+    el.cameraOrbit = cameraOrbit;
     el.cameraTarget = 'auto auto auto';
     el.fieldOfView = 'auto';
   };
@@ -130,6 +134,7 @@ export default function ModelViewer3D({ src, productName }: ModelViewer3DProps) 
         type errors without namespace hacks.
       */}
       <ModelViewerElement
+        cameraOrbit={cameraOrbit}
         ref={viewerRef}
         src={src}
         alt={productName}
@@ -201,9 +206,10 @@ const ModelViewerElement = React.forwardRef<
   {
     src: string;
     alt: string;
+    cameraOrbit: string;
     style?: React.CSSProperties;
   }
->(function ModelViewerElement({ src, alt, style }, ref) {
+>(function ModelViewerElement({ src, alt, cameraOrbit, style }, ref) {
   const elRef = useRef<HTMLElement>(null);
 
   // Merge forwarded ref
@@ -233,7 +239,7 @@ const ModelViewerElement = React.forwardRef<
         // 'legacy' muhit yorug'likni yo'nalgan beradi: profil pog'onalari va burchaklar aniq ko'rinadi
         mv.setAttribute('exposure', '0.65');
         mv.setAttribute('environment-image', 'legacy');
-        mv.setAttribute('camera-orbit', '-25deg 66deg auto');
+        mv.setAttribute('camera-orbit', cameraOrbit);
         // To'liq erkin aylantirish: tepadan pastgacha, yaqin/uzoq kattalashtirish
         mv.setAttribute('min-camera-orbit', 'auto 5deg 25%');
         mv.setAttribute('max-camera-orbit', 'auto 175deg 260%');

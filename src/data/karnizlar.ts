@@ -186,6 +186,8 @@ import fileManifest from './karniz-files.json';
 interface KarnizFiles {
     model: boolean;
     formats: string[];
+    /** Ixtiyoriy: 3D ko'rinishdagi boshlang'ich kamera burchagi */
+    orbit?: string;
 }
 const files = fileManifest as Record<string, KarnizFiles>;
 
@@ -195,6 +197,10 @@ export function getDownloadUrl(kod: string, ext: string): string | null {
     if (!dk) return null;
     if (!files[kod]?.formats.includes(ext)) return null;
     return `/products/${kod}/downloads/${dk}.${ext}`;
+}
+
+export function getModel3dOrbit(kod: string): string | undefined {
+    return files[kod]?.orbit;
 }
 
 export function getModel3dUrl(kod: string): string | null {
