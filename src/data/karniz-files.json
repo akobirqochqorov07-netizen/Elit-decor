@@ -8,6 +8,54 @@
    "stl"
   ]
  },
+ "karniz-002": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "dwg",
+   "obj",
+   "fbx",
+   "stl"
+  ],
+  "orbit": "-25deg 100deg auto"
+ },
+ "karniz-003": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "dwg",
+   "obj",
+   "fbx",
+   "stl"
+  ],
+  "orbit": "155deg 100deg auto"
+ },
+ "karniz-004": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "dwg",
+   "obj",
+   "fbx",
+   "stl"
+  ],
+  "orbit": "-25deg 100deg auto"
+ },
+ "karniz-005": {
+  "model": true,
+  "formats": [
+   "3ds",
+   "max",
+   "dwg",
+   "obj",
+   "fbx",
+   "stl"
+  ],
+  "orbit": "155deg 100deg auto"
+ },
  "karniz-006": {
   "model": true,
   "formats": [
