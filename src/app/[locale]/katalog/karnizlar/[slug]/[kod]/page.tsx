@@ -226,11 +226,6 @@ function InfoPanel({
                         <span className="font-semibold">O&apos;lcham:</span> {olcham}
                     </li>
                 )}
-                {ogirlik !== null && (
-                    <li>
-                        <span className="font-semibold">Og&apos;irligi:</span> {ogirlik} kg/p.m.
-                    </li>
-                )}
                 <li>
                     <span className="font-semibold">Katalog:</span> {katalogNomi}
                 </li>
