@@ -532,7 +532,7 @@ function KarnizDetailPageInner({ slug, kod }: { slug: string; kod: string }) {
 
     const slides = [
         { thumb: item.rasm_kok, full: `/images/karnizlar/_cutout/${item.kod}.webp` },
-        { thumb: item.rasm_oq, full: item.rasm_oq },
+        { thumb: item.rasm_oq, full: `/images/karnizlar/_full/${item.kod}.webp` },
     ];
     const olcham = formatOlcham(item.balandlik_mm, item.kenglik_mm);
 
