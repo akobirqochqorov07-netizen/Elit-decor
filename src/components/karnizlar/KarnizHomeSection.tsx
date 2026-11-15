@@ -17,18 +17,14 @@ export default function KarnizHomeSection({ title }: KarnizHomeSectionProps) {
   return (
     <section className="py-10">
       <h2 className="text-2xl font-medium text-gray-800 mb-6">{title}</h2>
-      <Link
-        href="/katalog/karnizlar/"
-        className="group grid md:grid-cols-2 overflow-hidden"
-        style={{ backgroundColor: '#0a2734' }}
-      >
+      <div className="grid md:grid-cols-2 overflow-hidden" style={{ backgroundColor: '#0a2734' }}>
         <div className="relative h-56 md:h-80" style={{ backgroundColor: '#152f40' }}>
           <Image
             src="/images/karnizlar/katalog-1-katta/karniz-006-kok.jpg"
             alt={t('karniz_title')}
             fill
             sizes="(min-width: 768px) 600px, 100vw"
-            className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
+            className="object-contain p-4"
           />
         </div>
         <div className="flex flex-col justify-center gap-3 p-6 md:p-10">
@@ -36,14 +32,15 @@ export default function KarnizHomeSection({ title }: KarnizHomeSectionProps) {
           <p className="text-gray-300 text-sm md:text-base">
             {t('karniz_desc', { count: allKarnizlar.length, groups: allKataloglar.length })}
           </p>
-          <span
-            className="inline-block self-start px-5 py-3 text-sm font-bold text-white transition-colors"
+          <Link
+            href="/catalog/"
+            className="inline-block self-start px-5 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90"
             style={{ background: 'var(--ed-green-grad)' }}
           >
             {t('karniz_btn')} →
-          </span>
+          </Link>
         </div>
-      </Link>
+      </div>
     </section>
   );
 }
