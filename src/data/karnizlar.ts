@@ -39,6 +39,8 @@ export interface KarnizItem {
     ogirlik_kg: number | null;
     /** default "Gips G-16" */
     material: string;
+    /** standart bo'lak uzunligi, metr | null */
+    uzunlik_m: number | null;
 }
 
 export interface KatalogInfo {
@@ -76,8 +78,12 @@ interface RawJson {
 // ─── Statik import ──────────────────────────────────────────────────────────
 // Next.js App Router da JSON statik import qilinadi (server-side safe)
 import rawData from '../../public/images/karnizlar/katalog.json';
+import { products } from './products';
 
 const raw = rawData as RawJson;
+
+// products.ts dan narx/o'lcham ma'lumotlarini slug bo'yicha indekslaymiz
+const productDataMap = new Map(products.map((p) => [p.slug, p]));
 
 // ─── Ko'rsatiladigan kod hisoblash ───────────────────────────────────────────
 function toDisplayKod(kod: string): string {
@@ -93,23 +99,26 @@ for (const m of raw.mahsulotlar) {
     mahsulotMap.set(m.kod, m);
 }
 
-/** Barcha 50 ta karniz */
-export const allKarnizlar: KarnizItem[] = raw.mahsulotlar.map((m) => ({
-    kod: m.kod,
-    korsatiladigan_kod: toDisplayKod(m.kod),
-    katalog_slug: m.papka,
-    katalog_nomi: m.katalog,
-    rasm_kok: `/images/karnizlar/${m.kok_fon}`,
-    rasm_oq: `/images/karnizlar/${m.oq_fon}`,
-    balandlik_nisbati: m.balandlik_nisbati,
-    // null — foydalanuvchi katalog.json ga qo'shadi
-    narx_pm: null,
-    ombor_pm: null,
-    balandlik_mm: null,
-    kenglik_mm: null,
-    ogirlik_kg: null,
-    material: 'Gips G-16',
-}));
+/** Barcha 83 ta karniz — products.ts dan narx/o'lcham ma'lumotlari merge qilingan */
+export const allKarnizlar: KarnizItem[] = raw.mahsulotlar.map((m) => {
+    const pd = productDataMap.get(m.kod);
+    return {
+        kod: m.kod,
+        korsatiladigan_kod: toDisplayKod(m.kod),
+        katalog_slug: m.papka,
+        katalog_nomi: m.katalog,
+        rasm_kok: `/images/karnizlar/${m.kok_fon}`,
+        rasm_oq: `/images/karnizlar/${m.oq_fon}`,
+        balandlik_nisbati: m.balandlik_nisbati,
+        narx_pm: pd?.pricePerMeter ?? null,
+        ombor_pm: null,
+        balandlik_mm: pd?.heightMm ?? null,
+        kenglik_mm: pd?.depthMm ?? null,
+        ogirlik_kg: pd?.weightKgPerM ?? null,
+        material: pd?.material ?? 'Gips G-16',
+        uzunlik_m: pd?.pieceLengthM ?? null,
+    };
+});
 
 /** Barcha 5 ta katalog metadata */
 export const allKataloglar: KatalogInfo[] = raw.kataloglar.map((k) => ({
@@ -170,7 +179,7 @@ export function formatNarx(narx: number | null): string {
 /** O'lchamni formatlash */
 export function formatOlcham(balandlik: number | null, kenglik: number | null): string {
     if (balandlik === null || kenglik === null) return '—';
-    return `${balandlik}H×${kenglik}mm`;
+    return `${balandlik}×${kenglik} mm`;
 }
 
 function dkCode(kod: string): string | null {

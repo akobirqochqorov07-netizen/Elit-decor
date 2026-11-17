@@ -1,16 +1,16 @@
 'use client';
 /**
- * KarnizCard — DIKART-exact karta komponenti.
+ * KarnizCard — DIKART-exact product card for Elit Decor.
  *
  * ┌──────────────────────────────────────────┐
- * │ (dark #152f40 bg)            K-001 (kод) │  ← top-right
+ * │ (dark #152f40 bg)            K-001 (kod) │  ← top-right (white text)
  * │                                          │
- * │          [karniz -kok.jpg]               │  ← contain, 85% width
+ * │       [karniz-kok.jpg] (large blue bg)   │  ← contain, prominent
  * │                                          │
- * │                      ┌───────────────────┤  ← narx tabletkasi
- * │                      │ 45 000 so'm/p.m.  │    #b8bec3, left-rounded
+ * │ [+]                  ┌───────────────────┤  ← narx tabletkasi
+ * │                      │ 45 000 so'm / p.m.│    #b8bec3, left-rounded
  * ├──────────────────────┴───────────────────┤
- * │ █ 24h  52.2 p.m.         30H×30mm       │  ← yashil lenta (var(--ed-green-grad))
+ * │ [E] L=2.0 m                     30×30 mm │  ← bottom info strip (dark navy)
  * └──────────────────────────────────────────┘
  */
 
@@ -41,7 +41,7 @@ export default function KarnizCard({ item }: KarnizCardProps) {
             title: `${item.korsatiladigan_kod} — ${item.katalog_nomi}`,
             price: item.narx_pm,
             quantity: 1,
-            imgSrc: item.rasm_oq,
+            imgSrc: item.rasm_kok,
             unit: 'p.m.',
             sku: item.kod,
             katalog: item.katalog_slug,
@@ -53,26 +53,19 @@ export default function KarnizCard({ item }: KarnizCardProps) {
     };
 
     const narxText = item.narx_pm
-        ? `${item.narx_pm.toLocaleString('uz-UZ')} so'm/p.m.`
+        ? `${item.narx_pm.toLocaleString('uz-UZ')} so'm / p.m.`
         : "Narx so'rang";
 
     const olchamText = formatOlcham(item.balandlik_mm, item.kenglik_mm);
-    // Omborda ham, o'lchamda ham ma'lumot bo'lmasa, telefonda yashil lenta yashiriladi
-    const ribbonEmpty = item.ombor_pm === null && olchamText === '—';
 
     return (
-        <div className="group relative">
-        <Link
-            href={href}
-            className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ed-green)] focus-visible:ring-offset-2"
-            style={{ cursor: 'pointer' }}
-        >
-            {/* Toast */}
+        <div className="group relative flex flex-col h-full">
+            {/* Toast notification */}
             {toast && (
                 <div
-                    className="absolute top-2 left-1/2 z-20 text-white text-xs font-semibold px-3 py-1 rounded shadow-lg whitespace-nowrap pointer-events-none"
+                    className="absolute top-2 left-1/2 z-30 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap pointer-events-none"
                     style={{
-                        background: 'var(--ed-green-grad)',
+                        background: 'linear-gradient(135deg, #0e9f6e 0%, #12a870 100%)',
                         transform: 'translateX(-50%)',
                         animation: 'fadeIn 0.2s ease-out',
                     }}
@@ -82,142 +75,143 @@ export default function KarnizCard({ item }: KarnizCardProps) {
             )}
 
             <article
-                className="relative overflow-hidden transition-all duration-200 group-hover:shadow-xl"
+                className="relative flex flex-col flex-1 overflow-hidden transition-all duration-300 rounded shadow-md group-hover:shadow-2xl group-hover:-translate-y-1"
                 style={{
                     backgroundColor: '#152f40',
-                    borderRadius: 0,
-                    transform: 'translateY(0)',
-                }}
-                onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
-                    (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 20px rgba(0,0,0,0.35)';
-                }}
-                onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
-                    (e.currentTarget as HTMLElement).style.boxShadow = 'none';
                 }}
             >
-                {/* ── Karta tanasi ── */}
-                <div style={{ aspectRatio: '255 / 208', position: 'relative' }}>
-                    {/* Kod — o'ng yuqori burchak */}
-                    <span
-                        className="kc-code absolute z-10 font-medium select-none"
+                {/* ── Main card link ── */}
+                <Link
+                    href={href}
+                    className="block relative flex-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
+                    style={{ cursor: 'pointer' }}
+                >
+                    {/* Image Area with dark blue background */}
+                    <div
+                        className="relative w-full overflow-hidden"
                         style={{
-                            fontSize: '18px',
-                            top: '10px',
-                            right: '10px',
-                            lineHeight: 1,
-                            color: '#152f40',
+                            aspectRatio: '255 / 200',
+                            backgroundColor: '#152f40',
                         }}
                     >
-                        {item.korsatiladigan_kod}
-                    </span>
+                        {/* Model code — Top-Right corner */}
+                        <span
+                            className="kc-code absolute z-10 font-semibold select-none text-white tracking-wide"
+                            style={{
+                                fontSize: '17px',
+                                top: '10px',
+                                right: '12px',
+                                lineHeight: 1,
+                                textShadow: '0 2px 4px rgba(0,0,0,0.5)',
+                            }}
+                        >
+                            {item.korsatiladigan_kod}
+                        </span>
 
-                    {/* Oq fonli rasm — asosiy katalog kartasi */}
-                    <div
-                        className="absolute inset-0 flex items-center justify-center"
-                        style={{ backgroundColor: '#ffffff' }}
-                    >
-                        <div style={{ width: '92%', height: '86%', position: 'relative' }}>
-                            <Image
-                                src={item.rasm_oq}
-                                alt={item.korsatiladigan_kod}
-                                fill
-                                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 260px"
-                                style={{ objectFit: 'contain' }}
-                                priority={false}
-                                loading="lazy"
-                            />
+                        {/* Blue-background product image */}
+                        <div className="absolute inset-0 flex items-center justify-center p-3">
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src={item.rasm_kok}
+                                    alt={`${item.korsatiladigan_kod} gips karniz`}
+                                    fill
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 320px"
+                                    style={{ objectFit: 'contain' }}
+                                    className="transition-transform duration-300 group-hover:scale-105"
+                                    priority={false}
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Price pill overlay — Bottom-Right, DIKART style */}
+                        <div
+                            className="kc-pill-wrap absolute z-10 flex items-center"
+                            style={{
+                                bottom: '10px',
+                                right: '0',
+                                height: '28px',
+                            }}
+                        >
+                            <div
+                                className="kc-pill flex items-center px-3 py-1 font-semibold text-xs sm:text-sm whitespace-nowrap shadow-md"
+                                style={{
+                                    backgroundColor: '#b8bec3',
+                                    color: '#1a2228',
+                                    borderRadius: '16px 0 0 16px',
+                                    lineHeight: 1.2,
+                                }}
+                            >
+                                {narxText}
+                            </div>
                         </div>
                     </div>
 
-                    {/* Narx tabletkasi — o'ng pastki burchak */}
+                    {/* Bottom Information Strip */}
                     <div
-                        className="kc-pill-wrap absolute bottom-2 right-0 z-10 flex items-center"
-                        style={{ height: '30px' }}
+                        className="kc-ribbon flex items-center justify-between px-3 py-2"
+                        style={{
+                            background: 'linear-gradient(90deg, #0e2738 0%, #153a54 100%)',
+                            borderTop: '1px solid #1f4762',
+                            minHeight: '44px',
+                            width: '100%',
+                        }}
                     >
-                        <div
-                            className="kc-pill flex items-center px-3 text-sm font-medium"
-                            style={{
-                                backgroundColor: '#b8bec3',
-                                color: '#2d2d2d',
-                                borderRadius: '20px 0 0 20px', // chap yumaloq, o'ng kartaga yopishgan
-                                height: '30px',
-                                fontSize: '14px',
-                                whiteSpace: 'nowrap',
-                            }}
-                        >
-                            {narxText}
+                        {/* Left: E badge & piece length */}
+                        <div className="flex items-center gap-2">
+                            <div
+                                className="flex items-center justify-center rounded font-bold text-xs"
+                                style={{
+                                    backgroundColor: '#0c202d',
+                                    border: '1px solid rgba(212, 175, 55, 0.4)',
+                                    color: '#D4AF37',
+                                    width: '22px',
+                                    height: '22px',
+                                    flexShrink: 0,
+                                }}
+                                title="Elit Decor"
+                            >
+                                E
+                            </div>
+                            {item.uzunlik_m ? (
+                                <span className="text-gray-200 text-xs sm:text-sm font-medium" title="Standart uzunlik">
+                                    L = {item.uzunlik_m} m
+                                </span>
+                            ) : null}
                         </div>
-                    </div>
 
-                </div>
-
-                {/* ── Yashil lenta — pastda ── */}
-                <div
-                    className={`kc-ribbon ${ribbonEmpty ? 'kc-ribbon-empty ' : ''}flex items-center justify-between px-2`}
-                    style={{
-                        background: 'var(--ed-green-grad)',
-                        height: '32px',
-                        width: '100%',
-                    }}
-                >
-                    {/* Chap: 24h ikonka + ombor */}
-                    <div className="flex items-center gap-1.5">
-                        <div
-                            className="flex items-center justify-center rounded"
-                            style={{
-                                backgroundColor: '#152f40',
-                                borderRadius: '6px',
-                                width: '22px',
-                                height: '22px',
-                                flexShrink: 0,
-                            }}
-                        >
-                            {/* 24h ikonka */}
-                            <svg width="13" height="11" viewBox="0 0 13 11" fill="none">
-                                <text x="0" y="10" style={{ fill: 'var(--ed-green)', fontSize: '9px', fontWeight: 700 }}>
-                                    24
-                                </text>
-                            </svg>
-                        </div>
-                        <span className="text-white font-medium" style={{ fontSize: '13px' }}>
-                            {item.ombor_pm !== null ? `${item.ombor_pm} p.m.` : '—'}
+                        {/* Right: profile dimensions */}
+                        <span className="text-white font-semibold text-xs sm:text-sm tracking-wide text-right">
+                            {olchamText}
                         </span>
                     </div>
+                </Link>
 
-                    {/* O'ng: o'lcham */}
-                    <span
-                        className="text-white font-medium text-right"
-                        style={{ fontSize: '13px' }}
-                    >
-                        {olchamText}
-                    </span>
-                </div>
+                {/* Quick Add to Cart button */}
+                <button
+                    type="button"
+                    onClick={handleAddToCart}
+                    className="absolute z-20 w-7 h-7 rounded-full flex items-center justify-center text-white font-bold text-base transition-all duration-200 shadow-md hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
+                    style={{
+                        bottom: '52px',
+                        left: '10px',
+                        background: inCart
+                            ? 'linear-gradient(135deg, #c9a46a 0%, #e2c082 100%)'
+                            : 'linear-gradient(135deg, #0e9f6e 0%, #12a870 100%)',
+                    }}
+                    aria-label={`${item.korsatiladigan_kod} ni savatga qo'shish`}
+                    title={inCart ? "Savatda mavjud" : `${item.korsatiladigan_kod} ni savatga qo'shish`}
+                >
+                    {inCart ? '✓' : '+'}
+                </button>
             </article>
 
             <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateX(-50%) translateY(-4px); }
-          to   { opacity: 1; transform: translateX(-50%) translateY(0); }
-        }
-      `}</style>
-        </Link>
-                    <button
-                        type="button"
-                        onClick={handleAddToCart}
-                        className={`kc-add ${ribbonEmpty ? 'kc-add-empty ' : ''}absolute z-10 w-7 h-7 rounded flex items-center justify-center text-white font-bold text-lg transition-all focus-visible:ring-2 focus-visible:ring-white`}
-                        style={{
-                            bottom: '40px',
-                            left: '8px',
-                            background: inCart ? 'var(--ed-green-grad)' : 'linear-gradient(135deg, rgba(14,159,110,0.88), rgba(76,199,90,0.88))',
-                            fontSize: '18px',
-                            lineHeight: 1,
-                        }}
-                        aria-label={`${item.korsatiladigan_kod} ni savatga qo'shish`}
-                    >
-                        {inCart ? '✓' : '+'}
-                    </button>
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateX(-50%) translateY(-4px); }
+                    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+                }
+            `}</style>
         </div>
     );
 }
