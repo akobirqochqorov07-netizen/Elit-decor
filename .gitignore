@@ -41,3 +41,8 @@ turbo/
 .env
 .env.local
 .env.*.local
+
+# Archives
+*.rar
+*.zip
+*.tar.gz

@@ -3,6 +3,8 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import profiles from '@/data/karniz-profil.json';
+import bortProfiles from '@/data/bortkarniz-profil.json';
+import { getProfilSrc } from '@/data/karnizlar';
 import { MATERIAL_NAME, MIN_ORDER_PM } from '@/data/karniz-config';
 
 interface Profile {
@@ -12,7 +14,7 @@ interface Profile {
 
 const NAVY = '#152f40';
 const DRAWING_BG = '#fef6ee'; // dizayner chizmalarining fon rangi
-const data = profiles as unknown as Record<string, Profile>;
+const data = { ...profiles, ...bortProfiles } as unknown as Record<string, Profile>;
 
 /** Texnik xususiyatlar: dizayner chizgan profil kesimi + o'lchamlar jadvali. */
 export default function ProfileSpecs({ kod }: { kod: string }) {
@@ -36,7 +38,7 @@ export default function ProfileSpecs({ kod }: { kod: string }) {
         <div className="rounded-xl flex items-center justify-center overflow-hidden" style={{ backgroundColor: DRAWING_BG }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`/images/karnizlar/_profil/${kod}.webp`}
+            src={getProfilSrc(kod)}
             alt={`${t('tech_drawing')} ${kod}`}
             className="block w-auto max-w-full h-auto max-h-[420px]"
             loading="lazy"

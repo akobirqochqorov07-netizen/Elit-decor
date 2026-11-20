@@ -347,7 +347,10 @@
         "show_more": "Показать ещё",
         "karniz_title": "Карнизы",
         "karniz_desc": "{count} моделей · {groups} групп размеров",
-        "karniz_btn": "Открыть каталог"
+        "karniz_btn": "Открыть каталог",
+        "bortkarniz_title": "Борткарнизы",
+        "bortkarniz_desc": "{count} моделей · {groups} групп размеров",
+        "bortkarniz_btn": "Открыть каталог"
     },
     "CatalogPage": {
         "breadcrumb_home": "Главная",
