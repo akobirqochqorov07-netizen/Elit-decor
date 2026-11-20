@@ -6,9 +6,10 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import KarnizCard from '@/components/karnizlar/KarnizCard';
 import {
-    allKarnizlar,
-    allKataloglar,
+    getBolimData,
     getKarnizlarByKatalog,
+    BOLIM_NOMI,
+    type Bolim,
     type KarnizItem,
 } from '@/data/karnizlar';
 
@@ -29,9 +30,12 @@ const SORT_OPTIONS: SortOption[] = [
 
 interface KarnizCatalogListingProps {
     initialGroup?: string;
+    bolim?: Bolim;
 }
 
-export default function KarnizCatalogListing({ initialGroup = 'all' }: KarnizCatalogListingProps) {
+export default function KarnizCatalogListing({ initialGroup = 'all', bolim = 'karnizlar' }: KarnizCatalogListingProps) {
+    const { items: allKarnizlar, kataloglar: allKataloglar } = getBolimData(bolim);
+    const nomi = BOLIM_NOMI[bolim];
     const [group, setGroup] = useState<string>(initialGroup);
     const [sort, setSort] = useState<SortKey>('default');
     const [searchQuery, setSearchQuery] = useState<string>('');
@@ -103,7 +107,7 @@ export default function KarnizCatalogListing({ initialGroup = 'all' }: KarnizCat
         }
 
         return sorted;
-    }, [group, sort, searchQuery, filterOnlyWithPrice]);
+    }, [group, sort, searchQuery, filterOnlyWithPrice, allKarnizlar]);
 
     const activeSortLabel = SORT_OPTIONS.find((o) => o.key === sort)?.label || 'Standart tartib';
 
@@ -119,8 +123,12 @@ export default function KarnizCatalogListing({ initialGroup = 'all' }: KarnizCat
                             Bosh sahifa
                         </Link>
                         <span className="mx-2 text-gray-400">/</span>
+                        <Link href="/catalog/" className="inline-block py-1 hover:text-black transition-colors">
+                            Katalog
+                        </Link>
+                        <span className="mx-2 text-gray-400">/</span>
                         <Link
-                            href="/catalog/"
+                            href={`/katalog/${bolim}/`}
                             onClick={(e) => {
                                 if (group !== 'all') {
                                     e.preventDefault();
@@ -129,7 +137,7 @@ export default function KarnizCatalogListing({ initialGroup = 'all' }: KarnizCat
                             }}
                             className={`inline-block py-1 ${group === 'all' ? 'text-gray-900 font-semibold' : 'hover:text-black transition-colors'}`}
                         >
-                            Karnizlar
+                            {nomi.kop}
                         </Link>
                         {activeCategory && (
                             <>
@@ -145,7 +153,7 @@ export default function KarnizCatalogListing({ initialGroup = 'all' }: KarnizCat
                             className="text-3xl sm:text-4xl lg:text-5xl font-normal text-gray-900 mb-1 tracking-tight"
                             style={{ lineHeight: 1.15 }}
                         >
-                            {activeCategory ? `${activeCategory.nomi} karnizlar` : 'Interyer karnizlar'}
+                            {activeCategory ? `${activeCategory.nomi} ${nomi.kop.toLowerCase()}` : `Interyer ${nomi.kop.toLowerCase()}`}
                         </h1>
                     </div>
 
@@ -212,7 +220,7 @@ export default function KarnizCatalogListing({ initialGroup = 'all' }: KarnizCat
                                 type="text"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder="Qidirish: K-001, 30×30..."
+                                placeholder={bolim === 'bortkarnizlar' ? 'Qidirish: BK-001, 120×80...' : 'Qidirish: K-001, 30×30...'}
                                 className="w-full pl-8 pr-3 py-2 text-sm border border-gray-300 rounded bg-white text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#152f40]"
                             />
                             <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -261,14 +269,14 @@ export default function KarnizCatalogListing({ initialGroup = 'all' }: KarnizCat
                     {/* SEO text */}
                     <div className="mt-16 max-w-2xl">
                         <h2 className="text-2xl font-semibold text-gray-800 mb-3">
-                            Karnizlar — gips lepninadan
+                            {nomi.kop} — gips lepninadan
                         </h2>
                         <p className="text-gray-600 leading-relaxed mb-3">
                             Elit Dekor — O&apos;zbekistonda interyer va fasad uchun gips mahsulotlari ishlab chiqaruvchi zavod.
-                            Karnizlarimiz yuqori sifatli G-16 markali gipsdan tayyorlanib, interyerga nafosatli ko&apos;rinish beradi.
+                            {nomi.kop}imiz yuqori sifatli G-16 markali gipsdan tayyorlanib, interyerga nafosatli ko&apos;rinish beradi.
                         </p>
                         <p className="text-gray-600 leading-relaxed">
-                            Har bir karnizning 3D modeli va texnik chizmasi mavjud. O&apos;rnatish xizmati ko&apos;rsatiladi.
+                            Har bir {nomi.birlik.toLowerCase()}ning 3D modeli va texnik chizmasi mavjud. O&apos;rnatish xizmati ko&apos;rsatiladi.
                             Narx va o&apos;lchamlar bo&apos;yicha mutaxassislarimizga murojaat qiling.
                         </p>
                     </div>

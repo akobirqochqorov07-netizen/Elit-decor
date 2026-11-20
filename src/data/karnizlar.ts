@@ -9,46 +9,8 @@
  */
 
 // ─── Tiplар ──────────────────────────────────────────────────────────────────
-
-export interface KarnizItem {
-    /** "karniz-001" */
-    kod: string;
-    /** "K-001" — ko'rsatiladigan qisqa kod */
-    korsatiladigan_kod: string;
-    /** "katalog-1-katta" */
-    katalog_slug: string;
-    /** "Katta profil" */
-    katalog_nomi: string;
-    /** "/images/karnizlar/katalog-1-katta/karniz-001-kok.jpg" */
-    rasm_kok: string;
-    /** "/images/karnizlar/katalog-1-katta/karniz-001-oq.jpg" */
-    rasm_oq: string;
-    /** 0.0–1.0 — balandlik/kenglik nisbati (rasm aspect ratio uchun) */
-    balandlik_nisbati: number;
-
-    // ─── Foydalanuvchi to'ldirishi kerak bo'lgan maydonlar ───────────────────
-    /** so'm/p.m. | null = "Narx so'rang" */
-    narx_pm: number | null;
-    /** pogon metr, omborda | null = "—" */
-    ombor_pm: number | null;
-    /** mm | null */
-    balandlik_mm: number | null;
-    /** mm | null */
-    kenglik_mm: number | null;
-    /** kg/p.m. | null */
-    ogirlik_kg: number | null;
-    /** default "Gips G-16" */
-    material: string;
-    /** standart bo'lak uzunligi, metr | null */
-    uzunlik_m: number | null;
-}
-
-export interface KatalogInfo {
-    id: number;
-    slug: string;
-    nomi: string;
-    karnizlar_kodlari: string[];
-}
+export type { Bolim, KarnizItem, KatalogInfo } from './types';
+import type { Bolim, KarnizItem, KatalogInfo } from './types';
 
 // ─── Raw JSON tipi ────────────────────────────────────────────────────────────
 
@@ -103,6 +65,7 @@ for (const m of raw.mahsulotlar) {
 export const allKarnizlar: KarnizItem[] = raw.mahsulotlar.map((m) => {
     const pd = productDataMap.get(m.kod);
     return {
+        bolim: 'karnizlar' as const,
         kod: m.kod,
         korsatiladigan_kod: toDisplayKod(m.kod),
         katalog_slug: m.papka,
@@ -129,24 +92,76 @@ export const allKataloglar: KatalogInfo[] = raw.kataloglar.map((k) => ({
 }));
 
 // ─── Helper funksiyalar ────────────────────────────────────────────────────────
+// Karnizlar va bortkarnizlar uchun umumiy: kod va katalog sluglari bo'limlararo takrorlanmaydi.
+
+import { allBortkarnizlar, allBortkataloglar } from './bortkarnizlar';
+import bortFileManifest from './bortkarniz-files.json';
+
+export function getAllItems(): KarnizItem[] {
+    return [...allKarnizlar, ...(allBortkarnizlar || [])];
+}
+
+export function getAllKataloglar(): KatalogInfo[] {
+    return [...allKataloglar, ...(allBortkataloglar || [])];
+}
+
+/** Bo'lim bo'yicha mahsulotlar va guruhlar */
+export function getBolimData(bolim: Bolim): { items: KarnizItem[]; kataloglar: KatalogInfo[] } {
+    return bolim === 'bortkarnizlar'
+        ? { items: allBortkarnizlar || [], kataloglar: allBortkataloglar || [] }
+        : { items: allKarnizlar, kataloglar: allKataloglar };
+}
+
+/** Bo'lim nomlari (UI uchun) */
+export const BOLIM_NOMI: Record<Bolim, { kop: string; birlik: string }> = {
+    karnizlar: { kop: 'Karnizlar', birlik: 'Karniz' },
+    bortkarnizlar: { kop: 'Bortkarnizlar', birlik: 'Bortkarniz' },
+};
+
+/** Mahsulot sahifasi manzili */
+export function getItemHref(item: KarnizItem): string {
+    return `/katalog/${item.bolim}/${item.katalog_slug}/${item.kod}/`;
+}
+
+/** Galereya: kartochka rasmi (thumb) va lightbox uchun yuqori sifatli rasm (full) */
+export function getGallerySlides(item: KarnizItem): { thumb: string; full: string }[] {
+    if (item.bolim === 'bortkarnizlar') {
+        return [
+            { thumb: item.rasm_kok, full: `/images/bortkarnizlar/_full/${item.kod}.webp` },
+            { thumb: item.rasm_oq, full: `/images/bortkarnizlar/_cutout/${item.kod}.webp` },
+        ];
+    }
+    return [
+        { thumb: item.rasm_kok, full: `/images/karnizlar/_kok/${item.kod}.webp` },
+        { thumb: item.rasm_oq, full: `/images/karnizlar/_oq/${item.kod}.webp` },
+    ];
+}
+
+/** Profil chizmasi rasmi */
+export function getProfilSrc(kod: string): string {
+    return kod.startsWith('bortkarniz-')
+        ? `/images/bortkarnizlar/_profil/${kod}.webp`
+        : `/images/karnizlar/_profil/${kod}.webp`;
+}
 
 /** Slug bo'yicha katalog topish */
 export function getKatalogBySlug(slug: string): KatalogInfo | undefined {
-    return allKataloglar.find((k) => k.slug === slug);
+    return getAllKataloglar().find((k) => k.slug === slug);
 }
 
 /** Katalog slugiga tegishli karnizlar */
 export function getKarnizlarByKatalog(slug: string): KarnizItem[] {
     const katalog = getKatalogBySlug(slug);
     if (!katalog) return [];
+    const allItems = getAllItems();
     return katalog.karnizlar_kodlari
-        .map((kod) => allKarnizlar.find((k) => k.kod === kod))
+        .map((kod) => allItems.find((k) => k.kod === kod))
         .filter((k): k is KarnizItem => Boolean(k));
 }
 
 /** Kod bo'yicha karniz topish */
 export function getKarnizByKod(kod: string): KarnizItem | undefined {
-    return allKarnizlar.find((k) => k.kod === kod);
+    return getAllItems().find((k) => k.kod === kod);
 }
 
 /** Katalogdagi eng arzon narx (plitkalar uchun "dan NNN so'm") */
@@ -183,13 +198,15 @@ export function formatOlcham(balandlik: number | null, kenglik: number | null): 
 }
 
 function dkCode(kod: string): string | null {
+    const bort = kod.match(/^bortkarniz-(\d+)/);
+    if (bort) return `BK-${bort[1]}`;
     const match = kod.match(/karniz-(\d+)/);
     return match ? `DK-${match[1]}` : null;
 }
 
 // ─── 3D va yuklab olish fayllari ─────────────────────────────────────────────
-// Qaysi karnizda qaysi fayl borligi src/data/karniz-files.json da yoziladi.
-// Fayl joyi: public/products/<kod>/model.glb  va  public/products/<kod>/downloads/DK-XXX.<ext>
+// Qaysi mahsulotda qaysi fayl borligi src/data/karniz-files.json va bortkarniz-files.json da.
+// Fayl joyi: public/products/<kod>/model.glb  va  public/products/<kod>/downloads/DK-XXX.<ext> (BK-XXX)
 import fileManifest from './karniz-files.json';
 
 interface KarnizFiles {
@@ -198,7 +215,10 @@ interface KarnizFiles {
     /** Ixtiyoriy: 3D ko'rinishdagi boshlang'ich kamera burchagi */
     orbit?: string;
 }
-const files = fileManifest as Record<string, KarnizFiles>;
+const files = {
+    ...(fileManifest as Record<string, KarnizFiles>),
+    ...(bortFileManifest as Record<string, KarnizFiles>),
+};
 
 /** 3D/CAD fayl URL — fayl bo'lmasa null (UI tugmani ko'rsatmaydi) */
 export function getDownloadUrl(kod: string, ext: string): string | null {

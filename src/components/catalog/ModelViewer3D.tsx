@@ -251,6 +251,8 @@ const ModelViewerElement = React.forwardRef<
           // Gips rangi: ozgina kulrang oq, silliq emas — soya va qirralar yo'qolmasin
           const model = (mv as any).model;
           model?.materials?.forEach((m: any) => {
+            m.setDoubleSided?.(true);
+            m.doubleSided = true;
             m.pbrMetallicRoughness.setBaseColorFactor([0.92, 0.92, 0.93, 1]);
             m.pbrMetallicRoughness.setRoughnessFactor(0.75);
             m.pbrMetallicRoughness.setMetallicFactor(0);

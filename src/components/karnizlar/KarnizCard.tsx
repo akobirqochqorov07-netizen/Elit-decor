@@ -19,7 +19,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
 import { useDrawer } from '@/context/DrawerContext';
-import { KarnizItem, formatOlcham } from '@/data/karnizlar';
+import { KarnizItem, formatOlcham, getItemHref, BOLIM_NOMI } from '@/data/karnizlar';
 
 interface KarnizCardProps {
     item: KarnizItem;
@@ -30,7 +30,7 @@ export default function KarnizCard({ item }: KarnizCardProps) {
     const { openDrawer } = useDrawer();
     const [toast, setToast] = useState(false);
 
-    const href = `/katalog/karnizlar/${item.katalog_slug}/${item.kod}/`;
+    const href = getItemHref(item);
     const inCart = items.some((i) => i.sku === item.kod);
 
     const handleAddToCart = (e: React.MouseEvent) => {
@@ -113,9 +113,10 @@ export default function KarnizCard({ item }: KarnizCardProps) {
                             <div className="relative w-full h-full">
                                 <Image
                                     src={item.rasm_kok}
-                                    alt={`${item.korsatiladigan_kod} gips karniz`}
+                                    alt={`${item.korsatiladigan_kod} gips ${BOLIM_NOMI[item.bolim].birlik.toLowerCase()}`}
                                     fill
-                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 320px"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 640px"
+                                    quality={100}
                                     style={{ objectFit: 'contain' }}
                                     className="transition-transform duration-300 group-hover:scale-105"
                                     priority={false}
@@ -149,35 +150,33 @@ export default function KarnizCard({ item }: KarnizCardProps) {
 
                     {/* Bottom Information Strip */}
                     <div
-                        className="kc-ribbon flex items-center justify-between px-3 py-2"
+                        className="kc-ribbon flex items-center justify-between px-3.5 py-2.5"
                         style={{
                             background: 'linear-gradient(90deg, #0e2738 0%, #153a54 100%)',
                             borderTop: '1px solid #1f4762',
-                            minHeight: '44px',
+                            minHeight: '48px',
                             width: '100%',
                         }}
                     >
                         {/* Left: E badge & piece length */}
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2.5">
                             <div
                                 className="flex items-center justify-center rounded font-bold text-xs"
                                 style={{
                                     backgroundColor: '#0c202d',
                                     border: '1px solid rgba(212, 175, 55, 0.4)',
                                     color: '#D4AF37',
-                                    width: '22px',
-                                    height: '22px',
+                                    width: '24px',
+                                    height: '24px',
                                     flexShrink: 0,
                                 }}
                                 title="Elit Decor"
                             >
                                 E
                             </div>
-                            {item.uzunlik_m ? (
-                                <span className="text-gray-200 text-xs sm:text-sm font-medium" title="Standart uzunlik">
-                                    L = {item.uzunlik_m} m
-                                </span>
-                            ) : null}
+                            <span className="text-gray-200 text-xs sm:text-sm font-medium tracking-tight" title="Standart uzunlik">
+                                L = {item.uzunlik_m ?? 2.0} m
+                            </span>
                         </div>
 
                         {/* Right: profile dimensions */}

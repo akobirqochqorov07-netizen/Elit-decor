@@ -431,13 +431,16 @@ export default function ImageLightbox({ slides, startIndex = 0, onClose }: Image
           src={slide.src}
           alt={slide.alt}
           draggable={false}
-          decoding="async"
+          decoding="sync"
           onLoad={() => {
             measure();
             resetView(false);
           }}
-          className="max-w-[92vw] sm:max-w-[min(62vw,980px)] max-h-[58vh] sm:max-h-[min(62vh,640px)] object-contain pointer-events-none will-change-transform"
-          style={{ transformOrigin: '50% 50%' }}
+          className="max-w-[95vw] sm:max-w-[88vw] max-h-[75vh] sm:max-h-[82vh] object-contain pointer-events-none select-none"
+          style={{
+            transformOrigin: '50% 50%',
+            backfaceVisibility: 'hidden',
+          }}
         />
 
         {many && !zoomed && (

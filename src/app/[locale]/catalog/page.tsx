@@ -1,5 +1,5 @@
-import KarnizCatalogListing from '@/components/karnizlar/KarnizCatalogListing';
+import CatalogHub from '@/components/catalog/CatalogHub';
 
 export default function CatalogPage() {
-  return <KarnizCatalogListing />;
+  return <CatalogHub />;
 }
