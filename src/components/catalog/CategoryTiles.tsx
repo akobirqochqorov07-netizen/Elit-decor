@@ -1,22 +1,24 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/navigation';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { allKarnizlar } from '@/data/karnizlar';
 import { allBortkarnizlar } from '@/data/bortkarnizlar';
 
 export default function CategoryTiles() {
+    const t = useTranslations('CatalogHub');
     const categories = [
         {
             id: 'karnizlar',
-            title: 'Karnizlar',
+            title: t('karnizlar_title'),
             count: allKarnizlar?.length ?? 83,
             href: '/katalog/karnizlar/',
             img: '/images/karnizlar/katalog-1-katta/karniz-006-kok.jpg',
         },
         {
             id: 'bortkarnizlar',
-            title: 'Bortkarnizlar',
+            title: t('bortkarnizlar_title'),
             count: allBortkarnizlar?.length ?? 26,
             href: '/katalog/bortkarnizlar/',
             img: '/images/bortkarnizlar/bortkarniz-001-kok.jpg',

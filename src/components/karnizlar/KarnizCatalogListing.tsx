@@ -1,14 +1,16 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import Link from 'next/link';
+import { Link } from '@/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import KarnizCard from '@/components/karnizlar/KarnizCard';
+import { useTranslations, useLocale } from 'next-intl';
 import {
     getBolimData,
     getKarnizlarByKatalog,
-    BOLIM_NOMI,
+    getBolimNomi,
+    getKatalogNomi,
     type Bolim,
     type KarnizItem,
 } from '@/data/karnizlar';
@@ -20,28 +22,34 @@ interface SortOption {
     label: string;
 }
 
-const SORT_OPTIONS: SortOption[] = [
-    { key: 'default', label: 'Standart tartib' },
-    { key: 'price_asc', label: 'Narx: arzondan qimmatga ↑' },
-    { key: 'price_desc', label: 'Narx: qimmatdan arzonga ↓' },
-    { key: 'code_asc', label: "Kod bo'yicha (K-001...)" },
-    { key: 'dim_asc', label: "O'lcham bo'yicha (kichikdan kattaga)" },
-];
-
 interface KarnizCatalogListingProps {
     initialGroup?: string;
     bolim?: Bolim;
 }
 
 export default function KarnizCatalogListing({ initialGroup = 'all', bolim = 'karnizlar' }: KarnizCatalogListingProps) {
+    const t = useTranslations('KarnizCatalog');
+    const locale = useLocale();
+    const bolimNomi = getBolimNomi(bolim, locale);
+
+    const sortOptions: SortOption[] = [
+        { key: 'default', label: t('sort_default') },
+        { key: 'price_asc', label: t('sort_price_asc') },
+        { key: 'price_desc', label: t('sort_price_desc') },
+        { key: 'code_asc', label: t('sort_code_asc') },
+        { key: 'dim_asc', label: t('sort_dim_asc') },
+    ];
+
     const { items: allKarnizlar, kataloglar: allKataloglar } = getBolimData(bolim);
-    const nomi = BOLIM_NOMI[bolim];
     const [group, setGroup] = useState<string>(initialGroup);
     const [sort, setSort] = useState<SortKey>('default');
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [filterOnlyWithPrice, setFilterOnlyWithPrice] = useState<boolean>(false);
 
     const activeCategory = allKataloglar.find((k) => k.slug === group);
+    const activeCategoryName = activeCategory
+        ? getKatalogNomi(activeCategory.slug, activeCategory.nomi, locale)
+        : '';
 
     const filteredAndSortedItems = useMemo(() => {
         let list: KarnizItem[] =
@@ -109,7 +117,9 @@ export default function KarnizCatalogListing({ initialGroup = 'all', bolim = 'ka
         return sorted;
     }, [group, sort, searchQuery, filterOnlyWithPrice, allKarnizlar]);
 
-    const activeSortLabel = SORT_OPTIONS.find((o) => o.key === sort)?.label || 'Standart tartib';
+    const headingText = activeCategory
+        ? t('category_title', { cat: activeCategoryName, name: bolimNomi.kop })
+        : t('interior_title', { name: bolimNomi.kop });
 
     return (
         <div className="min-h-screen flex flex-col bg-white">
@@ -120,11 +130,11 @@ export default function KarnizCatalogListing({ initialGroup = 'all', bolim = 'ka
                     {/* Breadcrumb */}
                     <nav className="flex flex-wrap items-center text-sm mb-4" style={{ color: '#4b5563' }}>
                         <Link href="/" className="inline-block py-1 hover:text-black transition-colors">
-                            Bosh sahifa
+                            {t('breadcrumb_home')}
                         </Link>
                         <span className="mx-2 text-gray-400">/</span>
                         <Link href="/catalog/" className="inline-block py-1 hover:text-black transition-colors">
-                            Katalog
+                            {t('breadcrumb_catalog')}
                         </Link>
                         <span className="mx-2 text-gray-400">/</span>
                         <Link
@@ -137,12 +147,12 @@ export default function KarnizCatalogListing({ initialGroup = 'all', bolim = 'ka
                             }}
                             className={`inline-block py-1 ${group === 'all' ? 'text-gray-900 font-semibold' : 'hover:text-black transition-colors'}`}
                         >
-                            {nomi.kop}
+                            {bolimNomi.kop}
                         </Link>
                         {activeCategory && (
                             <>
                                 <span className="mx-2 text-gray-400">/</span>
-                                <span className="text-gray-900 font-semibold">{activeCategory.nomi}</span>
+                                <span className="text-gray-900 font-semibold">{activeCategoryName}</span>
                             </>
                         )}
                     </nav>
@@ -153,7 +163,7 @@ export default function KarnizCatalogListing({ initialGroup = 'all', bolim = 'ka
                             className="text-3xl sm:text-4xl lg:text-5xl font-normal text-gray-900 mb-1 tracking-tight"
                             style={{ lineHeight: 1.15 }}
                         >
-                            {activeCategory ? `${activeCategory.nomi} ${nomi.kop.toLowerCase()}` : `Interyer ${nomi.kop.toLowerCase()}`}
+                            {headingText}
                         </h1>
                     </div>
 
@@ -169,7 +179,7 @@ export default function KarnizCatalogListing({ initialGroup = 'all', bolim = 'ka
                                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-transparent'
                                 }`}
                             >
-                                <span>Barchasi</span>
+                                <span>{t('all_chip')}</span>
                                 <span className={`text-xs px-1.5 py-0.5 rounded-full font-semibold ${group === 'all' ? 'bg-white/20 text-white' : 'bg-gray-300 text-gray-600'}`}>
                                     {allKarnizlar.length}
                                 </span>
@@ -177,6 +187,7 @@ export default function KarnizCatalogListing({ initialGroup = 'all', bolim = 'ka
                             {allKataloglar.map((kat) => {
                                 const count = getKarnizlarByKatalog(kat.slug).length;
                                 const isActive = group === kat.slug;
+                                const localizedName = getKatalogNomi(kat.slug, kat.nomi, locale);
                                 return (
                                     <button
                                         key={kat.slug}
@@ -188,7 +199,7 @@ export default function KarnizCatalogListing({ initialGroup = 'all', bolim = 'ka
                                                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-transparent'
                                         }`}
                                     >
-                                        <span>{kat.nomi}</span>
+                                        <span>{localizedName}</span>
                                         <span className={`text-xs px-1.5 py-0.5 rounded-full font-semibold ${isActive ? 'bg-white/20 text-white' : 'bg-gray-300 text-gray-600'}`}>
                                             {count}
                                         </span>
@@ -207,7 +218,7 @@ export default function KarnizCatalogListing({ initialGroup = 'all', bolim = 'ka
                                 onChange={(e) => setSort(e.target.value as SortKey)}
                                 className="appearance-none pl-3 pr-8 py-2 text-sm border border-gray-300 rounded bg-white text-gray-700 cursor-pointer hover:border-gray-400 focus:outline-none focus:border-[#152f40]"
                             >
-                                {SORT_OPTIONS.map((o) => (
+                                {sortOptions.map((o) => (
                                     <option key={o.key} value={o.key}>{o.label}</option>
                                 ))}
                             </select>
@@ -220,7 +231,7 @@ export default function KarnizCatalogListing({ initialGroup = 'all', bolim = 'ka
                                 type="text"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder={bolim === 'bortkarnizlar' ? 'Qidirish: BK-001, 120×80...' : 'Qidirish: K-001, 30×30...'}
+                                placeholder={bolim === 'bortkarnizlar' ? t('search_placeholder_bort') : t('search_placeholder_karniz')}
                                 className="w-full pl-8 pr-3 py-2 text-sm border border-gray-300 rounded bg-white text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#152f40]"
                             />
                             <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -236,12 +247,12 @@ export default function KarnizCatalogListing({ initialGroup = 'all', bolim = 'ka
                                 onChange={(e) => setFilterOnlyWithPrice(e.target.checked)}
                                 className="w-4 h-4 accent-[#152f40]"
                             />
-                            Narxi borlar
+                            {t('filter_has_price')}
                         </label>
 
                         {/* Count */}
                         <span className="ml-auto text-sm text-gray-500 font-medium whitespace-nowrap">
-                            {filteredAndSortedItems.length} ta mahsulot
+                            {t('product_count', { count: filteredAndSortedItems.length })}
                         </span>
                     </div>
 
@@ -254,14 +265,14 @@ export default function KarnizCatalogListing({ initialGroup = 'all', bolim = 'ka
                         </div>
                     ) : (
                         <div className="flex flex-col items-center justify-center py-20 text-center">
-                            <p className="text-gray-400 text-lg mb-4">Hech narsa topilmadi</p>
+                            <p className="text-gray-400 text-lg mb-4">{t('not_found')}</p>
                             <button
                                 type="button"
                                 onClick={() => { setGroup('all'); setSearchQuery(''); setFilterOnlyWithPrice(false); }}
                                 className="px-5 py-2 text-sm font-medium rounded text-white"
                                 style={{ backgroundColor: '#152f40' }}
                             >
-                                Hammasini ko&apos;rish
+                                {t('show_all')}
                             </button>
                         </div>
                     )}
@@ -269,15 +280,13 @@ export default function KarnizCatalogListing({ initialGroup = 'all', bolim = 'ka
                     {/* SEO text */}
                     <div className="mt-16 max-w-2xl">
                         <h2 className="text-2xl font-semibold text-gray-800 mb-3">
-                            {nomi.kop} — gips lepninadan
+                            {t('seo_title', { name: bolimNomi.kop })}
                         </h2>
                         <p className="text-gray-600 leading-relaxed mb-3">
-                            Elit Dekor — O&apos;zbekistonda interyer va fasad uchun gips mahsulotlari ishlab chiqaruvchi zavod.
-                            {nomi.kop}imiz yuqori sifatli G-16 markali gipsdan tayyorlanib, interyerga nafosatli ko&apos;rinish beradi.
+                            {t('seo_p1', { name: bolimNomi.kop })}
                         </p>
                         <p className="text-gray-600 leading-relaxed">
-                            Har bir {nomi.birlik.toLowerCase()}ning 3D modeli va texnik chizmasi mavjud. O&apos;rnatish xizmati ko&apos;rsatiladi.
-                            Narx va o&apos;lchamlar bo&apos;yicha mutaxassislarimizga murojaat qiling.
+                            {t('seo_p2', { birlik: bolimNomi.birlik.toLowerCase() })}
                         </p>
                     </div>
                 </div>

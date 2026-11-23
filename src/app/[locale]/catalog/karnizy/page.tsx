@@ -1,5 +1,6 @@
-import { redirect } from 'next/navigation';
+import { redirect } from '@/navigation';
 
-export default function KarnizyRedirectPage() {
-  redirect('/catalog/');
+export default async function KarnizyRedirectPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  redirect({ href: '/catalog/', locale });
 }

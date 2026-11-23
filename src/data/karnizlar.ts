@@ -113,27 +113,90 @@ export function getBolimData(bolim: Bolim): { items: KarnizItem[]; kataloglar: K
 }
 
 /** Bo'lim nomlari (UI uchun) */
-export const BOLIM_NOMI: Record<Bolim, { kop: string; birlik: string }> = {
-    karnizlar: { kop: 'Karnizlar', birlik: 'Karniz' },
-    bortkarnizlar: { kop: 'Bortkarnizlar', birlik: 'Bortkarniz' },
+export const BOLIM_NOMI_LOCALIZED: Record<string, Record<Bolim, { kop: string; birlik: string }>> = {
+    uz: {
+        karnizlar: { kop: 'Karnizlar', birlik: 'Karniz' },
+        bortkarnizlar: { kop: 'Bortkarnizlar', birlik: 'Bortkarniz' },
+    },
+    ru: {
+        karnizlar: { kop: 'Карнизы', birlik: 'Карниз' },
+        bortkarnizlar: { kop: 'Борткарнизы', birlik: 'Борткарниз' },
+    },
+    en: {
+        karnizlar: { kop: 'Cornices', birlik: 'Cornice' },
+        bortkarnizlar: { kop: 'Cove cornices', birlik: 'Cove cornice' },
+    },
 };
+
+export function getBolimNomi(bolim: Bolim, locale: string = 'uz'): { kop: string; birlik: string } {
+    const loc = BOLIM_NOMI_LOCALIZED[locale] || BOLIM_NOMI_LOCALIZED.uz;
+    return loc[bolim] || BOLIM_NOMI_LOCALIZED.uz[bolim];
+}
+
+export const BOLIM_NOMI: Record<Bolim, { kop: string; birlik: string }> = BOLIM_NOMI_LOCALIZED.uz;
+
+export const KATALOG_NOMI_LOCALIZED: Record<string, Record<string, string>> = {
+    uz: {
+        'katalog-1-katta': 'Katta profil',
+        'katalog-2-orta-katta': "O'rta-katta profil",
+        'katalog-3-orta': "O'rta profil",
+        'katalog-4-orta-past': "O'rta-past profil",
+        'katalog-5-ingichka': 'Ingichka profil',
+        'katalog-6-juda-ingichka': 'Juda ingichka profil',
+        'bortkatalog-1-katta': 'Katta profil',
+        'bortkatalog-2-orta': "O'rta profil",
+        'bortkatalog-3-ixcham': 'Ixcham profil',
+    },
+    ru: {
+        'katalog-1-katta': 'Большой профиль',
+        'katalog-2-orta-katta': 'Средне-большой профиль',
+        'katalog-3-orta': 'Средний профиль',
+        'katalog-4-orta-past': 'Средне-малый профиль',
+        'katalog-5-ingichka': 'Узкий профиль',
+        'katalog-6-juda-ingichka': 'Очень узкий профиль',
+        'bortkatalog-1-katta': 'Большой профиль',
+        'bortkatalog-2-orta': 'Средний профиль',
+        'bortkatalog-3-ixcham': 'Компактный профиль',
+    },
+    en: {
+        'katalog-1-katta': 'Large profile',
+        'katalog-2-orta-katta': 'Medium-large profile',
+        'katalog-3-orta': 'Medium profile',
+        'katalog-4-orta-past': 'Medium-small profile',
+        'katalog-5-ingichka': 'Slim profile',
+        'katalog-6-juda-ingichka': 'Extra-slim profile',
+        'bortkatalog-1-katta': 'Large profile',
+        'bortkatalog-2-orta': 'Medium profile',
+        'bortkatalog-3-ixcham': 'Compact profile',
+    },
+};
+
+export function getKatalogNomi(slug: string, fallback: string = '', locale: string = 'uz'): string {
+    const loc = KATALOG_NOMI_LOCALIZED[locale] || KATALOG_NOMI_LOCALIZED.uz;
+    return loc[slug] || fallback;
+}
 
 /** Mahsulot sahifasi manzili */
 export function getItemHref(item: KarnizItem): string {
     return `/katalog/${item.bolim}/${item.katalog_slug}/${item.kod}/`;
 }
 
-/** Galereya: kartochka rasmi (thumb) va lightbox uchun yuqori sifatli rasm (full) */
+/** Galereya: 1-rasm: 3D render (ko'k/blur fon), 2-rasm: Iliq bej studiya foni */
 export function getGallerySlides(item: KarnizItem): { thumb: string; full: string }[] {
     if (item.bolim === 'bortkarnizlar') {
         return [
-            { thumb: item.rasm_kok, full: `/images/bortkarnizlar/_full/${item.kod}.webp` },
+            { thumb: item.rasm_kok, full: `/images/bortkarnizlar/_cutout/${item.kod}.webp` },
             { thumb: item.rasm_oq, full: `/images/bortkarnizlar/_cutout/${item.kod}.webp` },
         ];
     }
     return [
-        { thumb: item.rasm_kok, full: `/images/karnizlar/_kok/${item.kod}.webp` },
-        { thumb: item.rasm_oq, full: `/images/karnizlar/_oq/${item.kod}.webp` },
+        { thumb: item.rasm_kok, full: `/images/karnizlar/_cutout/${item.kod}.webp` },
+        {
+            thumb: item.rasm_oq,
+            full: item.kod === 'karniz-001'
+                ? '/images/karnizlar/_bej/karniz-001.webp'
+                : `/images/karnizlar/_cutout/${item.kod}.webp`,
+        },
     ];
 }
 
@@ -172,16 +235,25 @@ export function getMinNarx(slug: string): number | null {
     return Math.min(...prices);
 }
 
-/** Katalog ichida oldingi/keyingi karniz */
+/** Mahsulot ichida oldingi/keyingi karniz (ketma-ket va aylanma tartibda) */
 export function getPrevNextInKatalog(
     katalogSlug: string,
     currentKod: string
 ): { prev: KarnizItem | null; next: KarnizItem | null } {
-    const items = getKarnizlarByKatalog(katalogSlug);
+    const currentItem = getKarnizByKod(currentKod);
+    const bolim: Bolim = currentItem?.bolim ?? (currentKod.startsWith('bortkarniz-') ? 'bortkarnizlar' : 'karnizlar');
+    const items = getBolimData(bolim).items;
+    if (items.length === 0) return { prev: null, next: null };
+
     const idx = items.findIndex((k) => k.kod === currentKod);
+    if (idx === -1) return { prev: null, next: null };
+
+    const prevIdx = (idx - 1 + items.length) % items.length;
+    const nextIdx = (idx + 1) % items.length;
+
     return {
-        prev: idx > 0 ? items[idx - 1] : null,
-        next: idx < items.length - 1 ? items[idx + 1] : null,
+        prev: items[prevIdx],
+        next: items[nextIdx],
     };
 }
 

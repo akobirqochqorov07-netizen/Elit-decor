@@ -1,31 +1,26 @@
 'use client';
 /**
  * KarnizCard — DIKART-exact product card for Elit Decor.
- *
- * ┌──────────────────────────────────────────┐
- * │ (dark #152f40 bg)            K-001 (kod) │  ← top-right (white text)
- * │                                          │
- * │       [karniz-kok.jpg] (large blue bg)   │  ← contain, prominent
- * │                                          │
- * │ [+]                  ┌───────────────────┤  ← narx tabletkasi
- * │                      │ 45 000 so'm / p.m.│    #b8bec3, left-rounded
- * ├──────────────────────┴───────────────────┤
- * │ [E] L=2.0 m                     30×30 mm │  ← bottom info strip (dark navy)
- * └──────────────────────────────────────────┘
  */
 
 import React, { useState } from 'react';
-import Link from 'next/link';
+import { Link } from '@/navigation';
 import Image from 'next/image';
+import { useTranslations, useLocale } from 'next-intl';
 import { useCart } from '@/context/CartContext';
 import { useDrawer } from '@/context/DrawerContext';
-import { KarnizItem, formatOlcham, getItemHref, BOLIM_NOMI } from '@/data/karnizlar';
+import { KarnizItem, formatOlcham, getItemHref, getBolimNomi, getKatalogNomi } from '@/data/karnizlar';
 
 interface KarnizCardProps {
     item: KarnizItem;
 }
 
 export default function KarnizCard({ item }: KarnizCardProps) {
+    const t = useTranslations('KarnizCard');
+    const locale = useLocale();
+    const bolimNomi = getBolimNomi(item.bolim, locale);
+    const katalogNomi = getKatalogNomi(item.katalog_slug, item.katalog_nomi, locale);
+
     const { addItem, items } = useCart();
     const { openDrawer } = useDrawer();
     const [toast, setToast] = useState(false);
@@ -38,7 +33,7 @@ export default function KarnizCard({ item }: KarnizCardProps) {
         e.stopPropagation();
         addItem({
             id: item.kod,
-            title: `${item.korsatiladigan_kod} — ${item.katalog_nomi}`,
+            title: `${item.korsatiladigan_kod} — ${katalogNomi}`,
             price: item.narx_pm,
             quantity: 1,
             imgSrc: item.rasm_kok,
@@ -52,9 +47,10 @@ export default function KarnizCard({ item }: KarnizCardProps) {
         setTimeout(() => setToast(false), 2000);
     };
 
+    const numLocale = locale === 'uz' ? 'uz-UZ' : locale === 'ru' ? 'ru-RU' : 'en-US';
     const narxText = item.narx_pm
-        ? `${item.narx_pm.toLocaleString('uz-UZ')} so'm / p.m.`
-        : "Narx so'rang";
+        ? `${item.narx_pm.toLocaleString(numLocale)} ${t('currency_pm')}`
+        : t('price_on_request');
 
     const olchamText = formatOlcham(item.balandlik_mm, item.kenglik_mm);
 
@@ -70,7 +66,7 @@ export default function KarnizCard({ item }: KarnizCardProps) {
                         animation: 'fadeIn 0.2s ease-out',
                     }}
                 >
-                    ✓ Savatga qo&apos;shildi
+                    {t('added_toast')}
                 </div>
             )}
 
@@ -113,7 +109,7 @@ export default function KarnizCard({ item }: KarnizCardProps) {
                             <div className="relative w-full h-full">
                                 <Image
                                     src={item.rasm_kok}
-                                    alt={`${item.korsatiladigan_kod} gips ${BOLIM_NOMI[item.bolim].birlik.toLowerCase()}`}
+                                    alt={`${item.korsatiladigan_kod} ${bolimNomi.birlik}`}
                                     fill
                                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 640px"
                                     quality={100}
@@ -174,7 +170,7 @@ export default function KarnizCard({ item }: KarnizCardProps) {
                             >
                                 E
                             </div>
-                            <span className="text-gray-200 text-xs sm:text-sm font-medium tracking-tight" title="Standart uzunlik">
+                            <span className="text-gray-200 text-xs sm:text-sm font-medium tracking-tight" title={t('standard_length')}>
                                 L = {item.uzunlik_m ?? 2.0} m
                             </span>
                         </div>
@@ -198,8 +194,8 @@ export default function KarnizCard({ item }: KarnizCardProps) {
                             ? 'linear-gradient(135deg, #c9a46a 0%, #e2c082 100%)'
                             : 'linear-gradient(135deg, #0e9f6e 0%, #12a870 100%)',
                     }}
-                    aria-label={`${item.korsatiladigan_kod} ni savatga qo'shish`}
-                    title={inCart ? "Savatda mavjud" : `${item.korsatiladigan_kod} ni savatga qo'shish`}
+                    aria-label={t('add_to_cart_aria', { kod: item.korsatiladigan_kod })}
+                    title={inCart ? t('in_cart') : t('add_to_cart_aria', { kod: item.korsatiladigan_kod })}
                 >
                     {inCart ? '✓' : '+'}
                 </button>

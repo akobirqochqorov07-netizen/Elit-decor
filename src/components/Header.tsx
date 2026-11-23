@@ -1,14 +1,12 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import Link from 'next/link';
-
+import { Link, usePathname, useRouter } from '@/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 
 import { getMainNavigation, NavItem } from '@/data/navigation';
 import { useCart } from '@/context/CartContext';
 import { useDrawer } from '@/context/DrawerContext';
-import { usePathname } from 'next/navigation';
 import brand from '@/lib/brand';
 
 // ── Cart badge ─────────────────────────────────────────────────────────────
@@ -25,17 +23,12 @@ export default function Header() {
   const t = useTranslations('Header');
   const locale = useLocale();
   const pathname = usePathname();
+  const router = useRouter();
   const mainNavigation = getMainNavigation(t);
 
   const handleLocaleChange = (newLocale: string) => {
     if (newLocale === locale) return;
-    const segments = pathname.split('/');
-    if (['uz', 'ru', 'en'].includes(segments[1])) {
-      segments[1] = newLocale;
-      window.location.href = segments.join('/');
-    } else {
-      window.location.href = `/${newLocale}${pathname}`;
-    }
+    router.replace(pathname, { locale: newLocale as any });
   };
 
   const [langOpen, setLangOpen] = useState(false);
@@ -81,7 +74,7 @@ export default function Header() {
   return (
     <>
       {/* Header */}
-      <header className="header-wrapper bg-white sticky top-0 z-50 shadow-md pb-4">
+      <header className="header-wrapper bg-white sticky top-0 z-50 shadow-md pb-2 md:pb-4">
         {/* Top bar */}
         <div className="header-top py-3">
           <div className="container mx-auto px-4" style={{ maxWidth: '1200px' }}>
@@ -243,7 +236,16 @@ export default function Header() {
         {searchOpen && (
           <div className="border-b border-gray-200 bg-white">
             <div className="container mx-auto px-4" style={{ maxWidth: '1200px' }}>
-              <form action="/search/" method="get" className="flex items-center py-2 gap-2">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  if (searchQuery.trim()) {
+                    setSearchOpen(false);
+                    router.push(`/search/?q=${encodeURIComponent(searchQuery.trim())}`);
+                  }
+                }}
+                className="flex items-center py-2 gap-2"
+              >
                 <input
                   ref={searchRef}
                   type="text"
