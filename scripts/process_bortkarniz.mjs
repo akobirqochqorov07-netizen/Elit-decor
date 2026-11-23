@@ -34,7 +34,7 @@ const GROUPS = [
   { id: 3, slug: 'bortkatalog-3-ixcham', nomi: 'Ixcham profil', test: (h) => h < 70 },
 ];
 
-for (const d of ['', '_full', '_cutout', '_profil']) {
+for (const d of ['', '_full', '_cutout', '_oq', '_profil']) {
   fs.mkdirSync(path.join(IMG, d), { recursive: true });
 }
 
@@ -70,14 +70,19 @@ for (const folder of folders) {
     .webp({ quality: 96, smartSubsample: false })
     .toFile(path.join(IMG, '_full', `${kod}.webp`));
 
-  // 2. Oq fon: shaffof PNG dan to'liq 5000px Ultra-HD!
+  // 2. Shaffof fonsiz 5K Ultra-HD WebP (qorong'i blur studiya ko'rinishi uchun)
+  await sharp(png)
+    .webp({ quality: 96, alphaQuality: 100, smartSubsample: false })
+    .toFile(path.join(IMG, '_cutout', `${kod}.webp`));
+
+  // 3. Oq fon: to'liq 5000px Ultra-HD va kartochka uchun
   const white5kBuf = await sharp(png)
     .flatten({ background: WHITE })
     .toBuffer();
 
   await sharp(white5kBuf)
     .webp({ quality: 96, smartSubsample: false })
-    .toFile(path.join(IMG, '_cutout', `${kod}.webp`));
+    .toFile(path.join(IMG, '_oq', `${kod}.webp`));
 
   await sharp(white5kBuf)
     .resize(1600, 1200, { fit: 'contain', background: WHITE })

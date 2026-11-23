@@ -5,6 +5,12 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 export interface LightboxSlide {
   src: string;
   alt: string;
+  /** Ixtiyoriy: shu slayd uchun maxsus fon (CSS background). Berilmasa — standart xatti-harakat. */
+  background?: string;
+  /** Ixtiyoriy: rasmga CSS filter (masalan, soya) */
+  imgFilter?: string;
+  /** Ixtiyoriy: 'light' — och fon uchun to'q rangli tugmalar */
+  theme?: 'light' | 'dark';
 }
 
 interface ImageLightboxProps {
@@ -15,6 +21,16 @@ interface ImageLightboxProps {
 
 const MAX_SCALE = 8;
 const SWIPE_MIN_PX = 90;
+
+/** To'liq ekran professional 3D studiya foni: markaziy yorug'lik + chuqur vinyetka */
+const DEFAULT_DARK_STUDIO_BG = [
+  'radial-gradient(ellipse 80% 70% at 50% 50%, rgba(42, 62, 82, 0.65) 0%, rgba(22, 34, 46, 0.48) 45%, rgba(10, 16, 23, 0.90) 75%, rgba(5, 8, 12, 0.99) 100%)',
+  'linear-gradient(180deg, #101822 0%, #0a0f16 50%, #05080c 100%)',
+].join(', ');
+
+/** Modelni ekrandan chiqib turgandek ko'rsatuvchi 3 qatlamli fazoviy 3D soya */
+const DEFAULT_3D_POP_SHADOW =
+  'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.70)) drop-shadow(0 18px 32px rgba(0, 0, 0, 0.60)) drop-shadow(0 45px 80px rgba(0, 0, 0, 0.50))';
 
 interface View {
   s: number;
@@ -335,9 +351,14 @@ export default function ImageLightbox({ slides, startIndex = 0, onClose }: Image
   };
 
   const slide = slides[index];
+  const customBg = slide?.background;
+  const isWhite = customBg
+    ? slide.theme === 'light'
+    : Boolean(slide?.src && (slide.src.includes('_oq') || slide.src.includes('-oq') || slide.src.includes('oq-')));
   const zoomed = zoomPct > 101;
-  const iconBtn =
-    'w-11 h-11 flex items-center justify-center text-white/85 hover:text-white hover:bg-white/10 rounded transition-colors disabled:opacity-30 disabled:hover:bg-transparent';
+  const iconBtn = isWhite
+    ? 'w-11 h-11 flex items-center justify-center text-neutral-700 hover:text-black hover:bg-black/5 rounded-lg transition-colors disabled:opacity-30 disabled:hover:bg-transparent'
+    : 'w-11 h-11 flex items-center justify-center text-white/85 hover:text-white hover:bg-white/10 rounded-lg transition-colors disabled:opacity-30 disabled:hover:bg-transparent';
 
   return (
     <div
@@ -345,14 +366,18 @@ export default function ImageLightbox({ slides, startIndex = 0, onClose }: Image
       role="dialog"
       aria-modal="true"
       aria-label={slide.alt}
-      className="fixed inset-0 z-[300] flex flex-col select-none"
-      style={{ background: 'rgba(8,10,13,0.99)' }}
+      className="fixed inset-0 z-[300] flex flex-col select-none transition-colors duration-300"
+      style={{
+        background: customBg ?? (isWhite ? '#ffffff' : DEFAULT_DARK_STUDIO_BG),
+        backdropFilter: 'none',
+        WebkitBackdropFilter: 'none',
+      }}
     >
       {/* Yuqori panel */}
       <div className="flex items-center justify-between px-3 sm:px-5 h-14 shrink-0">
-        <span className="text-white/80 text-sm tabular-nums">
+        <span className={`text-sm tabular-nums font-medium ${isWhite ? 'text-neutral-800' : 'text-white/80'}`}>
           {index + 1} / {slides.length}
-          {zoomed && <span className="ml-3 text-white/55">{zoomPct}%</span>}
+          {zoomed && <span className={`ml-3 font-normal ${isWhite ? 'text-neutral-400' : 'text-white/55'}`}>{zoomPct}%</span>}
         </span>
         <div className="flex items-center gap-0.5 sm:gap-1">
           <button type="button" onClick={() => zoomCenter(1 / 1.6)} disabled={!zoomed} className={iconBtn} aria-label="Uzoqlashtirish">
@@ -387,7 +412,12 @@ export default function ImageLightbox({ slides, startIndex = 0, onClose }: Image
             </svg>
           </button>
           {many && (
-            <button type="button" onClick={() => setShowThumbs((v) => !v)} className={`${iconBtn} ${showThumbs ? 'text-white' : ''}`} aria-label="Miniatyuralar">
+            <button
+              type="button"
+              onClick={() => setShowThumbs((v) => !v)}
+              className={`${iconBtn} ${showThumbs ? (isWhite ? 'text-black bg-black/5' : 'text-white bg-white/10') : ''}`}
+              aria-label="Miniatyuralar"
+            >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 {[5, 12, 19].flatMap((x) => [5, 12, 19].map((y) => <circle key={`${x}${y}`} cx={x} cy={y} r="1.7" />))}
               </svg>
@@ -404,8 +434,12 @@ export default function ImageLightbox({ slides, startIndex = 0, onClose }: Image
       {/* Rasm maydoni: barcha harakatlar shu yerda */}
       <div
         ref={stageRef}
-        className="relative flex-1 min-h-0 flex items-center justify-center overflow-hidden"
-        style={{ touchAction: 'none', cursor: zoomed ? 'grab' : 'zoom-in' }}
+        className="relative flex-1 min-h-0 flex items-center justify-center overflow-hidden transition-all duration-300"
+        style={{
+          touchAction: 'none',
+          cursor: zoomed ? 'grab' : 'zoom-in',
+          background: 'transparent',
+        }}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
@@ -416,7 +450,11 @@ export default function ImageLightbox({ slides, startIndex = 0, onClose }: Image
             type="button"
             onPointerDown={(e) => e.stopPropagation()}
             onClick={() => go(-1)}
-            className="absolute left-1 sm:left-4 z-10 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center text-white/80 hover:text-white bg-black/30 hover:bg-black/50 rounded-full"
+            className={`absolute left-1 sm:left-4 z-10 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full transition-colors ${
+              isWhite
+                ? 'text-neutral-700 hover:text-black bg-neutral-100/90 hover:bg-neutral-200 border border-neutral-200/80 shadow-sm'
+                : 'text-white/80 hover:text-white bg-black/30 hover:bg-black/50'
+            }`}
             aria-label="Oldingi rasm"
           >
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -440,6 +478,7 @@ export default function ImageLightbox({ slides, startIndex = 0, onClose }: Image
           style={{
             transformOrigin: '50% 50%',
             backfaceVisibility: 'hidden',
+            filter: slide.imgFilter ?? (isWhite ? undefined : DEFAULT_3D_POP_SHADOW),
           }}
         />
 
@@ -448,7 +487,11 @@ export default function ImageLightbox({ slides, startIndex = 0, onClose }: Image
             type="button"
             onPointerDown={(e) => e.stopPropagation()}
             onClick={() => go(1)}
-            className="absolute right-1 sm:right-4 z-10 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center text-white/80 hover:text-white bg-black/30 hover:bg-black/50 rounded-full"
+            className={`absolute right-1 sm:right-4 z-10 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full transition-colors ${
+              isWhite
+                ? 'text-neutral-700 hover:text-black bg-neutral-100/90 hover:bg-neutral-200 border border-neutral-200/80 shadow-sm'
+                : 'text-white/80 hover:text-white bg-black/30 hover:bg-black/50'
+            }`}
             aria-label="Keyingi rasm"
           >
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -461,22 +504,30 @@ export default function ImageLightbox({ slides, startIndex = 0, onClose }: Image
       {/* Miniatyuralar */}
       {many && showThumbs && (
         <div className="shrink-0 flex justify-center gap-2 px-3 py-3 sm:py-4">
-          {slides.map((s, i) => (
-            <button
-              key={s.src}
-              type="button"
-              onClick={() => setIndex(i)}
-              className="w-24 h-16 sm:w-32 sm:h-20 p-1 rounded-sm overflow-hidden"
-              style={{
-                background: i === 0 ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.12)',
-                border: i === index ? '2px solid var(--ed-green)' : '2px solid transparent',
-                opacity: i === index ? 1 : 0.7,
-              }}
-              aria-label={`Rasm ${i + 1}`}
-            >
-              <img src={s.src} alt="" className="w-full h-full object-contain" draggable={false} />
-            </button>
-          ))}
+          {slides.map((s, i) => {
+            const isThisWhite = s.src.includes('_oq') || s.src.includes('-oq');
+            return (
+              <button
+                key={s.src}
+                type="button"
+                onClick={() => setIndex(i)}
+                className="w-24 h-16 sm:w-32 sm:h-20 p-1 rounded-sm overflow-hidden transition-all"
+                style={{
+                  background: s.background ?? (isThisWhite ? '#ffffff' : '#152f40'),
+                  border: i === index
+                    ? '2px solid var(--ed-green)'
+                    : isWhite
+                    ? '2px solid rgba(0,0,0,0.12)'
+                    : '2px solid rgba(255,255,255,0.15)',
+                  opacity: i === index ? 1 : 0.65,
+                  boxShadow: isWhite && i === index ? '0 2px 8px rgba(0,0,0,0.08)' : undefined,
+                }}
+                aria-label={`Rasm ${i + 1}`}
+              >
+                <img src={s.src} alt="" className="w-full h-full object-contain" draggable={false} />
+              </button>
+            );
+          })}
         </div>
       )}
     </div>

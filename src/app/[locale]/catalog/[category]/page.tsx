@@ -1,7 +1,6 @@
-import { redirect } from 'next/navigation';
+import { redirect } from '@/navigation';
 
-// Eski (dikart nusxasi) katalog sahifalari endi ishlatilmaydi.
-// Barcha mahsulotlar yangi karnizlar katalogida.
-export default function OldCatalogRedirect() {
-  redirect('/catalog/');
+export default async function OldCatalogRedirect({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  redirect({ href: '/catalog/', locale });
 }

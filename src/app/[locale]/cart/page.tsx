@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
+import { Link } from '@/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useCart } from '@/context/CartContext';
@@ -100,7 +100,7 @@ function CartContent() {
                     <p className="font-bold text-gray-800">
                       {item?.price != null
                         ? `${(item.price * item.quantity).toLocaleString()} ${t('currency')}`
-                        : "Narx so'rang"}
+                        : t('price_on_request')}
                     </p>
                     <p className="text-xs text-gray-500">
                       {item?.price != null ? `${item.price.toLocaleString()} ${item?.unit}` : item?.unit}
@@ -143,7 +143,7 @@ function CartContent() {
               <span>
                 {totalPrice != null
                   ? `${totalPrice.toLocaleString()} ${t('currency')}`
-                  : "Narx buyurtmadan keyin aniqlanadi"}
+                  : t('price_after_order')}
               </span>
             </div>
           </div>
