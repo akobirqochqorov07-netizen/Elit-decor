@@ -135,6 +135,7 @@
   z-index: 100;
   background-color: #ffffff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding-top: constant(safe-area-inset-top);
   padding-top: env(safe-area-inset-top, 0px);
 }
 

@@ -59,7 +59,7 @@
    "balandlik_mm": 150,
    "kenglik_mm": 84,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 37500
   },
   {
    "kod": "bortkarniz-002",
@@ -71,7 +71,7 @@
    "balandlik_mm": 150,
    "kenglik_mm": 82,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 37500
   },
   {
    "kod": "bortkarniz-003",
@@ -83,7 +83,7 @@
    "balandlik_mm": 151,
    "kenglik_mm": 86,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 38000
   },
   {
    "kod": "bortkarniz-004",
@@ -95,7 +95,7 @@
    "balandlik_mm": 140,
    "kenglik_mm": 84,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 35000
   },
   {
    "kod": "bortkarniz-005",
@@ -107,7 +107,7 @@
    "balandlik_mm": 121,
    "kenglik_mm": 91,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 30500
   },
   {
    "kod": "bortkarniz-006",
@@ -119,7 +119,7 @@
    "balandlik_mm": 121,
    "kenglik_mm": 91,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 30500
   },
   {
    "kod": "bortkarniz-007",
@@ -131,7 +131,7 @@
    "balandlik_mm": 120,
    "kenglik_mm": 83,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 30000
   },
   {
    "kod": "bortkarniz-008",
@@ -143,7 +143,7 @@
    "balandlik_mm": 120,
    "kenglik_mm": 82,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 30000
   },
   {
    "kod": "bortkarniz-009",
@@ -155,7 +155,7 @@
    "balandlik_mm": 120,
    "kenglik_mm": 80,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 30000
   },
   {
    "kod": "bortkarniz-010",
@@ -167,7 +167,7 @@
    "balandlik_mm": 107,
    "kenglik_mm": 77,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 27000
   },
   {
    "kod": "bortkarniz-011",
@@ -179,7 +179,7 @@
    "balandlik_mm": 109,
    "kenglik_mm": 69,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 27500
   },
   {
    "kod": "bortkarniz-012",
@@ -191,7 +191,7 @@
    "balandlik_mm": 75,
    "kenglik_mm": 89,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 22500
   },
   {
    "kod": "bortkarniz-013",
@@ -203,7 +203,7 @@
    "balandlik_mm": 99,
    "kenglik_mm": 70,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 25000
   },
   {
    "kod": "bortkarniz-014",
@@ -215,7 +215,7 @@
    "balandlik_mm": 99,
    "kenglik_mm": 71,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 25000
   },
   {
    "kod": "bortkarniz-015",
@@ -227,7 +227,7 @@
    "balandlik_mm": 80,
    "kenglik_mm": 85,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 21500
   },
   {
    "kod": "bortkarniz-016",
@@ -239,7 +239,7 @@
    "balandlik_mm": 119,
    "kenglik_mm": 55,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 30000
   },
   {
    "kod": "bortkarniz-017",
@@ -251,7 +251,7 @@
    "balandlik_mm": 90,
    "kenglik_mm": 73,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 22500
   },
   {
    "kod": "bortkarniz-018",
@@ -263,7 +263,7 @@
    "balandlik_mm": 110,
    "kenglik_mm": 54,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 27500
   },
   {
    "kod": "bortkarniz-019",
@@ -275,7 +275,7 @@
    "balandlik_mm": 110,
    "kenglik_mm": 54,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 27500
   },
   {
    "kod": "bortkarniz-020",
@@ -287,7 +287,7 @@
    "balandlik_mm": 80,
    "kenglik_mm": 60,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 20000
   },
   {
    "kod": "bortkarniz-021",
@@ -299,7 +299,7 @@
    "balandlik_mm": 70,
    "kenglik_mm": 61,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 17500
   },
   {
    "kod": "bortkarniz-022",
@@ -311,7 +311,7 @@
    "balandlik_mm": 70,
    "kenglik_mm": 58,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 17500
   },
   {
    "kod": "bortkarniz-023",
@@ -323,7 +323,7 @@
    "balandlik_mm": 40,
    "kenglik_mm": 55,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 14000
   },
   {
    "kod": "bortkarniz-024",
@@ -335,7 +335,7 @@
    "balandlik_mm": 50,
    "kenglik_mm": 43,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 12500
   },
   {
    "kod": "bortkarniz-025",
@@ -347,7 +347,7 @@
    "balandlik_mm": 40,
    "kenglik_mm": 39,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 10000
   },
   {
    "kod": "bortkarniz-026",
@@ -359,7 +359,7 @@
    "balandlik_mm": 35,
    "kenglik_mm": 34,
    "uzunlik_m": 2,
-   "narx_pm": null
+   "narx_pm": 9000
   }
  ]
 }

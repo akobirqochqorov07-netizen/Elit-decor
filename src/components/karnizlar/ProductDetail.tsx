@@ -94,9 +94,9 @@ function KarnizGallery({
     const [active, setActive] = useState(0);
     const [lightboxOpen, setLightboxOpen] = useState(false);
 
-    // 2-rasm uchun har doim shaffof cutout
+    // Shaffof 2K cutout (karniz-001 uchun _bej yoki _cutout)
     const cutoutSrc = kod === 'karniz-001' ? '/images/karnizlar/_bej/karniz-001.webp' : slides[0].full;
-    const rasms = slides.map((s, i) => (i === 1 ? cutoutSrc : s.thumb));
+    const rasms = [cutoutSrc, cutoutSrc];
     const beige = active === 1;
 
     return (
@@ -180,7 +180,7 @@ function KarnizGallery({
                         style={
                             beige
                                 ? { objectFit: 'contain', imageRendering: 'auto', filter: BEIGE_PRODUCT_SHADOW }
-                                : { objectFit: 'contain', imageRendering: 'auto' }
+                                : { objectFit: 'contain', imageRendering: 'auto', filter: NAVY_SHADOW }
                         }
                         sizes="(max-width: 767px) 100vw, 900px"
                         quality={100}

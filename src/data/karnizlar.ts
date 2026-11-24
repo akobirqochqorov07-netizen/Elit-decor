@@ -41,8 +41,10 @@ interface RawJson {
 // Next.js App Router da JSON statik import qilinadi (server-side safe)
 import rawData from '../../public/images/karnizlar/katalog.json';
 import { products } from './products';
+import karnizProfilMap from './karniz-profil.json';
 
 const raw = rawData as RawJson;
+const profilMap = karnizProfilMap as Record<string, { w: number; h: number }>;
 
 // products.ts dan narx/o'lcham ma'lumotlarini slug bo'yicha indekslaymiz
 const productDataMap = new Map(products.map((p) => [p.slug, p]));
@@ -61,9 +63,16 @@ for (const m of raw.mahsulotlar) {
     mahsulotMap.set(m.kod, m);
 }
 
-/** Barcha 83 ta karniz — products.ts dan narx/o'lcham ma'lumotlari merge qilingan */
+/** Barcha 83 ta karniz — texnik profil o'lchamlari va narxlari (1 sm = 2500 so'm) */
 export const allKarnizlar: KarnizItem[] = raw.mahsulotlar.map((m) => {
     const pd = productDataMap.get(m.kod);
+    const prof = profilMap[m.kod];
+    const h = prof?.h ?? pd?.heightMm ?? null;
+    const w = prof?.w ?? pd?.depthMm ?? null;
+    const maxDim = h !== null && w !== null ? Math.max(h, w) : null;
+    // 1 sm = 2500 so'm (eng katta o'lcham bo'yicha, 500 so'mga yaxlitlangan)
+    const narx_pm = maxDim !== null ? Math.round(((maxDim / 10) * 2500) / 500) * 500 : (pd?.pricePerMeter ?? null);
+
     return {
         bolim: 'karnizlar' as const,
         kod: m.kod,
@@ -73,13 +82,13 @@ export const allKarnizlar: KarnizItem[] = raw.mahsulotlar.map((m) => {
         rasm_kok: `/images/karnizlar/${m.kok_fon}`,
         rasm_oq: `/images/karnizlar/${m.oq_fon}`,
         balandlik_nisbati: m.balandlik_nisbati,
-        narx_pm: pd?.pricePerMeter ?? null,
+        narx_pm,
         ombor_pm: null,
-        balandlik_mm: pd?.heightMm ?? null,
-        kenglik_mm: pd?.depthMm ?? null,
+        balandlik_mm: h,
+        kenglik_mm: w,
         ogirlik_kg: pd?.weightKgPerM ?? null,
         material: pd?.material ?? 'Gips G-16',
-        uzunlik_m: pd?.pieceLengthM ?? null,
+        uzunlik_m: pd?.pieceLengthM ?? 2.0,
     };
 });
 
