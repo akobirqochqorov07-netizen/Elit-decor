@@ -133,9 +133,12 @@
    "papka": "katalog-1-katta",
    "oq_fon": "katalog-1-katta/karniz-001-oq.jpg",
    "kok_fon": "katalog-1-katta/karniz-001-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:18:43.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:18:41.jpg",
-   "balandlik_nisbati": 0.399
+   "asl_oq": "karniz_001.png",
+   "asl_kok": "karniz_001.jpg",
+   "balandlik_nisbati": 0.399,
+   "balandlik_mm": 400,
+   "kenglik_mm": 400,
+   "narx_pm": 100000
   },
   {
    "kod": "karniz-002",
@@ -143,9 +146,12 @@
    "papka": "katalog-2-orta-katta",
    "oq_fon": "katalog-2-orta-katta/karniz-002-oq.jpg",
    "kok_fon": "katalog-2-orta-katta/karniz-002-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:18:50.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:18:48.jpg",
-   "balandlik_nisbati": 0.257
+   "asl_oq": "karniz_002.png",
+   "asl_kok": "karniz_002.jpg",
+   "balandlik_nisbati": 0.257,
+   "balandlik_mm": 265,
+   "kenglik_mm": 230,
+   "narx_pm": 66500
   },
   {
    "kod": "karniz-003",
@@ -153,9 +159,12 @@
    "papka": "katalog-2-orta-katta",
    "oq_fon": "katalog-2-orta-katta/karniz-003-oq.jpg",
    "kok_fon": "katalog-2-orta-katta/karniz-003-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:19:03.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:18:58.jpg",
-   "balandlik_nisbati": 0.278
+   "asl_oq": "karniz_003.png",
+   "asl_kok": "karniz_003.jpg",
+   "balandlik_nisbati": 0.278,
+   "balandlik_mm": 250,
+   "kenglik_mm": 170,
+   "narx_pm": 62500
   },
   {
    "kod": "karniz-004",
@@ -163,9 +172,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-004-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-004-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:19:08.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:19:06.jpg",
-   "balandlik_nisbati": 0.194
+   "asl_oq": "karniz_004.png",
+   "asl_kok": "karniz_004.jpg",
+   "balandlik_nisbati": 0.194,
+   "balandlik_mm": 280,
+   "kenglik_mm": 150,
+   "narx_pm": 70000
   },
   {
    "kod": "karniz-005",
@@ -173,9 +185,12 @@
    "papka": "katalog-3-orta",
    "oq_fon": "katalog-3-orta/karniz-005-oq.jpg",
    "kok_fon": "katalog-3-orta/karniz-005-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:19:14.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:19:12.jpg",
-   "balandlik_nisbati": 0.235
+   "asl_oq": "karniz_005.png",
+   "asl_kok": "karniz_005.jpg",
+   "balandlik_nisbati": 0.235,
+   "balandlik_mm": 200,
+   "kenglik_mm": 200,
+   "narx_pm": 50000
   },
   {
    "kod": "karniz-006",
@@ -183,9 +198,12 @@
    "papka": "katalog-1-katta",
    "oq_fon": "katalog-1-katta/karniz-006-oq.jpg",
    "kok_fon": "katalog-1-katta/karniz-006-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:19:20.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:19:18.jpg",
-   "balandlik_nisbati": 0.342
+   "asl_oq": "Karniz_006.png",
+   "asl_kok": "Karniz_006.jpg",
+   "balandlik_nisbati": 0.342,
+   "balandlik_mm": 320,
+   "kenglik_mm": 115,
+   "narx_pm": 80000
   },
   {
    "kod": "karniz-007",
@@ -193,9 +211,12 @@
    "papka": "katalog-4-orta-past",
    "oq_fon": "katalog-4-orta-past/karniz-007-oq.jpg",
    "kok_fon": "katalog-4-orta-past/karniz-007-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:19:26.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:19:24.jpg",
-   "balandlik_nisbati": 0.219
+   "asl_oq": "Karniz_007.png",
+   "asl_kok": "Karniz_007.jpg",
+   "balandlik_nisbati": 0.219,
+   "balandlik_mm": 180,
+   "kenglik_mm": 200,
+   "narx_pm": 50000
   },
   {
    "kod": "karniz-008",
@@ -203,9 +224,12 @@
    "papka": "katalog-2-orta-katta",
    "oq_fon": "katalog-2-orta-katta/karniz-008-oq.jpg",
    "kok_fon": "katalog-2-orta-katta/karniz-008-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:19:35.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:19:32.jpg",
-   "balandlik_nisbati": 0.271
+   "asl_oq": "Karniz_008.png",
+   "asl_kok": "Karniz_008.jpg",
+   "balandlik_nisbati": 0.271,
+   "balandlik_mm": 239,
+   "kenglik_mm": 150,
+   "narx_pm": 60000
   },
   {
    "kod": "karniz-009",
@@ -213,9 +237,12 @@
    "papka": "katalog-1-katta",
    "oq_fon": "katalog-1-katta/karniz-009-oq.jpg",
    "kok_fon": "katalog-1-katta/karniz-009-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:19:42.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:19:39.jpg",
-   "balandlik_nisbati": 0.307
+   "asl_oq": "Karniz_009.png",
+   "asl_kok": "Karniz_009.jpg",
+   "balandlik_nisbati": 0.307,
+   "balandlik_mm": 280,
+   "kenglik_mm": 115,
+   "narx_pm": 70000
   },
   {
    "kod": "karniz-010",
@@ -223,9 +250,12 @@
    "papka": "katalog-4-orta-past",
    "oq_fon": "katalog-4-orta-past/karniz-010-oq.jpg",
    "kok_fon": "katalog-4-orta-past/karniz-010-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:19:48.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:19:45.jpg",
-   "balandlik_nisbati": 0.217
+   "asl_oq": "Karniz_010.png",
+   "asl_kok": "Karniz_010.jpg",
+   "balandlik_nisbati": 0.217,
+   "balandlik_mm": 175,
+   "kenglik_mm": 175,
+   "narx_pm": 44000
   },
   {
    "kod": "karniz-011",
@@ -233,9 +263,12 @@
    "papka": "katalog-3-orta",
    "oq_fon": "katalog-3-orta/karniz-011-oq.jpg",
    "kok_fon": "katalog-3-orta/karniz-011-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:19:55.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:19:53.jpg",
-   "balandlik_nisbati": 0.239
+   "asl_oq": "Karniz_011.png",
+   "asl_kok": "Karniz_011.jpg",
+   "balandlik_nisbati": 0.239,
+   "balandlik_mm": 200,
+   "kenglik_mm": 150,
+   "narx_pm": 50000
   },
   {
    "kod": "karniz-012",
@@ -243,9 +276,12 @@
    "papka": "katalog-3-orta",
    "oq_fon": "katalog-3-orta/karniz-012-oq.jpg",
    "kok_fon": "katalog-3-orta/karniz-012-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:20:01.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:19:58.jpg",
-   "balandlik_nisbati": 0.241
+   "asl_oq": "Karniz_012.png",
+   "asl_kok": "Karniz_012.jpg",
+   "balandlik_nisbati": 0.241,
+   "balandlik_mm": 203,
+   "kenglik_mm": 140,
+   "narx_pm": 51000
   },
   {
    "kod": "karniz-013",
@@ -253,9 +289,12 @@
    "papka": "katalog-3-orta",
    "oq_fon": "katalog-3-orta/karniz-013-oq.jpg",
    "kok_fon": "katalog-3-orta/karniz-013-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:20:06.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:20:04.jpg",
-   "balandlik_nisbati": 0.239
+   "asl_oq": "Karniz_013.png",
+   "asl_kok": "Karniz_013.jpg",
+   "balandlik_nisbati": 0.239,
+   "balandlik_mm": 200,
+   "kenglik_mm": 140,
+   "narx_pm": 50000
   },
   {
    "kod": "karniz-014",
@@ -263,9 +302,12 @@
    "papka": "katalog-3-orta",
    "oq_fon": "katalog-3-orta/karniz-014-oq.jpg",
    "kok_fon": "katalog-3-orta/karniz-014-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:20:11.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:20:09.jpg",
-   "balandlik_nisbati": 0.238
+   "asl_oq": "Karniz_014.png",
+   "asl_kok": "Karniz_014.jpg",
+   "balandlik_nisbati": 0.238,
+   "balandlik_mm": 200,
+   "kenglik_mm": 140,
+   "narx_pm": 50000
   },
   {
    "kod": "karniz-015",
@@ -273,9 +315,12 @@
    "papka": "katalog-4-orta-past",
    "oq_fon": "katalog-4-orta-past/karniz-015-oq.jpg",
    "kok_fon": "katalog-4-orta-past/karniz-015-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:20:17.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:20:14.jpg",
-   "balandlik_nisbati": 0.221
+   "asl_oq": "Karniz_015.png",
+   "asl_kok": "Karniz_015.jpg",
+   "balandlik_nisbati": 0.221,
+   "balandlik_mm": 180,
+   "kenglik_mm": 150,
+   "narx_pm": 45000
   },
   {
    "kod": "karniz-016",
@@ -283,9 +328,12 @@
    "papka": "katalog-3-orta",
    "oq_fon": "katalog-3-orta/karniz-016-oq.jpg",
    "kok_fon": "katalog-3-orta/karniz-016-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:20:23.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:20:20.jpg",
-   "balandlik_nisbati": 0.239
+   "asl_oq": "Karniz_016.png",
+   "asl_kok": "Karniz_016.jpg",
+   "balandlik_nisbati": 0.239,
+   "balandlik_mm": 200,
+   "kenglik_mm": 130,
+   "narx_pm": 50000
   },
   {
    "kod": "karniz-017",
@@ -293,9 +341,12 @@
    "papka": "katalog-3-orta",
    "oq_fon": "katalog-3-orta/karniz-017-oq.jpg",
    "kok_fon": "katalog-3-orta/karniz-017-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:20:29.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:20:26.jpg",
-   "balandlik_nisbati": 0.231
+   "asl_oq": "Karniz_017.png",
+   "asl_kok": "Karniz_017.jpg",
+   "balandlik_nisbati": 0.231,
+   "balandlik_mm": 191,
+   "kenglik_mm": 133,
+   "narx_pm": 48000
   },
   {
    "kod": "karniz-018",
@@ -303,9 +354,12 @@
    "papka": "katalog-4-orta-past",
    "oq_fon": "katalog-4-orta-past/karniz-018-oq.jpg",
    "kok_fon": "katalog-4-orta-past/karniz-018-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:20:34.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:20:31.jpg",
-   "balandlik_nisbati": 0.223
+   "asl_oq": "Karniz_018.png",
+   "asl_kok": "Karniz_018.jpg",
+   "balandlik_nisbati": 0.223,
+   "balandlik_mm": 180,
+   "kenglik_mm": 140,
+   "narx_pm": 45000
   },
   {
    "kod": "karniz-019",
@@ -313,9 +367,12 @@
    "papka": "katalog-3-orta",
    "oq_fon": "katalog-3-orta/karniz-019-oq.jpg",
    "kok_fon": "katalog-3-orta/karniz-019-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:20:39.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:20:37.jpg",
-   "balandlik_nisbati": 0.24
+   "asl_oq": "Karniz_019.png",
+   "asl_kok": "Karniz_019.jpg",
+   "balandlik_nisbati": 0.24,
+   "balandlik_mm": 200,
+   "kenglik_mm": 120,
+   "narx_pm": 50000
   },
   {
    "kod": "karniz-020",
@@ -323,9 +380,12 @@
    "papka": "katalog-4-orta-past",
    "oq_fon": "katalog-4-orta-past/karniz-020-oq.jpg",
    "kok_fon": "katalog-4-orta-past/karniz-020-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:20:44.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:20:42.jpg",
-   "balandlik_nisbati": 0.209
+   "asl_oq": "Karniz_020.png",
+   "asl_kok": "Karniz_020.jpg",
+   "balandlik_nisbati": 0.209,
+   "balandlik_mm": 166,
+   "kenglik_mm": 143,
+   "narx_pm": 41500
   },
   {
    "kod": "karniz-021",
@@ -333,9 +393,12 @@
    "papka": "katalog-4-orta-past",
    "oq_fon": "katalog-4-orta-past/karniz-021-oq.jpg",
    "kok_fon": "katalog-4-orta-past/karniz-021-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:20:49.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:20:47.jpg",
-   "balandlik_nisbati": 0.211
+   "asl_oq": "Karniz_021.png",
+   "asl_kok": "Karniz_021.jpg",
+   "balandlik_nisbati": 0.211,
+   "balandlik_mm": 167,
+   "kenglik_mm": 140,
+   "narx_pm": 42000
   },
   {
    "kod": "karniz-022",
@@ -343,9 +406,12 @@
    "papka": "katalog-4-orta-past",
    "oq_fon": "katalog-4-orta-past/karniz-022-oq.jpg",
    "kok_fon": "katalog-4-orta-past/karniz-022-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:20:54.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:20:52.jpg",
-   "balandlik_nisbati": 0.222
+   "asl_oq": "Karniz_022.png",
+   "asl_kok": "Karniz_022.jpg",
+   "balandlik_nisbati": 0.222,
+   "balandlik_mm": 180,
+   "kenglik_mm": 120,
+   "narx_pm": 45000
   },
   {
    "kod": "karniz-023",
@@ -353,9 +419,12 @@
    "papka": "katalog-4-orta-past",
    "oq_fon": "katalog-4-orta-past/karniz-023-oq.jpg",
    "kok_fon": "katalog-4-orta-past/karniz-023-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:20:59.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:20:57.jpg",
-   "balandlik_nisbati": 0.213
+   "asl_oq": "Karniz_023.png",
+   "asl_kok": "Karniz_023.jpg",
+   "balandlik_nisbati": 0.213,
+   "balandlik_mm": 170,
+   "kenglik_mm": 120,
+   "narx_pm": 42500
   },
   {
    "kod": "karniz-024",
@@ -363,9 +432,12 @@
    "papka": "katalog-3-orta",
    "oq_fon": "katalog-3-orta/karniz-024-oq.jpg",
    "kok_fon": "katalog-3-orta/karniz-024-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:21:06.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:21:03.jpg",
-   "balandlik_nisbati": 0.241
+   "asl_oq": "Karniz_024.png",
+   "asl_kok": "Karniz_024.jpg",
+   "balandlik_nisbati": 0.241,
+   "balandlik_mm": 200,
+   "kenglik_mm": 100,
+   "narx_pm": 50000
   },
   {
    "kod": "karniz-025",
@@ -373,9 +445,12 @@
    "papka": "katalog-3-orta",
    "oq_fon": "katalog-3-orta/karniz-025-oq.jpg",
    "kok_fon": "katalog-3-orta/karniz-025-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:21:12.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:21:09.jpg",
-   "balandlik_nisbati": 0.24
+   "asl_oq": "Karniz_025.png",
+   "asl_kok": "Karniz_025.jpg",
+   "balandlik_nisbati": 0.24,
+   "balandlik_mm": 200,
+   "kenglik_mm": 100,
+   "narx_pm": 50000
   },
   {
    "kod": "karniz-026",
@@ -383,9 +458,12 @@
    "papka": "katalog-3-orta",
    "oq_fon": "katalog-3-orta/karniz-026-oq.jpg",
    "kok_fon": "katalog-3-orta/karniz-026-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:21:17.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:21:15.jpg",
-   "balandlik_nisbati": 0.241
+   "asl_oq": "Karniz_026.png",
+   "asl_kok": "Karniz_026.jpg",
+   "balandlik_nisbati": 0.241,
+   "balandlik_mm": 200,
+   "kenglik_mm": 100,
+   "narx_pm": 50000
   },
   {
    "kod": "karniz-027",
@@ -393,9 +471,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-027-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-027-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:21:22.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:21:20.jpg",
-   "balandlik_nisbati": 0.185
+   "asl_oq": "Karniz_027.png",
+   "asl_kok": "Karniz_027.jpg",
+   "balandlik_nisbati": 0.185,
+   "balandlik_mm": 136,
+   "kenglik_mm": 141,
+   "narx_pm": 35500
   },
   {
    "kod": "karniz-028",
@@ -403,9 +484,12 @@
    "papka": "katalog-3-orta",
    "oq_fon": "katalog-3-orta/karniz-028-oq.jpg",
    "kok_fon": "katalog-3-orta/karniz-028-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:21:28.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:21:26.jpg",
-   "balandlik_nisbati": 0.241
+   "asl_oq": "Karniz_028.png",
+   "asl_kok": "Karniz_028.jpg",
+   "balandlik_nisbati": 0.241,
+   "balandlik_mm": 200,
+   "kenglik_mm": 93,
+   "narx_pm": 50000
   },
   {
    "kod": "karniz-029",
@@ -413,9 +497,12 @@
    "papka": "katalog-4-orta-past",
    "oq_fon": "katalog-4-orta-past/karniz-029-oq.jpg",
    "kok_fon": "katalog-4-orta-past/karniz-029-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:21:33.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:21:31.jpg",
-   "balandlik_nisbati": 0.207
+   "asl_oq": "Karniz_029.png",
+   "asl_kok": "Karniz_029.jpg",
+   "balandlik_nisbati": 0.207,
+   "balandlik_mm": 161,
+   "kenglik_mm": 100,
+   "narx_pm": 40500
   },
   {
    "kod": "karniz-030",
@@ -423,9 +510,12 @@
    "papka": "katalog-4-orta-past",
    "oq_fon": "katalog-4-orta-past/karniz-030-oq.jpg",
    "kok_fon": "katalog-4-orta-past/karniz-030-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:21:38.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:21:36.jpg",
-   "balandlik_nisbati": 0.206
+   "asl_oq": "Karniz_030.png",
+   "asl_kok": "Karniz_030.jpg",
+   "balandlik_nisbati": 0.206,
+   "balandlik_mm": 160,
+   "kenglik_mm": 100,
+   "narx_pm": 40000
   },
   {
    "kod": "karniz-031",
@@ -433,9 +523,12 @@
    "papka": "katalog-4-orta-past",
    "oq_fon": "katalog-4-orta-past/karniz-031-oq.jpg",
    "kok_fon": "katalog-4-orta-past/karniz-031-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:21:43.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:21:41.jpg",
-   "balandlik_nisbati": 0.206
+   "asl_oq": "Karniz_031.png",
+   "asl_kok": "Karniz_031.jpg",
+   "balandlik_nisbati": 0.206,
+   "balandlik_mm": 160,
+   "kenglik_mm": 100,
+   "narx_pm": 40000
   },
   {
    "kod": "karniz-032",
@@ -443,9 +536,12 @@
    "papka": "katalog-4-orta-past",
    "oq_fon": "katalog-4-orta-past/karniz-032-oq.jpg",
    "kok_fon": "katalog-4-orta-past/karniz-032-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:23:17.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:23:15.jpg",
-   "balandlik_nisbati": 0.206
+   "asl_oq": "Karniz_032.png",
+   "asl_kok": "Karniz_032.jpg",
+   "balandlik_nisbati": 0.206,
+   "balandlik_mm": 160,
+   "kenglik_mm": 100,
+   "narx_pm": 40000
   },
   {
    "kod": "karniz-033",
@@ -453,9 +549,12 @@
    "papka": "katalog-4-orta-past",
    "oq_fon": "katalog-4-orta-past/karniz-033-oq.jpg",
    "kok_fon": "katalog-4-orta-past/karniz-033-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:23:23.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:23:20.jpg",
-   "balandlik_nisbati": 0.206
+   "asl_oq": "Karniz_033.png",
+   "asl_kok": "Karniz_033.jpg",
+   "balandlik_nisbati": 0.206,
+   "balandlik_mm": 160,
+   "kenglik_mm": 100,
+   "narx_pm": 40000
   },
   {
    "kod": "karniz-034",
@@ -463,9 +562,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-034-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-034-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:23:28.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:23:26.jpg",
-   "balandlik_nisbati": 0.189
+   "asl_oq": "Karniz_034.png",
+   "asl_kok": "Karniz_034.jpg",
+   "balandlik_nisbati": 0.189,
+   "balandlik_mm": 140,
+   "kenglik_mm": 110,
+   "narx_pm": 35000
   },
   {
    "kod": "karniz-035",
@@ -473,9 +575,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-035-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-035-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:23:33.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:23:31.jpg",
-   "balandlik_nisbati": 0.198
+   "asl_oq": "Karniz_035.png",
+   "asl_kok": "Karniz_035.jpg",
+   "balandlik_nisbati": 0.198,
+   "balandlik_mm": 151,
+   "kenglik_mm": 100,
+   "narx_pm": 38000
   },
   {
    "kod": "karniz-036",
@@ -483,9 +588,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-036-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-036-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:23:39.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:23:35.jpg",
-   "balandlik_nisbati": 0.197
+   "asl_oq": "Karniz_036.png",
+   "asl_kok": "Karniz_036.jpg",
+   "balandlik_nisbati": 0.197,
+   "balandlik_mm": 150,
+   "kenglik_mm": 100,
+   "narx_pm": 37500
   },
   {
    "kod": "karniz-037",
@@ -493,9 +601,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-037-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-037-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:23:45.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:23:43.jpg",
-   "balandlik_nisbati": 0.197
+   "asl_oq": "Karniz_037.png",
+   "asl_kok": "Karniz_037.jpg",
+   "balandlik_nisbati": 0.197,
+   "balandlik_mm": 150,
+   "kenglik_mm": 100,
+   "narx_pm": 37500
   },
   {
    "kod": "karniz-038",
@@ -503,9 +614,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-038-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-038-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:23:51.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:23:48.jpg",
-   "balandlik_nisbati": 0.197
+   "asl_oq": "Karniz_038.png",
+   "asl_kok": "Karniz_038.jpg",
+   "balandlik_nisbati": 0.197,
+   "balandlik_mm": 150,
+   "kenglik_mm": 100,
+   "narx_pm": 37500
   },
   {
    "kod": "karniz-039",
@@ -513,9 +627,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-039-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-039-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:23:57.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:23:55.jpg",
-   "balandlik_nisbati": 0.197
+   "asl_oq": "Karniz_039.png",
+   "asl_kok": "Karniz_039.jpg",
+   "balandlik_nisbati": 0.197,
+   "balandlik_mm": 150,
+   "kenglik_mm": 100,
+   "narx_pm": 37500
   },
   {
    "kod": "karniz-040",
@@ -523,9 +640,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-040-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-040-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:24:03.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:24:00.jpg",
-   "balandlik_nisbati": 0.197
+   "asl_oq": "Karniz_040.png",
+   "asl_kok": "Karniz_040.jpg",
+   "balandlik_nisbati": 0.197,
+   "balandlik_mm": 150,
+   "kenglik_mm": 100,
+   "narx_pm": 37500
   },
   {
    "kod": "karniz-041",
@@ -533,9 +653,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-041-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-041-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:24:09.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:24:06.jpg",
-   "balandlik_nisbati": 0.197
+   "asl_oq": "Karniz_041.png",
+   "asl_kok": "Karniz_041.jpg",
+   "balandlik_nisbati": 0.197,
+   "balandlik_mm": 150,
+   "kenglik_mm": 100,
+   "narx_pm": 37500
   },
   {
    "kod": "karniz-042",
@@ -543,9 +666,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-042-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-042-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:24:15.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:24:13.jpg",
-   "balandlik_nisbati": 0.197
+   "asl_oq": "Karniz_042.png",
+   "asl_kok": "Karniz_042.jpg",
+   "balandlik_nisbati": 0.197,
+   "balandlik_mm": 150,
+   "kenglik_mm": 100,
+   "narx_pm": 37500
   },
   {
    "kod": "karniz-043",
@@ -553,9 +679,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-043-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-043-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:24:21.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:24:19.jpg",
-   "balandlik_nisbati": 0.197
+   "asl_oq": "Karniz_043.png",
+   "asl_kok": "Karniz_043.jpg",
+   "balandlik_nisbati": 0.197,
+   "balandlik_mm": 150,
+   "kenglik_mm": 100,
+   "narx_pm": 37500
   },
   {
    "kod": "karniz-044",
@@ -563,9 +692,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-044-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-044-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:24:26.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:24:24.jpg",
-   "balandlik_nisbati": 0.197
+   "asl_oq": "Karniz_044.png",
+   "asl_kok": "Karniz_044.jpg",
+   "balandlik_nisbati": 0.197,
+   "balandlik_mm": 150,
+   "kenglik_mm": 100,
+   "narx_pm": 37500
   },
   {
    "kod": "karniz-045",
@@ -573,9 +705,12 @@
    "papka": "katalog-4-orta-past",
    "oq_fon": "katalog-4-orta-past/karniz-045-oq.jpg",
    "kok_fon": "katalog-4-orta-past/karniz-045-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:24:31.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:24:29.jpg",
-   "balandlik_nisbati": 0.224
+   "asl_oq": "Karniz_045.png",
+   "asl_kok": "Karniz_045.jpg",
+   "balandlik_nisbati": 0.224,
+   "balandlik_mm": 180,
+   "kenglik_mm": 80,
+   "narx_pm": 45000
   },
   {
    "kod": "karniz-046",
@@ -583,9 +718,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-046-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-046-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:24:37.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:24:34.jpg",
-   "balandlik_nisbati": 0.189
+   "asl_oq": "Karniz_046.png",
+   "asl_kok": "Karniz_046.jpg",
+   "balandlik_nisbati": 0.189,
+   "balandlik_mm": 140,
+   "kenglik_mm": 100,
+   "narx_pm": 35000
   },
   {
    "kod": "karniz-047",
@@ -593,9 +731,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-047-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-047-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:24:42.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:24:40.jpg",
-   "balandlik_nisbati": 0.188
+   "asl_oq": "kar_047.png",
+   "asl_kok": "kar_047.jpg",
+   "balandlik_nisbati": 0.188,
+   "balandlik_mm": 139,
+   "kenglik_mm": 100,
+   "narx_pm": 35000
   },
   {
    "kod": "karniz-048",
@@ -603,9 +744,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-048-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-048-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:24:47.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:24:45.jpg",
-   "balandlik_nisbati": 0.178
+   "asl_oq": "kar_048.png",
+   "asl_kok": "kar_048.jpg",
+   "balandlik_nisbati": 0.178,
+   "balandlik_mm": 128,
+   "kenglik_mm": 101,
+   "narx_pm": 32000
   },
   {
    "kod": "karniz-049",
@@ -613,9 +757,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-049-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-049-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:24:52.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:24:50.jpg",
-   "balandlik_nisbati": 0.189
+   "asl_oq": "kar_049.png",
+   "asl_kok": "kar_049.jpg",
+   "balandlik_nisbati": 0.189,
+   "balandlik_mm": 141,
+   "kenglik_mm": 86,
+   "narx_pm": 35500
   },
   {
    "kod": "karniz-050",
@@ -623,9 +770,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-050-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-050-kok.jpg",
-   "asl_oq": "IMAGE 2026-10-19 12:24:57.jpg",
-   "asl_kok": "IMAGE 2026-10-19 12:24:55.jpg",
-   "balandlik_nisbati": 0.195
+   "asl_oq": "kar_050.png",
+   "asl_kok": "kar_050.jpg",
+   "balandlik_nisbati": 0.195,
+   "balandlik_mm": 146,
+   "kenglik_mm": 81,
+   "narx_pm": 36500
   },
   {
    "kod": "karniz-051",
@@ -633,9 +783,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-051-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-051-kok.jpg",
-   "asl_oq": "kar_051.jpg",
+   "asl_oq": "kar_051.png",
    "asl_kok": "kar_051.jpg",
-   "balandlik_nisbati": 0.268
+   "balandlik_nisbati": 0.268,
+   "balandlik_mm": 146,
+   "kenglik_mm": 81,
+   "narx_pm": 36500
   },
   {
    "kod": "karniz-052",
@@ -643,9 +796,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-052-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-052-kok.jpg",
-   "asl_oq": "kar_052.jpg",
+   "asl_oq": "kar_052.png",
    "asl_kok": "kar_052.jpg",
-   "balandlik_nisbati": 0.247
+   "balandlik_nisbati": 0.247,
+   "balandlik_mm": 130,
+   "kenglik_mm": 90,
+   "narx_pm": 32500
   },
   {
    "kod": "karniz-053",
@@ -653,9 +809,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-053-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-053-kok.jpg",
-   "asl_oq": "kar_053.jpg",
+   "asl_oq": "kar_053.png",
    "asl_kok": "kar_053.jpg",
-   "balandlik_nisbati": 0.273
+   "balandlik_nisbati": 0.273,
+   "balandlik_mm": 150,
+   "kenglik_mm": 75,
+   "narx_pm": 37500
   },
   {
    "kod": "karniz-054",
@@ -663,9 +822,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-054-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-054-kok.jpg",
-   "asl_oq": "kar_054.jpg",
+   "asl_oq": "kar_054.png",
    "asl_kok": "kar_054.jpg",
-   "balandlik_nisbati": 0.249
+   "balandlik_nisbati": 0.249,
+   "balandlik_mm": 131,
+   "kenglik_mm": 80,
+   "narx_pm": 33000
   },
   {
    "kod": "karniz-055",
@@ -673,9 +835,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-055-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-055-kok.jpg",
-   "asl_oq": "kar_055.jpg",
+   "asl_oq": "kar_055.png",
    "asl_kok": "kar_055.jpg",
-   "balandlik_nisbati": 0.248
+   "balandlik_nisbati": 0.248,
+   "balandlik_mm": 130,
+   "kenglik_mm": 80,
+   "narx_pm": 32500
   },
   {
    "kod": "karniz-056",
@@ -683,9 +848,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-056-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-056-kok.jpg",
-   "asl_oq": "kar_056.jpg",
+   "asl_oq": "kar_056.png",
    "asl_kok": "kar_056.jpg",
-   "balandlik_nisbati": 0.235
+   "balandlik_nisbati": 0.235,
+   "balandlik_mm": 120,
+   "kenglik_mm": 85,
+   "narx_pm": 30000
   },
   {
    "kod": "karniz-057",
@@ -693,9 +861,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-057-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-057-kok.jpg",
-   "asl_oq": "kar_057.jpg",
+   "asl_oq": "kar_057.png",
    "asl_kok": "kar_057.jpg",
-   "balandlik_nisbati": 0.21
+   "balandlik_nisbati": 0.21,
+   "balandlik_mm": 100,
+   "kenglik_mm": 100,
+   "narx_pm": 25000
   },
   {
    "kod": "karniz-058",
@@ -703,9 +874,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-058-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-058-kok.jpg",
-   "asl_oq": "kar_058.jpg",
+   "asl_oq": "kar_058.png",
    "asl_kok": "kar_058.jpg",
-   "balandlik_nisbati": 0.236
+   "balandlik_nisbati": 0.236,
+   "balandlik_mm": 120,
+   "kenglik_mm": 80,
+   "narx_pm": 30000
   },
   {
    "kod": "karniz-059",
@@ -713,9 +887,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-059-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-059-kok.jpg",
-   "asl_oq": "kar_059.jpg",
+   "asl_oq": "kar_059.png",
    "asl_kok": "kar_059.jpg",
-   "balandlik_nisbati": 0.248
+   "balandlik_nisbati": 0.248,
+   "balandlik_mm": 130,
+   "kenglik_mm": 70,
+   "narx_pm": 32500
   },
   {
    "kod": "karniz-060",
@@ -723,9 +900,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-060-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-060-kok.jpg",
-   "asl_oq": "kar_060.jpg",
+   "asl_oq": "kar_060.png",
    "asl_kok": "kar_060.jpg",
-   "balandlik_nisbati": 0.248
+   "balandlik_nisbati": 0.248,
+   "balandlik_mm": 130,
+   "kenglik_mm": 70,
+   "narx_pm": 32500
   },
   {
    "kod": "karniz-061",
@@ -733,9 +913,12 @@
    "papka": "katalog-5-ingichka",
    "oq_fon": "katalog-5-ingichka/karniz-061-oq.jpg",
    "kok_fon": "katalog-5-ingichka/karniz-061-kok.jpg",
-   "asl_oq": "kar_061.jpg",
+   "asl_oq": "kar_061.png",
    "asl_kok": "kar_061.jpg",
-   "balandlik_nisbati": 0.269
+   "balandlik_nisbati": 0.269,
+   "balandlik_mm": 146,
+   "kenglik_mm": 60,
+   "narx_pm": 36500
   },
   {
    "kod": "karniz-062",
@@ -743,9 +926,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-062-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-062-kok.jpg",
-   "asl_oq": "kar_062.jpg",
+   "asl_oq": "kar_062.png",
    "asl_kok": "kar_062.jpg",
-   "balandlik_nisbati": 0.221
+   "balandlik_nisbati": 0.221,
+   "balandlik_mm": 108,
+   "kenglik_mm": 80,
+   "narx_pm": 27000
   },
   {
    "kod": "karniz-063",
@@ -753,9 +939,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-063-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-063-kok.jpg",
-   "asl_oq": "kar_063.jpg",
+   "asl_oq": "kar_063.png",
    "asl_kok": "kar_063.jpg",
-   "balandlik_nisbati": 0.221
+   "balandlik_nisbati": 0.221,
+   "balandlik_mm": 108,
+   "kenglik_mm": 80,
+   "narx_pm": 27000
   },
   {
    "kod": "karniz-064",
@@ -763,9 +952,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-064-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-064-kok.jpg",
-   "asl_oq": "kar_064.jpg",
+   "asl_oq": "kar_064.png",
    "asl_kok": "kar_064.jpg",
-   "balandlik_nisbati": 0.23
+   "balandlik_nisbati": 0.23,
+   "balandlik_mm": 115,
+   "kenglik_mm": 70,
+   "narx_pm": 29000
   },
   {
    "kod": "karniz-065",
@@ -773,9 +965,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-065-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-065-kok.jpg",
-   "asl_oq": "kar_065.jpg",
+   "asl_oq": "kar_065.png",
    "asl_kok": "kar_065.jpg",
-   "balandlik_nisbati": 0.23
+   "balandlik_nisbati": 0.23,
+   "balandlik_mm": 115,
+   "kenglik_mm": 70,
+   "narx_pm": 29000
   },
   {
    "kod": "karniz-066",
@@ -783,9 +978,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-066-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-066-kok.jpg",
-   "asl_oq": "kar_066.jpg",
+   "asl_oq": "kar_066.png",
    "asl_kok": "kar_066.jpg",
-   "balandlik_nisbati": 0.23
+   "balandlik_nisbati": 0.23,
+   "balandlik_mm": 115,
+   "kenglik_mm": 70,
+   "narx_pm": 29000
   },
   {
    "kod": "karniz-067",
@@ -793,9 +991,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-067-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-067-kok.jpg",
-   "asl_oq": "kar_067.jpg",
+   "asl_oq": "kar_067.png",
    "asl_kok": "kar_067.jpg",
-   "balandlik_nisbati": 0.21
+   "balandlik_nisbati": 0.21,
+   "balandlik_mm": 100,
+   "kenglik_mm": 80,
+   "narx_pm": 25000
   },
   {
    "kod": "karniz-068",
@@ -803,9 +1004,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-068-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-068-kok.jpg",
-   "asl_oq": "kar_068.jpg",
+   "asl_oq": "kar_068.png",
    "asl_kok": "kar_068.jpg",
-   "balandlik_nisbati": 0.21
+   "balandlik_nisbati": 0.21,
+   "balandlik_mm": 100,
+   "kenglik_mm": 80,
+   "narx_pm": 25000
   },
   {
    "kod": "karniz-069",
@@ -813,9 +1017,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-069-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-069-kok.jpg",
-   "asl_oq": "kar_069.jpg",
+   "asl_oq": "kar_069.png",
    "asl_kok": "kar_069.jpg",
-   "balandlik_nisbati": 0.236
+   "balandlik_nisbati": 0.236,
+   "balandlik_mm": 120,
+   "kenglik_mm": 65,
+   "narx_pm": 30000
   },
   {
    "kod": "karniz-070",
@@ -823,9 +1030,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-070-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-070-kok.jpg",
-   "asl_oq": "kar_070.jpg",
+   "asl_oq": "kar_070.png",
    "asl_kok": "kar_070.jpg",
-   "balandlik_nisbati": 0.209
+   "balandlik_nisbati": 0.209,
+   "balandlik_mm": 99,
+   "kenglik_mm": 78,
+   "narx_pm": 25000
   },
   {
    "kod": "karniz-071",
@@ -833,9 +1043,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-071-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-071-kok.jpg",
-   "asl_oq": "kar_071.jpg",
+   "asl_oq": "kar_071.png",
    "asl_kok": "kar_071.jpg",
-   "balandlik_nisbati": 0.262
+   "balandlik_nisbati": 0.262,
+   "balandlik_mm": 96,
+   "kenglik_mm": 73,
+   "narx_pm": 24000
   },
   {
    "kod": "karniz-072",
@@ -843,9 +1056,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-072-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-072-kok.jpg",
-   "asl_oq": "kar_072.jpg",
+   "asl_oq": "kar_072.png",
    "asl_kok": "kar_072.jpg",
-   "balandlik_nisbati": 0.27
+   "balandlik_nisbati": 0.27,
+   "balandlik_mm": 100,
+   "kenglik_mm": 70,
+   "narx_pm": 25000
   },
   {
    "kod": "karniz-073",
@@ -853,9 +1069,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-073-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-073-kok.jpg",
-   "asl_oq": "kar_073.jpg",
+   "asl_oq": "kar_073.png",
    "asl_kok": "kar_073.jpg",
-   "balandlik_nisbati": 0.27
+   "balandlik_nisbati": 0.27,
+   "balandlik_mm": 100,
+   "kenglik_mm": 70,
+   "narx_pm": 25000
   },
   {
    "kod": "karniz-074",
@@ -863,9 +1082,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-074-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-074-kok.jpg",
-   "asl_oq": "kar_074.jpg",
+   "asl_oq": "kar_074.png",
    "asl_kok": "kar_074.jpg",
-   "balandlik_nisbati": 0.271
+   "balandlik_nisbati": 0.271,
+   "balandlik_mm": 100,
+   "kenglik_mm": 60,
+   "narx_pm": 25000
   },
   {
    "kod": "karniz-075",
@@ -873,9 +1095,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-075-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-075-kok.jpg",
-   "asl_oq": "kar_075.jpg",
+   "asl_oq": "kar_075.png",
    "asl_kok": "kar_075.jpg",
-   "balandlik_nisbati": 0.271
+   "balandlik_nisbati": 0.271,
+   "balandlik_mm": 100,
+   "kenglik_mm": 60,
+   "narx_pm": 25000
   },
   {
    "kod": "karniz-076",
@@ -883,9 +1108,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-076-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-076-kok.jpg",
-   "asl_oq": "kar_076.jpg",
+   "asl_oq": "kar_076.png",
    "asl_kok": "kar_076.jpg",
-   "balandlik_nisbati": 0.233
+   "balandlik_nisbati": 0.233,
+   "balandlik_mm": 80,
+   "kenglik_mm": 61,
+   "narx_pm": 20000
   },
   {
    "kod": "karniz-077",
@@ -893,9 +1121,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-077-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-077-kok.jpg",
-   "asl_oq": "kar_077.jpg",
+   "asl_oq": "kar_077.png",
    "asl_kok": "kar_077.jpg",
-   "balandlik_nisbati": 0.233
+   "balandlik_nisbati": 0.233,
+   "balandlik_mm": 80,
+   "kenglik_mm": 60,
+   "narx_pm": 20000
   },
   {
    "kod": "karniz-078",
@@ -903,9 +1134,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-078-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-078-kok.jpg",
-   "asl_oq": "kar_078.jpg",
+   "asl_oq": "kar_078.png",
    "asl_kok": "kar_078.jpg",
-   "balandlik_nisbati": 0.233
+   "balandlik_nisbati": 0.233,
+   "balandlik_mm": 80,
+   "kenglik_mm": 55,
+   "narx_pm": 20000
   },
   {
    "kod": "karniz-079",
@@ -913,9 +1147,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-079-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-079-kok.jpg",
-   "asl_oq": "kar_079.jpg",
+   "asl_oq": "kar_079.png",
    "asl_kok": "kar_079.jpg",
-   "balandlik_nisbati": 0.233
+   "balandlik_nisbati": 0.233,
+   "balandlik_mm": 80,
+   "kenglik_mm": 55,
+   "narx_pm": 20000
   },
   {
    "kod": "karniz-080",
@@ -923,9 +1160,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-080-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-080-kok.jpg",
-   "asl_oq": "kar_080.jpg",
+   "asl_oq": "kar_080.png",
    "asl_kok": "kar_080.jpg",
-   "balandlik_nisbati": 0.233
+   "balandlik_nisbati": 0.233,
+   "balandlik_mm": 80,
+   "kenglik_mm": 55,
+   "narx_pm": 20000
   },
   {
    "kod": "karniz-081",
@@ -933,9 +1173,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-081-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-081-kok.jpg",
-   "asl_oq": "kar_081.jpg",
+   "asl_oq": "kar_081.png",
    "asl_kok": "kar_081.jpg",
-   "balandlik_nisbati": 0.275
+   "balandlik_nisbati": 0.275,
+   "balandlik_mm": 101,
+   "kenglik_mm": 39,
+   "narx_pm": 25500
   },
   {
    "kod": "karniz-082",
@@ -943,9 +1186,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-082-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-082-kok.jpg",
-   "asl_oq": "kar_082.jpg",
+   "asl_oq": "kar_082.png",
    "asl_kok": "kar_082.jpg",
-   "balandlik_nisbati": 0.207
+   "balandlik_nisbati": 0.207,
+   "balandlik_mm": 66,
+   "kenglik_mm": 50,
+   "narx_pm": 16500
   },
   {
    "kod": "karniz-083",
@@ -953,9 +1199,12 @@
    "papka": "katalog-6-juda-ingichka",
    "oq_fon": "katalog-6-juda-ingichka/karniz-083-oq.jpg",
    "kok_fon": "katalog-6-juda-ingichka/karniz-083-kok.jpg",
-   "asl_oq": "kar_083.jpg",
+   "asl_oq": "kar_083.png",
    "asl_kok": "kar_083.jpg",
-   "balandlik_nisbati": 0.176
+   "balandlik_nisbati": 0.176,
+   "balandlik_mm": 50,
+   "kenglik_mm": 50,
+   "narx_pm": 12500
   }
  ]
 }
