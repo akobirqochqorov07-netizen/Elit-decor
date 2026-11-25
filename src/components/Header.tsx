@@ -348,7 +348,9 @@ export default function Header() {
           />
           <div className="absolute top-0 left-0 w-80 max-w-full h-full bg-white overflow-y-auto">
             <div className="flex items-center justify-between p-4 border-b">
-              <img src={brand.logo} alt={brand.name} className="h-10 w-auto" />
+              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                <img src={brand.logo} alt={brand.name} className="h-10 w-auto" />
+              </Link>
               <button onClick={() => setMobileMenuOpen(false)} className="text-gray-500">
                 <svg
                   width="24"

@@ -13,6 +13,10 @@ export interface NavItem {
 
 export const getMainNavigation = (t: any): NavItem[] => [
   {
+    title: t('home'),
+    href: '/',
+  },
+  {
     title: t('about'),
     href: '/#about',
   },
