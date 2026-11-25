@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, usePathname, useRouter } from '@/navigation';
+import { Link, usePathname, useRouter, localizeHref } from '@/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 
 import { getMainNavigation, NavItem } from '@/data/navigation';
@@ -26,9 +26,20 @@ export default function Header() {
   const router = useRouter();
   const mainNavigation = getMainNavigation(t);
 
+  const [switchingLocale, setSwitchingLocale] = useState<string | null>(null);
+  const langRef = useRef<HTMLDivElement>(null);
+
   const handleLocaleChange = (newLocale: string) => {
+    setLangOpen(false);
     if (newLocale === locale) return;
-    router.replace(pathname, { locale: newLocale as any });
+    setSwitchingLocale(newLocale);
+    try {
+      document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
+    } catch {
+      // ignore
+    }
+    const targetUrl = localizeHref(pathname, newLocale);
+    window.location.href = targetUrl;
   };
 
   const [langOpen, setLangOpen] = useState(false);
@@ -41,6 +52,23 @@ export default function Header() {
   const { totalItems } = useCart();
   const { openDrawer } = useDrawer();
   const searchRef = useRef<HTMLInputElement>(null);
+
+  // Tashqariga bosganda til menyusini yopish
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    if (langOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [langOpen]);
 
   useEffect(() => {
     if (searchOpen && searchRef.current) {
@@ -124,14 +152,14 @@ export default function Header() {
               {/* Right buttons */}
               <div className="flex items-center gap-1 md:gap-4">
                 {/* Til tanlash — telefon */}
-                <div className="relative md:hidden">
+                <div ref={langRef} className="relative md:hidden">
                   <button
                     onClick={() => setLangOpen(!langOpen)}
                     className="flex items-center justify-center h-11 px-2 text-[13px] font-bold text-gray-700"
                     aria-label="Til / Язык / Language"
                     aria-expanded={langOpen}
                   >
-                    {locale.toUpperCase()}
+                    {switchingLocale ? switchingLocale.toUpperCase() : locale.toUpperCase()}
                     <svg width="10" height="10" viewBox="0 0 10 10" className="ml-1" aria-hidden="true">
                       <path d="M2 3.5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" fill="none" />
                     </svg>

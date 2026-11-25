@@ -72,21 +72,21 @@ export default function HeroSlider() {
 
                 {/* Content Layer */}
                 <div
-                  className="relative z-20 flex flex-col h-full container mx-auto px-12 lg:px-24 py-16"
+                  className="relative z-20 flex flex-col h-full container mx-auto px-5 sm:px-12 lg:px-24 py-8 sm:py-16"
                   style={{ maxWidth: '1200px' }}
                 >
                   {/* --- GENERIC SLIDES (rasm1, rasm2) --- */}
                   {(slide.id === 1 || slide.id === 2) && (
-                    <div className="flex flex-col justify-center items-start h-full max-w-2xl px-0 py-4">
-                      <h2 className="text-white font-sans text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg leading-tight uppercase">
+                    <div className="flex flex-col justify-center items-start h-full max-w-2xl px-0 py-2 sm:py-4">
+                      <h2 className="text-white font-sans text-2xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4 drop-shadow-lg leading-tight uppercase">
                         {slide.title}
                       </h2>
-                      <p className="text-gray-100 font-sans text-lg md:text-xl max-w-xl mb-8 drop-shadow-md">
+                      <p className="text-gray-100 font-sans text-sm sm:text-lg md:text-xl max-w-xl mb-4 sm:mb-8 drop-shadow-md">
                         {slide.subtitle}
                       </p>
                       <a
                         href={slide.btnHref}
-                        className="text-white px-8 py-3 rounded text-lg font-medium transition-colors shadow-lg hover:opacity-90"
+                        className="inline-block text-white px-5 sm:px-8 py-2.5 sm:py-3 rounded text-sm sm:text-lg font-medium transition-colors shadow-lg hover:opacity-90"
                         style={{ backgroundColor: '#D4AF37' }}
                       >
                         {slide.btnText}
@@ -97,15 +97,15 @@ export default function HeroSlider() {
                   {/* --- SLIDE 3 (rasm4.png) --- */}
                   {slide.id === 3 && (
                     <div className="flex flex-col items-start justify-center h-full max-w-xl">
-                      <h2 className="text-white font-sans text-4xl lg:text-5xl font-bold mb-2 uppercase leading-tight drop-shadow-md">
+                      <h2 className="text-white font-sans text-2xl sm:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2 uppercase leading-tight drop-shadow-md">
                         {t('slide3_title')}
                       </h2>
-                      <h3 className="text-white font-sans text-3xl lg:text-4xl font-bold mb-8 uppercase leading-tight drop-shadow-md">
+                      <h3 className="text-white font-sans text-lg sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-8 uppercase leading-tight drop-shadow-md">
                         {t('slide3_subtitle')}
                       </h3>
                       <Link
                         href="/catalog/"
-                        className="text-white px-8 py-3 rounded text-lg font-medium transition-colors shadow-lg hover:opacity-90"
+                        className="inline-block text-white px-5 sm:px-8 py-2.5 sm:py-3 rounded text-sm sm:text-lg font-medium transition-colors shadow-lg hover:opacity-90"
                         style={{ backgroundColor: '#D4AF37' }}
                       >
                         {t('slide3_btn')}
@@ -117,23 +117,23 @@ export default function HeroSlider() {
                   {slide.id === 4 && (
                     <div className="flex flex-col items-start justify-center h-full max-w-xl">
                       <h2
-                        className="font-sans text-4xl lg:text-5xl font-bold mb-2 uppercase leading-tight"
+                        className="font-sans text-2xl sm:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2 uppercase leading-tight"
                         style={{ color: '#D4AF37' }}
                       >
                         {t('slide4_title')}
                       </h2>
                       <h3
-                        className="font-sans text-3xl lg:text-4xl font-bold mb-6 uppercase leading-tight"
+                        className="font-sans text-lg sm:text-3xl lg:text-4xl font-bold mb-2 sm:mb-6 uppercase leading-tight"
                         style={{ color: '#D4AF37' }}
                       >
                         {t('slide4_subtitle')}
                       </h3>
-                      <p className="text-gray-700 font-sans text-xl lg:text-2xl uppercase mb-10 tracking-wide font-medium">
+                      <p className="text-gray-700 font-sans text-sm sm:text-xl lg:text-2xl uppercase mb-4 sm:mb-10 tracking-wide font-medium">
                         {t('slide4_tagline')}
                       </p>
                       <Link
                         href="/catalog-facade/"
-                        className="text-white px-8 py-3 rounded text-lg font-medium transition-colors shadow-lg hover:opacity-90"
+                        className="inline-block text-white px-5 sm:px-8 py-2.5 sm:py-3 rounded text-sm sm:text-lg font-medium transition-colors shadow-lg hover:opacity-90"
                         style={{ backgroundColor: '#D4AF37' }}
                       >
                         {t('slide4_btn')}
@@ -143,33 +143,33 @@ export default function HeroSlider() {
 
                   {/* --- SLIDE 5 (rasm6.png) --- */}
                   {slide.id === 5 && (
-                    <div className="flex flex-col items-start justify-center h-full max-w-lg mt-8 ml-10">
+                    <div className="flex flex-col items-start justify-center h-full max-w-lg mt-0 sm:mt-8 ml-0 sm:ml-10">
                       <h2
-                        className="font-sans text-4xl lg:text-5xl font-bold mb-2 leading-tight"
+                        className="font-sans text-2xl sm:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2 leading-tight"
                         style={{ color: '#D4AF37' }}
                       >
                         {t('slide5_title1')}
                       </h2>
                       <h2
-                        className="font-sans text-4xl lg:text-5xl font-bold mb-2 leading-tight"
+                        className="font-sans text-2xl sm:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2 leading-tight"
                         style={{ color: '#D4AF37' }}
                       >
                         {t('slide5_title2')}
                       </h2>
-                      <h3 className="text-gray-800 font-sans text-3xl lg:text-4xl font-bold mb-10 leading-tight">
+                      <h3 className="text-gray-800 font-sans text-base sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-8 leading-tight">
                         {t('slide5_subtitle')}
                       </h3>
 
-                      <div className="flex flex-col items-start w-full gap-8">
+                      <div className="flex flex-col items-start w-full gap-2 sm:gap-6">
                         <Link
                           href="/contacts/"
-                          className="text-white px-10 py-4 rounded text-xl font-medium transition-colors shadow-lg w-full max-w-xs text-center hover:opacity-90"
+                          className="inline-block text-white px-6 sm:px-10 py-2 sm:py-4 rounded text-sm sm:text-xl font-medium transition-colors shadow-lg w-auto sm:w-full max-w-xs text-center hover:opacity-90"
                           style={{ backgroundColor: '#D4AF37' }}
                         >
                           {t('slide5_btn')}
                         </Link>
 
-                        <div className="text-gray-800 text-lg font-medium leading-relaxed max-w-sm mt-4">
+                        <div className="text-gray-800 text-xs sm:text-base font-medium leading-snug sm:leading-relaxed max-w-sm mt-1 sm:mt-3 space-y-0.5 sm:space-y-1">
                           <p>{t('slide5_quality')}</p>
                           <p>{t('slide5_brigadir')}</p>
                           <p>{t('slide5_cycle')}</p>
@@ -188,12 +188,12 @@ export default function HeroSlider() {
               prev();
               setIsAutoPlaying(false);
             }}
-            className="absolute left-6 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-700 text-white bg-opacity-90 rounded-full flex items-center justify-center hover:bg-gray-800 transition-all shadow-md z-30"
+            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-gray-700 text-white bg-opacity-90 rounded-full flex items-center justify-center hover:bg-gray-800 transition-all shadow-md z-30"
             aria-label={t('prev_aria')}
           >
             <svg
-              width="20"
-              height="20"
+              width="18"
+              height="18"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -207,12 +207,12 @@ export default function HeroSlider() {
               next();
               setIsAutoPlaying(false);
             }}
-            className="absolute right-6 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-700 text-white bg-opacity-90 rounded-full flex items-center justify-center hover:bg-gray-800 transition-all shadow-md z-30"
+            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-gray-700 text-white bg-opacity-90 rounded-full flex items-center justify-center hover:bg-gray-800 transition-all shadow-md z-30"
             aria-label={t('next_aria')}
           >
             <svg
-              width="20"
-              height="20"
+              width="18"
+              height="18"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
