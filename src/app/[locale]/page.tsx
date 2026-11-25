@@ -16,11 +16,14 @@ import FaqSection from '@/components/FaqSection';
 export default function HomePage() {
   const t = useTranslations('HomePage');
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isBuffering, setIsBuffering] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handlePlayVideo = () => {
     if (videoRef.current) {
-      videoRef.current.play();
+      videoRef.current.muted = false;
+      videoRef.current.volume = 1.0;
+      videoRef.current.play().catch(() => {});
       setIsPlaying(true);
     }
   };
@@ -58,13 +61,28 @@ export default function HomePage() {
                   className="w-full h-full object-cover"
                   controls={isPlaying}
                   playsInline
-                  preload="metadata"
-                  onPlay={() => setIsPlaying(true)}
+                  preload="auto"
+                  onPlay={() => {
+                    setIsPlaying(true);
+                    setIsBuffering(false);
+                  }}
+                  onPlaying={() => setIsBuffering(false)}
+                  onWaiting={() => setIsBuffering(true)}
                   onPause={() => setIsPlaying(false)}
-                  onEnded={() => setIsPlaying(false)}
+                  onEnded={() => {
+                    setIsPlaying(false);
+                    setIsBuffering(false);
+                  }}
                 >
                   <source src="/video01.mp4" type="video/mp4" />
                 </video>
+
+                {/* Sekin internet uchun buffering indikatori */}
+                {isPlaying && isBuffering && (
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center pointer-events-none z-10">
+                    <div className="w-12 h-12 border-4 border-[#D4AF37]/30 border-t-[#D4AF37] rounded-full animate-spin"></div>
+                  </div>
+                )}
 
                 {/* Video oblojkasi: Yagona, tiniq va markaziy Elit Dekor logosi */}
                 {!isPlaying && (

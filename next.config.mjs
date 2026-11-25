@@ -21,6 +21,20 @@ const nextConfig = {
     minimumCacheTTL: 60,
     qualities: [75, 85, 90, 95, 98, 100],
   },
+
+  async headers() {
+    return [
+      {
+        source: '/:all*(mp4|MP4|webm|webp|png|jpg|jpeg|svg)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);
