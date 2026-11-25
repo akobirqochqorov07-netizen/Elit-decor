@@ -56,7 +56,6 @@ export default function HomePage() {
                 <video
                   ref={videoRef}
                   className="w-full h-full object-cover"
-                  poster="/images/video01_poster_square.jpg"
                   controls={isPlaying}
                   playsInline
                   preload="metadata"
@@ -67,11 +66,11 @@ export default function HomePage() {
                   <source src="/video01.mp4" type="video/mp4" />
                 </video>
 
-                {/* Video oblojkasi: Elit Dekor logosi bitta, sal kattalashtirilgan va to'liq markazda */}
+                {/* Video oblojkasi: Yagona, tiniq va markaziy Elit Dekor logosi */}
                 {!isPlaying && (
                   <div
                     onClick={handlePlayVideo}
-                    className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/45 to-black/70 flex flex-col items-center justify-center p-6 cursor-pointer transition-all duration-300 hover:bg-black/55 select-none"
+                    className="absolute inset-0 bg-[#0c0c0c] flex flex-col items-center justify-center p-6 cursor-pointer select-none"
                     role="button"
                     tabIndex={0}
                     aria-label="Videoni ko'rish"
@@ -83,11 +82,11 @@ export default function HomePage() {
                     }}
                   >
                     <div className="flex flex-col items-center justify-center text-center">
-                      {/* Elit Decor rasmiy logosi (emblema va yozuvi bitta rasmda, kattaroq va aniq) */}
+                      {/* Elit Decor yagona rasmiy logosi - yirik, tiniq va markazda */}
                       <img
                         src="/images/rasm3.png"
                         alt="Elit Decor"
-                        className="w-36 sm:w-44 lg:w-48 h-auto object-contain drop-shadow-2xl mb-5 group-hover:scale-105 transition-transform duration-300"
+                        className="w-40 sm:w-48 lg:w-56 h-auto object-contain drop-shadow-2xl mb-6 group-hover:scale-105 transition-transform duration-300"
                       />
 
                       {/* Oltin rangli premium Play tugmasi */}
