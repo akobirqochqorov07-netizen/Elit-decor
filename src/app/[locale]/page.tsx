@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import Header from '@/components/Header';
@@ -15,6 +15,15 @@ import FaqSection from '@/components/FaqSection';
 
 export default function HomePage() {
   const t = useTranslations('HomePage');
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlayVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -41,33 +50,71 @@ export default function HomePage() {
               {t('about.title')}
             </h1>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-              {/* Video - left side, taller */}
-              <div
-                className="relative bg-black rounded overflow-hidden flex items-center justify-center"
-                style={{ paddingBottom: '65%' }}
-              >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+              {/* Video - left side (Telefon: kvadrat 1:1, Kompyuter: eni kengroq 4:3) */}
+              <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl border border-[#D4AF37]/30 w-full aspect-square sm:aspect-[4/3] flex items-center justify-center group">
                 <video
-                  className="absolute inset-0 w-full h-full object-contain"
-                  poster="/images/gold.png"
-                  controls
-                  preload="none"
+                  ref={videoRef}
+                  className="w-full h-full object-cover"
+                  poster="/images/video01_poster_square.jpg"
+                  controls={isPlaying}
+                  playsInline
+                  preload="metadata"
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  onEnded={() => setIsPlaying(false)}
                 >
-                  <source src="/video1.MP4" type="video/mp4" />
+                  <source src="/video01.mp4" type="video/mp4" />
                 </video>
+
+                {/* Video oblojkasi: Elit Dekor logosi bitta, sal kattalashtirilgan va to'liq markazda */}
+                {!isPlaying && (
+                  <div
+                    onClick={handlePlayVideo}
+                    className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/45 to-black/70 flex flex-col items-center justify-center p-6 cursor-pointer transition-all duration-300 hover:bg-black/55 select-none"
+                    role="button"
+                    tabIndex={0}
+                    aria-label="Videoni ko'rish"
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handlePlayVideo();
+                      }
+                    }}
+                  >
+                    <div className="flex flex-col items-center justify-center text-center">
+                      {/* Elit Decor rasmiy logosi (emblema va yozuvi bitta rasmda, kattaroq va aniq) */}
+                      <img
+                        src="/images/rasm3.png"
+                        alt="Elit Decor"
+                        className="w-36 sm:w-44 lg:w-48 h-auto object-contain drop-shadow-2xl mb-5 group-hover:scale-105 transition-transform duration-300"
+                      />
+
+                      {/* Oltin rangli premium Play tugmasi */}
+                      <div className="relative flex items-center justify-center">
+                        <span className="absolute w-16 h-16 rounded-full bg-[#D4AF37]/30 animate-ping"></span>
+                        <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-[#B38728] via-[#FBF5B7] to-[#DAA520] shadow-xl flex items-center justify-center text-black group-hover:scale-110 transition-transform duration-300">
+                          <svg
+                            className="w-6 h-6 sm:w-7 sm:h-7 ml-1 fill-gray-900"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
 
-              {/* Text - right side, capped to video height with overflow hidden */}
-              <div
-                className="flex flex-col justify-start"
-                style={{ maxHeight: '420px', overflow: 'hidden' }}
-              >
+              {/* Text - right side */}
+              <div className="flex flex-col justify-start">
                 <p className="text-gray-700 text-base leading-relaxed mb-4">{t('about.p1')}</p>
                 <p className="text-gray-700 text-base leading-relaxed mb-4">{t('about.p2')}</p>
                 <p className="text-gray-700 text-base leading-relaxed mb-6">{t('about.p3')}</p>
 
                 {/* Leader signature - gold color */}
-                <div>
+                <div className="pt-2">
                   <p className="text-base font-semibold" style={{ color: '#D4AF37' }}>
                     {t('about.leader_title')}
                   </p>
