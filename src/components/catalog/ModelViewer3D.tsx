@@ -15,7 +15,7 @@ interface ModelViewer3DProps {
   cameraOrbit?: string;
 }
 
-const DEFAULT_ORBIT = '-25deg 66deg auto';
+const DEFAULT_ORBIT = '-25deg 96deg auto';
 
 export default function ModelViewer3D({ src, productName, cameraOrbit = DEFAULT_ORBIT }: ModelViewer3DProps) {
   const t = useTranslations('ProductPage');
