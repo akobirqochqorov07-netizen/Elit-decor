@@ -12,6 +12,8 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
 
+  serverExternalPackages: ['intl-messageformat'],
+
   eslint: {
     ignoreDuringBuilds: true,
   },

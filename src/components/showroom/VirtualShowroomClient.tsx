@@ -1,252 +1,82 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import { useTranslations, useLocale } from 'next-intl';
+import ModelViewer3D from '@/components/catalog/ModelViewer3D';
 
-// Lazy-load ModelViewer3D with SSR false
-const ModelViewer3D = dynamic(() => import('@/components/catalog/ModelViewer3D'), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full min-h-[350px] flex flex-col items-center justify-center text-gold/80 gap-3">
-      <div className="w-10 h-10 border-2 border-gold/30 border-t-gold rounded-full animate-spin" />
-      <span className="text-xs uppercase tracking-widest text-gray-400">3D Model yuklanmoqda...</span>
-    </div>
-  ),
-});
-
-export interface Hotspot {
-  id: string;
+export interface ShowroomProduct {
   kod: string;
   displayKod: string;
   name: string;
   dims: string;
-  pos: { x: number; y: number }; // percentage 0-100
-  bolim: 'karnizlar' | 'bortkarnizlar';
-  slug: string;
+  type: 'Karniz' | 'Bortkarniz';
   modelSrc: string;
   cutout: string;
+  drawing: string;
+  slug: string;
+  bolim: 'karnizlar' | 'bortkarnizlar';
   desc: string;
+}
+
+export interface ShowroomHotspot {
+  id: string;
+  x: number; // percentage 0-100
+  y: number; // percentage 0-100
+  product: ShowroomProduct;
 }
 
 export interface ShowroomRoom {
   id: string;
+  number: string;
   titleKey: string;
   descKey: string;
   image: string;
   thumb: string;
-  hotspots: Hotspot[];
+  hotspots: ShowroomHotspot[];
 }
 
-const ROOMS_DATA: ShowroomRoom[] = [
-  {
-    id: 'salon',
-    titleKey: 'room1_title',
-    descKey: 'room1_desc',
-    image: '/images/galereya1/full/dekor-090.webp',
-    thumb: '/images/galereya1/thumb/dekor-090.webp',
-    hotspots: [
-      {
-        id: 'k-001',
-        kod: 'karniz-001',
-        displayKod: 'DK-001',
-        name: 'Monumental Klassik Karniz',
-        dims: '400 × 400 mm',
-        pos: { x: 50, y: 13 },
-        bolim: 'karnizlar',
-        slug: 'katalog-1-katta',
-        modelSrc: '/products/karniz-001/model.glb',
-        cutout: '/images/karnizlar/_cutout/karniz-001.webp',
-        desc: 'Hashamatli zallar uchun 400×400 mm ulkan monumental ganch karniz',
-      },
-      {
-        id: 'bk-002',
-        kod: 'bortkarniz-002',
-        displayKod: 'BK-002',
-        name: 'Yashirin LED Bortkarnizi',
-        dims: '82 × 150 mm',
-        pos: { x: 26, y: 22 },
-        bolim: 'bortkarnizlar',
-        slug: 'bortkarnizlar-katta',
-        modelSrc: '/products/bortkarniz-002/model.glb',
-        cutout: '/images/bortkarnizlar/_cutout/bortkarniz-002.webp',
-        desc: 'Yashirin shift chirog‘i va LED lentasi uchun maxsus profil',
-      },
-      {
-        id: 'k-010',
-        kod: 'karniz-010',
-        displayKod: 'DK-010',
-        name: 'Klassik Relyefli Karniz',
-        dims: '175 × 175 mm',
-        pos: { x: 78, y: 32 },
-        bolim: 'karnizlar',
-        slug: 'katalog-2-orta-katta',
-        modelSrc: '/products/karniz-010/model.glb',
-        cutout: '/images/karnizlar/_cutout/karniz-010.webp',
-        desc: 'Simmetrik klassik me’moriy o‘lchamli ganch bezagi',
-      },
-    ],
-  },
-  {
-    id: 'palace',
-    titleKey: 'room2_title',
-    descKey: 'room2_desc',
-    image: '/images/galereya1/full/dekor-097.webp',
-    thumb: '/images/galereya1/thumb/dekor-097.webp',
-    hotspots: [
-      {
-        id: 'k-006',
-        kod: 'karniz-006',
-        displayKod: 'DK-006',
-        name: 'Vertikal Nafis Karniz',
-        dims: '115 × 320 mm',
-        pos: { x: 38, y: 15 },
-        bolim: 'karnizlar',
-        slug: 'katalog-1-katta',
-        modelSrc: '/products/karniz-006/model.glb',
-        cutout: '/images/karnizlar/_cutout/karniz-006.webp',
-        desc: 'Baland shiftli saroy zallari uchun 320 mm vertikal profilli karniz',
-      },
-      {
-        id: 'bk-005',
-        kod: 'bortkarniz-005',
-        displayKod: 'BK-005',
-        name: 'Shift Qirrasi Bortkarnizi',
-        dims: '91 × 121 mm',
-        pos: { x: 68, y: 22 },
-        bolim: 'bortkarnizlar',
-        slug: 'bortkarnizlar-orta',
-        modelSrc: '/products/bortkarniz-005/model.glb',
-        cutout: '/images/bortkarnizlar/_cutout/bortkarniz-005.webp',
-        desc: 'Ko‘p bosqichli shiftlarda nozik yorug‘lik akslantiruvchi profil',
-      },
-      {
-        id: 'k-012',
-        kod: 'karniz-012',
-        displayKod: 'DK-012',
-        name: 'Naqshli Hoshiya Karniz',
-        dims: '140 × 203 mm',
-        pos: { x: 82, y: 28 },
-        bolim: 'karnizlar',
-        slug: 'katalog-2-orta-katta',
-        modelSrc: '/products/karniz-012/model.glb',
-        cutout: '/images/karnizlar/_cutout/karniz-012.webp',
-        desc: 'To‘lqinsimon chiziqli neoklassik ganch elementi',
-      },
-    ],
-  },
-  {
-    id: 'bedroom',
-    titleKey: 'room3_title',
-    descKey: 'room3_desc',
-    image: '/images/galereya1/full/dekor-100.webp',
-    thumb: '/images/galereya1/thumb/dekor-100.webp',
-    hotspots: [
-      {
-        id: 'k-015',
-        kod: 'karniz-015',
-        displayKod: 'DK-015',
-        name: 'Nozik Shift Karnizi',
-        dims: '150 × 180 mm',
-        pos: { x: 45, y: 14 },
-        bolim: 'karnizlar',
-        slug: 'katalog-2-orta-katta',
-        modelSrc: '/products/karniz-015/model.glb',
-        cutout: '/images/karnizlar/_cutout/karniz-015.webp',
-        desc: 'Yotoqxona uchun sokin, qulay va yorug‘likni yumshoq qaytaruvchi karniz',
-      },
-      {
-        id: 'bk-010',
-        kod: 'bortkarniz-010',
-        displayKod: 'BK-010',
-        name: 'Minimalist LED Bortkarniz',
-        dims: '77 × 107 mm',
-        pos: { x: 22, y: 24 },
-        bolim: 'bortkarnizlar',
-        slug: 'bortkarnizlar-orta',
-        modelSrc: '/products/bortkarniz-010/model.glb',
-        cutout: '/images/bortkarnizlar/_cutout/bortkarniz-010.webp',
-        desc: 'Ixcham o‘lchamdagi yashirin chiroq profili, zamonaviy uslub',
-      },
-      {
-        id: 'k-007',
-        kod: 'karniz-007',
-        displayKod: 'DK-007',
-        name: 'Hashamatli Keng Karniz',
-        dims: '200 × 180 mm',
-        pos: { x: 76, y: 16 },
-        bolim: 'karnizlar',
-        slug: 'katalog-1-katta',
-        modelSrc: '/products/karniz-007/model.glb',
-        cutout: '/images/karnizlar/_cutout/karniz-007.webp',
-        desc: 'Keng profilli, o‘ta silliq va nafis ishlangan ganch bezagi',
-      },
-    ],
-  },
-  {
-    id: 'fireplace',
-    titleKey: 'room4_title',
-    descKey: 'room4_desc',
-    image: '/images/galereya1/full/dekor-108.webp',
-    thumb: '/images/galereya1/thumb/dekor-108.webp',
-    hotspots: [
-      {
-        id: 'k-008',
-        kod: 'karniz-008',
-        displayKod: 'DK-008',
-        name: 'Keng Relyefli Karniz',
-        dims: '150 × 239 mm',
-        pos: { x: 50, y: 15 },
-        bolim: 'karnizlar',
-        slug: 'katalog-1-katta',
-        modelSrc: '/products/karniz-008/model.glb',
-        cutout: '/images/karnizlar/_cutout/karniz-008.webp',
-        desc: 'Kamin va zal atrofi uchun chuqur relyefli ganch karnizi',
-      },
-      {
-        id: 'bk-001',
-        kod: 'bortkarniz-001',
-        displayKod: 'BK-001',
-        name: 'Klassik Bortkarniz',
-        dims: '84 × 150 mm',
-        pos: { x: 80, y: 24 },
-        bolim: 'bortkarnizlar',
-        slug: 'bortkarnizlar-katta',
-        modelSrc: '/products/bortkarniz-001/model.glb',
-        cutout: '/images/bortkarnizlar/_cutout/bortkarniz-001.webp',
-        desc: 'Devor va shiftda uzluksiz yorug‘lik chizig‘ini hosil qiluvchi bortkarniz',
-      },
-      {
-        id: 'k-003',
-        kod: 'karniz-003',
-        displayKod: 'DK-003',
-        name: 'Naqshinkor Klassik Karniz',
-        dims: '170 × 250 mm',
-        pos: { x: 20, y: 18 },
-        bolim: 'karnizlar',
-        slug: 'katalog-1-katta',
-        modelSrc: '/products/karniz-003/model.glb',
-        cutout: '/images/karnizlar/_cutout/karniz-003.webp',
-        desc: 'Klassik uslubdagi me’moriy burchak karnizi',
-      },
-    ],
-  },
-];
-
-const STUDIO_PRODUCTS = [
-  {
+const PRODUCTS_DATA: Record<string, ShowroomProduct> = {
+  'karniz-001': {
     kod: 'karniz-001',
     displayKod: 'DK-001',
-    name: 'Monumental Karniz',
+    name: 'Monumental Shift Karnizi',
     dims: '400 × 400 mm',
     type: 'Karniz',
     modelSrc: '/products/karniz-001/model.glb',
     cutout: '/images/karnizlar/_cutout/karniz-001.webp',
+    drawing: '/images/karnizlar/_profil/karniz-001.webp',
     slug: 'katalog-1-katta',
-    bolim: 'karnizlar' as const,
+    bolim: 'karnizlar',
+    desc: 'Monumental xonalar va hashamatli zallar uchun 400×400 mm klassik massiv ganch karniz.',
   },
-  {
+  'bortkarniz-002': {
+    kod: 'bortkarniz-002',
+    displayKod: 'BK-002',
+    name: 'Yashirin LED Bortkarniz',
+    dims: '82 × 150 mm',
+    type: 'Bortkarniz',
+    modelSrc: '/products/bortkarniz-002/model.glb',
+    cutout: '/images/bortkarnizlar/_cutout/bortkarniz-002.webp',
+    drawing: '/images/bortkarnizlar/_profil/bortkarniz-002.webp',
+    slug: 'bortkarnizlar-katta',
+    bolim: 'bortkarnizlar',
+    desc: 'Shift orti yashirin chiroq va LED lenta montaji uchun maxsus javonli arxitektura profili.',
+  },
+  'karniz-010': {
+    kod: 'karniz-010',
+    displayKod: 'DK-010',
+    name: 'Klassik Relyefli Karniz',
+    dims: '175 × 175 mm',
+    type: 'Karniz',
+    modelSrc: '/products/karniz-010/model.glb',
+    cutout: '/images/karnizlar/_cutout/karniz-010.webp',
+    drawing: '/images/karnizlar/_profil/karniz-010.webp',
+    slug: 'katalog-2-orta-katta',
+    bolim: 'karnizlar',
+    desc: 'Devor va shift tutashuvida to‘liq muvozanatli, simmetrik neoklassik relyef.',
+  },
+  'karniz-006': {
     kod: 'karniz-006',
     displayKod: 'DK-006',
     name: 'Vertikal Nafis Karniz',
@@ -254,21 +84,90 @@ const STUDIO_PRODUCTS = [
     type: 'Karniz',
     modelSrc: '/products/karniz-006/model.glb',
     cutout: '/images/karnizlar/_cutout/karniz-006.webp',
+    drawing: '/images/karnizlar/_profil/karniz-006.webp',
     slug: 'katalog-1-katta',
-    bolim: 'karnizlar' as const,
+    bolim: 'karnizlar',
+    desc: 'Baland shiftli saroy zallari uchun vertikal o‘lchami 320 mm bo‘lgan o‘ta nafis karniz.',
   },
-  {
-    kod: 'karniz-010',
-    displayKod: 'DK-010',
-    name: 'Klassik Karniz',
-    dims: '175 × 175 mm',
+  'bortkarniz-005': {
+    kod: 'bortkarniz-005',
+    displayKod: 'BK-005',
+    name: 'Shift Qirrasi Bortkarnizi',
+    dims: '91 × 121 mm',
+    type: 'Bortkarniz',
+    modelSrc: '/products/bortkarniz-005/model.glb',
+    cutout: '/images/bortkarnizlar/_cutout/bortkarniz-005.webp',
+    drawing: '/images/bortkarnizlar/_profil/bortkarniz-005.webp',
+    slug: 'bortkarnizlar-orta',
+    bolim: 'bortkarnizlar',
+    desc: 'Ikki pog‘onali shiftlarda yumshoq yorug‘lik oqimini yaratuvchi nozik ganch profili.',
+  },
+  'karniz-012': {
+    kod: 'karniz-012',
+    displayKod: 'DK-012',
+    name: 'Naqshli Hoshiya Karniz',
+    dims: '140 × 203 mm',
     type: 'Karniz',
-    modelSrc: '/products/karniz-010/model.glb',
-    cutout: '/images/karnizlar/_cutout/karniz-010.webp',
+    modelSrc: '/products/karniz-012/model.glb',
+    cutout: '/images/karnizlar/_cutout/karniz-012.webp',
+    drawing: '/images/karnizlar/_profil/karniz-012.webp',
     slug: 'katalog-2-orta-katta',
-    bolim: 'karnizlar' as const,
+    bolim: 'karnizlar',
+    desc: 'Sharqona va Yevropa klassikasini birlashtirgan naqshinkor qirrali me’moriy detal.',
   },
-  {
+  'karniz-015': {
+    kod: 'karniz-015',
+    displayKod: 'DK-015',
+    name: 'Sokin Shift Karnizi',
+    dims: '150 × 180 mm',
+    type: 'Karniz',
+    modelSrc: '/products/karniz-015/model.glb',
+    cutout: '/images/karnizlar/_cutout/karniz-015.webp',
+    drawing: '/images/karnizlar/_profil/karniz-015.webp',
+    slug: 'katalog-2-orta-katta',
+    bolim: 'karnizlar',
+    desc: 'Zamonaviy minimalizm va qulaylikni ta’minlovchi sokin yotoqxona karnizi.',
+  },
+  'bortkarniz-010': {
+    kod: 'bortkarniz-010',
+    displayKod: 'BK-010',
+    name: 'Ixcham LED Bortkarnizi',
+    dims: '77 × 107 mm',
+    type: 'Bortkarniz',
+    modelSrc: '/products/bortkarniz-010/model.glb',
+    cutout: '/images/bortkarnizlar/_cutout/bortkarniz-010.webp',
+    drawing: '/images/bortkarnizlar/_profil/bortkarniz-010.webp',
+    slug: 'bortkarnizlar-orta',
+    bolim: 'bortkarnizlar',
+    desc: 'Pastroq shiftlar uchun eng optimal, yashirin chiroq o‘rnatishga mos ixcham bortkarniz.',
+  },
+  'karniz-007': {
+    kod: 'karniz-007',
+    displayKod: 'DK-007',
+    name: 'Hashamatli Keng Karniz',
+    dims: '200 × 180 mm',
+    type: 'Karniz',
+    modelSrc: '/products/karniz-007/model.glb',
+    cutout: '/images/karnizlar/_cutout/karniz-007.webp',
+    drawing: '/images/karnizlar/_profil/karniz-007.webp',
+    slug: 'katalog-1-katta',
+    bolim: 'karnizlar',
+    desc: 'Keng va to‘liq silliqlangan profil, interyerda chuqur me’moriy fazoni hosil qiladi.',
+  },
+  'karniz-008': {
+    kod: 'karniz-008',
+    displayKod: 'DK-008',
+    name: 'Chuqur Relyefli Karniz',
+    dims: '150 × 239 mm',
+    type: 'Karniz',
+    modelSrc: '/products/karniz-008/model.glb',
+    cutout: '/images/karnizlar/_cutout/karniz-008.webp',
+    drawing: '/images/karnizlar/_profil/karniz-008.webp',
+    slug: 'katalog-1-katta',
+    bolim: 'karnizlar',
+    desc: 'Kamin va zal portali atrofiga mo‘ljallangan hashamatli chuqur profilli ganch bezagi.',
+  },
+  'bortkarniz-001': {
     kod: 'bortkarniz-001',
     displayKod: 'BK-001',
     name: 'Klassik Bortkarniz',
@@ -276,30 +175,78 @@ const STUDIO_PRODUCTS = [
     type: 'Bortkarniz',
     modelSrc: '/products/bortkarniz-001/model.glb',
     cutout: '/images/bortkarnizlar/_cutout/bortkarniz-001.webp',
+    drawing: '/images/bortkarnizlar/_profil/bortkarniz-001.webp',
     slug: 'bortkarnizlar-katta',
-    bolim: 'bortkarnizlar' as const,
+    bolim: 'bortkarnizlar',
+    desc: 'Shift atrofida silliq chiziqli yorug‘lik aks ettiruvchi klassik bortkarniz.',
+  },
+  'karniz-003': {
+    kod: 'karniz-003',
+    displayKod: 'DK-003',
+    name: 'Me’moriy Burchak Karnizi',
+    dims: '170 × 250 mm',
+    type: 'Karniz',
+    modelSrc: '/products/karniz-003/model.glb',
+    cutout: '/images/karnizlar/_cutout/karniz-003.webp',
+    drawing: '/images/karnizlar/_profil/karniz-003.webp',
+    slug: 'katalog-1-katta',
+    bolim: 'karnizlar',
+    desc: 'Geometrik burchakli toza chiziqlar, mustahkam Samarqand ganchidan ishlangan.',
+  },
+};
+
+const ROOMS_DATA: ShowroomRoom[] = [
+  {
+    id: 'salon',
+    number: '01',
+    titleKey: 'room1_title',
+    descKey: 'room1_desc',
+    image: '/images/galereya1/full/dekor-090.webp',
+    thumb: '/images/galereya1/thumb/dekor-090.webp',
+    hotspots: [
+      { id: 'hs-1', x: 50, y: 13, product: PRODUCTS_DATA['karniz-001'] },
+      { id: 'hs-2', x: 26, y: 22, product: PRODUCTS_DATA['bortkarniz-002'] },
+      { id: 'hs-3', x: 78, y: 32, product: PRODUCTS_DATA['karniz-010'] },
+    ],
   },
   {
-    kod: 'bortkarniz-002',
-    displayKod: 'BK-002',
-    name: 'LED Bortkarniz',
-    dims: '82 × 150 mm',
-    type: 'Bortkarniz',
-    modelSrc: '/products/bortkarniz-002/model.glb',
-    cutout: '/images/bortkarnizlar/_cutout/bortkarniz-002.webp',
-    slug: 'bortkarnizlar-katta',
-    bolim: 'bortkarnizlar' as const,
+    id: 'palace',
+    number: '02',
+    titleKey: 'room2_title',
+    descKey: 'room2_desc',
+    image: '/images/galereya1/full/dekor-097.webp',
+    thumb: '/images/galereya1/thumb/dekor-097.webp',
+    hotspots: [
+      { id: 'hs-4', x: 38, y: 15, product: PRODUCTS_DATA['karniz-006'] },
+      { id: 'hs-5', x: 68, y: 22, product: PRODUCTS_DATA['bortkarniz-005'] },
+      { id: 'hs-6', x: 82, y: 28, product: PRODUCTS_DATA['karniz-012'] },
+    ],
   },
   {
-    kod: 'bortkarniz-005',
-    displayKod: 'BK-005',
-    name: 'Shift Bortkarnizi',
-    dims: '91 × 121 mm',
-    type: 'Bortkarniz',
-    modelSrc: '/products/bortkarniz-005/model.glb',
-    cutout: '/images/bortkarnizlar/_cutout/bortkarniz-005.webp',
-    slug: 'bortkarnizlar-orta',
-    bolim: 'bortkarnizlar' as const,
+    id: 'bedroom',
+    number: '03',
+    titleKey: 'room3_title',
+    descKey: 'room3_desc',
+    image: '/images/galereya1/full/dekor-100.webp',
+    thumb: '/images/galereya1/thumb/dekor-100.webp',
+    hotspots: [
+      { id: 'hs-7', x: 45, y: 14, product: PRODUCTS_DATA['karniz-015'] },
+      { id: 'hs-8', x: 22, y: 24, product: PRODUCTS_DATA['bortkarniz-010'] },
+      { id: 'hs-9', x: 76, y: 16, product: PRODUCTS_DATA['karniz-007'] },
+    ],
+  },
+  {
+    id: 'fireplace',
+    number: '04',
+    titleKey: 'room4_title',
+    descKey: 'room4_desc',
+    image: '/images/galereya1/full/dekor-108.webp',
+    thumb: '/images/galereya1/thumb/dekor-108.webp',
+    hotspots: [
+      { id: 'hs-10', x: 50, y: 15, product: PRODUCTS_DATA['karniz-008'] },
+      { id: 'hs-11', x: 80, y: 24, product: PRODUCTS_DATA['bortkarniz-001'] },
+      { id: 'hs-12', x: 20, y: 18, product: PRODUCTS_DATA['karniz-003'] },
+    ],
   },
 ];
 
@@ -307,294 +254,256 @@ export default function VirtualShowroomClient() {
   const t = useTranslations('VirtualShowroom');
   const locale = useLocale();
 
+  const [mounted, setMounted] = useState(false);
   const [activeRoomIdx, setActiveRoomIdx] = useState(0);
-  const [activeHotspot, setActiveHotspot] = useState<Hotspot | null>(null);
-  const [modalModel, setModalModel] = useState<Hotspot | null>(null);
-  const [lighting, setLighting] = useState<'day' | 'warm' | 'night'>('warm');
-  const [selectedStudioProduct, setSelectedStudioProduct] = useState(STUDIO_PRODUCTS[0]);
+  const [viewMode, setViewMode] = useState<'room' | '3d'>('room');
+  const [selectedProduct, setSelectedProduct] = useState<ShowroomProduct>(PRODUCTS_DATA['karniz-001']);
+  const [activeHotspot, setActiveHotspot] = useState<ShowroomHotspot | null>(null);
+  const [lighting, setLighting] = useState<'day' | 'warm'>('warm');
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const stageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const currentRoom = ROOMS_DATA[activeRoomIdx];
 
-  // Close modal on Escape key
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setModalModel(null);
-        setActiveHotspot(null);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  // Fullscreen toggle handler
+  const toggleFullscreen = () => {
+    if (!stageRef.current) return;
+    if (!document.fullscreenElement) {
+      stageRef.current.requestFullscreen().catch(() => {});
+      setIsFullscreen(true);
+    } else {
+      document.exitFullscreen().catch(() => {});
+      setIsFullscreen(false);
+    }
+  };
+
+  // Inspect in 3D studio mode
+  const openProductIn3D = (p: ShowroomProduct) => {
+    setSelectedProduct(p);
+    setViewMode('3d');
+    setActiveHotspot(null);
+  };
 
   return (
-    <div className="relative min-h-screen bg-[#0A0D12] text-white selection:bg-[#C5A265] selection:text-black">
-      {/* ── STICKY LUXURY EXIT BAR (User is NEVER trapped) ── */}
-      <div className="sticky top-0 z-40 bg-[#0A0D12]/90 backdrop-blur-md border-b border-white/10 px-4 py-3 sm:py-3.5 transition-all">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
-          {/* Back to Home Button */}
+    <div
+      ref={stageRef}
+      className={`relative w-full bg-[#0E1015] text-[#ECEFF4] font-sans select-none overflow-hidden ${
+        isFullscreen ? 'h-screen' : 'min-h-[calc(100vh-76px)]'
+      }`}
+    >
+      {/* ── ARCHITECTURAL TOP HUD (Shapespark Minimalist Style) ── */}
+      <header className="relative z-30 flex items-center justify-between px-4 sm:px-8 py-3.5 bg-[#0E1015]/95 backdrop-blur-md border-b border-white/[0.08]">
+        {/* Left: Exit to Home */}
+        <div className="flex items-center gap-4">
           <Link
             href={`/${locale}`}
-            className="group inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 hover:bg-[#C5A265]/20 border border-white/15 hover:border-[#C5A265]/60 text-white hover:text-[#E8D39E] transition-all text-xs sm:text-sm font-medium tracking-wide shadow-lg"
+            className="group inline-flex items-center gap-2 text-xs uppercase tracking-widest text-neutral-400 hover:text-white transition-colors"
           >
-            <span className="text-base group-hover:-translate-x-1 transition-transform">←</span>
+            <span className="text-sm font-light transition-transform group-hover:-translate-x-1">←</span>
             <span>{t('back_to_home')}</span>
           </Link>
-
-          {/* Quick Breadcrumbs / Title */}
-          <div className="hidden sm:flex items-center gap-2 text-xs text-gray-400">
-            <Link href={`/${locale}`} className="hover:text-white transition-colors">
-              Elit Dekor
-            </Link>
-            <span>/</span>
-            <span className="text-[#C5A265] font-medium">{t('hero_title')}</span>
-          </div>
-
-          {/* Catalog Shortcut */}
-          <div className="flex items-center gap-2">
-            <Link
-              href={`/${locale}/katalog/karnizlar`}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-white text-xs font-medium transition-colors"
-            >
-              <span>{t('view_in_catalog')}</span>
-              <span className="text-xs">→</span>
-            </Link>
-          </div>
+          <span className="h-3 w-px bg-white/10 hidden sm:block" />
+          <span className="text-[11px] uppercase tracking-widest text-[#C5A265] hidden sm:block font-medium">
+            Elit Dekor · Virtual Showroom
+          </span>
         </div>
+
+        {/* Center: Minimalist Viewpoint / Room Selector */}
+        <nav className="hidden md:flex items-center gap-1 bg-white/[0.04] p-1 rounded-full border border-white/[0.06]">
+          {ROOMS_DATA.map((room, idx) => {
+            const active = idx === activeRoomIdx && viewMode === 'room';
+            return (
+              <button
+                key={room.id}
+                type="button"
+                onClick={() => {
+                  setActiveRoomIdx(idx);
+                  setViewMode('room');
+                  setActiveHotspot(null);
+                }}
+                className={`px-3 py-1.5 rounded-full text-xs transition-all font-medium ${
+                  active
+                    ? 'bg-white text-black shadow-sm'
+                    : 'text-neutral-400 hover:text-white hover:bg-white/[0.05]'
+                }`}
+              >
+                <span>{room.number}</span>
+                <span className="mx-1.5 opacity-40">/</span>
+                <span>{t(room.titleKey)}</span>
+              </button>
+            );
+          })}
+        </nav>
+
+        {/* Right: View Mode Toggle */}
+        <div className="flex items-center gap-2">
+          <div className="flex items-center bg-white/[0.04] p-1 rounded-full border border-white/[0.06] text-xs">
+            <button
+              type="button"
+              onClick={() => {
+                setViewMode('room');
+                setActiveHotspot(null);
+              }}
+              className={`px-3 py-1 rounded-full transition-all text-xs font-medium ${
+                viewMode === 'room'
+                  ? 'bg-[#C5A265] text-black font-semibold'
+                  : 'text-neutral-400 hover:text-white'
+              }`}
+            >
+              Interyer
+            </button>
+            <button
+              type="button"
+              onClick={() => setViewMode('3d')}
+              className={`px-3 py-1 rounded-full transition-all text-xs font-medium ${
+                viewMode === '3d'
+                  ? 'bg-[#C5A265] text-black font-semibold'
+                  : 'text-neutral-400 hover:text-white'
+              }`}
+            >
+              3D Studiya
+            </button>
+          </div>
+
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            aria-label="Toggle Fullscreen"
+            className="p-2 rounded-full text-neutral-400 hover:text-white hover:bg-white/[0.05] transition-colors hidden sm:flex items-center justify-center"
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      {/* ── MOBILE SCENE SWITCHER ── */}
+      <div className="md:hidden flex items-center justify-start gap-1 overflow-x-auto px-4 py-2 bg-[#0E1015]/90 border-b border-white/[0.06] scrollbar-none">
+        {ROOMS_DATA.map((room, idx) => {
+          const active = idx === activeRoomIdx && viewMode === 'room';
+          return (
+            <button
+              key={room.id}
+              type="button"
+              onClick={() => {
+                setActiveRoomIdx(idx);
+                setViewMode('room');
+                setActiveHotspot(null);
+              }}
+              className={`px-3 py-1 rounded-full text-[11px] whitespace-nowrap transition-all ${
+                active ? 'bg-white text-black font-medium' : 'text-neutral-400 hover:text-white'
+              }`}
+            >
+              {room.number} · {t(room.titleKey)}
+            </button>
+          );
+        })}
       </div>
 
-      {/* ── HERO BANNER ── */}
-      <section className="relative pt-12 pb-16 px-4 overflow-hidden border-b border-white/5">
-        {/* Ambient radial glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-b from-[#C5A265]/15 via-[#C5A265]/5 to-transparent blur-3xl pointer-events-none" />
-
-        <div className="relative max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#C5A265]/10 border border-[#C5A265]/30 text-[#E8D39E] text-[11px] sm:text-xs font-semibold tracking-widest uppercase mb-5">
-            <span className="w-2 h-2 rounded-full bg-[#C5A265] animate-ping" />
-            {t('badge')}
-          </div>
-
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif text-white tracking-tight mb-4 drop-shadow-md">
-            {t('hero_title')}
-          </h1>
-
-          <p className="text-sm sm:text-lg text-gray-300 max-w-2xl mx-auto font-light leading-relaxed mb-6">
-            {t('hero_desc')} <span className="text-[#E8D39E] font-medium">{t('hero_interactive')}</span>{' '}
-            {t('hero_desc2')}
-          </p>
-
-          {/* Quick Stats */}
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 pt-2 text-xs sm:text-sm text-gray-400">
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C5A265]" />
-              <strong className="text-white font-semibold">109+</strong> 3D Modellari
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C5A265]" />
-              <strong className="text-white font-semibold">100%</strong> {t('features_natural')}
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C5A265]" />
-              <strong className="text-white font-semibold">360°</strong> {t('hotspot_instruction')}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── MAIN INTERACTIVE SHOWROOM STAGE ── */}
-      <section className="py-10 px-4 max-w-7xl mx-auto">
-        {/* Room Selection Tabs */}
-        <div className="mb-6">
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
-              {t('room_select')}
-            </h2>
-            <span className="text-xs text-[#E8D39E] hidden sm:inline">
-              ✦ {t('hotspot_instruction')}
-            </span>
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3">
-            {ROOMS_DATA.map((room, idx) => {
-              const active = idx === activeRoomIdx;
-              return (
-                <button
-                  key={room.id}
-                  onClick={() => {
-                    setActiveRoomIdx(idx);
-                    setActiveHotspot(null);
-                  }}
-                  className={`group relative text-left p-2.5 sm:p-3 rounded-xl border transition-all flex items-center gap-3 overflow-hidden ${
-                    active
-                      ? 'bg-white/10 border-[#C5A265] shadow-lg shadow-[#C5A265]/10'
-                      : 'bg-white/5 border-white/10 hover:border-white/20 hover:bg-white/[0.07]'
-                  }`}
-                >
-                  <img
-                    src={room.thumb}
-                    alt={t(room.titleKey)}
-                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg object-cover flex-shrink-0 border border-white/10 group-hover:scale-105 transition-transform"
-                  />
-                  <div className="min-w-0 flex-1">
-                    <p
-                      className={`text-xs sm:text-sm font-medium truncate ${
-                        active ? 'text-[#E8D39E]' : 'text-white'
-                      }`}
-                    >
-                      {t(room.titleKey)}
-                    </p>
-                    <p className="text-[11px] text-gray-400 truncate mt-0.5">
-                      {room.hotspots.length} ta ganch bezagi
-                    </p>
-                  </div>
-                  {active && (
-                    <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-[#C5A265]" />
-                  )}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Room Viewport with Interactive Pins */}
-        <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-black shadow-2xl group">
-          {/* Top Stage Controls Overlay */}
-          <div className="absolute top-3 left-3 right-3 z-30 flex items-center justify-between pointer-events-none">
-            {/* Room Title Badge */}
-            <div className="pointer-events-auto bg-black/60 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-white flex items-center gap-2 shadow-lg">
-              <span className="text-[#C5A265]">🏛</span>
-              <span>{t(currentRoom.titleKey)}</span>
-            </div>
-
-            {/* Lighting Mode Selector */}
-            <div className="pointer-events-auto flex items-center gap-1 bg-black/60 backdrop-blur-md border border-white/15 p-1 rounded-lg text-xs shadow-lg">
-              <button
-                type="button"
-                onClick={() => setLighting('day')}
-                className={`px-2 py-1 rounded transition-colors ${
-                  lighting === 'day'
-                    ? 'bg-white/20 text-white font-medium'
-                    : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                ☀ {t('lighting_day')}
-              </button>
-              <button
-                type="button"
-                onClick={() => setLighting('warm')}
-                className={`px-2 py-1 rounded transition-colors ${
-                  lighting === 'warm'
-                    ? 'bg-[#C5A265]/30 text-[#E8D39E] font-medium'
-                    : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                💡 {t('lighting_warm')}
-              </button>
-              <button
-                type="button"
-                onClick={() => setLighting('night')}
-                className={`px-2 py-1 rounded transition-colors ${
-                  lighting === 'night'
-                    ? 'bg-indigo-900/40 text-indigo-300 font-medium'
-                    : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                🌙 {t('lighting_night')}
-              </button>
-            </div>
-          </div>
-
-          {/* Main Stage Image */}
-          <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] max-h-[640px] overflow-hidden select-none">
+      {/* ── MAIN STAGE VIEWPORT ── */}
+      <main className="relative w-full h-[calc(100vh-140px)] sm:h-[calc(100vh-120px)] flex items-center justify-center overflow-hidden">
+        {/* ── MODE 1: ARCHITECTURAL INTERIOR SCENE ── */}
+        {viewMode === 'room' && (
+          <div className="relative w-full h-full flex items-center justify-center">
+            {/* High-Resolution Room Image with subtle tone adjustments */}
             <img
               src={currentRoom.image}
               alt={t(currentRoom.titleKey)}
-              className={`w-full h-full object-cover transition-all duration-700 ${
+              className={`w-full h-full object-cover transition-all duration-700 select-none ${
                 lighting === 'warm'
-                  ? 'sepia-[0.18] brightness-[0.98] contrast-[1.04]'
-                  : lighting === 'night'
-                  ? 'brightness-[0.72] contrast-[1.12] hue-rotate-[200deg]'
+                  ? 'brightness-[0.98] contrast-[1.03] sepia-[0.14]'
                   : 'brightness-100 contrast-100'
               }`}
             />
 
-            {/* Subtle Vignette Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40 pointer-events-none" />
+            {/* Subtle Vignette for architectural depth */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
 
-            {/* ── INTERACTIVE HOTSPOT PINS ── */}
+            {/* ── MINIMALIST ARCHITECTURAL HOTSPOTS ── */}
             {currentRoom.hotspots.map((hs) => {
-              const isActive = activeHotspot?.id === hs.id;
+              const isSelected = activeHotspot?.id === hs.id;
               return (
                 <div
                   key={hs.id}
-                  style={{ left: `${hs.pos.x}%`, top: `${hs.pos.y}%` }}
+                  style={{ left: `${hs.x}%`, top: `${hs.y}%` }}
                   className="absolute -translate-x-1/2 -translate-y-1/2 z-20"
                 >
-                  {/* Pulsing Pin Button */}
+                  {/* Shapespark-Style Delicate Hotspot Button */}
                   <button
                     type="button"
-                    onClick={() => setActiveHotspot(isActive ? null : hs)}
-                    className="relative group/pin p-2 outline-none focus:outline-none"
-                    aria-label={`Inspect ${hs.displayKod}`}
+                    onClick={() => setActiveHotspot(isSelected ? null : hs)}
+                    className="relative group/pin p-3 outline-none"
+                    aria-label={`Inspect ${hs.product.displayKod}`}
                   >
-                    {/* Golden Ripple Effect */}
-                    <span className="absolute inset-0 rounded-full bg-[#C5A265]/40 animate-ping" />
-                    <span className="relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-[#E8D39E] to-[#9E7A3D] text-black font-bold text-xs shadow-xl shadow-black/80 border-2 border-white/90 group-hover/pin:scale-110 transition-transform">
-                      ✦
+                    {/* Outer thin pulsating ring */}
+                    <span className="absolute inset-1 rounded-full border border-white/40 animate-ping" />
+                    {/* Inner elegant glass marker */}
+                    <span className="relative flex items-center justify-center w-7 h-7 rounded-full bg-black/60 backdrop-blur-md border border-white/80 group-hover/pin:border-[#C5A265] group-hover/pin:scale-110 transition-all shadow-xl">
+                      <span className="w-2 h-2 rounded-full bg-white group-hover/pin:bg-[#C5A265] transition-colors" />
                     </span>
-                    {/* Tooltip Label */}
-                    <span className="absolute left-1/2 -translate-x-1/2 top-full mt-1.5 px-2 py-0.5 rounded bg-black/80 backdrop-blur text-[10px] sm:text-xs text-white font-medium whitespace-nowrap opacity-0 group-hover/pin:opacity-100 transition-opacity pointer-events-none border border-white/20">
-                      {hs.displayKod} ({hs.dims})
+                    {/* Discreet label tag */}
+                    <span className="absolute left-full top-1/2 -translate-y-1/2 ml-2 px-2 py-0.5 rounded bg-black/75 backdrop-blur-sm text-[10px] uppercase font-mono tracking-wider text-white/90 border border-white/10 whitespace-nowrap opacity-0 group-hover/pin:opacity-100 transition-opacity pointer-events-none">
+                      {hs.product.displayKod} · {hs.product.dims}
                     </span>
                   </button>
 
-                  {/* Hotspot Popover Card */}
-                  {isActive && (
-                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-72 sm:w-80 p-4 rounded-xl bg-[#12161F]/95 backdrop-blur-xl border border-[#C5A265]/50 shadow-2xl text-left z-30 animate-in fade-in zoom-in-95 duration-200">
-                      {/* Close popover */}
-                      <button
-                        type="button"
-                        onClick={() => setActiveHotspot(null)}
-                        className="absolute top-2.5 right-2.5 text-gray-400 hover:text-white text-lg w-6 h-6 flex items-center justify-center rounded-full hover:bg-white/10"
-                      >
-                        ×
-                      </button>
-
-                      <div className="flex gap-3 items-center mb-3">
-                        <img
-                          src={hs.cutout}
-                          alt={hs.displayKod}
-                          className="w-16 h-16 rounded-lg bg-white/5 object-contain p-1 border border-white/10"
-                        />
-                        <div className="min-w-0">
-                          <span className="inline-block px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#C5A265]/20 text-[#E8D39E] mb-1">
-                            {hs.displayKod}
+                  {/* Shapespark Architectural Inspection Card */}
+                  {isSelected && (
+                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 sm:w-80 p-4 rounded-xl bg-[#12151C]/95 backdrop-blur-xl border border-white/15 shadow-2xl text-left z-30 animate-in fade-in duration-150">
+                      <div className="flex items-start justify-between gap-2 mb-2">
+                        <div>
+                          <span className="text-[10px] font-mono tracking-widest text-[#C5A265] uppercase">
+                            {hs.product.type}
                           </span>
-                          <h4 className="text-sm font-semibold text-white leading-tight truncate">
-                            {hs.name}
+                          <h4 className="text-sm font-serif text-white tracking-wide">
+                            {hs.product.displayKod} — {hs.product.name}
                           </h4>
-                          <p className="text-xs text-gray-300 font-mono mt-0.5">{hs.dims}</p>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => setActiveHotspot(null)}
+                          className="text-neutral-400 hover:text-white text-sm w-5 h-5 flex items-center justify-center rounded hover:bg-white/10"
+                        >
+                          ✕
+                        </button>
+                      </div>
+
+                      <div className="flex gap-3 items-center my-3 p-2 bg-black/40 rounded-lg border border-white/[0.06]">
+                        <img
+                          src={hs.product.cutout}
+                          alt={hs.product.displayKod}
+                          className="w-14 h-14 object-contain"
+                        />
+                        <div className="text-xs space-y-0.5">
+                          <p className="text-neutral-400">O‘lchami:</p>
+                          <p className="font-mono text-white font-medium">{hs.product.dims}</p>
+                          <p className="text-[11px] text-emerald-400">100% Sof Samarqand ganchi</p>
                         </div>
                       </div>
 
-                      <p className="text-xs text-gray-300 leading-relaxed mb-4 line-clamp-2">
-                        {hs.desc}
+                      <p className="text-xs text-neutral-300 font-light leading-relaxed mb-3 line-clamp-2">
+                        {hs.product.desc}
                       </p>
 
-                      <div className="grid grid-cols-2 gap-2 pt-1">
+                      <div className="grid grid-cols-2 gap-2 pt-1 border-t border-white/[0.08]">
                         <button
                           type="button"
-                          onClick={() => setModalModel(hs)}
-                          className="px-3 py-2 rounded-lg bg-gradient-to-r from-[#C5A265] to-[#B38F52] hover:brightness-110 text-black text-xs font-semibold tracking-wide flex items-center justify-center gap-1.5 shadow-md"
+                          onClick={() => openProductIn3D(hs.product)}
+                          className="px-3 py-2 rounded-lg bg-white text-black hover:bg-[#C5A265] text-xs font-medium tracking-wide transition-colors flex items-center justify-center gap-1.5"
                         >
-                          <span>{t('view_in_3d')}</span>
-                          <span>⟲</span>
+                          <span>3D Tekshirish</span>
+                          <span className="text-sm">⟲</span>
                         </button>
                         <Link
-                          href={`/${locale}/katalog/${hs.bolim}/${hs.slug}/${hs.kod}`}
-                          className="px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-medium text-center border border-white/15 transition-colors"
+                          href={`/${locale}/katalog/${hs.product.bolim}/${hs.product.slug}/${hs.product.kod}`}
+                          className="px-3 py-2 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] text-neutral-200 text-xs font-medium text-center border border-white/10 transition-colors"
                         >
-                          {t('view_in_catalog')}
+                          Katalogda ko‘rish →
                         </Link>
                       </div>
                     </div>
@@ -602,202 +511,146 @@ export default function VirtualShowroomClient() {
                 </div>
               );
             })}
-          </div>
 
-          {/* Bottom Stage Info Bar */}
-          <div className="p-4 sm:p-5 bg-gradient-to-t from-[#0A0D12] to-[#12161F] border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <div>
-              <p className="text-xs text-[#E8D39E] font-medium uppercase tracking-wider">
-                {t(currentRoom.titleKey)}
-              </p>
-              <p className="text-sm text-gray-300 font-light mt-0.5">
+            {/* Room Bottom Left Minimalist Title */}
+            <div className="absolute bottom-6 left-6 z-20 pointer-events-none hidden sm:block">
+              <span className="text-[11px] font-mono uppercase tracking-widest text-[#C5A265]">
+                {currentRoom.number} / {t(currentRoom.titleKey)}
+              </span>
+              <p className="text-xs text-neutral-300 font-light mt-0.5 max-w-md drop-shadow">
                 {t(currentRoom.descKey)}
               </p>
             </div>
-            <div className="flex items-center gap-2 text-xs text-gray-400">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Real o‘rnatilgan Elit Dekor obyektlari</span>
-            </div>
           </div>
-        </div>
-      </section>
+        )}
 
-      {/* ── 3D PRODUCT LABORATORY / STUDIO ── */}
-      <section className="py-12 px-4 max-w-7xl mx-auto border-t border-white/10">
-        <div className="text-center max-w-2xl mx-auto mb-8">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-gray-300 mb-2">
-            <span>⟲</span>
-            <span>360° Interaktiv Tekshiruv</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-serif text-white mb-2">
-            {t('studio_title')}
-          </h2>
-          <p className="text-xs sm:text-sm text-gray-400 font-light leading-relaxed">
-            {t('studio_desc')}
-          </p>
-        </div>
+        {/* ── MODE 2: DELICATE 3D PRODUCT STUDIO (Turntable Stage) ── */}
+        {viewMode === '3d' && (
+          <div className="relative w-full h-full flex flex-col lg:flex-row items-center justify-between p-4 sm:p-8 bg-gradient-to-b from-[#12151D] to-[#0A0C10]">
+            {/* Central 3D Canvas */}
+            <div className="relative flex-1 w-full h-full min-h-[380px] flex items-center justify-center rounded-2xl bg-black/40 border border-white/[0.08] overflow-hidden">
+              {mounted && (
+                <ModelViewer3D
+                  key={selectedProduct.kod}
+                  src={selectedProduct.modelSrc}
+                  productName={selectedProduct.name}
+                />
+              )}
 
-        {/* Product selector buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
-          {STUDIO_PRODUCTS.map((p) => {
-            const isSelected = selectedStudioProduct.kod === p.kod;
-            return (
+              {/* Viewport Back Button */}
               <button
-                key={p.kod}
                 type="button"
-                onClick={() => setSelectedStudioProduct(p)}
-                className={`px-3 py-2 rounded-xl text-xs font-medium transition-all flex items-center gap-2 border ${
-                  isSelected
-                    ? 'bg-[#C5A265]/20 border-[#C5A265] text-[#E8D39E] shadow-md'
-                    : 'bg-white/5 border-white/10 text-gray-300 hover:text-white hover:bg-white/10'
-                }`}
+                onClick={() => setViewMode('room')}
+                className="absolute top-4 left-4 z-20 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-xs text-neutral-300 hover:text-white flex items-center gap-1.5 transition-colors"
               >
-                <img src={p.cutout} alt={p.displayKod} className="w-5 h-5 object-contain" />
-                <span>
-                  {p.displayKod} ({p.dims})
-                </span>
+                <span>←</span>
+                <span>Interyerga qaytish</span>
               </button>
-            );
-          })}
-        </div>
-
-        {/* Embedded 3D Viewer Stage */}
-        <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-gradient-to-b from-[#10141D] to-[#0A0D12] shadow-2xl p-4 sm:p-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
-            {/* 3D Canvas Container */}
-            <div className="lg:col-span-2 relative h-[360px] sm:h-[480px] w-full rounded-xl bg-black/40 border border-white/10 overflow-hidden flex items-center justify-center">
-              <ModelViewer3D
-                key={selectedStudioProduct.kod}
-                src={selectedStudioProduct.modelSrc}
-                productName={selectedStudioProduct.name}
-              />
             </div>
 
-            {/* Product Specifications Sidebar */}
-            <div className="space-y-5 lg:pl-4">
-              <div>
-                <span className="inline-block px-2 py-0.5 rounded text-xs font-semibold bg-[#C5A265]/20 text-[#E8D39E] mb-2">
-                  {selectedStudioProduct.type}
-                </span>
-                <h3 className="text-xl sm:text-2xl font-serif text-white">
-                  {selectedStudioProduct.displayKod}
-                </h3>
-                <p className="text-sm text-gray-300 mt-1">{selectedStudioProduct.name}</p>
-              </div>
-
-              <div className="space-y-3 pt-2 border-t border-white/10 text-xs sm:text-sm">
-                <div className="flex justify-between py-1.5 border-b border-white/5">
-                  <span className="text-gray-400">Aniq o‘lchami:</span>
-                  <span className="font-mono text-white font-medium">
-                    {selectedStudioProduct.dims}
+            {/* Right Architectural Spec Sheet */}
+            <aside className="w-full lg:w-80 lg:pl-6 pt-4 lg:pt-0 flex flex-col justify-between text-xs sm:text-sm">
+              <div className="space-y-4">
+                <div className="border-b border-white/[0.08] pb-3">
+                  <span className="text-[10px] font-mono tracking-widest uppercase text-[#C5A265]">
+                    {selectedProduct.type} · 3D Model
                   </span>
+                  <h3 className="text-xl font-serif text-white mt-1">
+                    {selectedProduct.displayKod}
+                  </h3>
+                  <p className="text-neutral-400 text-xs mt-0.5">{selectedProduct.name}</p>
                 </div>
-                <div className="flex justify-between py-1.5 border-b border-white/5">
-                  <span className="text-gray-400">Xom ashyo:</span>
-                  <span className="text-white font-medium">{t('features_natural')}</span>
+
+                <div className="space-y-2.5 font-mono text-xs">
+                  <div className="flex justify-between py-1 border-b border-white/[0.04]">
+                    <span className="text-neutral-500">O‘lchami (W×H):</span>
+                    <span className="text-white font-medium">{selectedProduct.dims}</span>
+                  </div>
+                  <div className="flex justify-between py-1 border-b border-white/[0.04]">
+                    <span className="text-neutral-500">Material:</span>
+                    <span className="text-neutral-200">100% Tabiiy ganch</span>
+                  </div>
+                  <div className="flex justify-between py-1 border-b border-white/[0.04]">
+                    <span className="text-neutral-500">Yong‘inga chidamlilik:</span>
+                    <span className="text-emerald-400 font-medium">A1 sinfi</span>
+                  </div>
+                  <div className="flex justify-between py-1 border-b border-white/[0.04]">
+                    <span className="text-neutral-500">CAD formatlari:</span>
+                    <span className="text-neutral-200">OBJ, GLB, DWG</span>
+                  </div>
                 </div>
-                <div className="flex justify-between py-1.5 border-b border-white/5">
-                  <span className="text-gray-400">Xavfsizlik:</span>
-                  <span className="text-emerald-400 font-medium">{t('features_fire')}</span>
-                </div>
-                <div className="flex justify-between py-1.5 border-b border-white/5">
-                  <span className="text-gray-400">Arxitektura fayllari:</span>
-                  <span className="text-white font-medium">{t('features_cad')}</span>
-                </div>
+
+                <p className="text-neutral-400 text-xs font-light leading-relaxed">
+                  {selectedProduct.desc}
+                </p>
               </div>
 
-              <div className="pt-3 flex flex-col sm:flex-row gap-2.5">
+              <div className="pt-4 flex flex-col gap-2">
                 <Link
-                  href={`/${locale}/katalog/${selectedStudioProduct.bolim}/${selectedStudioProduct.slug}/${selectedStudioProduct.kod}`}
-                  className="flex-1 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#C5A265] to-[#B38F52] hover:brightness-110 text-black text-xs font-semibold text-center transition-all shadow-lg"
+                  href={`/${locale}/katalog/${selectedProduct.bolim}/${selectedProduct.slug}/${selectedProduct.kod}`}
+                  className="w-full py-2.5 rounded-lg bg-white text-black hover:bg-[#C5A265] text-xs font-semibold text-center tracking-wide transition-colors"
                 >
-                  {t('view_in_catalog')}
+                  Katalogda ko‘rish →
                 </Link>
                 <a
-                  href={`/products/${selectedStudioProduct.kod}/downloads/DK-${selectedStudioProduct.kod.replace('karniz-', '').replace('bortkarniz-', '')}.obj`}
+                  href={`/products/${selectedProduct.kod}/downloads/DK-${selectedProduct.kod.replace('karniz-', '').replace('bortkarniz-', '')}.obj`}
                   download
-                  className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-medium text-center border border-white/15 transition-colors flex items-center justify-center gap-1.5"
+                  className="w-full py-2.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-neutral-300 text-xs font-medium text-center border border-white/10 transition-colors"
                 >
-                  <span>⬇ OBJ yuklab olish</span>
+                  ⬇ OBJ 3D modelni yuklab olish
                 </a>
               </div>
-            </div>
+            </aside>
           </div>
+        )}
+      </main>
+
+      {/* ── MINIMALIST BOTTOM ARCHITECTURAL HUD ── */}
+      <footer className="relative z-30 flex items-center justify-between px-4 sm:px-8 py-2.5 bg-[#0E1015]/95 backdrop-blur-md border-t border-white/[0.08] text-xs text-neutral-400">
+        {/* Lighting Selector */}
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] uppercase tracking-wider text-neutral-500 hidden sm:inline">
+            Yoritish:
+          </span>
+          <button
+            type="button"
+            onClick={() => setLighting('warm')}
+            className={`px-2.5 py-1 rounded-full text-[11px] transition-colors ${
+              lighting === 'warm'
+                ? 'bg-white/15 text-[#E8D39E] font-medium'
+                : 'hover:text-white'
+            }`}
+          >
+            Issiq nur (3000K)
+          </button>
+          <button
+            type="button"
+            onClick={() => setLighting('day')}
+            className={`px-2.5 py-1 rounded-full text-[11px] transition-colors ${
+              lighting === 'day'
+                ? 'bg-white/15 text-white font-medium'
+                : 'hover:text-white'
+            }`}
+          >
+            Kunduzgi (5500K)
+          </button>
         </div>
-      </section>
 
-      {/* ── CONSULTATION CTA SECTION ── */}
-      <section className="py-14 px-4 max-w-5xl mx-auto text-center border-t border-white/10">
-        <div className="p-8 sm:p-12 rounded-2xl bg-gradient-to-br from-[#121622] via-[#0D1017] to-black border border-[#C5A265]/30 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#C5A265]/10 rounded-full blur-3xl pointer-events-none" />
-
-          <h3 className="text-2xl sm:text-3xl font-serif text-white mb-3">
-            {t('consult_title')}
-          </h3>
-          <p className="text-sm sm:text-base text-gray-300 max-w-xl mx-auto font-light leading-relaxed mb-6">
-            {t('consult_desc')}
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href={`/${locale}/contacts`}
-              className="px-6 py-3 rounded-full bg-gradient-to-r from-[#C5A265] to-[#B38F52] hover:brightness-110 text-black font-semibold text-sm tracking-wide shadow-lg transition-all"
-            >
-              {t('consult_btn')}
-            </Link>
-            <Link
-              href={`/${locale}`}
-              className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium text-sm border border-white/20 transition-all"
-            >
-              {t('back_to_home')}
-            </Link>
-          </div>
+        {/* Current Stage Indicator */}
+        <div className="hidden sm:flex items-center gap-2 text-[11px] font-mono text-neutral-400">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+          <span>Real Elit Dekor ganch obyektlari · 360° interaktiv</span>
         </div>
-      </section>
 
-      {/* ── FULLSCREEN 3D MODEL MODAL ── */}
-      {modalModel && (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200">
-          {/* Top Bar with Exit */}
-          <div className="w-full max-w-5xl flex items-center justify-between pb-3 border-b border-white/10 mb-3 text-white">
-            <div className="flex items-center gap-3">
-              <span className="px-2 py-0.5 rounded text-xs font-bold bg-[#C5A265] text-black">
-                {modalModel.displayKod}
-              </span>
-              <h3 className="text-base sm:text-lg font-serif">{modalModel.name}</h3>
-              <span className="text-xs text-gray-400 hidden sm:inline">({modalModel.dims})</span>
-            </div>
-
-            <button
-              type="button"
-              onClick={() => setModalModel(null)}
-              className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-medium border border-white/20 flex items-center gap-1.5 transition-colors"
-            >
-              <span>{t('close_viewer')}</span>
-              <span className="text-sm">✕</span>
-            </button>
-          </div>
-
-          {/* Modal 3D Canvas */}
-          <div className="relative w-full max-w-5xl h-[65vh] sm:h-[72vh] rounded-2xl bg-gradient-to-b from-[#141824] to-[#0A0D12] border border-white/15 overflow-hidden">
-            <ModelViewer3D
-              src={modalModel.modelSrc}
-              productName={modalModel.name}
-            />
-          </div>
-
-          {/* Bottom Action Footer */}
-          <div className="w-full max-w-5xl pt-3 flex items-center justify-between text-xs text-gray-400">
-            <span>Sichqoncha yoki barmog‘ingiz bilan 360° erkin aylantiring</span>
-            <Link
-              href={`/${locale}/katalog/${modalModel.bolim}/${modalModel.slug}/${modalModel.kod}`}
-              className="text-[#E8D39E] hover:underline font-medium"
-            >
-              {t('view_in_catalog')} →
-            </Link>
-          </div>
-        </div>
-      )}
+        {/* Quick Catalog Link */}
+        <Link
+          href={`/${locale}/katalog/karnizlar`}
+          className="hover:text-white transition-colors text-xs font-medium flex items-center gap-1"
+        >
+          <span>To‘liq katalog</span>
+          <span>→</span>
+        </Link>
+      </footer>
     </div>
   );
 }
