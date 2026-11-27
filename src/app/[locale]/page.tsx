@@ -222,7 +222,7 @@ export default function HomePage() {
                   {[
                     { icon: 'shield', stat: '100%', text: t('gallery.stat1') },
                     { icon: 'design', stat: '250+', text: t('gallery.stat2') },
-                    { icon: 'home', stat: '10K+', text: t('gallery.stat3') },
+                    { icon: 'home', stat: '1K+', text: t('gallery.stat3') },
                   ].map((item, i) => (
                     <li
                       key={i}
