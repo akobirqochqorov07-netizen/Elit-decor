@@ -651,6 +651,15 @@
     "breadcrumb_catalog": "Каталог",
     "title": "Каталог интерьерного декора",
     "karnizlar_title": "Карнизы",
-    "bortkarnizlar_title": "Борткарнизы"
+    "bortkarnizlar_title": "Борткарнизы",
+    "moldinglar_title": "Молдинги",
+    "rozetkalar_title": "Розетки",
+    "frizlar_title": "Фризы",
+    "porezkalar_title": "Порезки",
+    "burchaklar_title": "Углы",
+    "coming_soon_badge": "Скоро",
+    "in_production_desc": "Изделия из гипса для данного раздела добавляются в каталог. Для заказа или получения полного ассортимента свяжитесь с нашим специалистом.",
+    "contact_consult": "Получить консультацию",
+    "back_to_catalog": "Все категории"
   }
 }

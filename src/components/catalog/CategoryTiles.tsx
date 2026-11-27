@@ -13,6 +13,7 @@ export default function CategoryTiles() {
             id: 'karnizlar',
             title: t('karnizlar_title'),
             count: allKarnizlar?.length ?? 83,
+            badge: null,
             href: '/katalog/karnizlar/',
             img: '/images/karnizlar/katalog-1-katta/karniz-006-kok.jpg',
         },
@@ -20,18 +21,59 @@ export default function CategoryTiles() {
             id: 'bortkarnizlar',
             title: t('bortkarnizlar_title'),
             count: allBortkarnizlar?.length ?? 26,
+            badge: null,
             href: '/katalog/bortkarnizlar/',
             img: '/images/bortkarnizlar/bortkarniz-001-kok.jpg',
+        },
+        {
+            id: 'moldinglar',
+            title: t('moldinglar_title'),
+            count: null,
+            badge: t('coming_soon_badge'),
+            href: '/katalog/moldinglar/',
+            img: '/images/categories/moldinglar.jpg',
+        },
+        {
+            id: 'rozetkalar',
+            title: t('rozetkalar_title'),
+            count: null,
+            badge: t('coming_soon_badge'),
+            href: '/katalog/rozetkalar/',
+            img: '/images/categories/rozetkalar.jpg',
+        },
+        {
+            id: 'frizlar',
+            title: t('frizlar_title'),
+            count: null,
+            badge: t('coming_soon_badge'),
+            href: '/katalog/frizlar/',
+            img: '/images/categories/frizlar.jpg',
+        },
+        {
+            id: 'burchaklar',
+            title: t('burchaklar_title'),
+            count: null,
+            badge: t('coming_soon_badge'),
+            href: '/katalog/burchaklar/',
+            img: '/images/categories/burchaklar.jpg',
+        },
+        {
+            id: 'porezkalar',
+            title: t('porezkalar_title'),
+            count: null,
+            badge: t('coming_soon_badge'),
+            href: '/katalog/porezkalar/',
+            img: '/images/categories/porezkalar.jpg',
         },
     ];
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {categories.map((c) => (
                 <Link
                     key={c.id}
                     href={c.href}
-                    className="group block overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
+                    className="group block overflow-hidden rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] transition-all hover:shadow-xl"
                     style={{ backgroundColor: '#152f40' }}
                 >
                     <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4 / 3' }}>
@@ -39,9 +81,9 @@ export default function CategoryTiles() {
                             src={c.img}
                             alt={c.title}
                             fill
-                            sizes="(max-width: 640px) 100vw, 600px"
-                            quality={100}
-                            className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                            quality={95}
+                            className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.05]"
                         />
                     </div>
                     <div
@@ -50,7 +92,13 @@ export default function CategoryTiles() {
                     >
                         <div className="flex items-baseline gap-3">
                             <span className="text-white text-lg sm:text-xl font-medium tracking-tight">{c.title}</span>
-                            <span className="text-white/50 text-sm tabular-nums">{c.count}</span>
+                            {c.count !== null ? (
+                                <span className="text-white/50 text-sm tabular-nums">{c.count}</span>
+                            ) : (
+                                <span className="text-[#E8D39E] text-xs font-medium uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#C5A265]/20 border border-[#C5A265]/30">
+                                    {c.badge}
+                                </span>
+                            )}
                         </div>
                         <span
                             className="flex items-center justify-center w-9 h-9 rounded-full text-white transition-all duration-300 group-hover:translate-x-1"

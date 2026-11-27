@@ -651,6 +651,15 @@
     "breadcrumb_catalog": "Catalog",
     "title": "Interior decor catalog",
     "karnizlar_title": "Cornices",
-    "bortkarnizlar_title": "Cove cornices"
+    "bortkarnizlar_title": "Cove cornices",
+    "moldinglar_title": "Moldings",
+    "rozetkalar_title": "Ceiling Roses",
+    "frizlar_title": "Friezes",
+    "porezkalar_title": "Carved Borders",
+    "burchaklar_title": "Corners",
+    "coming_soon_badge": "Coming soon",
+    "in_production_desc": "Gypsum products for this category are being prepared. Contact our specialist for custom orders and complete catalogue details.",
+    "contact_consult": "Get Consultation",
+    "back_to_catalog": "All Categories"
   }
 }

@@ -651,6 +651,15 @@
     "breadcrumb_catalog": "Katalog",
     "title": "Interyer dekorlari katalogi",
     "karnizlar_title": "Karnizlar",
-    "bortkarnizlar_title": "Bortkarnizlar"
+    "bortkarnizlar_title": "Bortkarnizlar",
+    "moldinglar_title": "Moldinglar",
+    "rozetkalar_title": "Rozetkalar",
+    "frizlar_title": "Frizlar",
+    "porezkalar_title": "Porezkalar",
+    "burchaklar_title": "Burchaklar",
+    "coming_soon_badge": "Tez kunda",
+    "in_production_desc": "Ushbu bo‘limdagi ganch mahsulotlari katalogga kiritilmoqda. Buyurtma berish yoki to‘liq assortimentni bilish uchun mutaxassisimizga murojaat qiling.",
+    "contact_consult": "Konsultatsiya olish",
+    "back_to_catalog": "Barcha bo‘limlar"
   }
 }
